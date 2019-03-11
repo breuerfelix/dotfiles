@@ -1,5 +1,4 @@
 # my dotfiles
 
 * clone into `~/dotfiles`
-* `cd dotfiles`
-* `bash install.sh`
+* `bash ~/dotfiles/install.sh`
