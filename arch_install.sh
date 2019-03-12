@@ -9,3 +9,4 @@ ln -sfv ~/dotfiles/wm/qtile.py ~/.config/qtile/config.py
 ln -sfv ~/dotfiles/wm/.xinitrc ~/.xinitrc
 ln -sfv ~/dotfiles/wm/.Xresources ~/.Xresources
 ln -sfv ~/dotfiles/shell/termite ~/.config/termite/config
+ln -sfv ~/dotfiles/programs/qutebrowser.py ~/.config/qutebrowser/config.py
