@@ -44,7 +44,7 @@ Plug 'mattn/emmet-vim'
 
 call plug#end()
 
-let g:python3_host_prog = '/usr/bin/python'
+"let g:python3_host_prog = '/usr/bin/python'
 "let g:loaded_python3_provider = 0
 let g:jedi#force_py_version = 3
 
