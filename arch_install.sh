@@ -7,3 +7,5 @@ ln -sfv ~/dotfiles/_gitconfig ~/.gitconfig
 ln -sfv ~/dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 ln -sfv ~/dotfiles/wm/qtile.py ~/.config/qtile/config.py
+ln -sfv ~/dotfiles/wm/_xinitrc ~/.xinitrc
+ln -sfv ~/dotfiles/wm/_Xresources ~/.Xresources

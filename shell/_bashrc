@@ -1,3 +1,6 @@
+# if not running interactively, return
+[[ $- != *i* ]] && return
+
 alias del='rm -rf'
 alias vi='nvim'
 alias dc='docker-compose'
@@ -39,16 +42,11 @@ function git-del() {
 }
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	echo "LINUX"
-	source ~/dofiles/shell/archrc
+	# on arch linux
+	source ~/dotfiles/shell/archrc
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	source ~/dofiles/shell/macrc
-elif [[ "$OSTYPE" == "cygwin" ]]; then
-        # POSIX compatibility layer and Linux environment emulation for Windows
-elif [[ "$OSTYPE" == "msys" ]]; then
-        # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
-elif [[ "$OSTYPE" == "freebsd"* ]]; then
-        # ...
+	# on mac
+	source ~/dotfiles/shell/macrc
 else
 	echo 'unknown filesystem!'
 fi
