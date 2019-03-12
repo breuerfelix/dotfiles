@@ -41,6 +41,9 @@ function git-del() {
 	git branch -d $1
 }
 
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
+
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	# on arch linux
 	source ~/dotfiles/shell/archrc

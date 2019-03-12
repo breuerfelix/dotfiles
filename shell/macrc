@@ -8,7 +8,6 @@ function clean() {
 	brew doctor
 }
 
-export FZF_DEFAULT_COMMAND='fd --type f'
 #[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
 # node
