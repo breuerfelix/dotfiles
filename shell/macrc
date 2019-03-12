@@ -1,0 +1,16 @@
+alias git='hub'
+
+function clean() {
+	brew update
+	brew upgrade
+	brew cleanup --prune-prefix
+	brew cleanup
+	brew doctor
+}
+
+export FZF_DEFAULT_COMMAND='fd --type f'
+#[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+# node
+export NVM_DIR="$HOME/.nvm"
+. "/usr/local/opt/nvm/nvm.sh"

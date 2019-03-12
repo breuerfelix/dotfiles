@@ -1,0 +1,7 @@
+alias in='yay -S'
+alias yel='yay -Rs'
+
+function clean() {
+	yay -Syu --devel --timeupdate
+	yay -Yc
+}

@@ -40,25 +40,9 @@ function git-del() {
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	echo "LINUX"
+	source ~/dofiles/shell/archrc
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-
-	alias git='hub'
-
-	function clean() {
-		brew update
-		brew upgrade
-		brew cleanup --prune-prefix
-		brew cleanup
-		brew doctor
-	}
-
-	export FZF_DEFAULT_COMMAND='fd --type f'
-	#[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
-	# node
-	export NVM_DIR="$HOME/.nvm"
-	. "/usr/local/opt/nvm/nvm.sh"
-
+	source ~/dofiles/shell/macrc
 elif [[ "$OSTYPE" == "cygwin" ]]; then
         # POSIX compatibility layer and Linux environment emulation for Windows
 elif [[ "$OSTYPE" == "msys" ]]; then
