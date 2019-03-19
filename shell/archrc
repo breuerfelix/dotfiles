@@ -1,5 +1,8 @@
 alias in='yay -S'
 alias yel='yay -Rs'
+alias homescreen='bash ~/.screenlayout/homescreen.sh'
+
+source /usr/share/autojump/autojump.zsh
 
 function clean() {
 	yay -Syu --devel --timeupdate

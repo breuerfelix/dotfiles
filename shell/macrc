@@ -1,5 +1,8 @@
 alias git='hub'
 
+alias python='python3'
+alias pip='pip3'
+
 function clean() {
 	brew update
 	brew upgrade

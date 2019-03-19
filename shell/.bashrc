@@ -17,9 +17,10 @@ alias tl='tmux ls'
 alias ta='tmux attach -t'
 alias ts='tmux new-session -s'
 
+# safety
+alias cp='cp -i' # confirm before overwrite
+
 # python
-alias python='python3'
-alias pip='pip3'
 function venv() {
 	source ~/python/$1/bin/activate
 }
@@ -41,7 +42,7 @@ function git-del() {
 	git branch -d $1
 }
 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .vim'
 export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then

@@ -99,6 +99,7 @@ map <leader>ee :e ~/.vimrc<CR>
 map <leader>et :e ~/.tmux.conf<CR>
 map <leader>er :e ~/.bashrc<CR>
 map <leader>ea :e ~/.config/alacritty/alacritty.yml<CR>
+map <leader>e3 :e ~/.i3/config<CR>
 
 "splits
 function! WinMove(key)
