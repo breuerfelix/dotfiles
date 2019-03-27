@@ -31,6 +31,10 @@ function cd() {
 }
 
 # git
+function gsm() {
+	git submodule foreach "$* || :"
+}
+
 function lg() {
 	git add --all
 	git commit -a -m "$*"
