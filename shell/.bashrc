@@ -1,14 +1,17 @@
 # if not running interactively, return
 [[ $- != *i* ]] && return
 
-alias del='rm -rf'
+# programs
 alias vi='nvim'
 alias dc='docker-compose'
+alias d='docker'
 
-alias c='clear'
-alias cs='clear;ls'
+# files
+alias del='rm -rf'
 alias lsa='ls -a'
 alias lsl='ls -l'
+alias c='clear'
+alias cs='clear;ls'
 alias null='/dev/null'
 
 # tmux
@@ -19,6 +22,11 @@ alias ts='tmux new-session -s'
 
 # safety
 alias cp='cp -i' # confirm before overwrite
+
+# golang
+export GOPATH="${HOME}/go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # python
 function venv() {
@@ -46,9 +54,11 @@ function git-del() {
 	git branch -d $1
 }
 
+# fuzzy finder
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .vim'
 export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
 
+# system specific config
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	# on arch linux
 	source ~/dotfiles/shell/archrc
