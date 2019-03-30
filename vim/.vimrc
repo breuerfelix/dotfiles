@@ -1,5 +1,5 @@
 "plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 "PlugInstall, PlugUpdate, PlugClean, PlugUpgrade (upgrade vim plug),
 "PlugStatus
 
@@ -9,7 +9,7 @@ Plug 'tpope/vim-fugitive'
 "linting
 Plug 'w0rp/ale'
 Plug 'leafgarland/typescript-vim'
-Plug 'zxqfl/tabnine-vim'
+"Plug 'zxqfl/tabnine-vim'
 
 "fuzzy finder
 Plug '/usr/local/opt/fzf'
@@ -19,7 +19,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
 
 "autocomplete
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
 
 "files
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
