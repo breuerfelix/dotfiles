@@ -4,6 +4,7 @@ alias python='python3'
 alias pip='pip3'
 
 function clean() {
+	npm cache clean --force
 	brew update
 	brew upgrade
 	brew cleanup --prune-prefix

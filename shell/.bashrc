@@ -5,6 +5,7 @@
 alias vi='nvim'
 alias dc='docker-compose'
 alias d='docker'
+alias nr='npm run'
 
 # files
 alias del='rm -rf'
