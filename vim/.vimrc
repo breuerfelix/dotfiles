@@ -9,7 +9,6 @@ Plug 'tpope/vim-fugitive'
 "linting
 Plug 'w0rp/ale'
 Plug 'leafgarland/typescript-vim'
-"Plug 'zxqfl/tabnine-vim'
 
 "fuzzy finder
 Plug '/usr/local/opt/fzf'
@@ -19,13 +18,17 @@ Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
 
 "autocomplete
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
+"Plug 'zxqfl/tabnine-vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "files
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ciaranm/detectindent'
 
 Plug 'itchyny/lightline.vim'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
 
 "language pack
 Plug 'sheerun/vim-polyglot'
@@ -44,11 +47,15 @@ Plug 'mattn/emmet-vim'
 
 call plug#end()
 
+"plugin configurations
 "let g:python3_host_prog = '/usr/bin/python'
 "let g:loaded_python3_provider = 0
 let g:jedi#force_py_version = 3
 
-"plugin configurations
+let g:deoplete#enable_at_startup = 1
+
+let g:airline_powerline_fonts = 1
+
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
 "prettier
@@ -60,6 +67,9 @@ let g:ale_linters = {
 			\ 'javascript': [ 'eslint', 'prettier' ],
 			\ 'python': [ 'vulture' ]
 			\ }
+
+"emmet uses single quotes
+let g:user_emmet_settings = {'html':{'quote_char': "'",},}
 
 "disable arrow keys
 noremap <Up> <NOP>
