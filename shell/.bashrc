@@ -29,6 +29,11 @@ export GOPATH="${HOME}/go"
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
+#docker
+function dbi() {
+ docker exec -it $1 /bin/bash
+}
+
 # python
 function venv() {
 	source ~/python/$1/bin/activate
@@ -40,6 +45,13 @@ function cd() {
 }
 
 # git
+alias gpu='git push --set-upstream origin'
+
+function gcb() {
+ git checkout -b $1
+ git push --set-upstream origin $1
+}
+
 function gsm() {
 	git submodule foreach "$* || :"
 }
