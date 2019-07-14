@@ -103,4 +103,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="~/.local/bin:$PATH"
+source $(brew --prefix asdf)/asdf.sh
+source $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
 source ~/dotfiles/shell/.bashrc

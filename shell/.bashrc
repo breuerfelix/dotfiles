@@ -29,6 +29,10 @@ export GOPATH="${HOME}/go"
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
+# gipfelstuermer
+alias gdbackend='sshcode felix@dev4 "~/code"'
+alias gdfrontend='sshcode felix@cgn3f "~/code"'
+
 #docker
 function dbi() {
  docker exec -it $1 /bin/bash
@@ -70,6 +74,18 @@ function git-del() {
 # fuzzy finder
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .vim'
 export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
+
+# language
+export LC_NUMERIC=en_US.UTF-8
+export LC_TIME=en_US.UTF-8
+export LC_COLLATE=en_US.UTF-8
+export LC_MONETARY=en_US.UTF-8
+export LC_MESSAGES=en_US.UTF-8
+export LC_NUMERIC=en_US.UTF-8
+export LC_TIME=en_US.UTF-8
+export LC_COLLATE=en_US.UTF-8
+export LC_MONETARY=en_US.UTF-8
+export LC_MESSAGES=en_US.UTF-8
 
 # system specific config
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
