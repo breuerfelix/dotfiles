@@ -3,9 +3,22 @@
 
 # programs
 alias vi='nvim'
-alias dc='docker-compose'
-alias d='docker'
 alias nr='npm run'
+alias py='python'
+alias jl='jupyter lab'
+alias sf='screenfetch'
+alias readlink='greadlink'
+
+# docker
+alias dc='docker-compose'
+alias dcu='docker-compose up'
+alias dcud='docker-compose up -d'
+alias dcd='docker-compose down'
+alias dk='docker'
+alias dkc='docker container'
+alias dki='docker image'
+alias dkv='docker volume'
+alias kb='kubectl'
 
 # files
 alias del='rm -rf'
@@ -50,6 +63,7 @@ function cd() {
 
 # git
 alias gpu='git push --set-upstream origin'
+alias gco='git checkout'
 
 function gcb() {
  git checkout -b $1

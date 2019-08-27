@@ -138,7 +138,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 tnoremap jk <C-\><C-n>
 tnoremap <C-u> <C-\><C-n>:q<CR>
 map <C-m> :below 10 split <bar> :terminal<CR>i
-map <C-e> :below 10 split <bar> :terminal<CR>i npm start <CR>
+map <C-e> :below 10 split <bar> :terminal<CR>i npm start<CR>
 
 "wrtiing
 map <leader>w :Goyo<CR>

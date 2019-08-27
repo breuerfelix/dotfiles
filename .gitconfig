@@ -5,4 +5,14 @@
 	required = true
 [user]
 	name = felixbreuer
-	email = i@felixbreuer.me
+	email = hi@felixbreuer.me
+[core]
+	excludesfile = ~/.gitignore_global
+[alias]
+	st = status -sb
+	co = checkout
+	fe = fetch
+	c = commit -m
+	g = grep -i
+	df = diff
+	a = add

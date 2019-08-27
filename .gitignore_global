@@ -1,0 +1,22 @@
+# IDE
+.idea
+.vs
+.vsc
+.vscode
+
+# mac
+.DS_Store
+
+# node
+node_modules
+npm-debug.log
+
+# python
+__pycache__
+*.pyc
+
+# jupyter
+.ipynb_checkpoints
+
+# svelte
+__sapper__
