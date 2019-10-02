@@ -19,13 +19,14 @@ Plug 'jiangmiao/auto-pairs'
 
 "autocomplete
 "Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
-"Plug 'zxqfl/tabnine-vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zxqfl/tabnine-vim'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "files
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ciaranm/detectindent'
 
+"status bar
 Plug 'itchyny/lightline.vim'
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
@@ -171,6 +172,7 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set smartindent
+
 "auto detect indention
 autocmd BufReadPost * :DetectIndent
 
