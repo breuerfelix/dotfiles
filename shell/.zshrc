@@ -10,7 +10,7 @@ export ZSH=~/.oh-my-zsh
 #ZSH_THEME="spaceship"
 #ZSH_THEME="pygmalion"
 #ZSH_THEME="agnoster"
-ZSH_THEME="robbyrussell"
+ZSH_THEME="agnoster"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -70,11 +70,15 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 export PATH="/usr/local/sbin:$PATH"
 export PATH="~/.local/bin:$PATH"
-source $(brew --prefix asdf)/asdf.sh
-source $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
 source ~/dotfiles/shell/.bashrc
 eval "$(direnv hook zsh)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# powerlevel customisation
+source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs)

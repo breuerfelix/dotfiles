@@ -11,7 +11,8 @@ Plug 'w0rp/ale'
 Plug 'leafgarland/typescript-vim'
 
 "fuzzy finder
-Plug '/usr/local/opt/fzf'
+"Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 "autopair
@@ -27,9 +28,9 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'ciaranm/detectindent'
 
 "status bar
-Plug 'itchyny/lightline.vim'
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
+"Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "language pack
 Plug 'sheerun/vim-polyglot'
@@ -49,7 +50,7 @@ Plug 'mattn/emmet-vim'
 call plug#end()
 
 "plugin configurations
-"let g:python3_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/home/felix/.asdf/shims/python'
 "let g:loaded_python3_provider = 0
 let g:jedi#force_py_version = 3
 
@@ -66,7 +67,7 @@ let g:ale_fix_on_save = 0
 
 let g:ale_linters = {
 			\ 'javascript': [ 'eslint', 'prettier' ],
-			\ 'python': [ 'vulture' ]
+			\ 'python': [ 'black' ]
 			\ }
 
 "emmet uses single quotes
@@ -109,8 +110,8 @@ map <C-u> :q<CR>
 map <leader>ee :e ~/.vimrc<CR>
 map <leader>et :e ~/.tmux.conf<CR>
 map <leader>er :e ~/.bashrc<CR>
-map <leader>ea :e ~/.config/alacritty/alacritty.yml<CR>
-map <leader>e3 :e ~/.i3/config<CR>
+map <leader>es :e ~/.zshrc<CR>
+map <leader>ea :e ~/.config/termite/config<CR>
 
 "splits
 function! WinMove(key)
@@ -159,7 +160,7 @@ set number relativenumber
 set ttyfast
 set autoread
 
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 "toggle invisible characters
 set list
@@ -214,9 +215,7 @@ if (has('termguicolors'))
 	set termguicolors
 endif
 
-let g:lightline = {
-			\ 'colorscheme': 'onedark',
-			\ }
+let g:lightline = { 'colorscheme': 'onedark', }
 
 let g:user_emmet_leader_key='<C-d>'
 let g:onedark_terminal_italics=1

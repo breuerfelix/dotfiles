@@ -5,7 +5,7 @@
 	required = true
 [user]
 	name = felixbreuer
-	email = hi@felixbreuer.me
+	email = contact@felixbreuer.me
 [core]
 	excludesfile = ~/.gitignore_global
 [alias]

@@ -7,7 +7,7 @@ alias nr='npm run'
 alias py='python'
 alias jl='jupyter lab'
 alias sf='screenfetch'
-alias readlink='greadlink'
+alias sc='systemctl'
 
 # docker
 alias dc='docker-compose'
@@ -33,18 +33,14 @@ alias tmux='tmux -u'
 alias tl='tmux ls'
 alias ta='tmux attach -t'
 alias ts='tmux new-session -s'
+alias td='tmux kill-session -t'
 
 # safety
 alias cp='cp -i' # confirm before overwrite
 
 # golang
-export GOPATH="${HOME}/go"
-export GOROOT="$(brew --prefix golang)/libexec"
-export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
-
-# gipfelstuermer
-alias gdbackend='sshcode felix@dev4 "~/code"'
-alias gdfrontend='sshcode felix@cgn3f "~/code"'
+export GOPATH=${HOME}/go
+export PATH=$PATH:${GOPATH}/bin
 
 #docker
 function dbi() {
@@ -85,9 +81,15 @@ function git-del() {
 	git branch -d $1
 }
 
+# plugins
+
 # fuzzy finder
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .vim'
 export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
+
+# asdf-vm
+. /opt/asdf-vm/asdf.sh
+. /opt/asdf-vm/completions/asdf.bash
 
 # language
 export LC_NUMERIC=en_US.UTF-8
@@ -104,10 +106,32 @@ export LC_MESSAGES=en_US.UTF-8
 # system specific config
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	# on arch linux
-	source ~/dotfiles/shell/archrc
+	alias in='yay -S'
+	alias yel='yay -Rs'
+
+	source /usr/share/autojump/autojump.zsh
+
+	function clean() {
+		yay -Syu --devel --timeupdate
+		yay -Yc
+	}
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	# on mac
-	source ~/dotfiles/shell/macrc
+	alias git='hub'
+
+	alias python='python3'
+	alias pip='pip3'
+
+	function clean() {
+		npm cache clean --force
+		brew update
+		brew upgrade
+		brew cleanup --prune-prefix
+		brew cleanup
+		brew doctor
+	}
+
+	#[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 else
 	echo 'unknown filesystem!'
 fi
