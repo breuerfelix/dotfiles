@@ -8,6 +8,7 @@ alias py='python'
 alias jl='jupyter lab'
 alias sf='screenfetch'
 alias sc='systemctl'
+alias tf='terraform'
 
 # docker
 alias dc='docker-compose'
@@ -27,6 +28,7 @@ alias lsl='ls -l'
 alias c='clear'
 alias cs='clear;ls'
 alias null='/dev/null'
+alias resource='source ~/.zshrc'
 
 # tmux
 alias tmux='tmux -u'
@@ -41,6 +43,10 @@ alias cp='cp -i' # confirm before overwrite
 # golang
 export GOPATH=${HOME}/go
 export PATH=$PATH:${GOPATH}/bin
+
+function sv() {
+ sudo systemctl $1 $2
+}
 
 #docker
 function dbi() {
@@ -60,6 +66,22 @@ function cd() {
 # git
 alias gpu='git push --set-upstream origin'
 alias gco='git checkout'
+
+function clone() {
+ git clone git@$1.git
+}
+
+function gclone() {
+ clone github.com:$1
+}
+
+function bclone() {
+ gclone breuerfelix/$1
+}
+
+function iclone() {
+ clone gitlab.inovex.de:$1
+}
 
 function gcb() {
  git checkout -b $1
@@ -92,11 +114,6 @@ export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
 . /opt/asdf-vm/completions/asdf.bash
 
 # language
-export LC_NUMERIC=en_US.UTF-8
-export LC_TIME=en_US.UTF-8
-export LC_COLLATE=en_US.UTF-8
-export LC_MONETARY=en_US.UTF-8
-export LC_MESSAGES=en_US.UTF-8
 export LC_NUMERIC=en_US.UTF-8
 export LC_TIME=en_US.UTF-8
 export LC_COLLATE=en_US.UTF-8
