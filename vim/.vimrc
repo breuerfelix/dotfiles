@@ -19,8 +19,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
 
 "autocomplete
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
-Plug 'zxqfl/tabnine-vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
+"Plug 'zxqfl/tabnine-vim'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "files
@@ -50,7 +50,7 @@ Plug 'mattn/emmet-vim'
 call plug#end()
 
 "plugin configurations
-let g:python3_host_prog = '/home/felix/.asdf/shims/python'
+let g:python3_host_prog = '/usr/bin/python'
 "let g:loaded_python3_provider = 0
 let g:jedi#force_py_version = 3
 
@@ -112,6 +112,10 @@ map <leader>et :e ~/.tmux.conf<CR>
 map <leader>er :e ~/.bashrc<CR>
 map <leader>es :e ~/.zshrc<CR>
 map <leader>ea :e ~/.config/termite/config<CR>
+
+"completer
+map <leader>f :YcmCompleter GoTo<CR>
+map <leader>g <C-o>
 
 "splits
 function! WinMove(key)

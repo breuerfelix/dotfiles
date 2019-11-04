@@ -8,7 +8,14 @@ alias py='python'
 alias jl='jupyter lab'
 alias sf='screenfetch'
 alias sc='systemctl'
+alias svsb='sudo systemctl start bluetooth'
+alias ssh='TERM=screen ssh'
+alias shut='sudo shutdown -h now'
+
+# terraform
 alias tf='terraform'
+alias tfa='terraform apply -auto-approve'
+alias tfd='terraform destroy -auto-approve'
 
 # docker
 alias dc='docker-compose'
@@ -19,16 +26,25 @@ alias dk='docker'
 alias dkc='docker container'
 alias dki='docker image'
 alias dkv='docker volume'
+alias dklocal='docker run --rm -it -v ${PWD}:/usr/workdir --workdir=/usr/workdir --entrypoint=/bin/bash'
 alias kb='kubectl'
+alias mk='minikube'
+
 
 # files
 alias del='rm -rf'
 alias lsa='ls -a'
 alias lsl='ls -l'
+alias mkdir='mkdir -p'
 alias c='clear'
 alias cs='clear;ls'
 alias null='/dev/null'
-alias resource='source ~/.zshrc'
+alias res='source ~/.zshrc'
+
+function mkd() {
+ mkdir $1
+ cd $1
+}
 
 # tmux
 alias tmux='tmux -u'
@@ -53,11 +69,6 @@ function dbi() {
  docker exec -it $1 /bin/bash
 }
 
-# python
-function venv() {
-	source ~/python/$1/bin/activate
-}
-
 function cd() {
 	builtin cd $*
 	ls -CA
@@ -77,10 +88,6 @@ function gclone() {
 
 function bclone() {
  gclone breuerfelix/$1
-}
-
-function iclone() {
- clone gitlab.inovex.de:$1
 }
 
 function gcb() {
@@ -129,6 +136,11 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	source /usr/share/autojump/autojump.zsh
 
 	function clean() {
+		npm install -g npm
+		npm cache clean --force
+
+		pip install --upgrade pip
+
 		yay -Syu --devel --timeupdate
 		yay -Yc
 	}
@@ -146,6 +158,11 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 		brew cleanup --prune-prefix
 		brew cleanup
 		brew doctor
+	}
+
+	# python
+	function venv() {
+		source ~/python/$1/bin/activate
 	}
 
 	#[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
