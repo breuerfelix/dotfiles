@@ -1,14 +1,23 @@
 # if not running interactively, return
 [[ $- != *i* ]] && return
 
+# override aliases
+alias ls='lsd -A'
+alias cat='bat'
+alias fd='fdfind'
+
+# misspelling
+alias car='cat'
+
 # programs
 alias vi='nvim'
 alias nr='npm run'
-alias py='python'
+alias python='python3'
+alias py='python3'
+alias pip='pip3'
 alias jl='jupyter lab'
 alias sf='screenfetch'
 alias sc='systemctl'
-alias svsb='sudo systemctl start bluetooth'
 alias ssh='TERM=screen ssh'
 alias shut='sudo shutdown -h now'
 
@@ -22,20 +31,39 @@ alias dc='docker-compose'
 alias dcu='docker-compose up'
 alias dcud='docker-compose up -d'
 alias dcd='docker-compose down'
+alias dce='docker-compose exec'
+
+function dci() {
+ docker inspect $(docker-compose ps -q $1)
+}
+
 alias dk='docker'
 alias dkc='docker container'
 alias dki='docker image'
 alias dkv='docker volume'
 alias dklocal='docker run --rm -it -v ${PWD}:/usr/workdir --workdir=/usr/workdir --entrypoint=/bin/bash'
+
 alias kb='kubectl'
 alias mk='minikube'
 
+# taskbook
+alias tbt='tb -t'
+alias tbn='tb -n'
+alias tbc='tb -c'
+alias tbb='tb -b'
+alias tbs='tb -s'
+alias tbtc='tbt @coding'
+alias tbtg='tbt @general'
 
 # files
 alias del='rm -rf'
-alias lsa='ls -a'
+alias lst='ls --tree -I .git'
+alias lsa='ls'
 alias lsl='ls -l'
 alias mkdir='mkdir -p'
+alias cp='cp -i' # confirm before overwrite
+
+# console
 alias c='clear'
 alias cs='clear;ls'
 alias null='/dev/null'
@@ -43,7 +71,7 @@ alias res='source ~/.zshrc'
 
 function mkd() {
  mkdir $1
- cd $1
+ builtin cd $1
 }
 
 # tmux
@@ -52,9 +80,6 @@ alias tl='tmux ls'
 alias ta='tmux attach -t'
 alias ts='tmux new-session -s'
 alias td='tmux kill-session -t'
-
-# safety
-alias cp='cp -i' # confirm before overwrite
 
 # golang
 export GOPATH=${HOME}/go
@@ -71,7 +96,7 @@ function dbi() {
 
 function cd() {
 	builtin cd $*
-	ls -CA
+	ls
 }
 
 # git
@@ -113,12 +138,17 @@ function git-del() {
 # plugins
 
 # fuzzy finder
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .vim'
+export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git --exclude .vim'
 export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
 
 # asdf-vm
-. /opt/asdf-vm/asdf.sh
-. /opt/asdf-vm/completions/asdf.bash
+#. /opt/asdf-vm/asdf.sh
+#. /opt/asdf-vm/completions/asdf.bash
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # language
 export LC_NUMERIC=en_US.UTF-8
@@ -130,10 +160,14 @@ export LC_MESSAGES=en_US.UTF-8
 # system specific config
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	# on arch linux
-	alias in='yay -S'
-	alias yel='yay -Rs'
+	#alias in='yay -S'
+	#alias yel='yay -Rs'
 
-	source /usr/share/autojump/autojump.zsh
+	# on ubuntu
+	alias in='sudo apt install'
+	alias uin='sudo apt remove'
+
+	source /usr/share/autojump/autojump.sh
 
 	function clean() {
 		npm install -g npm
@@ -141,8 +175,16 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
 		pip install --upgrade pip
 
-		yay -Syu --devel --timeupdate
-		yay -Yc
+		cargo install-update -a
+
+		# on ubuntu
+		sudo apt update
+		sudo apt full-upgrade
+	  sudo apt autoremove
+
+		# on arch linux
+		#yay -Syu --devel --timeupdate
+		#yay -Yc
 	}
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	# on mac

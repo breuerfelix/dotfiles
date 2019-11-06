@@ -7,10 +7,11 @@ export ZSH=~/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="spaceship"
 #ZSH_THEME="pygmalion"
 #ZSH_THEME="agnoster"
-ZSH_THEME="agnoster"
+#ZSH_THEME="pure"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="pi"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -68,17 +69,21 @@ plugins=(
 	autojump
 )
 
+
+zstyle ':bracketed-paste-magic' active-widgets '.self-*'
+
 source $ZSH/oh-my-zsh.sh
 
-export PATH="/usr/local/sbin:$PATH"
-export PATH="~/.local/bin:$PATH"
+export PATH="/usr/local/sbin:$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 source ~/dotfiles/shell/.bashrc
-eval "$(direnv hook zsh)"
+source $HOME/.cargo/env
+#eval "$(direnv hook zsh)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # powerlevel customisation
-source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
+#source /usr/share/zsh-theme-powerlevel9k/powerlevel9k.zsh-theme
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs)
+#POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs)

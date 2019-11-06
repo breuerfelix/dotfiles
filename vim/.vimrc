@@ -8,18 +8,17 @@ Plug 'tpope/vim-fugitive'
 
 "linting
 Plug 'w0rp/ale'
-Plug 'leafgarland/typescript-vim'
+Plug 'sheerun/vim-polyglot'
 
 "fuzzy finder
-"Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 "autopair
 Plug 'jiangmiao/auto-pairs'
 
 "autocomplete
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
 "Plug 'zxqfl/tabnine-vim'
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
@@ -32,13 +31,11 @@ Plug 'ciaranm/detectindent'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-"language pack
-Plug 'sheerun/vim-polyglot'
-
 "themes
 Plug 'joshdick/onedark.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'junegunn/seoul256.vim'
+Plug 'sonph/onehalf', { 'rtp': 'vim/' }
 
 "writing
 Plug 'junegunn/limelight.vim'
@@ -48,6 +45,8 @@ Plug 'junegunn/goyo.vim'
 Plug 'mattn/emmet-vim'
 
 call plug#end()
+
+source /usr/share/doc/fzf/examples/fzf.vim
 
 "plugin configurations
 let g:python3_host_prog = '/usr/bin/python'
@@ -63,7 +62,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 "prettier
 let g:ale_completion_enabled = 0
 let g:ale_fixers = [ 'eslint', 'prettier' ]
-let g:ale_fix_on_save = 0
+let g:ale_fix_on_save = 1
 
 let g:ale_linters = {
 			\ 'javascript': [ 'eslint', 'prettier' ],
@@ -167,9 +166,9 @@ set autoread
 set clipboard=unnamedplus
 
 "toggle invisible characters
-set list
-set listchars=tab:→\ ,eol:¬,trail:~,extends:❯,precedes:❮,space:␣
-set showbreak=↪
+"set list
+"set listchars=tab:→\ ,eol:¬,trail:~,extends:❯,precedes:❮,space:␣
+"set showbreak=↪
 
 "indent
 filetype plugin indent on
@@ -219,9 +218,10 @@ if (has('termguicolors'))
 	set termguicolors
 endif
 
-let g:lightline = { 'colorscheme': 'onedark', }
+"let g:lightline = { 'colorscheme': 'onedark', }
 
 let g:user_emmet_leader_key='<C-d>'
 let g:onedark_terminal_italics=1
 set background=dark
-colorscheme onedark
+let g:airline_theme='onehalfdark'
+colorscheme onehalfdark

@@ -6,5 +6,7 @@ ln -sfv ~/dotfiles/vim/.vimrc ~/.config/nvim/init.vim
 ln -sfv ~/dotfiles/.gitconfig ~/.gitconfig
 ln -sfv ~/dotfiles/.gitignore_global ~/.gitignore_global
 
-ln -sfv ~/dotfiles/programs/qutebrowser.py ~/.config/qutebrowser/config.py
-ln -sfv ~/dotfiles/shell/termite ~/.config/termite/config
+ln -sfv ~/dotfiles/shell/alacritty.yml ~/.config/alacritty/alacritty.yml
+
+#ln -sfv ~/dotfiles/programs/qutebrowser.py ~/.config/qutebrowser/config.py
+#ln -sfv ~/dotfiles/shell/termite ~/.config/termite/config

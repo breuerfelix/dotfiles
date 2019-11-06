@@ -21,6 +21,14 @@ window:
     columns: 0
     lines: 0
 
+  # Window position (changes require restart)
+  #
+  # Specified in number of pixels.
+  # If the position is not set, the window manager will handle the placement.
+  #position:
+  #  x: 0
+  #  y: 0
+
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is scaled
@@ -41,15 +49,29 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: buttonless
+  decorations: full
 
-  # When true, alacritty starts maximized.
-  start_maximized: false
+  # Startup Mode (changes require restart)
+  #
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  #
+  # Values for `startup_mode` (macOS only):
+  #   - SimpleFullscreen
+  startup_mode: Windowed
+
+  # Window title
+  #title: Alacritty
+
+  # Window class (Linux only):
+  #class: Alacritty
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 0
+  history: 10000
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
@@ -79,42 +101,42 @@ tabspaces: 4
 # Font configuration (changes require restart)
 font:
   # Normal (roman) font face
-  #normal:
+  normal:
     # Font family
     #
     # Default:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    #family: monospace
+    family: monospace
 
     # The `style` can be specified to pick a specific face.
-    #style: Regular
+    style: Regular
 
   # Bold font face
-  #bold:
+  bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: monospace
 
     # The `style` can be specified to pick a specific face.
     #style: Bold
 
   # Italic font face
-  #italic:
+  italic:
     # Font family
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: monospace
 
     # The `style` can be specified to pick a specific face.
     #style: Italic
 
   # Point size
-  size: 14
+  size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -145,83 +167,34 @@ font:
   # effect.
   use_thin_strokes: true
 
-# Display the time it takes to redraw each frame.
-render_timer: false
-
-# Keep the log file after quitting Alacritty.
-persistent_logging: false
-
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night Bright)
+# Colors (One Half Dark)
 colors:
-  # Default colors
   primary:
-    background: '0x24252f'
-    foreground: '0xeaeaea'
+    background: '0x282c34'
+    foreground: '0xdcdfe4'
 
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not present.
-    # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
-    # is `false`, the normal foreground color will be used.
-    #dim_foreground: '0x9a9a9a'
-    #bright_foreground: '0xffffff'
-
-  # Cursor colors
-  #
-  # Colors which should be used to draw the terminal cursor. If these are unset,
-  # the cursor color will be the inverse of the cell color.
-  #cursor:
-  #  text: '0x000000'
-  #  cursor: '0xffffff'
-
-  # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0xd54e53'
-    green:   '0xb9ca4a'
-    yellow:  '0xe6c547'
-    blue:    '0x7aa6da'
-    magenta: '0xc397d8'
-    cyan:    '0x70c0ba'
-    white:   '0xeaeaea'
+    black: '0x282c34'
+    red: '0xe06c75'
+    green: '0x98c379'
+    yellow: '0xe5c07b'
+    blue: '0x61afef'
+    magenta: '0xc678dd'
+    cyan: '0x56b6c2'
+    white: '0xdcdfe4'
 
-  # Bright colors
   bright:
-    black:   '0x666666'
-    red:     '0xff3334'
-    green:   '0x9ec400'
-    yellow:  '0xe7c547'
-    blue:    '0x7aa6da'
-    magenta: '0xb77ee0'
-    cyan:    '0x54ced6'
-    white:   '0xffffff'
-
-  # Dim colors
-  #
-  # If the dim colors are not set, they will be calculated automatically based
-  # on the `normal` colors.
-  #dim:
-  #  black:   '0x000000'
-  #  red:     '0x8c3336'
-  #  green:   '0x7a8530'
-  #  yellow:  '0x97822e'
-  #  blue:    '0x506d8f'
-  #  magenta: '0x80638e'
-  #  cyan:    '0x497e7a'
-  #  white:   '0x9a9a9a'
-
-  # Indexed Colors
-  #
-  # The indexed colors include all colors from 16 to 256.
-  # When these are not set, they're filled with sensible defaults.
-  #
-  # Example:
-  #   `- { index: 16, color: '0xff00ff' }`
-  #
-  indexed_colors: []
+    black: '0x282c34'
+    red: '0xe06c75'
+    green: '0x98c379'
+    yellow: '0xe5c07b'
+    blue: '0x61afef'
+    magenta: '0xc678dd'
+    cyan: '0x56b6c2'
+    white: '0xdcdfe4'
 
 # Visual Bell
 #
@@ -253,7 +226,7 @@ visual_bell:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 1.0
+background_opacity: 0.97
 
 # Mouse bindings
 #
@@ -297,7 +270,9 @@ mouse:
     #   - (macOS) open
     #   - (Linux) xdg-open
     #   - (Windows) explorer
-    #launcher: xdg-open
+    #launcher:
+    #  program: xdg-open
+    #  args: []
 
     # URL modifiers
     #
@@ -336,12 +311,19 @@ live_config_reload: true
 # Entries in `shell.args` are passed unmodified as arguments to the shell.
 #
 # Default:
-#   - (Linux/macOS) /bin/bash --login
+#   - (macOS) /bin/bash --login
+#   - (Linux) user login shell
 #   - (Windows) powershell
-shell:
-  program: /usr/local/bin/zsh
-  args:
-    - --login
+#shell:
+#  program: /bin/bash
+#  args:
+#    - --login
+
+# Startup directory
+#
+# Directory the shell is started in. If this is unset, or `None`, the working
+# directory of the parent process will be used.
+working_directory: None
 
 # Windows 10 ConPTY backend (Windows only)
 #
@@ -356,6 +338,30 @@ enable_experimental_conpty_backend: false
 
 # Send ESC (\x1b) before characters when alt is pressed.
 alt_send_esc: true
+
+debug:
+  # Display the time it takes to redraw each frame.
+  render_timer: false
+
+  # Keep the log file after quitting Alacritty.
+  persistent_logging: false
+
+  # Log level
+  #
+  # Values for `log_level`:
+  #   - None
+  #   - Error
+  #   - Warn
+  #   - Info
+  #   - Debug
+  #   - Trace
+  log_level: Warn
+
+  # Print all received window events.
+  print_events: false
+
+  # Record all characters and escape sequences as test data.
+  ref_test: false
 
 # Key bindings
 #
@@ -396,6 +402,7 @@ alt_send_esc: true
 # Values for `mods`:
 #   - Command
 #   - Control
+#   - Option
 #   - Super
 #   - Shift
 #   - Alt
@@ -421,6 +428,8 @@ alt_send_esc: true
 #   - ResetFontSize
 #   - ScrollPageUp
 #   - ScrollPageDown
+#   - ScrollLineUp
+#   - ScrollLineDown
 #   - ScrollToTop
 #   - ScrollToBottom
 #   - ClearHistory
@@ -428,7 +437,11 @@ alt_send_esc: true
 #   - Quit
 #   - ClearLogNotice
 #   - SpawnNewInstance
+#   - ToggleFullscreen
 #   - None
+#
+# Values for `action` (macOS only):
+#   - ToggleSimpleFullscreen: Enters fullscreen without occupying another space
 #
 # Values for `command`:
 #   The `command` field must be a map containing a `program` string and
@@ -449,37 +462,44 @@ key_bindings:
   #- { key: Insert,   mods: Shift,         action: PasteSelection   }
   #- { key: Key0,     mods: Control,       action: ResetFontSize    }
   #- { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  #- { key: Add,      mods: Control,       action: IncreaseFontSize }
   #- { key: Subtract, mods: Control,       action: DecreaseFontSize }
+  #- { key: Minus,    mods: Control,       action: DecreaseFontSize }
+  #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
 
   # (macOS only)
-  #- { key: Key0,   mods: Command, action: ResetFontSize    }
-  #- { key: Equals, mods: Command, action: IncreaseFontSize }
-  #- { key: Minus,  mods: Command, action: DecreaseFontSize }
-  #- { key: K,      mods: Command, action: ClearHistory     }
-  #- { key: K,      mods: Command, chars: "\x0c"            }
-  #- { key: V,      mods: Command, action: Paste            }
-  #- { key: C,      mods: Command, action: Copy             }
-  #- { key: H,      mods: Command, action: Hide             }
-  #- { key: Q,      mods: Command, action: Quit             }
-  #- { key: W,      mods: Command, action: Quit             }
+  #- { key: Key0,   mods: Command,         action: ResetFontSize    }
+  #- { key: Equals, mods: Command,         action: IncreaseFontSize }
+  #- { key: Add,    mods: Command,         action: IncreaseFontSize }
+  #- { key: Minus,  mods: Command,         action: DecreaseFontSize }
+  #- { key: K,      mods: Command,         action: ClearHistory     }
+  #- { key: K,      mods: Command,         chars: "\x0c"            }
+  #- { key: V,      mods: Command,         action: Paste            }
+  #- { key: C,      mods: Command,         action: Copy             }
+  #- { key: H,      mods: Command,         action: Hide             }
+  #- { key: Q,      mods: Command,         action: Quit             }
+  #- { key: W,      mods: Command,         action: Quit             }
+  #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
 
-  - { key: Q,        mods: Control, chars: "cd ..\n"                         }
-  - { key: W,        mods: Control, chars: "vi .\n"                          }
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
   - { key: L,        mods: Control, action: ClearLogNotice                   }
   - { key: L,        mods: Control, chars: "\x0c"                            }
+  - { key: Home,     mods: Alt,     chars: "\x1b[1;3H"                       }
   - { key: Home,                    chars: "\x1bOH",        mode: AppCursor  }
   - { key: Home,                    chars: "\x1b[H",        mode: ~AppCursor }
+  - { key: End,      mods: Alt,     chars: "\x1b[1;3F"                       }
   - { key: End,                     chars: "\x1bOF",        mode: AppCursor  }
   - { key: End,                     chars: "\x1b[F",        mode: ~AppCursor }
   - { key: PageUp,   mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
   - { key: PageUp,   mods: Shift,   chars: "\x1b[5;2~",     mode: Alt        }
   - { key: PageUp,   mods: Control, chars: "\x1b[5;5~"                       }
+  - { key: PageUp,   mods: Alt,     chars: "\x1b[5;3~"                       }
   - { key: PageUp,                  chars: "\x1b[5~"                         }
   - { key: PageDown, mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
   - { key: PageDown, mods: Shift,   chars: "\x1b[6;2~",     mode: Alt        }
   - { key: PageDown, mods: Control, chars: "\x1b[6;5~"                       }
+  - { key: PageDown, mods: Alt,     chars: "\x1b[6;3~"                       }
   - { key: PageDown,                chars: "\x1b[6~"                         }
   - { key: Tab,      mods: Shift,   chars: "\x1b[Z"                          }
   - { key: Back,                    chars: "\x7f"                            }
