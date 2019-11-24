@@ -7,7 +7,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 
 "linting
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 Plug 'sheerun/vim-polyglot'
 
 "fuzzy finder
@@ -20,7 +20,6 @@ Plug 'jiangmiao/auto-pairs'
 "autocomplete
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
 "Plug 'zxqfl/tabnine-vim'
-"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "files
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -46,14 +45,15 @@ Plug 'mattn/emmet-vim'
 
 call plug#end()
 
+"make tsserver works for typescriptreact
+autocmd BufEnter *.tsx set filetype=typescript
+
 source /usr/share/doc/fzf/examples/fzf.vim
 
 "plugin configurations
 let g:python3_host_prog = '/usr/bin/python'
 "let g:loaded_python3_provider = 0
 let g:jedi#force_py_version = 3
-
-let g:deoplete#enable_at_startup = 1
 
 let g:airline_powerline_fonts = 1
 
@@ -64,10 +64,10 @@ let g:ale_completion_enabled = 0
 let g:ale_fixers = [ 'eslint', 'prettier' ]
 let g:ale_fix_on_save = 1
 
-let g:ale_linters = {
-			\ 'javascript': [ 'eslint', 'prettier' ],
-			\ 'python': [ 'black' ]
-			\ }
+"let g:ale_linters = {
+			"\ 'javascript': [ 'eslint', 'prettier' ],
+			"\ 'python': [ 'black' ]
+			"\ }
 
 "emmet uses single quotes
 let g:user_emmet_settings = {'html':{'quote_char': "'",},}

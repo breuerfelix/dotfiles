@@ -64,13 +64,14 @@ ZSH_THEME="pi"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   zsh-autosuggestions
-	vi-mode
 	thefuck
 	autojump
 )
 
 
-zstyle ':bracketed-paste-magic' active-widgets '.self-*'
+#zstyle ':bracketed-paste-magic' active-widgets '.self-*'
+
+if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
 
 source $ZSH/oh-my-zsh.sh
 
