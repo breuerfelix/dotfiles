@@ -41,7 +41,7 @@ alias dk='docker'
 alias dkc='docker container'
 alias dki='docker image'
 alias dkv='docker volume'
-alias dklocal='docker run --rm -it -v ${PWD}:/usr/workdir --workdir=/usr/workdir --entrypoint=/bin/bash'
+alias dklocal='docker run --rm -it -v ${PWD}:/usr/workdir --workdir=/usr/workdir -u $(id -u ${USER}):$(id -g ${USER})'
 
 alias kb='kubectl'
 alias mk='minikube'
@@ -149,6 +149,8 @@ export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
 #. /opt/asdf-vm/completions/asdf.bash
 
 # nvm
+export PATH="$PATH:$HOME/programs/npm/bin"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

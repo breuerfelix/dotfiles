@@ -110,7 +110,7 @@ map <leader>ee :e ~/.vimrc<CR>
 map <leader>et :e ~/.tmux.conf<CR>
 map <leader>er :e ~/.bashrc<CR>
 map <leader>es :e ~/.zshrc<CR>
-map <leader>ea :e ~/.config/termite/config<CR>
+map <leader>ea :e ~/.config/alacritty/alacritty.yml<CR>
 
 "completer
 map <leader>f :YcmCompleter GoTo<CR>
