@@ -5,12 +5,12 @@
 alias ls='lsd -A'
 alias cat='bat'
 alias fd='fdfind'
+alias vi='nvim'
 
 # misspelling
 alias car='cat'
 
 # programs
-alias vi='nvim'
 alias nr='npm run'
 alias python='python3'
 alias py='python3'
@@ -83,6 +83,12 @@ alias tl='tmux ls'
 alias ta='tmux attach -t'
 alias ts='tmux new-session -s'
 alias td='tmux kill-session -t'
+
+# git
+alias gid='git diff'
+alias gis='git status'
+alias gic='git checkout'
+alias gicb='git checkout -b'
 
 # golang
 export GOPATH=${HOME}/go
