@@ -4,15 +4,22 @@
 	process = git-lfs filter-process
 	required = true
 [user]
-	name = felixbreuer
-	email = felix@breuer.dev
+	name = Felix Breuer
+	email = f.breuer94@gmail.com
+	signingkey = 7541D9510EE28E1C
 [core]
 	excludesfile = ~/.gitignore_global
+	editor = nvim
+[commit]
+	gpgsign = true
 [alias]
 	st = status -sb
 	co = checkout
 	fe = fetch
 	c = commit -m
 	g = grep -i
-	df = diff
-	a = add
+	dt = difftool
+[merge]
+  tool = vimdiff
+[diff]
+  tool = vimdiff

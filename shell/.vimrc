@@ -18,15 +18,14 @@ Plug 'junegunn/fzf.vim'
 Plug 'jiangmiao/auto-pairs'
 
 "autocomplete
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --ts-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --all --clangd-completer' }
 "Plug 'zxqfl/tabnine-vim'
 
 "files
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'ciaranm/detectindent'
+Plug 'tpope/vim-sleuth'
 
 "status bar
-"Plug 'itchyny/lightline.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
@@ -35,6 +34,8 @@ Plug 'joshdick/onedark.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'sonph/onehalf', { 'rtp': 'vim/' }
+Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 
 "writing
 Plug 'junegunn/limelight.vim'
@@ -51,11 +52,8 @@ autocmd BufEnter *.tsx set filetype=typescript
 source /usr/share/doc/fzf/examples/fzf.vim
 
 "plugin configurations
-let g:python3_host_prog = '/usr/bin/python'
-"let g:loaded_python3_provider = 0
-let g:jedi#force_py_version = 3
-
-let g:airline_powerline_fonts = 1
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
@@ -64,13 +62,15 @@ let g:ale_completion_enabled = 0
 let g:ale_fixers = [ 'eslint', 'prettier' ]
 let g:ale_fix_on_save = 1
 
-"let g:ale_linters = {
-			"\ 'javascript': [ 'eslint', 'prettier' ],
-			"\ 'python': [ 'black' ]
-			"\ }
+let g:ale_fixers = {
+\	'*': [ 'remove_trailing_lines', 'trim_whitespace' ],
+\	'javascript': [ 'eslint', 'prettier' ],
+\	'python': [ 'black' ],
+\	'rust': [ 'rustfmt' ],
+\}
 
 "emmet uses single quotes
-let g:user_emmet_settings = {'html':{'quote_char': "'",},}
+let g:user_emmet_settings = { 'html': { 'quote_char': "'", }, }
 
 "disable arrow keys
 noremap <Up> <NOP>
@@ -92,6 +92,8 @@ vmap <C-j> <Esc>
 map <S-j> 3j
 map <S-k> 3k
 
+map <C-n> zz
+
 "finder
 map ; :Files<CR>
 map <C-b> :NERDTreeToggle<CR>
@@ -99,11 +101,13 @@ map <C-b> :NERDTreeToggle<CR>
 "editing
 map <leader>r :s/"/'/g<bar>:noh<CR>
 
-"save and quit
+"save
 map <C-i> :w<CR>
 imap <C-i> <Esc>:w<CR>i
-imap <C-u> <Esc>:q!<CR>
+
+"quit
 map <C-u> :q<CR>
+imap <C-u> <Esc>:q<CR>
 
 "edit files
 map <leader>ee :e ~/.vimrc<CR>
@@ -150,35 +154,29 @@ map <leader>w :Goyo<CR>
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
-if has('mouse')
-	set mouse=a
-endif
-
 "disable mouse
 set mouse=
 
 "syntax
 syntax enable
 set number relativenumber
-set ttyfast
+"set ttyfast
 set autoread
 
 set clipboard=unnamedplus
 
 "toggle invisible characters
-"set list
-"set listchars=tab:→\ ,eol:¬,trail:~,extends:❯,precedes:❮,space:␣
-"set showbreak=↪
+set list
+set listchars=tab:→\ ,eol:¬,trail:~,extends:❯,precedes:❮,space:␣
+set showbreak=↪
 
 "indent
-filetype plugin indent on
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set smartindent
-
-"auto detect indention
-autocmd BufReadPost * :DetectIndent
+"disabled because of plugin sleuth
+"filetype plugin indent on
+set tabstop=4
+"set shiftwidth=2
+"set softtabstop=2
+"set smartindent
 
 "split
 set splitbelow
@@ -193,14 +191,12 @@ set ignorecase
 set smartcase
 
 "performance
-set lazyredraw
-set noshowcmd
-set noruler
-set nocompatible
+"set lazyredraw
+"set noshowcmd
+"set noruler
+"set nocompatible
 
 set cursorline
-set synmaxcol=128
-syntax sync minlines=256	
 
 augroup save_when_leave
 	au BufLeave * silent! wall
@@ -218,10 +214,17 @@ if (has('termguicolors'))
 	set termguicolors
 endif
 
-"let g:lightline = { 'colorscheme': 'onedark', }
+let g:user_emmet_leader_key = '<C-d>'
+let g:airline_powerline_fonts = 1
 
-let g:user_emmet_leader_key='<C-d>'
-let g:onedark_terminal_italics=1
-set background=dark
-let g:airline_theme='onehalfdark'
+"let g:gruvbox_contrast_dark = 'hard'
+"let g:airline_theme = 'onehalfdark'
+"let g:onedark_terminal_italics = 1
+
 colorscheme onehalfdark
+
+"override colorscheme
+
+"for onehalfdark
+highlight NonText ctermfg=grey guifg=grey25
+highlight Comment ctermfg=grey guifg=grey50

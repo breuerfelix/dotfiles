@@ -1,0 +1,99 @@
+# apt
+git
+tmux
+neovim
+nnn # install from source ! or at least version 2.9
+zsh
+curl wget
+htop
+fzf
+bat
+autojump
+fd-find
+ffmpeg
+fonts-powerline
+thefuck
+cmake
+
+# dev utils
+libssl-dev
+
+python3-distutils
+python3-dev
+python3-pip
+
+docker.io
+
+ruby-full
+
+gnome-tweaks
+virtualbox virtualbox-qt virtualbox-dkms
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# bash pipes
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+wget -O $ZSH_CUSTOM/themes/pi.zsh-theme https://raw.githubusercontent.com/tobyjamesthomas/pi/master/pi.zsh-theme
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+curl https://sh.rustup.rs -sSf | sh
+curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+# check for latest version
+base=https://github.com/docker/machine/releases/download/v0.16.2 &&
+  curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
+  sudo mv /tmp/docker-machine /usr/local/bin/docker-machine &&
+  chmod +x /usr/local/bin/docker-machine
+
+wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+sudo apt-get install apt-transport-https
+sudo apt-get install dotnet-sdk-3.1
+sudo apt-get install aspnetcore-runtime-3.1
+
+# golang
+sudo add-apt-repository ppa:longsleep/golang-backports
+sudo apt install golang-go
+
+# snap
+spotify
+discord
+vlc
+postman
+helm --classic
+
+https://github.com/ryanoasis/nerd-fonts#option-3-install-script
+
+# cargo
+cargo install --git https://github.com/Peltoche/lsd.git --branch master
+cargo install cargo-edit
+rustfmt
+
+# extra repos
+curl -sL https://deb.nodesource.com/setup_13.x | sudo bash -
+sudo apt-get install -y nodejs
+
+# pip
+docker-compose
+awscli
+neovim
+pynvim
+black
+
+# pip2
+neovim
+pynvim
+
+# npm
+neovim
+eslint
+prettier
+
+gem install neovim
+
+# extras
+mkdir $HOME/.gem
+mkdir $HOME/go

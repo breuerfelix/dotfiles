@@ -1,0 +1,195 @@
+#
+# VARIBALES
+#
+
+# mod1 is Alt key
+set $mod mod1
+
+# vim-like keys
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $term alacritty
+set $menu rofi -lines 12 -padding 18 -show drun -columns 3 -show-icons --no-startup-id | xargs swaymsg exec --
+set $browser google-chrome
+
+#
+# SETUP
+#
+
+# needs left click to focus
+focus_follows_mouse no
+
+# layout
+workspace_layout default
+default_border pixel 4
+gaps inner 20
+gaps outer 0
+
+# background
+output * bg ~/Pictures/deer.jpg fill
+
+#
+# APPLICATIONS
+#
+
+bindsym $mod+space exec $menu
+bindsym $mod+return exec $term
+bindsym $mod+shift+return exec $browser
+
+# Reload the configuration file
+bindsym control+shift+r reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+shift+w exec swaynag -t warning -m 'Do you really want to exit sway?' -b 'yes' 'swaymsg exit'
+
+# move to scrathpad
+bindsym $mod+shift+minus move scratchpad
+# toggle scratchpad window or cycle through
+bindsym $mod+minus scratchpad show
+
+# common apps keybinds
+#bindsym Print exec scrot 'Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
+#bindsym $mod+plus exec i3lock -i ~/.wallpaper.png
+
+#
+# WINDOWS
+#
+
+# kill active window
+bindsym $mod+w kill
+# Make the current focus fullscreen
+bindsym $mod+control+i fullscreen
+
+# drag floating windows
+floating_modifier $mod normal
+bindsym $mod+shift+space floating toggle
+
+# determine the next split
+bindsym $mod+n split h
+bindsym $mod+y split v
+
+# move focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# move window
+bindsym $mod+shift+$left move left
+bindsym $mod+shift+$down move down
+bindsym $mod+shift+$up move up
+bindsym $mod+shift+$right move right
+
+#
+# WORKSPACES
+#
+
+bindsym $mod+control+$down workspace next
+bindsym $mod+control+$up workspace prev
+bindsym $mod+control+$left move container to workspace next
+bindsym $mod+control+$right move container to workspace prev
+
+set $ws1 1
+set $ws2 2
+set $ws3 3
+set $ws4 4
+set $ws5 5
+set $ws6 6
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+
+# move focused container to workspace
+bindsym $mod+shift+1 move container to workspace $ws1
+bindsym $mod+shift+2 move container to workspace $ws2
+bindsym $mod+shift+3 move container to workspace $ws3
+bindsym $mod+shift+4 move container to workspace $ws4
+bindsym $mod+shift+5 move container to workspace $ws5
+bindsym $mod+shift+6 move container to workspace $ws6
+
+#
+# RESIZE
+#
+
+bindsym $mod+r mode "resize"
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    bindsym shift+$left resize shrink width 30px
+    bindsym shift+$down resize grow height 30px
+    bindsym shift+$up resize shrink height 30px
+    bindsym shift+$right resize grow width 30px
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+#
+# STATUS BAR
+#
+
+bar {
+    position bottom
+
+    # When the status_command prints a new line to stdout, swaybar updates.
+    # The default just shows the current date and time.
+    status_command while date +'%d-%m %l:%M'; do sleep 10; done
+
+    colors {
+        statusline #ffffff
+
+        background #2f343f
+        separator #4b5262
+
+        # colour of border, background, and text
+        focused_workspace       #2f343f #bf616a #d8dee8
+        active_workspace        #2f343f #2f343f #d8dee8
+        inactive_workspace      #2f343f #2f343f #d8dee8
+        urgent_workspace        #2f343f #ebcb8b #2f343f
+    }
+}
+
+# colour of border, background, text, indicator, and child_border
+client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
+client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.background           #2f343f
+
+#
+# INPUT
+#
+
+# change volume
+#bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
+#bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
+#bindsym XF86AudioMute exec amixer set Master toggle
+
+# music control
+#bindsym XF86AudioNext exec mpc next
+#bindsym XF86AudioPrev exec mpc prev
+#bindsym XF86AudioPlay exec mpc toggle
+#bindsym XF86AudioStop exec mpc stop
+
+input type:keyboard {
+    # capslock is control, win and alt are both alt keys
+    xkb_options ctrl:nocaps,altwin:alt_win
+}
+
+input type:touchpad {
+    natural_scroll enabled
+}

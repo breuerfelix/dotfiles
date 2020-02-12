@@ -1,6 +1,17 @@
 # if not running interactively, return
 [[ $- != *i* ]] && return
 
+# language
+export LC_ALL=en_US.UTF-8
+
+alias luser='pkill -KILL -u'
+
+# binaries
+alias python2='/usr/bin/python2'
+alias pip2='/usr/bin/pip2'
+alias python3='/usr/bin/python3'
+alias pip3='/usr/bin/pip3'
+
 # override aliases
 alias ls='lsd -A'
 alias cat='bat'
@@ -13,9 +24,8 @@ alias car='cat'
 # programs
 alias nr='npm run'
 alias python='python3'
-alias py='python3'
-alias pip='pip3'
-alias jl='jupyter lab'
+alias py='python'
+alias pip='python3 -m pip'
 alias sf='screenfetch'
 alias sc='systemctl'
 alias ssh='TERM=screen ssh'
@@ -27,21 +37,17 @@ alias tfa='terraform apply -auto-approve'
 alias tfd='terraform destroy -auto-approve'
 
 # docker
+alias dk='docker'
+alias dke='docker exec -it'
+alias dklocal='docker run --rm -it -v ${PWD}:/usr/workdir --workdir=/usr/workdir'
+
 alias dc='docker-compose'
-alias dcu='docker-compose up'
-alias dcud='docker-compose up -d'
-alias dcd='docker-compose down'
-alias dce='docker-compose exec'
 
 function dci() {
- docker inspect $(docker-compose ps -q $1)
+	docker inspect $(docker-compose ps -q $1)
 }
 
-alias dk='docker'
-alias dkc='docker container'
-alias dki='docker image'
-alias dkv='docker volume'
-alias dklocal='docker run --rm -it -v ${PWD}:/usr/workdir --workdir=/usr/workdir -u $(id -u ${USER}):$(id -g ${USER})'
+alias dm='docker-machine'
 
 alias kb='kubectl'
 alias mk='minikube'
@@ -72,9 +78,16 @@ alias cs='clear;ls'
 alias null='/dev/null'
 alias res='source ~/.zshrc'
 
+function watch() {
+	while sleep 1
+	do clear
+		$*
+	done
+}
+
 function mkd() {
- mkdir $1
- builtin cd $1
+	mkdir $1
+	builtin cd $1
 }
 
 # tmux
@@ -84,23 +97,17 @@ alias ta='tmux attach -t'
 alias ts='tmux new-session -s'
 alias td='tmux kill-session -t'
 
-# git
-alias gid='git diff'
-alias gis='git status'
-alias gic='git checkout'
-alias gicb='git checkout -b'
-
 # golang
-export GOPATH=${HOME}/go
-export PATH=$PATH:${GOPATH}/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# ruby
+export GEM_HOME=$HOME/.gem
+export GEM_PATH=$HOME/.gem
+export PATH=$PATH:$GEM_PATH/bin
 
 function sv() {
- sudo systemctl $1 $2
-}
-
-#docker
-function dbi() {
- docker exec -it $1 /bin/bash
+	sudo systemctl $1 $2
 }
 
 function cd() {
@@ -109,24 +116,23 @@ function cd() {
 }
 
 # git
+alias gm='git commit --signoff'
 alias gpu='git push --set-upstream origin'
-alias gco='git checkout'
+
+function lgc() {
+	git commit --signoff -m "$*"
+}
 
 function clone() {
- git clone git@$1.git
+	git clone git@$1.git
 }
 
 function gclone() {
- clone github.com:$1
+	clone github.com:$1
 }
 
 function bclone() {
- gclone breuerfelix/$1
-}
-
-function gcb() {
- git checkout -b $1
- git push --set-upstream origin $1
+	gclone breuerfelix/$1
 }
 
 function gsm() {
@@ -135,7 +141,7 @@ function gsm() {
 
 function lg() {
 	git add --all
-	git commit -a -m "$*"
+	git commit --signoff -a -m "$*"
 	git push
 }
 
@@ -146,7 +152,28 @@ function git-del() {
 
 # plugins
 
+# kubectl
+if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
+
+# nnn
+source ~/dotfiles/shell/nnn.sh
+
+# rust
+export PATH=$HOME/.cargo/bin:$PATH
+source $HOME/.cargo/env
+
+# direnv
+#eval "$(direnv hook zsh)"
+
+# gpg
+export GPG_TTY=$(tty)
+
+# nomad
+[ -x /usr/local/bin/nomad ] && complete -o nospace -C /usr/local/bin/nomad nomad
+
 # fuzzy finder
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git --exclude .vim'
 export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
 
@@ -155,21 +182,29 @@ export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
 #. /opt/asdf-vm/completions/asdf.bash
 
 # nvm
-export PATH="$PATH:$HOME/programs/npm/bin"
-
-export NVM_DIR="$HOME/.nvm"
+export PATH=$PATH:$HOME/programs/npm/bin
+export NVM_DIR=$HOME/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # flutter
-export PATH="$PATH:$HOME/packages/flutter/bin"
+export PATH=$PATH:$HOME/packages/flutter/bin
 
-# language
-export LC_NUMERIC=en_US.UTF-8
-export LC_TIME=en_US.UTF-8
-export LC_COLLATE=en_US.UTF-8
-export LC_MONETARY=en_US.UTF-8
-export LC_MESSAGES=en_US.UTF-8
+# import secrets which are not stored in the repo
+[ -f $HOME/.secrets.sh ] && source $HOME/.secrets.sh
+
+# docker machine
+source /etc/bash_completion.d/docker-machine-prompt.bash
+
+# autojump
+source /usr/share/autojump/autojump.sh
+
+# powerline
+powerline-daemon -q
+
+# esp-idf
+export IDF_PATH=$HOME/inovex/esp-idf
+. $HOME/inovex/esp-idf/export.sh >> /dev/null
 
 # system specific config
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -181,28 +216,29 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 	alias in='sudo apt install'
 	alias uin='sudo apt remove'
 
-	source /usr/share/autojump/autojump.sh
+	# enpass scaling settings
+	#export QT_AUTO_SCREEN_SCALE_FACTOR=0
+	#export QT_SCREEN_SCALE_FACTORS=1
 
 	function clean() {
-		npm install -g npm
+		npm install -g npm@latest
 		npm cache clean --force
 
-		pip install --upgrade pip
+		rustup self update
+		rustup update
 
-		cargo install-update -a
+		pip install --user --upgrade pip
+
+		#cargo install-update -a
 
 		# on ubuntu
 		sudo apt update
-		sudo apt full-upgrade
-	  sudo apt autoremove
+		sudo apt full-upgrade -y
+		sudo apt autoremove -y
 
 		# on arch linux
 		#yay -Syu --devel --timeupdate
 		#yay -Yc
-
-		# enpass scaling settings
-		export QT_AUTO_SCREEN_SCALE_FACTOR=0
-		export QT_SCREEN_SCALE_FACTORS=1
 	}
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	# on mac
@@ -227,5 +263,5 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 
 	#[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 else
-	echo 'unknown filesystem!'
+	echo 'unknown operating system!'
 fi
