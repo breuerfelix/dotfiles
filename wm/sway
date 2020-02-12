@@ -19,6 +19,8 @@ set $browser google-chrome
 # SETUP
 #
 
+font DroidSansMono Nerd Font
+
 # needs left click to focus
 focus_follows_mouse no
 
@@ -89,31 +91,31 @@ bindsym $mod+shift+$right move right
 
 bindsym $mod+control+$down workspace next
 bindsym $mod+control+$up workspace prev
-bindsym $mod+control+$left move container to workspace next
-bindsym $mod+control+$right move container to workspace prev
+# move window to next workspace and switch focus there
+bindsym $mod+control+$left move container to workspace next, workspace next
+bindsym $mod+control+$right move container to workspace prev, workspace prev
 
-set $ws1 1
-set $ws2 2
-set $ws3 3
-set $ws4 4
-set $ws5 5
-set $ws6 6
+set $ws_terminal terminal
+set $ws_browser browser
+set $ws_chat chat
+set $ws_music music
+
+set $key_terminal o
+set $key_browser u
+set $key_chat m
+set $key_music b
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
+bindsym $mod+$key_terminal workspace $ws_terminal
+bindsym $mod+$key_browser workspace $ws_browser
+bindsym $mod+$key_chat workspace $ws_chat
+bindsym $mod+$key_music workspace $ws_music
 
 # move focused container to workspace
-bindsym $mod+shift+1 move container to workspace $ws1
-bindsym $mod+shift+2 move container to workspace $ws2
-bindsym $mod+shift+3 move container to workspace $ws3
-bindsym $mod+shift+4 move container to workspace $ws4
-bindsym $mod+shift+5 move container to workspace $ws5
-bindsym $mod+shift+6 move container to workspace $ws6
+bindsym $mod+shift+$key_terminal move container to workspace $ws_terminal, workspace $ws_terminal
+bindsym $mod+shift+$key_browser move container to workspace $ws_browser, workspace $ws_browser
+bindsym $mod+shift+$key_chat move container to workspace $ws_chat, workspace $ws_chat
+bindsym $mod+shift+$key_music move container to workspace $ws_music, workspace $ws_music
 
 #
 # RESIZE
@@ -142,52 +144,36 @@ mode "resize" {
 #
 
 bar {
-    position bottom
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%d-%m %l:%M'; do sleep 10; done
-
-    colors {
-        statusline #ffffff
-
-        background #2f343f
-        separator #4b5262
-
-        # colour of border, background, and text
-        focused_workspace       #2f343f #bf616a #d8dee8
-        active_workspace        #2f343f #2f343f #d8dee8
-        inactive_workspace      #2f343f #2f343f #d8dee8
-        urgent_workspace        #2f343f #ebcb8b #2f343f
-    }
+    swaybar_command waybar
 }
 
-# colour of border, background, text, indicator, and child_border
-client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
-client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.background           #2f343f
+#
+# STYLING
+#
+
+# colour of border
+client.focused      #bf616a #2f343f #d8dee8 #bf616a #d8dee8
+client.unfocused    #2f343f #2f343f #d8dee8 #2f343f #2f343f
 
 #
 # INPUT
 #
 
 # change volume
-#bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
-#bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
-#bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 3%+
+bindsym XF86AudioLowerVolume exec amixer -q set Master 3%-
+bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
 
-# music control
-#bindsym XF86AudioNext exec mpc next
-#bindsym XF86AudioPrev exec mpc prev
-#bindsym XF86AudioPlay exec mpc toggle
-#bindsym XF86AudioStop exec mpc stop
+# change brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 input type:keyboard {
-    # capslock is control, win and alt are both alt keys
-    xkb_options ctrl:nocaps,altwin:alt_win
+    # capslock is control
+    # win and alt are both alt keys
+    # menu toggles keyboard layout
+    xkb_layout us,de
+    xkb_options ctrl:nocaps,altwin:alt_win,grp:menu_toggle
 }
 
 input type:touchpad {

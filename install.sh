@@ -10,6 +10,8 @@ ln -sfv ~/dotfiles/shell/.vimrc ~/.config/nvim/init.vim
 ln -sfv ~/dotfiles/shell/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 ln -sfv ~/dotfiles/wm/sway ~/.config/sway/config
+ln -sfv ~/dotfiles/wm/waybar.json ~/.config/waybar/config
+ln -sfv ~/dotfiles/wm/waybar.css ~/.config/waybar/style.css
 
 #ln -sfv ~/dotfiles/programs/qutebrowser.py ~/.config/qutebrowser/config.py
 #ln -sfv ~/dotfiles/shell/termite ~/.config/termite/config
