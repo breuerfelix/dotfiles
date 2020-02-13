@@ -4,6 +4,9 @@
 
 	"modules-left": [
 		"sway/workspaces",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+		"sway/window",
 		"custom/right-arrow-dark"
 	],
 	"modules-center": [
@@ -65,7 +68,7 @@
 	},
 	"clock#2": {
 		"format": "{:%H:%M}",
-		"tooltip": false
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
 	},
 	"clock#3": {
 		"format": "{:%d-%m}",
@@ -74,7 +77,7 @@
 
 	"pulseaudio": {
 		"format": "{icon} {volume:2}%",
-		"format-bluetooth": "{icon}  {volume}%",
+		"format-bluetooth": "{icon} {volume}% ",
 		"format-muted": "MUTE",
 		"format-icons": {
 			"headphones": "",

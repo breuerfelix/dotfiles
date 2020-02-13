@@ -4,8 +4,8 @@ export ZSH=~/.oh-my-zsh
 #ZSH_THEME='agnoster'
 #ZSH_THEME='pure'
 #ZSH_THEME='robbyrussell'
-ZSH_THEME='pi'
 #ZSH_THEME='bullet-train'
+ZSH_THEME='pi'
 
 plugins=(
 	zsh-syntax-highlighting

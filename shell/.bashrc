@@ -1,9 +1,11 @@
-# if not running interactively, return
-[[ $- != *i* ]] && return
-
 # language
 export LC_ALL=en_US.UTF-8
 
+#
+# ALIASES
+#
+
+# logout user
 alias luser='pkill -KILL -u'
 
 # binaries
@@ -27,9 +29,10 @@ alias python='python3'
 alias py='python'
 alias pip='python3 -m pip'
 alias sf='screenfetch'
-alias sc='systemctl'
 alias ssh='TERM=screen ssh'
+alias sc='sudo systemctl'
 alias shut='sudo shutdown -h now'
+alias power='sudo powertop'
 
 # terraform
 alias tf='terraform'
@@ -53,21 +56,10 @@ alias kb='kubectl'
 alias mk='minikube'
 alias kblocal='kubectl run -it --rm --restart=Never alpine --image=alpine sh'
 
-# taskbook
-alias tbt='tb -t'
-alias tbn='tb -n'
-alias tbc='tb -c'
-alias tbd='tb -d'
-alias tbb='tb -b'
-alias tbs='tb -s'
-alias tbtc='tbt @coding'
-alias tbtg='tbt @general'
-
 # files
 alias del='rm -rf'
 alias sdel='sudo rm -rf'
 alias lst='ls --tree -I .git'
-alias lsa='ls'
 alias lsl='ls -l'
 alias mkdir='mkdir -p'
 alias cp='cp -i' # confirm before overwrite
@@ -83,6 +75,11 @@ function watch() {
 	do clear
 		$*
 	done
+}
+
+function cd() {
+	builtin cd $*
+	ls
 }
 
 function mkd() {
@@ -106,16 +103,8 @@ export GEM_HOME=$HOME/.gem
 export GEM_PATH=$HOME/.gem
 export PATH=$PATH:$GEM_PATH/bin
 
-function sv() {
-	sudo systemctl $1 $2
-}
-
-function cd() {
-	builtin cd $*
-	ls
-}
-
 # git
+alias g='git'
 alias gm='git commit --signoff'
 alias gpu='git push --set-upstream origin'
 
@@ -140,7 +129,6 @@ function gsm() {
 }
 
 function lg() {
-	git add --all
 	git commit --signoff -a -m "$*"
 	git push
 }
@@ -150,7 +138,19 @@ function git-del() {
 	git branch -d $1
 }
 
-# plugins
+# switches cpu mode
+function cmode() {
+	echo "GOVERNOR=\"$*\"" | sudo tee /etc/default/cpufrequtils >> /dev/null
+	sudo systemctl restart cpufrequtils
+}
+
+alias cmodeperf='cmode performance'
+alias cmodesave='cmode powersave'
+alias cmodeinfo='cpufreq-info'
+
+#
+# PLUGINS
+#
 
 # kubectl
 if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
@@ -206,46 +206,53 @@ powerline-daemon -q
 export IDF_PATH=$HOME/inovex/esp-idf
 . $HOME/inovex/esp-idf/export.sh >> /dev/null
 
+# enpass scaling settings
+#export QT_AUTO_SCREEN_SCALE_FACTOR=0
+#export QT_SCREEN_SCALE_FACTORS=1
+
 # system specific config
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	# on arch linux
-	#alias in='yay -S'
-	#alias yel='yay -Rs'
+	if [ -f /etc/os-release ]; then
+		. /etc/os-release
+		OS=$NAME
+	fi
 
-	# on ubuntu
-	alias in='sudo apt install'
-	alias uin='sudo apt remove'
-
-	# enpass scaling settings
-	#export QT_AUTO_SCREEN_SCALE_FACTOR=0
-	#export QT_SCREEN_SCALE_FACTORS=1
+	if [ $OS = "Ubuntu" ]; then
+		alias in='sudo apt install'
+		alias uin='sudo apt remove'
+	elif [ $OS = "Arch" ]; then
+		alias in='yay -S'
+		alias uin='yay -Rs'
+	fi
 
 	function clean() {
-		npm install -g npm@latest
+		if [ $OS = "Ubuntu" ]; then
+			sudo apt update
+			sudo apt full-upgrade -y
+			sudo apt autoremove -y
+		elif [ $OS = "Arch" ]; then
+			yay -Syu --devel --timeupdate
+			yay -Yc
+		fi
+
 		npm cache clean --force
+		npm install -g npm@latest
+		# update all global packages
+		ncu -g -u
+
+		# update all outdated global python packages
+		python2 -m pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 python2 -m pip install -U
+		python3 -m pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 python3 -m pip install -U
 
 		rustup self update
 		rustup update
 
-		pip install --user --upgrade pip
-
-		#cargo install-update -a
-
-		# on ubuntu
-		sudo apt update
-		sudo apt full-upgrade -y
-		sudo apt autoremove -y
-
-		# on arch linux
-		#yay -Syu --devel --timeupdate
-		#yay -Yc
+		# update all installed
+		cargo install-update -a
 	}
 elif [[ "$OSTYPE" == "darwin"* ]]; then
 	# on mac
 	alias git='hub'
-
-	alias python='python3'
-	alias pip='pip3'
 
 	function clean() {
 		npm cache clean --force
@@ -260,8 +267,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 	function venv() {
 		source ~/python/$1/bin/activate
 	}
-
-	#[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 else
 	echo 'unknown operating system!'
 fi

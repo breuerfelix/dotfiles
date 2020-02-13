@@ -22,16 +22,16 @@ window#waybar {
 }
 
 #workspaces,
-#clock.1,
-#clock.2,
-#clock.3,
+#clock,
 #pulseaudio,
 #memory,
 #cpu,
 #battery,
 #disk,
-#tray {
+#tray,
+#window {
 	background: #1a1a1a;
+	padding: 0 10px;
 }
 
 #workspaces button {
@@ -51,7 +51,7 @@ window#waybar {
 #workspaces button:hover {
 	background: #1a1a1a;
 	border: #1a1a1a;
-	padding: 0 3px;
+	padding: 0 15px;
 }
 
 #pulseaudio {
@@ -72,13 +72,4 @@ window#waybar {
 
 #disk {
 	color: #b58900;
-}
-
-#clock,
-#pulseaudio,
-#memory,
-#cpu,
-#battery,
-#disk {
-	padding: 0 10px;
 }

@@ -165,8 +165,8 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 3%-
 bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
 
 # change brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec sudo backlight intel_backlight inc 5
+bindsym XF86MonBrightnessDown exec sudo backlight intel_backlight dec 5
 
 input type:keyboard {
     # capslock is control
