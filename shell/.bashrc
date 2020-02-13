@@ -209,8 +209,8 @@ export IDF_PATH=$HOME/inovex/esp-idf
 . $HOME/inovex/esp-idf/export.sh >> /dev/null
 
 # enpass scaling settings
-#export QT_AUTO_SCREEN_SCALE_FACTOR=0
-#export QT_SCREEN_SCALE_FACTORS=1
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
+export QT_SCREEN_SCALE_FACTORS=1
 
 # system specific config
 if [[ "$OSTYPE" == "linux-gnu" ]]; then

@@ -12,10 +12,12 @@ set $up k
 set $right l
 
 set $wallpaper ~/Pictures/deer.jpg
+set $screenshot_dir ~/Pictures
 
 set $term alacritty
 set $menu rofi -lines 12 -padding 18 -show drun -columns 3 -show-icons --no-startup-id | xargs swaymsg exec --
 set $browser google-chrome
+set $lock swaylock -f -i $wallpaper
 
 #
 # SETUP
@@ -54,7 +56,15 @@ bindsym $mod+shift+minus move scratchpad
 # toggle scratchpad window or cycle through
 bindsym $mod+minus scratchpad show
 
-bindsym $mod+equal exec swaylock -i $wallpaper
+bindsym $mod+equal exec $lock
+exec swayidle -w \
+    timeout 300 '$lock' \
+    timeout 600 'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
+    before-sleep '$lock'
+
+# screenshot
+bindsym $mod+0 exec grim -g "$(slurp)" $screenshot_dir/$(date +'%s_grim.png')
 
 #
 # WINDOWS
