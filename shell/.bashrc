@@ -19,6 +19,8 @@ alias ls='lsd -A'
 alias cat='bat'
 alias fd='fdfind'
 alias vi='nvim'
+alias docker='podman'
+alias docker-compose='podman-compose'
 
 # misspelling
 alias car='cat'
