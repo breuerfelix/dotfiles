@@ -131,6 +131,7 @@ function gsm() {
 }
 
 function lg() {
+	git add --all
 	git commit --signoff -a -m "$*"
 	git push
 }
