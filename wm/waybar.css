@@ -29,6 +29,8 @@ window#waybar {
 #battery,
 #disk,
 #tray,
+#backlight,
+#temperature,
 #window {
 	background: #1a1a1a;
 	padding: 0 10px;
@@ -70,6 +72,10 @@ window#waybar {
 	color: #859900;
 }
 
-#disk {
+#disk, #temperature {
 	color: #b58900;
+}
+
+#backlight {
+	color: #e4d5b7;
 }

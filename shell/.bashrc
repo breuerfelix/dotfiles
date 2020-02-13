@@ -30,7 +30,7 @@ alias nr='npm run'
 alias python='python3'
 alias py='python'
 alias pip='python3 -m pip'
-alias sf='screenfetch'
+alias nf='neofetch'
 alias ssh='TERM=screen ssh'
 alias sc='sudo systemctl'
 alias shut='sudo shutdown -h now'
@@ -207,10 +207,6 @@ powerline-daemon -q
 # esp-idf
 export IDF_PATH=$HOME/inovex/esp-idf
 . $HOME/inovex/esp-idf/export.sh >> /dev/null
-
-# enpass scaling settings
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
-export QT_SCREEN_SCALE_FACTORS=1
 
 # system specific config
 if [[ "$OSTYPE" == "linux-gnu" ]]; then

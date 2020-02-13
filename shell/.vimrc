@@ -1,4 +1,10 @@
-"plugins
+"automated installation of vimplug
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+	silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.config/nvim/plugged')
 "PlugInstall, PlugUpdate, PlugClean, PlugUpgrade (upgrade vim plug),
 "PlugStatus
@@ -225,6 +231,9 @@ colorscheme onehalfdark
 
 "override colorscheme
 
-"for onehalfdark
+"changes for onehalfdark
 highlight NonText ctermfg=grey guifg=grey25
 highlight Comment ctermfg=grey guifg=grey50
+
+"transparent background
+hi Normal guibg=NONE ctermbg=NONE

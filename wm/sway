@@ -11,11 +11,11 @@ set $down j
 set $up k
 set $right l
 
-set $wallpaper ~/Pictures/deer.jpg
+set $wallpaper ~/Pictures/bg.jpg
 set $screenshot_dir ~/Pictures
 
 set $term alacritty
-set $menu rofi -lines 12 -padding 18 -show drun -columns 3 -show-icons --no-startup-id | xargs swaymsg exec --
+set $menu rofi -show drun --no-startup-id | xargs swaymsg exec --
 set $browser google-chrome
 set $lock swaylock -f -i $wallpaper
 
@@ -30,7 +30,7 @@ focus_follows_mouse no
 
 # layout
 workspace_layout default
-default_border pixel 4
+default_border pixel 3
 gaps inner 15
 gaps outer 0
 
@@ -65,6 +65,9 @@ exec swayidle -w \
 
 # screenshot
 bindsym $mod+0 exec grim -g "$(slurp)" $screenshot_dir/$(date +'%s_grim.png')
+
+# notification
+exec mako
 
 #
 # WINDOWS
@@ -162,7 +165,7 @@ bar {
 #
 
 # colour of border
-client.focused      #bf616a #2f343f #d8dee8 #bf616a #d8dee8
+client.focused      #bf616a #2f343f #d8dee8 #bf616a #5f6769
 client.unfocused    #2f343f #2f343f #d8dee8 #2f343f #2f343f
 
 #

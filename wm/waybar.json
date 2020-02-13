@@ -25,19 +25,22 @@
 		"tray",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
-		"pulseaudio",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
 		"cpu",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
 		"memory",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
-		"battery",
+		"temperature",
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
-		"disk"
+		"pulseaudio",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"backlight",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"battery"
 	],
 
 	"custom/left-arrow-dark": {
@@ -76,35 +79,39 @@
 	},
 
 	"pulseaudio": {
-		"format": "{icon} {volume:2}%",
-		"format-bluetooth": "{icon} {volume}% ",
+		"format": "VOL {volume:2}%",
+		"format-bluetooth": "VOL {volume:2}% B",
 		"format-muted": "MUTE",
-		"format-icons": {
-			"headphones": "",
-			"default": [
-				"",
-				""
-			]
-		},
 		"scroll-step": 5,
 		"on-click": "gnome-control-center"
+	},
+	"temperature": {
+		"interval": 5,
+		"format": "TEMP {temperatureC:2}°C"
 	},
 	"memory": {
 		"interval": 5,
 		"format": "MEM {}%"
+	},
+	"backlight": {
+		"format": "BRI {percent:2}%",
+		"interval": "once"
 	},
 	"cpu": {
 		"interval": 5,
 		"format": "CPU {usage:2}%"
 	},
 	"battery": {
-		"format": "BAT {capacity}%"
+		"interval": 30,
+		"format": "BAT {capacity:2}%"
 	},
+	/*
 	"disk": {
-		"interval": 5,
+		"interval": 120,
 		"format": "DISK {percentage_used:2}%",
 		"path": "/"
 	},
+	*/
 	"tray": {
 		"icon-size": 20
 	}
