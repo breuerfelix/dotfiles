@@ -2,7 +2,7 @@
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 	silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
 
 call plug#begin('~/.config/nvim/plugged')
@@ -63,14 +63,13 @@ let g:python3_host_prog = '/usr/bin/python3'
 
 let g:ycm_autoclose_preview_window_after_insertion = 1
 
-"prettier
+"linter
 let g:ale_completion_enabled = 0
-let g:ale_fixers = [ 'eslint', 'prettier' ]
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 
 let g:ale_fixers = {
 \	'*': [ 'remove_trailing_lines', 'trim_whitespace' ],
-\	'javascript': [ 'eslint', 'prettier' ],
+\	'javascript': [ 'eslint' ],
 \	'python': [ 'black' ],
 \	'rust': [ 'rustfmt' ],
 \}
@@ -106,6 +105,7 @@ map <C-b> :NERDTreeToggle<CR>
 
 "editing
 map <leader>r :s/"/'/g<bar>:noh<CR>
+map <leader>q :ALEFix<CR>
 
 "save
 map <C-i> :w<CR>
@@ -179,7 +179,7 @@ set showbreak=↪
 "indent
 "disabled because of plugin sleuth
 "filetype plugin indent on
-set tabstop=4
+"set tabstop=4
 "set shiftwidth=2
 "set softtabstop=2
 "set smartindent

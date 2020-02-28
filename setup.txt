@@ -15,7 +15,9 @@ fonts-powerline
 thefuck
 cmake
 xbacklight
-cpufrequtils #cpupower on arch
+tlp
+
+acpi-call-dkms # on thinkpad
 
 # dev utils
 libssl-dev

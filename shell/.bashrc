@@ -19,8 +19,6 @@ alias ls='lsd -A'
 alias cat='bat'
 alias fd='fdfind'
 alias vi='nvim'
-alias docker='podman'
-alias docker-compose='podman-compose'
 
 # misspelling
 alias car='cat'
@@ -42,11 +40,13 @@ alias tfa='terraform apply -auto-approve'
 alias tfd='terraform destroy -auto-approve'
 
 # docker
-alias dk='docker'
+alias p='podman'
+alias d='docker'
 alias dke='docker exec -it'
 alias dklocal='docker run --rm -it -v ${PWD}:/usr/workdir --workdir=/usr/workdir'
 
 alias dc='docker-compose'
+alias pc='podman-compose'
 
 function dci() {
 	docker inspect $(docker-compose ps -q $1)
@@ -140,16 +140,6 @@ function git-del() {
 	git push --delete origin $1
 	git branch -d $1
 }
-
-# switches cpu mode
-function cmode() {
-	echo "GOVERNOR=\"$*\"" | sudo tee /etc/default/cpufrequtils >> /dev/null
-	sudo systemctl restart cpufrequtils
-}
-
-alias cmodeperf='cmode performance'
-alias cmodesave='cmode powersave'
-alias cmodeinfo='cpufreq-info'
 
 #
 # PLUGINS
