@@ -8,10 +8,10 @@ export ZSH=~/.oh-my-zsh
 ZSH_THEME='pi'
 
 plugins=(
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-	thefuck
-	autojump
+    zsh-syntax-highlighting
+    zsh-autosuggestions
+    thefuck
+    autojump
 )
 
 autoload -U +X compinit && compinit
@@ -19,8 +19,7 @@ autoload -U +X bashcompinit && bashcompinit
 
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 
-source $ZSH/oh-my-zsh.sh
-
 export PATH=$PATH:/usr/local/sbin:$HOME/.local/bin
 
+source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/shell/.bashrc
