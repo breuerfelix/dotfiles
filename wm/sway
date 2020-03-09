@@ -31,7 +31,7 @@ focus_follows_mouse no
 # layout
 workspace_layout default
 default_border pixel 3
-gaps inner 15
+gaps inner 10
 gaps outer 0
 
 # background

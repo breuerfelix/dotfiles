@@ -6,6 +6,7 @@ ln -sfv ~/dotfiles/shell/.zshrc ~/.zshrc
 ln -sfv ~/dotfiles/shell/.tmux.conf ~/.tmux.conf
 ln -sfv ~/dotfiles/shell/.vimrc ~/.vimrc
 ln -sfv ~/dotfiles/shell/.vimrc ~/.config/nvim/init.vim
+ln -sfv ~/dotfiles/programs/coc-settings.json ~/.config/nvim/coc-settings.json
 
 ln -sfv ~/dotfiles/shell/alacritty.yml ~/.config/alacritty/alacritty.yml
 

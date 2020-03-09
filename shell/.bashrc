@@ -49,7 +49,7 @@ alias dc='docker-compose'
 alias pc='podman-compose'
 
 function dci() {
-	docker inspect $(docker-compose ps -q $1)
+    docker inspect $(docker-compose ps -q $1)
 }
 
 alias dm='docker-machine'
@@ -73,20 +73,20 @@ alias null='/dev/null'
 alias res='source ~/.zshrc'
 
 function watch() {
-	while sleep 1
-	do clear
-		$*
-	done
+    while sleep 1
+    do clear
+        $*
+    done
 }
 
 function cd() {
-	builtin cd $*
-	ls
+    builtin cd $*
+    ls
 }
 
 function mkd() {
-	mkdir $1
-	builtin cd $1
+    mkdir $1
+    builtin cd $1
 }
 
 # tmux
@@ -111,34 +111,34 @@ alias gm='git commit --signoff'
 alias gpu='git push --set-upstream origin'
 
 function lgc() {
-	git commit --signoff -m "$*"
+    git commit --signoff -m "$*"
 }
 
 function clone() {
-	git clone git@$1.git
+    git clone git@$1.git
 }
 
 function gclone() {
-	clone github.com:$1
+    clone github.com:$1
 }
 
 function bclone() {
-	gclone breuerfelix/$1
+    gclone breuerfelix/$1
 }
 
 function gsm() {
-	git submodule foreach "$* || :"
+    git submodule foreach "$* || :"
 }
 
 function lg() {
-	git add --all
-	git commit --signoff -a -m "$*"
-	git push
+    git add --all
+    git commit --signoff -a -m "$*"
+    git push
 }
 
 function git-del() {
-	git push --delete origin $1
-	git branch -d $1
+    git push --delete origin $1
+    git branch -d $1
 }
 
 #
@@ -165,7 +165,6 @@ export GPG_TTY=$(tty)
 [ -x /usr/local/bin/nomad ] && complete -o nospace -C /usr/local/bin/nomad nomad
 
 # fuzzy finder
-source /usr/share/doc/fzf/examples/key-bindings.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git --exclude .vim'
 export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
@@ -197,65 +196,64 @@ powerline-daemon -q
 
 # esp-idf
 export IDF_PATH=$HOME/inovex/esp-idf
-. $HOME/inovex/esp-idf/export.sh >> /dev/null
+#. $HOME/inovex/esp-idf/export.sh >> /dev/null
 
 # system specific config
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
-	if [ -f /etc/os-release ]; then
-		. /etc/os-release
-		OS=$NAME
-	fi
+    if [ -f /etc/os-release ]; then
+        . /etc/os-release
+        OS=$NAME
+    fi
 
-	if [ $OS = "Ubuntu" ]; then
-		alias in='sudo apt install'
-		alias uin='sudo apt remove'
-	elif [ $OS = "Arch" ]; then
-		alias in='yay -S'
-		alias uin='yay -Rs'
-	fi
+    if [ $OS = "Ubuntu" ]; then
+        alias in='sudo apt install'
+        alias uin='sudo apt remove'
+    elif [ $OS = "Arch" ]; then
+        alias in='yay -S'
+        alias uin='yay -Rs'
+    fi
 
-	function clean() {
-		if [ $OS = "Ubuntu" ]; then
-			sudo apt update
-			sudo apt full-upgrade -y
-			sudo apt autoremove -y
-		elif [ $OS = "Arch" ]; then
-			yay -Syu --devel --timeupdate
-			yay -Yc
-		fi
+    function clean() {
+        if [ $OS = "Ubuntu" ]; then
+            sudo apt update
+            sudo apt full-upgrade -y
+            sudo apt autoremove -y
+        elif [ $OS = "Arch" ]; then
+            yay -Syu --devel --timeupdate
+            yay -Yc
+        fi
 
-		npm cache clean --force
-		npm install -g npm@latest
-		# update all global packages
-		ncu -g -u
+        npm cache clean --force
+        npm install -g npm@latest
+        # update all global packages
+        ncu -g -u
 
-		# update all outdated global python packages
-		python2 -m pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 python2 -m pip install -U
-		python3 -m pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 python3 -m pip install -U
+        # update all outdated global python packages
+        python3 -m pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 python3 -m pip install -U
 
-		rustup self update
-		rustup update
+        rustup self update
+        rustup update
 
-		# update all installed
-		cargo install-update -a
-	}
+        # update all installed
+        cargo install-update -a
+    }
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	# on mac
-	alias git='hub'
+    # on mac
+    alias git='hub'
 
-	function clean() {
-		npm cache clean --force
-		brew update
-		brew upgrade
-		brew cleanup --prune-prefix
-		brew cleanup
-		brew doctor
-	}
+    function clean() {
+        npm cache clean --force
+        brew update
+        brew upgrade
+        brew cleanup --prune-prefix
+        brew cleanup
+        brew doctor
+    }
 
-	# python
-	function venv() {
-		source ~/python/$1/bin/activate
-	}
+    # python
+    function venv() {
+        source ~/python/$1/bin/activate
+    }
 else
-	echo 'unknown operating system!'
+    echo 'unknown operating system!'
 fi
