@@ -6,8 +6,8 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugged')
-"PlugInstall, PlugUpdate, PlugClean, PlugUpgrade (upgrade vim plug),
-"PlugStatus
+"PlugInstall, PlugUpdate, PlugClean,
+"PlugUpgrade (upgrade vim plug), PlugStatus
 
 "git
 Plug 'tpope/vim-fugitive'
@@ -53,13 +53,10 @@ Plug 'mattn/emmet-vim'
 
 call plug#end()
 
-source /usr/share/doc/fzf/examples/fzf.vim
-
 "plugin configurations
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 
-let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 "linter
