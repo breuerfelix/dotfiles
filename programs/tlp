@@ -69,7 +69,7 @@ CPU_SCALING_GOVERNOR_ON_BAT=powersave
 # Values are given in order of increasing power saving.
 # Note: Intel Skylake or newer CPU and Kernel >= 4.10 required.
 # Default: <none>
-CPU_HWP_ON_AC=balance_performance
+CPU_HWP_ON_AC=default
 CPU_HWP_ON_BAT=power
 
 # Set Intel P-state performance: 0..100 (%).
@@ -114,7 +114,7 @@ NMI_WATCHDOG=0
 # Values are given in order of increasing power saving.
 # Requires kernel module msr and x86_energy_perf_policy from linux-tools.
 # Default: <none>
-ENERGY_PERF_POLICY_ON_AC=balance_performance
+ENERGY_PERF_POLICY_ON_AC=default
 ENERGY_PERF_POLICY_ON_BAT=power
 
 # Disk devices; separate multiple devices with spaces.
@@ -163,7 +163,7 @@ DISK_APM_LEVEL_ON_BAT="128 128"
 # (*) Kernel >= 4.15 required, then recommended.
 # Multiple values separated with spaces are tried sequentially until success.
 # Default: <none>
-SATA_LINKPWR_ON_AC="med_power_with_dipm max_performance"
+SATA_LINKPWR_ON_AC="med_power_with_dipm medium_power"
 SATA_LINKPWR_ON_BAT="med_power_with_dipm min_power"
 
 # Exclude host devices from AHCI link power management.
@@ -204,7 +204,7 @@ AHCI_RUNTIME_PM_TIMEOUT=15
 # Radeon graphics clock speed (profile method): low, mid, high, auto, default;
 # auto = mid on BAT, high on AC.
 # Default: default
-RADEON_POWER_PROFILE_ON_AC=high
+RADEON_POWER_PROFILE_ON_AC=mid
 RADEON_POWER_PROFILE_ON_BAT=low
 
 # Radeon dynamic power management method (DPM): battery, performance.

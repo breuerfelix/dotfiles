@@ -16,6 +16,7 @@ thefuck
 cmake
 xbacklight
 tlp
+ncdu
 
 acpi-call-dkms # on thinkpad
 

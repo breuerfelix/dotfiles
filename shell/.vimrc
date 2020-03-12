@@ -137,7 +137,8 @@ nnoremap <silent> <C-l> :call WinMove('l')<CR>
 "terminal
 tnoremap jk <C-\><C-n>
 tnoremap <C-u> <C-\><C-n>:q<CR>
-map <C-m> :below 10 split <bar> :terminal<CR>i
+autocmd filetype python map <C-m> :below split <bar> :terminal python %<CR>
+autocmd filetype javascript,typescript map <C-m> :below split <bar> :terminal npm run dev<CR>
 
 "vim update delay in ms
 set updatetime=300
