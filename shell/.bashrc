@@ -169,9 +169,37 @@ export GPG_TTY=$(tty)
 [ -x /usr/local/bin/nomad ] && complete -o nospace -C /usr/local/bin/nomad nomad
 
 # fuzzy finder
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git --exclude .vim'
-export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
+if [ -f ~/.fzf.zsh ]; then
+    source ~/.fzf.zsh
+    export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git --exclude .vim'
+    export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+
+    # remove duplicated entries when HIST_FIND_NO_DUPS is on
+    fzf-history-dedup() {
+        if [ $options[HIST_FIND_NO_DUPS] = on ]; then
+            perl -ne 'print if !$seen{($_ =~ s/^[0-9\s]*//r)}++'
+        else
+            cat
+        fi
+    }
+
+    # overwrite default fzf function
+    fzf-history-widget() {
+        local selected num
+        setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
+        selected=( $(fc -rl 1 | fzf-history-dedup | # only this line changed
+            FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS --query=${(qqq)LBUFFER} +m" $(__fzfcmd)) )
+        local ret=$?
+        if [ -n "$selected" ]; then
+            num=$selected[1]
+            if [ -n "$num" ]; then
+                zle vi-fetch-history -n $num
+            fi
+        fi
+        zle reset-prompt
+        return $ret
+    }
+fi
 
 # asdf-vm
 #. /opt/asdf-vm/asdf.sh
