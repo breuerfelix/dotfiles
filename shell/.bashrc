@@ -201,6 +201,10 @@ if [ -f ~/.fzf.zsh ]; then
     }
 fi
 
+# hstr
+export HSTR_CONFIG=hicolor,hide-help
+bindkey -s "\C-e" "\e^ihstr -- \n"
+
 # asdf-vm
 #. /opt/asdf-vm/asdf.sh
 #. /opt/asdf-vm/completions/asdf.bash
