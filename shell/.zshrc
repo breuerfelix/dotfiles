@@ -23,3 +23,7 @@ export PATH=$PATH:/usr/local/sbin:$HOME/.local/bin
 
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/shell/.bashrc
+
+HISTFILE=~/.zsh_history
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE

@@ -1,3 +1,7 @@
+# check if running interactively
+[[ $- != *i* ]] && return
+[ -z "$PS1" ] && return
+
 # language
 export LC_ALL=en_US.UTF-8
 
