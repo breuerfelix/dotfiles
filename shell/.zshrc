@@ -11,7 +11,8 @@ HISTFILE=~/.zsh_history
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE
 
-setopt HIST_FIND_NO_DUPS
+setopt hist_find_no_dups
+setopt histignorespace
 
 plugins=(
     zsh-syntax-highlighting
