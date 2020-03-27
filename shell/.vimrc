@@ -79,10 +79,15 @@ imap jk <Esc>
 vmap <C-j> <Esc>
 
 "faster scrolling
-map <S-j> 4j
-map <S-k> 4k
+map <S-j> 4jzz
+map <S-k> 4kzz
+"nnoremap <S-j> <C-d>
+"nnoremap <S-k> <C-u>
 
-map <C-n> zz
+"tabs
+map <C-n> :tabn<CR>
+map <C-p> :tabp<CR>
+map <C-t> :tabnew<CR>
 
 "finder
 map ; :Files<CR>
