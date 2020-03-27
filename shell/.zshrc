@@ -13,6 +13,7 @@ SAVEHIST=$HISTSIZE
 
 setopt hist_find_no_dups
 setopt histignorespace
+export ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 plugins=(
     zsh-syntax-highlighting
@@ -30,3 +31,5 @@ export PATH=$PATH:/usr/local/sbin:$HOME/.local/bin
 
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/shell/.bashrc
+
+bindkey '^ ' autosuggest-accept

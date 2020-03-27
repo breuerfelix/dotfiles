@@ -85,6 +85,9 @@ bindsym $mod+w kill
 # Make the current focus fullscreen
 bindsym $mod+control+i fullscreen
 
+# toggle layout
+bindsym $mod+s layout toggle stacking splith
+
 # drag floating windows
 floating_modifier $mod normal
 bindsym $mod+shift+space floating toggle
@@ -196,8 +199,8 @@ input type:keyboard {
     # capslock is control
     # win and alt are both alt keys
     # menu toggles keyboard layout
-    xkb_layout us,de
-    xkb_options ctrl:nocaps,altwin:alt_win,grp:menu_toggle
+    xkb_layout us,de(qwerty)
+    xkb_options ctrl:nocaps,altwin:alt_win,grp:shifts_toggle
 }
 
 input type:touchpad {
