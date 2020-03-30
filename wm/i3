@@ -57,7 +57,7 @@ bindsym $mod+f exec $fterm -e 'ranger'
 bindsym $mod+Shift+Return exec $browser
 bindsym $mod+Control+m exec $mmenu
 bindsym $mod+Control+b exec $fterm -e 'bmenu'
-bindsym $mod+Control+t exec xrandr --ouput HDMI2 --auto --left-of eDP1
+bindsym $mod+Control+t exec xrandr --output HDMI2 --auto --left-of eDP1
 
 # Reload the configuration file
 bindsym $mod+Control+r reload
