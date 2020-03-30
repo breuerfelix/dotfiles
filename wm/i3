@@ -19,7 +19,6 @@ set $fterm alacritty --title floatme
 set $menu rofi -show drun -lines 5 --no-startup-id
 set $mmenu --no-startup-id morc_menu
 set $browser --no-startup-id google-chrome-stable
-#set $lock swaylock -f -i $wallpaper
 set $lock blurlock
 
 #
@@ -43,9 +42,6 @@ gaps outer 0
 #smart_gaps on
 #smart_bordes on
 
-# background
-#output * bg $wallpaper fill
-
 #
 # APPLICATIONS
 #
@@ -63,7 +59,6 @@ bindsym $mod+Control+t exec xrandr --output HDMI2 --auto --left-of eDP1
 bindsym $mod+Control+r reload
 
 # Exit session
-#bindsym $mod+Shift+w exec swaynag -t warning -m 'Do you really want to exit sway?' -b 'yes' 'swaymsg exit'
 bindsym $mod+Shift+w exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # move to scrathpad
@@ -72,13 +67,6 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 bindsym $mod+equal exec $lock
-#exec swayidle -w \
-      #timeout 30 'if pgrep swaylock; then swaymsg "output * dpms off"; fi' \
-          #resume 'swaymsg "output * dpms on"' \
-    #before-sleep '$lock'
-    # uncomment to enable auto lock
-    #timeout 300 '$lock' \
-    #timeout 600 'swaymsg "output * dpms off"' \
 
 # screenshot
 #bindsym $mod+0 exec grim -g "$(slurp)" $screenshot_dir/$(date +'%s_grim.png')
@@ -95,17 +83,14 @@ exec --no-startup-id volumeicon
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-#exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
-#exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+exec setxkbmap -option "ctrl:nocaps,altwin:alt_win,grp:shifts_toggle" -layout "us,de(qwerty)"
 
 for_window [title="^floatme$"] floating enable
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -284,44 +269,17 @@ client.focused            $lightbrown   $lightbrown     $lighttext
 client.focused_inactive   $lightbrown   $lightbrown     $lighttext
 client.unfocused          $brown        $brown          $text
 
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
-
+#set $bg #282828
+#set $red #cc241d
+#set $green #98971a
+#set $yellow #d79921
+#set $blue #458588
+#set $purple #b16286
+#set $aqua #689d68
+#set $gray #a89984
+#set $darkgray #1d2021
 
 #client.focused          $blue $blue $darkgray $purple $blue
 #client.focused_inactive $darkgray $darkgray $yellow $purple $blue
 #client.unfocused        $darkgray $darkgray $yellow $purple $blue
 #client.urgent           $red $red $white $red $red
-
-#
-# INPUT
-#
-
-# change volume
-#bindsym XF86AudioRaiseVolume exec amixer -q set Master 3%+
-#bindsym XF86AudioLowerVolume exec amixer -q set Master 3%-
-#bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
-
-# change brightness
-#bindsym XF86MonBrightnessUp exec sudo backlight intel_backlight inc 5
-#bindsym XF86MonBrightnessDown exec sudo backlight intel_backlight dec 5
-
-exec setxkbmap -option "ctrl:nocaps,altwin:alt_win,grp:shifts_toggle" -layout "us,de(qwerty)"
-#input type:keyboard {
-    # capslock is control
-    # win and alt are both alt keys
-    # menu toggles keyboard layout
-    #xkb_layout us,de(qwerty)
-    #xkb_options ctrl:nocaps,altwin:alt_win,grp:shifts_toggle
-#}
-
-#input type:touchpad {
-    #natural_scroll enabled
-#}

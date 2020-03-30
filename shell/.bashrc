@@ -24,7 +24,6 @@ alias pip3='/usr/bin/pip3'
 # override aliases
 alias ls='lsd -A'
 alias cat='bat'
-#alias fd='fdfind'
 alias vi='nvim'
 
 # misspelling
@@ -161,8 +160,8 @@ if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
 source ~/dotfiles/shell/nnn.sh
 
 # rust
-export PATH=$HOME/.cargo/bin:$PATH
-source $HOME/.cargo/env
+#export PATH=$HOME/.cargo/bin:$PATH
+#source $HOME/.cargo/env
 
 # direnv
 #eval "$(direnv hook zsh)"
@@ -236,7 +235,7 @@ export PATH=$PATH:$HOME/packages/flutter/bin
 #powerline-daemon -q
 
 # esp-idf
-export IDF_PATH=$HOME/inovex/esp-idf
+#export IDF_PATH=$HOME/inovex/esp-idf
 #. $HOME/inovex/esp-idf/export.sh >> /dev/null
 
 # system specific config
@@ -247,6 +246,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     fi
 
     if [ $OS = "Ubuntu" ]; then
+        alias fd='fdfind'
         alias in='sudo apt install'
         alias uin='sudo apt remove'
     elif [ $OS = "Manjaro Linux" ]; then
