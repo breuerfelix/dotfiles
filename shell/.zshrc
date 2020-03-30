@@ -33,5 +33,3 @@ source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/shell/.bashrc
 
 bindkey '^ ' autosuggest-accept
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

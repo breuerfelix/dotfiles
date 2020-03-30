@@ -279,5 +279,5 @@ colorscheme gruvbox-material
 highlight NonText ctermfg=grey guifg=grey25
 highlight Comment ctermfg=grey guifg=grey50
 
-"transparent background
+"enable transparent background
 "hi Normal guibg=NONE ctermbg=NONE

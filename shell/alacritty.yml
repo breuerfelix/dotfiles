@@ -221,6 +221,7 @@ colors:
     magenta: '0xd3869b'
     cyan:    '0x89b482'
     white:   '0xd4be98'
+
 # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
