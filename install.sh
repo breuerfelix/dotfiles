@@ -10,7 +10,9 @@ ln -sfv ~/dotfiles/programs/coc-settings.json ~/.config/nvim/coc-settings.json
 
 ln -sfv ~/dotfiles/shell/alacritty.yml ~/.config/alacritty/alacritty.yml
 
-ln -sfv ~/dotfiles/wm/sway ~/.config/sway/config
-ln -sfv ~/dotfiles/wm/waybar.json ~/.config/waybar/config
-ln -sfv ~/dotfiles/wm/waybar.css ~/.config/waybar/style.css
+#ln -sfv ~/dotfiles/wm/sway ~/.config/sway/config
+#ln -sfv ~/dotfiles/wm/waybar.json ~/.config/waybar/config
+#ln -sfv ~/dotfiles/wm/waybar.css ~/.config/waybar/style.css
 ln -sfv ~/dotfiles/programs/rofi.css ~/.config/rofi/config.rasi
+ln -sfv ~/dotfiles/wm/i3 ~/.i3/config
+ln -sfv ~/dotfiles/wm/.Xresources ~/.Xresources

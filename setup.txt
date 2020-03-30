@@ -1,3 +1,9 @@
+# arch
+# themes
+gruvbox-dark-gtk 1.0.1-1
+gtk-theme-arc-gruvbox-git r12.e5ea0ff-1
+
+# ubuntu
 # apt
 git
 tmux

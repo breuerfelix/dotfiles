@@ -2,6 +2,9 @@
 [[ $- != *i* ]] && return
 [ -z "$PS1" ] && return
 
+# start tmux per default
+#[ -z "$TMUX" ] && exec tmux
+
 # language
 export LC_ALL=en_US.UTF-8
 
@@ -21,7 +24,6 @@ alias pip3='/usr/bin/pip3'
 # override aliases
 alias ls='lsd -A'
 alias cat='bat'
-alias fd='fdfind'
 alias vi='nvim'
 
 # misspelling
@@ -69,6 +71,8 @@ alias lst='ls --tree -I .git'
 alias lsl='ls -l'
 alias mkdir='mkdir -p'
 alias cp='cp -i' # confirm before overwrite
+alias df='df -h'
+alias du='du -sh'
 
 # console
 alias c='clear'
@@ -156,8 +160,8 @@ if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
 source ~/dotfiles/shell/nnn.sh
 
 # rust
-export PATH=$HOME/.cargo/bin:$PATH
-source $HOME/.cargo/env
+#export PATH=$HOME/.cargo/bin:$PATH
+#source $HOME/.cargo/env
 
 # direnv
 #eval "$(direnv hook zsh)"
@@ -171,7 +175,7 @@ export GPG_TTY=$(tty)
 # fuzzy finder
 if [ -f ~/.fzf.zsh ]; then
     source ~/.fzf.zsh
-    export FZF_DEFAULT_COMMAND='fdfind --type f --hidden --follow --exclude .git --exclude .vim'
+    export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --exclude .vim'
     export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
     # remove duplicated entries when HIST_FIND_NO_DUPS is on
@@ -222,16 +226,16 @@ export PATH=$PATH:$HOME/packages/flutter/bin
 [ -f $HOME/.secrets.sh ] && source $HOME/.secrets.sh
 
 # docker machine
-source /etc/bash_completion.d/docker-machine-prompt.bash
+#source /etc/bash_completion.d/docker-machine-prompt.bash
 
 # autojump
-source /usr/share/autojump/autojump.sh
+#source /usr/share/autojump/autojump.sh
 
 # powerline
-powerline-daemon -q
+#powerline-daemon -q
 
 # esp-idf
-export IDF_PATH=$HOME/inovex/esp-idf
+#export IDF_PATH=$HOME/inovex/esp-idf
 #. $HOME/inovex/esp-idf/export.sh >> /dev/null
 
 # system specific config
@@ -242,9 +246,10 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     fi
 
     if [ $OS = "Ubuntu" ]; then
+        alias fd='fdfind'
         alias in='sudo apt install'
         alias uin='sudo apt remove'
-    elif [ $OS = "Arch" ]; then
+    elif [ $OS = "Manjaro Linux" ]; then
         alias in='yay -S'
         alias uin='yay -Rs'
     fi
@@ -254,7 +259,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
             sudo apt update
             sudo apt full-upgrade -y
             sudo apt autoremove -y
-        elif [ $OS = "Arch" ]; then
+        elif [ $OS = "Manjaro Linux" ]; then
+            yay -Y --gendb
             yay -Syu --devel --timeupdate
             yay -Yc
         fi
