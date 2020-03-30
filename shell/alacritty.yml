@@ -136,7 +136,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 11.5
+  size: 12
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -170,32 +170,57 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (One Half Dark)
+# colors one half dark
+#colors:
+  #primary:
+    #background: '0x282c34'
+    #foreground: '0xdcdfe4'
+
+  #normal:
+    #black: '0x282c34'
+    #red: '0xe06c75'
+    #green: '0x98c379'
+    #yellow: '0xe5c07b'
+    #blue: '0x61afef'
+    #magenta: '0xc678dd'
+    #cyan: '0x56b6c2'
+    #white: '0xdcdfe4'
+
+  #bright:
+    #black: '0xA9A9A9'
+    #red: '0xe06c75'
+    #green: '0x98c379'
+    #yellow: '0xe5c07b'
+    #blue: '0x61afef'
+    #magenta: '0xc678dd'
+    #cyan: '0x56b6c2'
+    #white: '0xdcdfe4'
+
+# colors gruvbox material
 colors:
   primary:
-    background: '0x282c34'
-    foreground: '0xdcdfe4'
+    background: '0x282828'
+    foreground: '0xd4be98'
 
   normal:
-    black: '0x282c34'
-    red: '0xe06c75'
-    green: '0x98c379'
-    yellow: '0xe5c07b'
-    blue: '0x61afef'
-    magenta: '0xc678dd'
-    cyan: '0x56b6c2'
-    white: '0xdcdfe4'
+    black:   '0x504945'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xd8a657'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    cyan:    '0x89b482'
+    white:   '0xd4be98'
 
   bright:
-    black: '0xA9A9A9'
-    red: '0xe06c75'
-    green: '0x98c379'
-    yellow: '0xe5c07b'
-    blue: '0x61afef'
-    magenta: '0xc678dd'
-    cyan: '0x56b6c2'
-    white: '0xdcdfe4'
-
+    black:   '0x504945'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xd8a657'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    cyan:    '0x89b482'
+    white:   '0xd4be98'
 # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
@@ -481,10 +506,11 @@ key_bindings:
   #- { key: W,      mods: Command,         action: Quit             }
   #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
 
+  - { key: H,        mods: Control, chars: "vi .\n"                          }
+  - { key: L,        mods: Control, chars: "\x0c"                            }
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
   - { key: L,        mods: Control, action: ClearLogNotice                   }
-  - { key: L,        mods: Control, chars: "\x0c"                            }
   - { key: Home,     mods: Alt,     chars: "\x1b[1;3H"                       }
   - { key: Home,                    chars: "\x1bOH",        mode: AppCursor  }
   - { key: Home,                    chars: "\x1b[H",        mode: ~AppCursor }

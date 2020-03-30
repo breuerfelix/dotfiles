@@ -1,0 +1,327 @@
+#
+# VARIBALES
+#
+
+# mod1 is Alt key
+set $mod mod1
+
+# vim-like keys
+set $left h
+set $down j
+set $up k
+set $right l
+
+set $wallpaper ~/pictures/bg.jpg
+set $screenshot_dir ~/pictures
+
+set $term alacritty
+set $fterm alacritty --title floatme
+set $menu rofi -show drun -lines 5 --no-startup-id
+set $mmenu --no-startup-id morc_menu
+set $browser --no-startup-id google-chrome-stable
+#set $lock swaylock -f -i $wallpaper
+set $lock blurlock
+
+#
+# SETUP
+#
+
+font xft:URWGothic-Book 12
+#font DroidSansMono Nerd Font 15
+
+# needs left click to focus
+focus_follows_mouse no
+
+# layout
+workspace_layout default
+default_border pixel 4
+#default_floating_border normal # maybe also just pixels
+#new_window pixel 2
+#hide_edge_borders none
+gaps inner 10
+gaps outer 0
+#smart_gaps on
+#smart_bordes on
+
+# background
+#output * bg $wallpaper fill
+
+#
+# APPLICATIONS
+#
+
+bindsym $mod+space exec $menu
+bindsym $mod+Return exec $term -e 'tmux'
+bindsym $mod+e exec $fterm
+bindsym $mod+f exec $fterm -e 'ranger'
+bindsym $mod+Shift+Return exec $browser
+bindsym $mod+Control+m exec $mmenu
+bindsym $mod+Control+b exec $fterm -e 'bmenu'
+bindsym $mod+Control+t exec xrandr --ouput HDMI2 --auto --left-of eDP1
+
+# Reload the configuration file
+bindsym $mod+Control+r reload
+
+# Exit session
+#bindsym $mod+Shift+w exec swaynag -t warning -m 'Do you really want to exit sway?' -b 'yes' 'swaymsg exit'
+bindsym $mod+Shift+w exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# move to scrathpad
+bindsym $mod+Shift+minus move scratchpad
+# toggle scratchpad window or cycle through
+bindsym $mod+minus scratchpad show
+
+bindsym $mod+equal exec $lock
+#exec swayidle -w \
+      #timeout 30 'if pgrep swaylock; then swaymsg "output * dpms off"; fi' \
+          #resume 'swaymsg "output * dpms on"' \
+    #before-sleep '$lock'
+    # uncomment to enable auto lock
+    #timeout 300 '$lock' \
+    #timeout 600 'swaymsg "output * dpms off"' \
+
+# screenshot
+#bindsym $mod+0 exec grim -g "$(slurp)" $screenshot_dir/$(date +'%s_grim.png')
+#bindsym $mod+9 exec grim $screenshot_dir/$(date +'%s_grim.png')
+# exec --no-startup-id i3-scrot -w? -s?
+
+#
+# AUTOSTART
+#
+
+exec --no-startup-id volumeicon
+#exec --no-startup-id pulseaudio
+#exec --no-startup-id pa-applet
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id nitrogen --restore; sleep 1; compton -b
+#exec --no-startup-id manjaro-hello
+exec --no-startup-id nm-applet
+exec --no-startup-id xfce4-power-manager
+exec --no-startup-id pamac-tray
+exec --no-startup-id blueman-applet
+# exec_always --no-startup-id sbxkb
+#exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_green
+exec --no-startup-id xautolock -time 10 -locker blurlock
+exec_always --no-startup-id ff-theme-util
+exec_always --no-startup-id fix_xcursor
+
+for_window [title="^floatme$"] floating enable
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="calamares"] floating enable border normal
+for_window [class="Clipgrab"] floating enable
+for_window [title="File Transfer*"] floating enable
+for_window [class="fpakman"] floating enable
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [class="Lightdm-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Manjaro-hello"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [title="MuseScore: Play Panel"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Oblogout"] fullscreen enable
+for_window [class="octopi"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Xfburn"] floating enable
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+#
+# WINDOWS
+#
+
+# kill active window
+bindsym $mod+w kill
+# Make the current focus fullscreen
+bindsym $mod+Control+i fullscreen
+
+# toggle layout
+bindsym $mod+s layout toggle stacking splith
+
+# drag floating windows
+floating_modifier $mod
+bindsym $mod+Shift+space floating toggle
+
+# determine the next split
+bindsym $mod+n split h
+bindsym $mod+y split v
+
+# move focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+# move window
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+#
+# WORKSPACES
+#
+
+#workspace_auto_back_and_forth yes
+#bindsym $mod+ workspace back_and_forth
+#move container to workspace back_and_forth; workspace back_and_forth
+
+bindsym $mod+Control+$down workspace next
+bindsym $mod+Control+$up workspace prev
+# move window to next workspace and switch focus there
+bindsym $mod+Control+$left move container to workspace next, workspace next
+bindsym $mod+Control+$right move container to workspace prev, workspace prev
+
+set $ws_terminal terminal
+set $ws_browser browser
+set $ws_chat chat
+set $ws_music music
+
+set $key_terminal o
+set $key_browser u
+set $key_chat m
+set $key_music b
+
+# switch to workspace
+bindsym $mod+$key_terminal workspace $ws_terminal
+bindsym $mod+$key_browser workspace $ws_browser
+bindsym $mod+$key_chat workspace $ws_chat
+bindsym $mod+$key_music workspace $ws_music
+
+# move focused container to workspace
+bindsym $mod+Shift+$key_terminal move container to workspace $ws_terminal, workspace $ws_terminal
+bindsym $mod+Shift+$key_browser move container to workspace $ws_browser, workspace $ws_browser
+bindsym $mod+Shift+$key_chat move container to workspace $ws_chat, workspace $ws_chat
+bindsym $mod+Shift+$key_music move container to workspace $ws_music, workspace $ws_music
+
+#
+# RESIZE
+#
+
+bindsym $mod+r mode "resize"
+mode "resize" {
+    bindsym $left resize shrink width 5px
+    bindsym $down resize grow height 5px
+    bindsym $up resize shrink height 5px
+    bindsym $right resize grow width 5px
+
+    bindsym Shift+$left resize shrink width 10px
+    bindsym Shift+$down resize grow height 10px
+    bindsym Shift+$up resize shrink height 10px
+    bindsym Shift+$right resize grow width 10px
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+#
+# MODES
+#
+
+bindsym $mod+Control+e mode "$mode_system"
+set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+#
+# STATUS BAR
+#
+
+set $brown #504945
+set $lightbrown #928374
+set $lighttext #ebdbb2
+set $text #a89984
+
+bar {
+    i3bar_command i3bar
+    status_command i3status
+    position bottom
+
+#    font xft:URWGothic-Book 11
+    strip_workspace_numbers yes
+
+    colors {
+        background $brown
+        statusline #F9FAF9
+        separator  #454947
+
+#                      border  backgr. text
+        focused_workspace  $lighttext $lightbrown #ffffff
+        active_workspace   #595B5B $brown $text
+        inactive_workspace #595B5B $brown $text
+        binding_mode       $lighttext $lightbrown #ffffff
+    }
+}
+
+#
+# STYLING
+#
+
+client.focused            $lightbrown   $lightbrown     $lighttext
+client.focused_inactive   $lightbrown   $lightbrown     $lighttext
+client.unfocused          $brown        $brown          $text
+
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+
+
+#client.focused          $blue $blue $darkgray $purple $blue
+#client.focused_inactive $darkgray $darkgray $yellow $purple $blue
+#client.unfocused        $darkgray $darkgray $yellow $purple $blue
+#client.urgent           $red $red $white $red $red
+
+#
+# INPUT
+#
+
+# change volume
+#bindsym XF86AudioRaiseVolume exec amixer -q set Master 3%+
+#bindsym XF86AudioLowerVolume exec amixer -q set Master 3%-
+#bindsym XF86AudioMute exec amixer -D pulse set Master 1+ toggle
+
+# change brightness
+#bindsym XF86MonBrightnessUp exec sudo backlight intel_backlight inc 5
+#bindsym XF86MonBrightnessDown exec sudo backlight intel_backlight dec 5
+
+exec setxkbmap -option "ctrl:nocaps,altwin:alt_win,grp:shifts_toggle" -layout "us,de(qwerty)"
+#input type:keyboard {
+    # capslock is control
+    # win and alt are both alt keys
+    # menu toggles keyboard layout
+    #xkb_layout us,de(qwerty)
+    #xkb_options ctrl:nocaps,altwin:alt_win,grp:shifts_toggle
+#}
+
+#input type:touchpad {
+    #natural_scroll enabled
+#}
