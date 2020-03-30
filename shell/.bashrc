@@ -72,6 +72,8 @@ alias lst='ls --tree -I .git'
 alias lsl='ls -l'
 alias mkdir='mkdir -p'
 alias cp='cp -i' # confirm before overwrite
+alias df='df -h'
+alias du='du -sh'
 
 # console
 alias c='clear'
