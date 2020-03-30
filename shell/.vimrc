@@ -17,6 +17,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'dense-analysis/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'rhysd/vim-grammarous'
 
 "fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -46,7 +47,8 @@ Plug 'sonph/onehalf', { 'rtp': 'vim/' }
 "Plug 'chriskempson/base16-vim'
 "Plug 'junegunn/seoul256.vim'
 "Plug 'arcticicestudio/nord-vim'
-"Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 
 "emmet
 Plug 'mattn/emmet-vim'
@@ -263,11 +265,13 @@ endif
 let g:user_emmet_leader_key = '<C-d>'
 let g:airline_powerline_fonts = 1
 
-"let g:gruvbox_contrast_dark = 'hard'
 "let g:airline_theme = 'onehalfdark'
 "let g:onedark_terminal_italics = 1
-
-colorscheme onehalfdark
+"let g:gruvbox_contrast_light='soft'
+"let g:gruvbox_contrast_dark='soft'
+set background=dark
+let g:airline_theme = 'gruvbox_material'
+colorscheme gruvbox-material
 
 "override colorscheme
 
@@ -276,4 +280,4 @@ highlight NonText ctermfg=grey guifg=grey25
 highlight Comment ctermfg=grey guifg=grey50
 
 "transparent background
-hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
