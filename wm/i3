@@ -55,11 +55,10 @@ bindsym $mod+Control+m exec $mmenu
 bindsym $mod+Control+b exec $fterm -e 'bmenu'
 bindsym $mod+Control+t exec xrandr --output HDMI2 --auto --left-of eDP1
 
-# Reload the configuration file
+# reload, restart and exit
 bindsym $mod+Control+r reload
-
-# Exit session
-bindsym $mod+Shift+w exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Control+w restart
+bindsym $mod+Control+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # move to scrathpad
 bindsym $mod+Shift+minus move scratchpad
@@ -71,15 +70,14 @@ bindsym $mod+equal exec $lock
 # screenshot
 #bindsym $mod+0 exec grim -g "$(slurp)" $screenshot_dir/$(date +'%s_grim.png')
 #bindsym $mod+9 exec grim $screenshot_dir/$(date +'%s_grim.png')
-# exec --no-startup-id i3-scrot -w? -s?
+bindsym --release $mod+0 exec --no-startup-id i3-scrot -s
 
 #
 # AUTOSTART
 #
 
-exec --no-startup-id volumeicon
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
+exec_always --no-startup-id bash /home/felix/dotfiles/programs/polybar.sh
+exec --no-startup-id pa-applet
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
@@ -87,10 +85,10 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id blueman-applet
-exec --no-startup-id xautolock -time 10 -locker blurlock
+#exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-exec setxkbmap -option "ctrl:nocaps,altwin:alt_win,grp:shifts_toggle" -layout "us,de(qwerty)"
+exec_always setxkbmap -option "ctrl:nocaps,altwin:alt_win,grp:shifts_toggle" -layout "us,de(qwerty)"
 
 for_window [title="^floatme$"] floating enable
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -116,7 +114,6 @@ for_window [class="Simple-scan"] floating enable border normal
 for_window [class="(?i)System-config-printer.py"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
-for_window [class="Xfburn"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -163,6 +160,7 @@ bindsym $mod+Shift+$right move right
 
 bindsym $mod+Control+$down workspace next
 bindsym $mod+Control+$up workspace prev
+
 # move window to next workspace and switch focus there
 bindsym $mod+Control+$left move container to workspace next, workspace next
 bindsym $mod+Control+$right move container to workspace prev, workspace prev
@@ -232,38 +230,13 @@ mode "$mode_system" {
 }
 
 #
-# STATUS BAR
+# STYLING
 #
 
 set $brown #504945
 set $lightbrown #928374
 set $lighttext #ebdbb2
 set $text #a89984
-
-bar {
-    i3bar_command i3bar
-    status_command i3status
-    position bottom
-
-#    font xft:URWGothic-Book 11
-    strip_workspace_numbers yes
-
-    colors {
-        background $brown
-        statusline #F9FAF9
-        separator  #454947
-
-#                      border  backgr. text
-        focused_workspace  $lighttext $lightbrown #ffffff
-        active_workspace   #595B5B $brown $text
-        inactive_workspace #595B5B $brown $text
-        binding_mode       $lighttext $lightbrown #ffffff
-    }
-}
-
-#
-# STYLING
-#
 
 client.focused            $lightbrown   $lightbrown     $lighttext
 client.focused_inactive   $lightbrown   $lightbrown     $lighttext

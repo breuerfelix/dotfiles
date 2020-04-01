@@ -1,0 +1,148 @@
+[colors]
+
+base03 = #002b36
+base02 = #073642
+base01 = #586e75
+base00 = #657b83
+base0  = #839496
+base1  = #93a1a1
+base2  = #eee8d5
+base3  = #fdf6e3
+
+[bar/bar]
+monitor = ${env:MONITOR:}
+tray-position = right
+background = ${colors.base3}
+foreground = ${colors.base00}
+border-bottom-color = ${colors.base00}
+border-bottom-size = 5
+bottom = false
+height = 26
+width = 100%
+module-margin = 2
+padding = 3
+
+font-0 = "Gohu GohuFont:style=Regular:size=13;2"
+font-1 = "Gohu GohuFont:style=Regular:size=13;2"
+font-2 = "Gohu GohuFont:style=Regular:size=13;2"
+font-3 = "Gohu GohuFont:style=Regular:size=13;2"
+font-4 = "Fantasque Sans Mono:style=Regular:size=13;2"
+
+modules-left = storage backlight volume temperature memory cpu
+modules-right = title wireless ethernet battery date time
+modules-center = i3
+
+[module/storage]
+type = internal/fs
+interval = 60
+mount-0 = /
+label-mounted = SSD %percentage_used%%
+#label-mounted = SSD: %used% / %total%
+label-unmounted = %mountpoint% not mounted
+
+[module/cpu]
+type = internal/cpu
+label = CPU %percentage%%
+
+[module/memory]
+type = internal/memory
+label = RAM %percentage_used%%
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 75
+format = <label>
+format-warn = <label-warn> (!)
+label = TEMP %temperature-c%
+label-warn = TEMP %temperature-c%
+
+[module/volume]
+type = internal/alsa
+format-volume = <label-volume>
+label-volume = VOL %percentage%%
+label-muted = MUT %percentage%%
+label-muted-foreground = #90
+
+[module/i3]
+type = internal/i3
+strip-wsnumbers = true
+index-sort = true
+
+ws-icon-0 = 1
+ws-icon-1 = 2
+ws-icon-2 = 3
+ws-icon-3 = 4
+ws-icon-4 = 5
+ws-icon-5 = 6
+ws-icon-6 = 7
+ws-icon-7 = 8
+ws-icon-8 = 9
+ws-icon-9 = 0
+
+label-focused = @
+label-focused-font = 4
+label-focused-padding = 0
+label-occupied = #
+label-occupied-font = 4
+label-occupied-padding = 0
+label-empty = _
+label-empty-font = 4
+label-empty-padding = 0
+label-urgent = !
+label-urgent-font = 4
+label-urgent-padding = 0
+label-separator = " "
+
+[module/wireless]
+type = internal/network
+interface = wlp0s20f3
+label-connected = %essid% | %signal%
+format-connected = <label-connected> <ramp-signal>
+ramp-signal-0 = S 1
+ramp-signal-1 = S 2
+ramp-signal-2 = S 3
+ramp-signal-3 = S 4
+ramp-signal-4 = S 5
+ramp-signal-5 = S 6
+
+[module/ethernet]
+type = internal/network
+interface = enp0s31f6
+label-connected = wired
+format-connected = <label-connected>
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ACAD
+format-charging = BAT <label-charging>
+format-discharging = BAT <label-discharging>
+format-full = BAT <label-full>
+label-charging = %percentage%%+
+label-full = (full)
+label-discharging = %percentage%%
+
+[module/date]
+type = internal/date
+date = %A, %e. %B
+date-alt = %Y-%m-%d
+label = %date%
+
+[module/time]
+type = internal/date
+interval = 5
+time = %H:%M
+label = %time%
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = DIM <label>
+label = %percentage%%
+
+[module/title]
+type = internal/xwindow
+format = (<label>)
+label = %title%
+label-maxlen = 35

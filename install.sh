@@ -14,5 +14,6 @@ ln -sfv ~/dotfiles/shell/alacritty.yml ~/.config/alacritty/alacritty.yml
 #ln -sfv ~/dotfiles/wm/waybar.json ~/.config/waybar/config
 #ln -sfv ~/dotfiles/wm/waybar.css ~/.config/waybar/style.css
 ln -sfv ~/dotfiles/programs/rofi.css ~/.config/rofi/config.rasi
+ln -sfv ~/dotfiles/programs/polybar ~/.config/polybar/config
 ln -sfv ~/dotfiles/wm/i3 ~/.i3/config
 ln -sfv ~/dotfiles/wm/.Xresources ~/.Xresources

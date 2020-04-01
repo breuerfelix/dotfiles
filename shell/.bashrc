@@ -5,8 +5,9 @@
 # start tmux per default
 #[ -z "$TMUX" ] && exec tmux
 
-# language
+# generic
 export LC_ALL=en_US.UTF-8
+export EDITOR=nvim
 
 #
 # ALIASES
@@ -14,6 +15,7 @@ export LC_ALL=en_US.UTF-8
 
 # logout user
 alias luser='pkill -KILL -u'
+alias susu='sudo su'
 
 # binaries
 alias python2='/usr/bin/python2'
@@ -25,6 +27,7 @@ alias pip3='/usr/bin/pip3'
 alias ls='lsd -A'
 alias cat='bat'
 alias vi='nvim'
+alias svi='sudo nvim'
 
 # misspelling
 alias car='cat'
