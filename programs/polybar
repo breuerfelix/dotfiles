@@ -1,20 +1,15 @@
 [colors]
 
-base03 = #002b36
-base02 = #073642
-base01 = #586e75
-base00 = #657b83
-base0  = #839496
-base1  = #93a1a1
-base2  = #eee8d5
-base3  = #fdf6e3
+grey = #657b83
+light  = #fdf6e3
 
 [bar/bar]
-monitor = ${env:MONITOR:}
+monitor = ${env:MONITOR:eDP1}
 tray-position = right
-background = ${colors.base3}
-foreground = ${colors.base00}
-border-bottom-color = ${colors.base00}
+tray-padding = 2
+background = ${colors.light}
+foreground = ${colors.grey}
+border-bottom-color = ${colors.grey}
 border-bottom-size = 5
 bottom = false
 height = 26
@@ -23,13 +18,10 @@ module-margin = 2
 padding = 3
 
 font-0 = "Gohu GohuFont:style=Regular:size=13;2"
-font-1 = "Gohu GohuFont:style=Regular:size=13;2"
-font-2 = "Gohu GohuFont:style=Regular:size=13;2"
-font-3 = "Gohu GohuFont:style=Regular:size=13;2"
-font-4 = "Fantasque Sans Mono:style=Regular:size=13;2"
+font-1 = "Material Icons:style=Regular:size=17;5"
 
 modules-left = storage backlight volume temperature memory cpu
-modules-right = title wireless ethernet battery date time
+modules-right = battery wireless ethernet date time
 modules-center = i3
 
 [module/storage]
@@ -69,36 +61,19 @@ type = internal/i3
 strip-wsnumbers = true
 index-sort = true
 
-ws-icon-0 = 1
-ws-icon-1 = 2
-ws-icon-2 = 3
-ws-icon-3 = 4
-ws-icon-4 = 5
-ws-icon-5 = 6
-ws-icon-6 = 7
-ws-icon-7 = 8
-ws-icon-8 = 9
-ws-icon-9 = 0
+ws-icon-default = 
 
-label-focused = @
-label-focused-font = 4
-label-focused-padding = 0
-label-occupied = #
-label-occupied-font = 4
-label-occupied-padding = 0
-label-empty = _
-label-empty-font = 4
-label-empty-padding = 0
-label-urgent = !
-label-urgent-font = 4
-label-urgent-padding = 0
+format = <label-state>
+label-focused = 
+label-unfocused = %icon%
+label-visible = %icon%
 label-separator = " "
 
 [module/wireless]
 type = internal/network
 interface = wlp0s20f3
-label-connected = %essid% | %signal%
-format-connected = <label-connected> <ramp-signal>
+label-connected = %essid%
+format-connected = <label-connected>
 ramp-signal-0 = S 1
 ramp-signal-1 = S 2
 ramp-signal-2 = S 3

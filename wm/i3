@@ -54,6 +54,7 @@ bindsym $mod+Shift+Return exec $browser
 bindsym $mod+Control+m exec $mmenu
 bindsym $mod+Control+b exec $fterm -e 'bmenu'
 bindsym $mod+Control+t exec xrandr --output HDMI2 --auto --left-of eDP1
+bindsym $mod+Control+y exec xrandr --auto
 
 # reload, restart and exit
 bindsym $mod+Control+r reload
@@ -233,26 +234,15 @@ mode "$mode_system" {
 # STYLING
 #
 
+set $light #fdf6e3
+set $grey #657b83
+set $blue #2E9EF4
+
 set $brown #504945
 set $lightbrown #928374
 set $lighttext #ebdbb2
 set $text #a89984
 
-client.focused            $lightbrown   $lightbrown     $lighttext
-client.focused_inactive   $lightbrown   $lightbrown     $lighttext
-client.unfocused          $brown        $brown          $text
-
-#set $bg #282828
-#set $red #cc241d
-#set $green #98971a
-#set $yellow #d79921
-#set $blue #458588
-#set $purple #b16286
-#set $aqua #689d68
-#set $gray #a89984
-#set $darkgray #1d2021
-
-#client.focused          $blue $blue $darkgray $purple $blue
-#client.focused_inactive $darkgray $darkgray $yellow $purple $blue
-#client.unfocused        $darkgray $darkgray $yellow $purple $blue
-#client.urgent           $red $red $white $red $red
+client.focused            $light        $light       $grey       $blue     $light
+client.focused_inactive   $lightbrown   $lightbrown  $lighttext  $blue     $lightbrown
+client.unfocused          $brown        $brown       $text       $blue     $brown
