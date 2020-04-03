@@ -18,6 +18,7 @@ Plug 'dense-analysis/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rhysd/vim-grammarous'
+Plug 'mboughaba/i3config.vim'
 
 "fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
