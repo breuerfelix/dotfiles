@@ -101,6 +101,9 @@ map <leader>r :s/"/'/g<bar>:noh<CR>
 map <leader>q :ALEFix<CR>
 map <leader>n :noh<CR>
 
+"inserts blank line below
+nnoremap <C-m> :set paste<CR>o<Esc>:set nopaste<CR>
+
 "save
 map <C-i> :w<CR>
 imap <C-i> <Esc>:w<CR>i
@@ -143,7 +146,7 @@ nnoremap <silent> <C-l> :call WinMove('l')<CR>
 tnoremap jk <C-\><C-n>
 tnoremap <C-u> <C-\><C-n>:q<CR>
 autocmd filetype python map <C-m> :below split <bar> :terminal python %<CR>
-autocmd filetype javascript,typescript map <C-m> :below split <bar> :terminal npm run dev<CR>
+autocmd filetype javascript,typescript map <C-m> :below split <bar> :terminal npm start<CR>
 
 "vim update delay in ms
 set updatetime=300
@@ -205,14 +208,16 @@ set noswapfile
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
-set cmdheight=2
+set cmdheight=1
 set shortmess+=c
 set signcolumn=yes
 
 inoremap <silent><expr> <C-space> coc#refresh()
 
+"jump back to previous location
+nnoremap <leader>g <C-o>
+
 "GoTo code navigation
-nmap <leader>g <C-o>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gt <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)

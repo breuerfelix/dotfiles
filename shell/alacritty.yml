@@ -507,7 +507,7 @@ key_bindings:
   #- { key: W,      mods: Command,         action: Quit             }
   #- { key: F,      mods: Command|Control, action: ToggleFullscreen }
 
-  - { key: D,        mods: Control, chars: "vi .\n"                          }
+  #- { key: D,        mods: Control, chars: "vi .\n"                          }
   - { key: L,        mods: Control, chars: "\x0c"                            }
   - { key: Y,        mods: Control, chars: "sudo !!\n"                       }
   - { key: Paste,                   action: Paste                            }

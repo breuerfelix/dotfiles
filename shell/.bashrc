@@ -42,6 +42,7 @@ alias ssh='TERM=screen ssh'
 alias sc='sudo systemctl'
 alias shut='sudo shutdown -h now'
 alias power='sudo powertop'
+alias loopback='pactl load-module module-loopback latency_msec=1'
 
 # terraform
 alias tf='terraform'
@@ -82,6 +83,11 @@ alias c='clear'
 alias cs='clear;ls'
 alias null='/dev/null'
 alias res='source ~/.zshrc'
+
+function synctime() {
+    sudo ntpdate ntp.ubuntu.com
+    sudo hwclock --systohc
+}
 
 function watch() {
     while sleep 1
