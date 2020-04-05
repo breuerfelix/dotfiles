@@ -157,7 +157,6 @@ set mouse=
 "syntax
 syntax enable
 set number relativenumber
-"set ttyfast
 set autoread
 
 set clipboard=unnamedplus
@@ -189,9 +188,6 @@ set smartcase
 
 "performance
 "set lazyredraw
-"set noshowcmd
-"set noruler
-"set nocompatible
 
 set cursorline
 
