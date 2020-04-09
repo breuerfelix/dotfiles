@@ -54,6 +54,9 @@ Plug 'sainnhe/gruvbox-material'
 "emmet
 Plug 'mattn/emmet-vim'
 
+"other
+Plug 'terryma/vim-multiple-cursors'
+
 call plug#end()
 
 "plugin configurations

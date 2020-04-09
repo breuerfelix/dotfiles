@@ -263,7 +263,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
         alias uin='yay -Rs'
     fi
 
-    function clean() {
+    function update() {
         if [ $OS = "Ubuntu" ]; then
             sudo apt update
             sudo apt full-upgrade -y
@@ -273,6 +273,10 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
             yay -Syu --devel --timeupdate
             yay -Yc
         fi
+    }
+
+    function clean() {
+        update()
 
         npm cache clean --force
         npm install -g npm@latest

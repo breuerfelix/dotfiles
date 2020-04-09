@@ -1,22 +1,24 @@
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [user]
-	name = Felix Breuer
-	email = f.breuer94@gmail.com
+    name = Felix Breuer
+    email = f.breuer94@gmail.com
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = nvim
+    excludesfile = ~/.gitignore_global
+    editor = nvim
 [alias]
-	st = status -sb
-	co = checkout
-	fe = fetch
-	c = commit -m
-	g = grep -i
-	dt = difftool
+    st = status -sb
+    co = checkout
+    fe = fetch
+    cm = commit -m
+    c = commit
+    gp = grep -in
+    re = rebase -i
+    dt = difftool
 [merge]
-  tool = vimdiff
+    tool = vimdiff
 [diff]
-  tool = vimdiff
+    tool = vimdiff
