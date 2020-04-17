@@ -7,9 +7,9 @@ export ZSH=~/.oh-my-zsh
 #ZSH_THEME='bullet-train'
 ZSH_THEME='pi'
 
-HISTFILE=~/.zsh_history
-HISTSIZE=999999999
-SAVEHIST=$HISTSIZE
+export HISTFILE=~/.zsh_history
+export HISTSIZE=999999999
+export SAVEHIST=$HISTSIZE
 
 setopt hist_find_no_dups
 setopt histignorespace
@@ -20,11 +20,14 @@ plugins=(
     zsh-autosuggestions
     thefuck
     autojump
+    hacker-quotes
+    bgnotify
 )
 
 autoload -U +X compinit && compinit
 autoload -U +X bashcompinit && bashcompinit
 
+# fix copy paste in terminal
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 
 export PATH=$PATH:/usr/local/sbin:$HOME/.local/bin

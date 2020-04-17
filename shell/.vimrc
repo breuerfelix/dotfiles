@@ -13,12 +13,13 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-"linting
+"syntax
 Plug 'dense-analysis/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rhysd/vim-grammarous'
 Plug 'mboughaba/i3config.vim'
+Plug 'ap/vim-css-color'
 
 "fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -37,6 +38,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 "files
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-sleuth'
+Plug 'ryanoasis/vim-devicons'
 
 "status bar
 Plug 'vim-airline/vim-airline'
@@ -51,10 +53,8 @@ Plug 'sonph/onehalf', { 'rtp': 'vim/' }
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 
-"emmet
-Plug 'mattn/emmet-vim'
-
 "other
+Plug 'mattn/emmet-vim'
 Plug 'terryma/vim-multiple-cursors'
 
 call plug#end()
@@ -95,8 +95,10 @@ map <C-n> :tabn<CR>
 map <C-p> :tabp<CR>
 map <C-t> :tabnew<CR>
 
+
 "finder
 map ; :Files<CR>
+map <C-f> :Rg<CR>
 map <C-b> :NERDTreeToggle<CR>
 
 "editing
@@ -105,7 +107,7 @@ map <leader>q :ALEFix<CR>
 map <leader>n :noh<CR>
 
 "inserts blank line below
-nnoremap <C-m> :set paste<CR>o<Esc>:set nopaste<CR>
+nnoremap <C-[> :set paste<CR>o<Esc>:set nopaste<CR>
 
 "save
 map <C-i> :w<CR>
@@ -161,6 +163,7 @@ set mouse=
 syntax enable
 set number relativenumber
 set autoread
+set encoding=UTF-8
 
 set clipboard=unnamedplus
 
@@ -214,13 +217,13 @@ set signcolumn=yes
 inoremap <silent><expr> <C-space> coc#refresh()
 
 "jump back to previous location
-nnoremap <leader>g <C-o>
+nnoremap <leader>g <C-o>zz
 
 "GoTo code navigation
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)zz
+nmap <silent> gt <Plug>(coc-type-definition)zz
+nmap <silent> gi <Plug>(coc-implementation)zz
+nmap <silent> gr <Plug>(coc-references)zz
 
 nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
 

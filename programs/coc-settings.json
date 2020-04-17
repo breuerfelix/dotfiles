@@ -1,3 +1,4 @@
 {
-    "javascript.suggest.names": false
+    "javascript.suggest.names": false,
+    "python.linting.enabled": false
 }
