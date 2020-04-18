@@ -187,7 +187,7 @@ draw_bold_text_with_bright_colors: true
 # colors gruvbox material
 colors:
   primary:
-    background: '0x282828'
+    background: '0x262626'
     foreground: '0xd4be98'
 
   normal:

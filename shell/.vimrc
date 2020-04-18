@@ -56,8 +56,13 @@ Plug 'sainnhe/gruvbox-material'
 "other
 Plug 'mattn/emmet-vim'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
+
+"
+" NATIVE CONFIG
+"
 
 "plugin configurations
 let g:python_host_prog = '/usr/bin/python2'
@@ -110,7 +115,7 @@ map <leader>n :noh<CR>
 nnoremap <C-[> :set paste<CR>o<Esc>:set nopaste<CR>
 
 "save
-map <C-i> :w<CR>
+noremap <C-i> :w<CR>
 imap <C-i> <Esc>:w<CR>i
 
 "quit
@@ -127,6 +132,7 @@ map <leader>et :e ~/.tmux.conf<CR>
 map <leader>er :e ~/.bashrc<CR>
 map <leader>es :e ~/.zshrc<CR>
 map <leader>ea :e ~/.config/alacritty/alacritty.yml<CR>
+map <leader>ei :e ~/.i3/config<CR>
 
 "splits
 function! WinMove(key)
@@ -201,23 +207,31 @@ augroup save_when_leave
     au BufLeave * silent! wall
 augroup END
 
+nmap m <Plug>(easymotion-prefix)
+
 set hidden
 set nobackup
 set nowritebackup
 set noswapfile
+
+"
+" PLUGIN CONFIG
+"
 
 "completion
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 set cmdheight=1
+"turn off completion menu messages
 set shortmess+=c
 set signcolumn=yes
 
 inoremap <silent><expr> <C-space> coc#refresh()
 
-"jump back to previous location
-nnoremap <leader>g <C-o>zz
+"jump back to and forth
+nnoremap <space>o <C-o>zz
+nnoremap <space>i <C-i>zz
 
 "GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)zz
@@ -262,6 +276,12 @@ nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 "manage extensions.
 nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
 
+let g:user_emmet_leader_key = '<C-d>'
+
+"
+" THEMING
+"
+
 "set true colors
 if (has('nvim'))
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
@@ -270,7 +290,6 @@ if (has('termguicolors'))
     set termguicolors
 endif
 
-let g:user_emmet_leader_key = '<C-d>'
 let g:airline_powerline_fonts = 1
 
 "let g:airline_theme = 'onehalfdark'
@@ -279,13 +298,23 @@ let g:airline_powerline_fonts = 1
 "let g:gruvbox_contrast_dark='soft'
 set background=dark
 let g:airline_theme = 'gruvbox_material'
+let g:gruvbox_material_enable_bold = 1
+let g:gruvbox_material_enable_italic = 1
+let g:gruvbox_material_transparent_background = 0
 colorscheme gruvbox-material
 
 "override colorscheme
 
-"changes for onehalfdark
+"highlights comments and whitespace differently
 highlight NonText ctermfg=grey guifg=grey25
 highlight Comment ctermfg=grey guifg=grey50
 
 "enable transparent background
-"hi Normal guibg=NONE ctermbg=NONE
+"highlight Normal ctermbg=NONE guibg=NONE
+
+"fix signcolumn, only works with autocmd. don't know why
+autocmd VimEnter * highlight SignColumn guibg=#303030
+
+"highlight only one character when line too long
+highlight ColorColumn ctermbg=grey guibg=grey25
+call matchadd('ColorColumn', '\%75v', 100)
