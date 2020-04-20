@@ -11,7 +11,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 "git
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 
 "syntax
 Plug 'dense-analysis/ale'
@@ -45,12 +44,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 "themes
-Plug 'sonph/onehalf', { 'rtp': 'vim/' }
+"Plug 'sonph/onehalf', { 'rtp': 'vim/' }
 "Plug 'joshdick/onedark.vim'
 "Plug 'chriskempson/base16-vim'
 "Plug 'junegunn/seoul256.vim'
 "Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 
 "other
@@ -227,6 +226,13 @@ set cmdheight=1
 set shortmess+=c
 set signcolumn=yes
 
+let g:coc_global_extensions = [
+\    'coc-tsserver',
+\    'coc-python',
+\    'coc-json',
+\    'coc-git',
+\]
+
 inoremap <silent><expr> <C-space> coc#refresh()
 
 "jump back to and forth
@@ -305,15 +311,8 @@ colorscheme gruvbox-material
 
 "override colorscheme
 
-"highlights comments and whitespace differently
-highlight NonText ctermfg=grey guifg=grey25
-highlight Comment ctermfg=grey guifg=grey50
-
 "enable transparent background
 "highlight Normal ctermbg=NONE guibg=NONE
-
-"fix signcolumn, only works with autocmd. don't know why
-autocmd VimEnter * highlight SignColumn guibg=#303030
 
 "highlight only one character when line too long
 highlight ColorColumn ctermbg=grey guibg=grey25
