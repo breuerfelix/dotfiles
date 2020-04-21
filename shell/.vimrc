@@ -88,8 +88,8 @@ let g:user_emmet_settings = { 'html': { 'quote_char': "'", }, }
 
 "mappings
 let mapleader = ','
-imap jk <Esc>
-vmap <C-j> <Esc>
+inoremap jk <Esc>
+vnoremap <C-j> <Esc>
 
 "faster scrolling
 map <S-j> 4jzz
@@ -115,6 +115,8 @@ map <leader>n :noh<CR>
 
 "inserts blank line below
 nnoremap <C-[> :set paste<CR>o<Esc>:set nopaste<CR>
+noremap gl $
+noremap gh 0
 
 "save
 nmap <C-i> :w<CR>
