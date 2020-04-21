@@ -21,7 +21,7 @@ Plug 'mboughaba/i3config.vim'
 Plug 'ap/vim-css-color'
 
 "fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 
 "autopair
@@ -51,6 +51,9 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'arcticicestudio/nord-vim'
 "Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
+
+"organizing
+Plug 'breuerfelix/vim-todo-lists'
 
 "other
 Plug 'mattn/emmet-vim'
@@ -114,7 +117,7 @@ map <leader>n :noh<CR>
 nnoremap <C-[> :set paste<CR>o<Esc>:set nopaste<CR>
 
 "save
-noremap <C-i> :w<CR>
+nmap <C-i> :w<CR>
 imap <C-i> <Esc>:w<CR>i
 
 "quit
@@ -132,6 +135,7 @@ map <leader>er :e ~/.bashrc<CR>
 map <leader>es :e ~/.zshrc<CR>
 map <leader>ea :e ~/.config/alacritty/alacritty.yml<CR>
 map <leader>ei :e ~/.i3/config<CR>
+map <leader>ed :e ~/default.todo<CR>
 
 "splits
 function! WinMove(key)
