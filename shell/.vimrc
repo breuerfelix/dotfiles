@@ -57,7 +57,7 @@ Plug 'breuerfelix/vim-todo-lists'
 
 "other
 Plug 'mattn/emmet-vim'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 Plug 'easymotion/vim-easymotion'
 
 call plug#end()
