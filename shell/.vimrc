@@ -33,6 +33,7 @@ Plug 'preservim/nerdcommenter'
 
 "autocomplete
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'OmniSharp/omnisharp-vim'
 
 "files
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -120,7 +121,6 @@ noremap gh 0
 
 "save
 nmap <C-i> :w<CR>
-imap <C-i> <Esc>:w<CR>i
 
 "quit
 map <C-u> :q<CR>
@@ -233,10 +233,11 @@ set shortmess+=c
 set signcolumn=yes
 
 let g:coc_global_extensions = [
+\    'coc-git',
+\    'coc-json',
 \    'coc-tsserver',
 \    'coc-python',
-\    'coc-json',
-\    'coc-git',
+\    'coc-rls',
 \]
 
 inoremap <silent><expr> <C-space> coc#refresh()

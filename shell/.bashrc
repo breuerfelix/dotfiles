@@ -124,6 +124,8 @@ export PATH=$PATH:$GEM_PATH/bin
 
 # git
 alias g='git'
+alias gs='git status'
+alias gd='git diff'
 alias gm='git commit --signoff'
 alias gpu='git push --set-upstream origin'
 
