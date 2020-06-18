@@ -1,0 +1,123 @@
+{
+    "border": "pixel",
+    "floating": "auto_off",
+    "fullscreen_mode": 1,
+    "layout": "splith",
+    "percent": null,
+    "type": "workspace",
+    "nodes": [
+        {
+            "border": "pixel",
+            "floating": "auto_off",
+            "layout": "splitv",
+            "percent": 0.503125,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "pixel",
+                    "floating": "auto_off",
+                    "layout": "splith",
+                    "percent": 0.546841731724627,
+                    "type": "con",
+                    "nodes": [
+                        {
+                            "border": "pixel",
+                            "floating": "auto_off",
+                            "layout": "stacked",
+                            "percent": 1,
+                            "type": "con",
+                            "nodes": [
+                                {
+                                    "border": "pixel",
+                                    "floating": "auto_off",
+                                    "layout": "splith",
+                                    "percent": 0.5,
+                                    "type": "con",
+                                    "nodes": [
+                                        {
+                                            "border": "pixel",
+                                            "current_border_width": 3,
+                                            "floating": "auto_off",
+                                            "geometry": {
+                                               "height": 600,
+                                               "width": 800,
+                                               "x": 0,
+                                               "y": 0
+                                            },
+                                            "name": "terminal",
+                                            "percent": 1,
+                                            "swallows": [
+                                               {
+                                                    "class": "^Alacritty$"
+                                               }
+                                            ],
+                                            "type": "con"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "border": "pixel",
+                                    "current_border_width": 3,
+                                    "floating": "auto_off",
+                                    "geometry": {
+                                       "height": 1391,
+                                       "width": 1255,
+                                       "x": 1296,
+                                       "y": 40
+                                    },
+                                    "name": "on stream window",
+                                    "percent": 0.5,
+                                    "swallows": [
+                                       {
+                                            "class": "^Nightly$"
+                                       }
+                                    ],
+                                    "type": "con"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "border": "pixel",
+                    "current_border_width": 3,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 1391,
+                       "width": 1265,
+                       "x": 1296,
+                       "y": 50
+                    },
+                    "name": "stream manager",
+                    "percent": 0.453158268275373,
+                    "swallows": [
+                       {
+                            "class": "^Nightly$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        },
+        {
+            "border": "pixel",
+            "current_border_width": 3,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 706,
+               "width": 1275,
+               "x": 9,
+               "y": 88
+            },
+            "name": "off stream window",
+            "percent": 0.496875,
+            "swallows": [
+               {
+                    "class": "^Nightly$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+

@@ -35,6 +35,9 @@ export PATH=$PATH:/usr/local/sbin:$HOME/.local/bin
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/shell/.bashrc
 
+bindkey '^e' edit-command-line
 bindkey '^ ' autosuggest-accept
+bindkey '^k' up-line-or-search
+bindkey '^j' down-line-or-search
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

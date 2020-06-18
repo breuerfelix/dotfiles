@@ -9,6 +9,9 @@ call plug#begin('~/.config/nvim/plugged')
 "PlugInstall, PlugUpdate, PlugClean,
 "PlugUpgrade (upgrade vim plug), PlugStatus
 
+"games
+Plug 'ThePrimeagen/vim-be-good'
+
 "git
 Plug 'tpope/vim-fugitive'
 
@@ -42,7 +45,7 @@ Plug 'ryanoasis/vim-devicons'
 
 "status bar
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline-themes'
 
 "themes
 "Plug 'sonph/onehalf', { 'rtp': 'vim/' }
@@ -50,15 +53,16 @@ Plug 'vim-airline/vim-airline-themes'
 "Plug 'chriskempson/base16-vim'
 "Plug 'junegunn/seoul256.vim'
 "Plug 'arcticicestudio/nord-vim'
-"Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
+"Plug 'ayu-theme/ayu-vim'
 
 "organizing
 Plug 'breuerfelix/vim-todo-lists'
 
 "other
 Plug 'mattn/emmet-vim'
-Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
+"Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 Plug 'easymotion/vim-easymotion'
 
 call plug#end()
@@ -92,9 +96,12 @@ let mapleader = ','
 inoremap jk <Esc>
 vnoremap <C-j> <Esc>
 
+"trailing
+noremap <S-f> <S-j>
+
 "faster scrolling
-map <S-j> 4jzz
-map <S-k> 4kzz
+noremap <S-j> 4jzz
+noremap <S-k> 4kzz
 "nnoremap <S-j> <C-d>
 "nnoremap <S-k> <C-u>
 
@@ -162,7 +169,7 @@ nnoremap <silent> <C-l> :call WinMove('l')<CR>
 tnoremap jk <C-\><C-n>
 tnoremap <C-u> <C-\><C-n>:q<CR>
 autocmd filetype python map <C-m> :below split <bar> :terminal python %<CR>
-autocmd filetype javascript,typescript map <C-m> :below split <bar> :terminal npm start<CR>
+autocmd filetype javascript,typescript map <C-m> :below split <bar> :terminal node %<CR>
 
 "vim update delay in ms
 set updatetime=300
@@ -183,13 +190,15 @@ set list
 set listchars=tab:→\ ,eol:¬,trail:~,extends:❯,precedes:❮,space:␣
 set showbreak=↪
 
-"indent
-"disabled because of plugin sleuth
-"filetype plugin indent on
 "set tabstop=4
 "set shiftwidth=2
 "set softtabstop=2
 "set smartindent
+
+"default for vim sleuth
+set expandtab
+set tabstop=2
+set shiftwidth=2
 
 "split
 set splitbelow
@@ -236,6 +245,7 @@ let g:coc_global_extensions = [
 \    'coc-git',
 \    'coc-json',
 \    'coc-tsserver',
+\    'coc-jest',
 \    'coc-python',
 \    'coc-rls',
 \]
@@ -305,6 +315,9 @@ endif
 
 let g:airline_powerline_fonts = 1
 
+"disable all extensions for a minimal setup
+let g:airline_extensions = []
+
 "let g:airline_theme = 'onehalfdark'
 "let g:onedark_terminal_italics = 1
 "let g:gruvbox_contrast_light='soft'
@@ -315,11 +328,17 @@ let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
 let g:gruvbox_material_transparent_background = 0
 colorscheme gruvbox-material
+"colorscheme gruvbox
 
 "override colorscheme
 
 "enable transparent background
 "highlight Normal ctermbg=NONE guibg=NONE
+
+"whitespace rendering
+highlight NonText guifg=grey22
+highlight Whitespace guifg=grey22
+highlight SpecialKey guifg=grey22
 
 "highlight only one character when line too long
 highlight ColorColumn ctermbg=grey guibg=grey25

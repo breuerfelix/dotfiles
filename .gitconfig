@@ -8,7 +8,10 @@
     email = f.breuer94@gmail.com
 [core]
     excludesfile = ~/.gitignore_global
-    editor = nvim
+    editor = nvim 
+    pager = delta --theme='Monokai Extended'
+[interactive]
+    diffFilter = delta --color-only
 [alias]
     st = status -sb
     co = checkout
@@ -22,3 +25,5 @@
     tool = vimdiff
 [diff]
     tool = vimdiff
+[pull]
+    rebase = true

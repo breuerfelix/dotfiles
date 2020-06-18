@@ -40,9 +40,11 @@ alias pip='python3 -m pip'
 alias nf='neofetch'
 alias ssh='TERM=screen ssh'
 alias sc='sudo systemctl'
+alias scu='systemctl --user'
 alias shut='sudo shutdown -h now'
 alias power='sudo powertop'
 alias loopback='pactl load-module module-loopback latency_msec=1'
+alias fb='pcmanfm .'
 
 # terraform
 alias tf='terraform'
@@ -83,6 +85,7 @@ alias c='clear'
 alias cs='clear;ls'
 alias null='/dev/null'
 alias res='source ~/.zshrc'
+alias psf='ps -aux | grep'
 
 function synctime() {
     sudo ntpdate ntp.ubuntu.com
@@ -235,6 +238,11 @@ export PATH=$PATH:$HOME/packages/flutter/bin
 
 # import secrets which are not stored in the repo
 [ -f $HOME/.secrets.sh ] && source $HOME/.secrets.sh
+
+# ruby
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
 
 # docker machine
 #source /etc/bash_completion.d/docker-machine-prompt.bash
