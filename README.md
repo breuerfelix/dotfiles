@@ -16,6 +16,4 @@
 
 ## screenshots
 
-![](./assets/clean.png)
-![](./assets/busy.png)
-![](./assets/rofi.png)
+_coming soon_
