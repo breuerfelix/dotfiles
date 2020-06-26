@@ -7,8 +7,8 @@
 
 ## content
 
-- distro: ubuntu
-- window manager: sway + waybar + swaylock
+- distro: arch / manjaro
+- window manager: i3
 - app launcher: rofi
 - terminal: alacritty + tmux
 - shell: zsh + oh-my-zsh
