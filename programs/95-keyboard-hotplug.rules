@@ -1,0 +1,6 @@
+SYSTEM=="input"
+ACTION=="add", \
+SUBSYSTEM=="usb", \
+ENV{DISPLAY}=":0", \
+ENV{XAUTHORITY}="/home/felix/.Xauthority", \
+RUN+="/home/felix/dotfiles/programs/keyboard-hotplug.sh"

@@ -1,0 +1,6 @@
+KERNEL=="card0", \
+ACTION=="change", \
+SUBSYSTEM=="drm", \
+ENV{DISPLAY}=":0", \
+ENV{XAUTHORITY}="/home/felix/.Xauthority", \
+RUN+="/home/felix/dotfiles/programs/monitor-hotplug.sh"

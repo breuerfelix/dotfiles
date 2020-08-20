@@ -8,7 +8,7 @@
     foregroundcolorinverse: #ebdbb2;
     selectioncolor: #504945;
 
-    font: "monospace 12";
+    font: "FuraMono Nerd Font Mono 12";
     border-color: @separatorcolor;
     background-color: @backgroundcolor;
     text-color: @foregroundcolor;

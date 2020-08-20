@@ -22,6 +22,7 @@ plugins=(
     autojump
     hacker-quotes
     bgnotify
+    poetry
 )
 
 autoload -U +X compinit && compinit

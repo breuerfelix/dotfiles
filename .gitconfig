@@ -13,11 +13,12 @@
 [interactive]
     diffFilter = delta --color-only
 [alias]
+    c = commit
+    cm = commit -m
+    d = diff
     st = status -sb
     co = checkout
     fe = fetch
-    cm = commit -m
-    c = commit
     gp = grep -in
     re = rebase -i
     dt = difftool

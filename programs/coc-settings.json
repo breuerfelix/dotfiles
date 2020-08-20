@@ -1,4 +1,5 @@
 {
     "javascript.suggest.names": false,
-    "python.linting.enabled": false
+    "python.linting.enabled": false,
+    "coc.source.OmniSharp.enable": true
 }

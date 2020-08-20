@@ -37,6 +37,7 @@ alias nr='npm run'
 alias python='python3'
 alias py='python'
 alias pip='python3 -m pip'
+alias poe='poetry'
 alias nf='neofetch'
 alias ssh='TERM=screen ssh'
 alias sc='sudo systemctl'
@@ -45,6 +46,7 @@ alias shut='sudo shutdown -h now'
 alias power='sudo powertop'
 alias loopback='pactl load-module module-loopback latency_msec=1'
 alias fb='pcmanfm .'
+alias space='ncdu'
 
 # terraform
 alias tf='terraform'
@@ -66,7 +68,9 @@ function dci() {
 
 alias dm='docker-machine'
 
-alias kb='kubectl'
+alias kc='kubectl'
+complete -F __start_kubectl kc
+
 alias mk='minikube'
 alias kblocal='kubectl run -it --rm --restart=Never alpine --image=alpine sh'
 
@@ -78,6 +82,7 @@ alias lsl='ls -l'
 alias mkdir='mkdir -p'
 alias cp='cp -i' # confirm before overwrite
 alias df='df -h'
+alias free='free -h'
 alias du='du -sh'
 
 # console
@@ -115,15 +120,6 @@ alias tl='tmux ls'
 alias ta='tmux attach -t'
 alias ts='tmux new-session -s'
 alias td='tmux kill-session -t'
-
-# golang
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-# ruby
-export GEM_HOME=$HOME/.gem
-export GEM_PATH=$HOME/.gem
-export PATH=$PATH:$GEM_PATH/bin
 
 # git
 alias g='git'
@@ -163,9 +159,16 @@ function git-del() {
     git branch -d $1
 }
 
+# utils
+alias CAPS='xdotool key Caps_Lock'
+
 #
 # PLUGINS
 #
+
+# golang
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 # kubectl
 if [ $commands[kubectl] ]; then source <(kubectl completion zsh); fi
@@ -240,6 +243,10 @@ export PATH=$PATH:$HOME/packages/flutter/bin
 [ -f $HOME/.secrets.sh ] && source $HOME/.secrets.sh
 
 # ruby
+export GEM_HOME=$HOME/.gem
+export GEM_PATH=$HOME/.gem
+export PATH=$PATH:$GEM_PATH/bin
+
 if which ruby >/dev/null && which gem >/dev/null; then
     PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
@@ -256,6 +263,11 @@ fi
 # esp-idf
 #export IDF_PATH=$HOME/inovex/esp-idf
 #. $HOME/inovex/esp-idf/export.sh >> /dev/null
+
+# dotnet
+# opt out of dotnet telemetry data
+export DOTNET_CLI_TELEMETRY_OPTOUT=true
+export MSBuildSDKsPath="/usr/share/dotnet/sdk/$(dotnet --version)/Sdks"
 
 # system specific config
 if [[ "$OSTYPE" == "linux-gnu" ]]; then

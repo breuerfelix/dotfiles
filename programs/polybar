@@ -14,10 +14,10 @@ border-bottom-size = 5
 bottom = false
 height = 26
 width = 100%
-module-margin = 2
-padding = 3
+module-margin = 1
+padding = 1
 
-font-0 = "Gohu GohuFont:style=Regular:size=13;2"
+font-0 = "FuraMono Nerd Font Mono:style=Regular:size=13;2"
 font-1 = "Material Icons:style=Regular:size=17;5"
 
 modules-left = storage backlight volume temperature memory cpu
@@ -68,7 +68,7 @@ label-focused = 
 label-unfocused = %icon%
 label-visible = %icon%
 label-urgent = %icon%
-label-separator = " "
+#label-separator = " "
 
 [module/wireless]
 type = internal/network
