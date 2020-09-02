@@ -22,7 +22,8 @@ Plug 'editorconfig/editorconfig-vim'
 "Plug 'rhysd/vim-grammarous'
 Plug 'mboughaba/i3config.vim'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'Yggdroot/indentLine'
+Plug 'lervag/vimtex'
+Plug 'wellle/context.vim'
 
 "fuzzy finder
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
@@ -39,6 +40,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'OmniSharp/omnisharp-vim'
 Plug 'evanleck/vim-svelte', { 'branch': 'main' }
+Plug 'liuchengxu/vista.vim'
+"expands command bar with suggetions
 Plug 'gelguy/wilder.nvim'
 
 "files
@@ -67,6 +70,8 @@ Plug 'breuerfelix/vim-todo-lists'
 Plug 'mattn/emmet-vim'
 "Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 call plug#end()
 
@@ -84,18 +89,18 @@ inoremap jk <Esc>
 vnoremap <C-j> <Esc>
 
 "trailing
-noremap <S-f> <S-j>
+noremap <C-c> <S-j>
 
 "faster scrolling
 noremap <S-j> 4jzz
 noremap <S-k> 4kzz
-"nnoremap <S-j> <C-d>
-"nnoremap <S-k> <C-u>
+"nnoremap <S-j> <C-d>zz
+"nnoremap <S-k> <C-u>zz
 
-"tabs
-map <C-n> :tabn<CR>
-map <C-p> :tabp<CR>
-map <C-t> :tabnew<CR>
+"buffer
+map <C-n> :bnext<CR>
+map <C-p> :bprevious<CR>
+"map <C-t> :tabnew<CR>
 
 
 "finder
@@ -176,8 +181,11 @@ set encoding=UTF-8
 
 set clipboard=unnamedplus
 
+"disable pre rendering of some things like ```
+set conceallevel=0
+
 "toggle invisible characters
-"set list
+set list
 set listchars=tab:→\ ,eol:¬,trail:~,extends:❯,precedes:❮,space:␣
 set showbreak=↪
 
@@ -215,6 +223,30 @@ set noshowmode
 "
 " PLUGIN CONFIG
 "
+
+"writing
+function! s:goyo_enter()
+  set nolist
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  set list
+  Limelight!
+endfunction
+
+noremap <silent> <leader>w :Goyo<CR>
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+noremap <C-t> :Vista!!<CR>
+
+"removes flickering in neovim
+let g:context_nvim_no_redraw = 1
+
+let g:tex_flavor = 'latex'
+let g:vimtex_compiler_method = 'tectonic'
+nmap <leader>v <Plug>(vimtex-compile)
 
 "command completion
 call wilder#enable_cmdline_enter()
@@ -279,6 +311,7 @@ let g:coc_global_extensions = [
 \    'coc-rls',
 \    'coc-go',
 \    'coc-svelte',
+\    'coc-vimtex',
 \]
 
 inoremap <silent><expr> <C-space> coc#refresh()
@@ -337,9 +370,10 @@ let g:user_emmet_leader_key = '<C-d>'
 "
 
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 "disable all extensions for a minimal setup
-let g:airline_extensions = []
+"let g:airline_extensions = []
 
 set background=dark
 
@@ -361,9 +395,9 @@ colorscheme gruvbox-material
 "highlight Normal ctermbg=NONE guibg=NONE
 
 "whitespace rendering
-"highlight NonText guifg=grey22
-"highlight Whitespace guifg=grey22
-"highlight SpecialKey guifg=grey22
+highlight NonText guifg=grey22
+highlight Whitespace guifg=grey22
+highlight SpecialKey guifg=grey22
 
 "highlight only one character when line too long
 highlight ColorColumn ctermbg=grey guibg=grey25

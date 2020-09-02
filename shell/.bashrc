@@ -47,6 +47,7 @@ alias power='sudo powertop'
 alias loopback='pactl load-module module-loopback latency_msec=1'
 alias fb='pcmanfm .'
 alias space='ncdu'
+alias o='xdg-open'
 
 # terraform
 alias tf='terraform'
@@ -58,6 +59,7 @@ alias p='podman'
 alias d='docker'
 alias dke='docker exec -it'
 alias dklocal='docker run --rm -it -v ${PWD}:/usr/workdir --workdir=/usr/workdir'
+alias ld='lazydocker'
 
 alias dc='docker-compose'
 alias pc='podman-compose'
@@ -125,6 +127,7 @@ alias td='tmux kill-session -t'
 alias g='git'
 alias gs='git status'
 alias gd='git diff'
+alias gdh='git diff HEAD'
 alias gm='git commit --signoff'
 alias gpu='git push --set-upstream origin'
 

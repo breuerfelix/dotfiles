@@ -20,7 +20,7 @@ plugins=(
     zsh-autosuggestions
     thefuck
     autojump
-    hacker-quotes
+    #hacker-quotes
     bgnotify
     poetry
 )

@@ -471,7 +471,6 @@ debug:
 #   - ~AppKeypad
 #   - AppKeypad
 key_bindings:
-  #- { key: D,        mods: Control, chars: "vi .\n"                          }
   - { key: L,        mods: Control, chars: "\x0c"                            }
   - { key: Y,        mods: Control, chars: "sudo !!\n"                       }
   - { key: Paste,                   action: Paste                            }
