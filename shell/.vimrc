@@ -62,6 +62,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 "Plug 'ayu-theme/ayu-vim'
+"Plug 'hardcoreplayers/oceanic-material'
 
 "organizing
 Plug 'breuerfelix/vim-todo-lists'

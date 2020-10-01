@@ -16,13 +16,13 @@ setopt histignorespace
 export ZSH_AUTOSUGGEST_USE_ASYNC=true
 
 plugins=(
-    zsh-syntax-highlighting
     zsh-autosuggestions
     thefuck
     autojump
     #hacker-quotes
     bgnotify
     poetry
+    zsh-syntax-highlighting # must be last
 )
 
 autoload -U +X compinit && compinit

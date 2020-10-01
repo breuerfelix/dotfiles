@@ -48,6 +48,8 @@ alias loopback='pactl load-module module-loopback latency_msec=1'
 alias fb='pcmanfm .'
 alias space='ncdu'
 alias o='xdg-open'
+alias c='cargo'
+alias tssh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 
 # terraform
 alias tf='terraform'
@@ -88,7 +90,7 @@ alias free='free -h'
 alias du='du -sh'
 
 # console
-alias c='clear'
+alias cl='clear'
 alias cs='clear;ls'
 alias null='/dev/null'
 alias res='source ~/.zshrc'
@@ -165,9 +167,14 @@ function git-del() {
 # utils
 alias CAPS='xdotool key Caps_Lock'
 
+export PATH=$PATH:$HOME/bin
+
 #
 # PLUGINS
 #
+
+# miktex
+export PATH=$PATH:/opt/miktex/bin
 
 # golang
 export GOPATH=$HOME/go
@@ -298,6 +305,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
             yay -Syu --devel --timeupdate
             yay -Yc
         fi
+
+        # update rust
+        rustup update
     }
 
     function clean() {
