@@ -164,6 +164,10 @@ function git-del() {
     git branch -d $1
 }
 
+
+alias colemak='setxkbmap -option "ctrl:nocaps,altwin:alt_win,grp:shifts_toggle" -layout "us(colemak)"'
+alias qwfp='setxkbmap -option "ctrl:nocaps,altwin:alt_win,grp:shifts_toggle" -layout "us,de(qwerty)"'
+
 # utils
 alias CAPS='xdotool key Caps_Lock'
 

@@ -10,7 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
 "PlugUpgrade (upgrade vim plug), PlugStatus
 
 "games
-Plug 'ThePrimeagen/vim-be-good'
+Plug 'ThePrimeagen/vim-be-good', { 'on': 'VimBeGood' }
 
 "git
 Plug 'tpope/vim-fugitive'
@@ -22,7 +22,7 @@ Plug 'editorconfig/editorconfig-vim'
 "Plug 'rhysd/vim-grammarous'
 Plug 'mboughaba/i3config.vim'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'wellle/context.vim'
 
 "fuzzy finder
@@ -32,22 +32,21 @@ Plug 'junegunn/fzf.vim'
 "autopair
 Plug 'jiangmiao/auto-pairs'
 Plug 'machakann/vim-sandwich'
+Plug 'AndrewRadev/splitjoin.vim'
 
 "commenting
 Plug 'preservim/nerdcommenter'
 
 "autocomplete
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'OmniSharp/omnisharp-vim'
-Plug 'evanleck/vim-svelte', { 'branch': 'main' }
+Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
 Plug 'liuchengxu/vista.vim'
 "expands command bar with suggetions
 Plug 'gelguy/wilder.nvim'
 
 "files
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-sleuth'
-Plug 'ryanoasis/vim-devicons'
 
 "status bar
 Plug 'vim-airline/vim-airline'
@@ -65,14 +64,19 @@ Plug 'sainnhe/gruvbox-material'
 "Plug 'hardcoreplayers/oceanic-material'
 
 "organizing
+Plug 'wsdjeg/vim-todo', { 'on': 'OpenTodo' }
 Plug 'breuerfelix/vim-todo-lists'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 
 "other
 Plug 'mattn/emmet-vim'
 "Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 Plug 'easymotion/vim-easymotion'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
+Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
+
+"load as last plugin
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -113,6 +117,7 @@ map <C-b> :NERDTreeToggle<CR>
 map <leader>r :s/"/'/g<bar>:noh<CR>
 map <leader>q :ALEFix<CR>
 map <leader>n :noh<CR>
+map <leader>t :OpenTodo<CR>
 
 "inserts blank line below
 nnoremap <C-[> :set paste<CR>o<Esc>:set nopaste<CR>
@@ -213,8 +218,6 @@ augroup save_when_leave
     au BufLeave * silent! wall
 augroup END
 
-nmap m <Plug>(easymotion-prefix)
-
 set hidden
 set nobackup
 set nowritebackup
@@ -225,7 +228,38 @@ set noshowmode
 " PLUGIN CONFIG
 "
 
-"writing
+let g:spacevim_todo_labels = [
+  \ 'FIXME',
+  \ 'TODO',
+\]
+
+nmap m <Plug>(easymotion-prefix)
+
+" fuzzy finder for wilder menu
+call wilder#set_option('pipeline', [
+\  wilder#branch(
+\    wilder#cmdline_pipeline({
+\      'fuzzy': 1,
+\      'use_python': 1,
+\    }),
+\    wilder#python_search_pipeline({
+\      'regex': 'fuzzy',
+\      'engine': 're2',
+\      'sort': function('wilder#python_sort_difflib'),
+\    }),
+\  ),
+\])
+
+"command completion
+call wilder#enable_cmdline_enter()
+set wildcharm=<Tab>
+cmap <expr> <Tab> wilder#in_context() ? wilder#next() : "\<Tab>"
+cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
+
+" only / and ? is enabled by default
+call wilder#set_option('modes', ['/', '?', ':'])
+
+"improve writing
 function! s:goyo_enter()
   set nolist
   Limelight
@@ -242,22 +276,12 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 noremap <C-t> :Vista!!<CR>
 
-"removes flickering in neovim
+"removes flickering in neovim for context plugin
 let g:context_nvim_no_redraw = 1
 
 let g:tex_flavor = 'latex'
 let g:vimtex_compiler_method = 'tectonic'
 nmap <leader>v <Plug>(vimtex-compile)
-
-"command completion
-call wilder#enable_cmdline_enter()
-
-set wildcharm=<Tab>
-cmap <expr> <Tab> wilder#in_context() ? wilder#next() : "\<Tab>"
-cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
-
-" only / and ? is enabled by default
-call wilder#set_option('modes', ['/', '?', ':'])
 
 lua require'colorizer'.setup()
 
@@ -291,8 +315,9 @@ let g:ale_linters = {
 \    'cs': [ 'OmniSharp' ],
 \}
 
-"emmet uses single quotes
+"use single quotes in emmet
 let g:user_emmet_settings = { 'html': { 'quote_char': "'", }, }
+let g:user_emmet_leader_key = '<C-d>'
 
 "completion
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -364,17 +389,14 @@ nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 "manage extensions.
 nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
 
-let g:user_emmet_leader_key = '<C-d>'
-
 "
 " THEMING
 "
 
+"disable all extensions for a minimal setup
+let g:airline_extensions = ['tabline']
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-
-"disable all extensions for a minimal setup
-"let g:airline_extensions = []
 
 set background=dark
 
