@@ -22,6 +22,7 @@ plugins=(
     #hacker-quotes
     bgnotify
     poetry
+    zsh-kubectl-prompt
     zsh-syntax-highlighting # must be last
 )
 

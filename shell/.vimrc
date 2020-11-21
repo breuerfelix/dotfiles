@@ -1,8 +1,8 @@
 "automated installation of vimplug
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
 
 call plug#begin('~/.config/nvim/plugged')
@@ -39,7 +39,7 @@ Plug 'preservim/nerdcommenter'
 
 "autocomplete
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'OmniSharp/omnisharp-vim', { 'for': 'cs' }
+Plug 'OmniSharp/omnisharp-vim'
 Plug 'liuchengxu/vista.vim'
 "expands command bar with suggetions
 Plug 'gelguy/wilder.nvim'
@@ -54,12 +54,13 @@ Plug 'vim-airline/vim-airline'
 
 "themes
 "Plug 'sonph/onehalf', { 'rtp': 'vim/' }
-"Plug 'joshdick/onedark.vim'
+Plug 'joshdick/onedark.vim'
 "Plug 'chriskempson/base16-vim'
 "Plug 'junegunn/seoul256.vim'
 "Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
+"Plug 'drewtempelmeyer/palenight.vim'
 "Plug 'ayu-theme/ayu-vim'
 "Plug 'hardcoreplayers/oceanic-material'
 
@@ -67,11 +68,13 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'wsdjeg/vim-todo', { 'on': 'OpenTodo' }
 Plug 'breuerfelix/vim-todo-lists'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 
 "other
 Plug 'mattn/emmet-vim'
 "Plug 'mg979/vim-visual-multi', { 'branch': 'master' }
 Plug 'easymotion/vim-easymotion'
+Plug 'rhysd/clever-f.vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
 
@@ -120,16 +123,16 @@ map <leader>n :noh<CR>
 map <leader>t :OpenTodo<CR>
 
 "inserts blank line below
-nnoremap <C-[> :set paste<CR>o<Esc>:set nopaste<CR>
+noremap <C-[> :set paste<CR>o<Esc>:set nopaste<CR>
 noremap gl $
 noremap gh 0
 
 "save
-nmap <C-i> :w<CR>
+noremap <silent> <C-i> :w<CR>
 
 "quit
-map <C-u> :q<CR>
-imap <C-u> <Esc>:q<CR>
+noremap <C-u> :q<CR>
+inoremap <C-u> <Esc>:q<CR>
 
 "git
 map <leader>ad :Gdiffsplit<CR>
@@ -143,25 +146,26 @@ map <leader>es :e ~/.zshrc<CR>
 map <leader>ea :e ~/.config/alacritty/alacritty.yml<CR>
 map <leader>ei :e ~/.i3/config<CR>
 map <leader>ed :e ~/cloud/default.todo<CR>
+map <leader>ef :e ~/cloud/temp.md<CR>
 
 "splits
 function! WinMove(key)
-    let t:curwin = winnr()
-    exec "wincmd ".a:key
-    if (t:curwin == winnr())
-        if (match(a:key,'[jk]'))
-            wincmd v
-        else
-            wincmd s
-        endif
-        exec "wincmd ".a:key
+  let t:curwin = winnr()
+  exec "wincmd ".a:key
+  if (t:curwin == winnr())
+    if (match(a:key,'[jk]'))
+      wincmd v
+    else
+      wincmd s
     endif
+    exec "wincmd ".a:key
+  endif
 endfunction
 
-nnoremap <silent> <C-h> :call WinMove('h')<CR>
-nnoremap <silent> <C-j> :call WinMove('j')<CR>
-nnoremap <silent> <C-k> :call WinMove('k')<CR>
-nnoremap <silent> <C-l> :call WinMove('l')<CR>
+noremap <silent> <C-h> :call WinMove('h')<CR>
+noremap <silent> <C-j> :call WinMove('j')<CR>
+noremap <silent> <C-k> :call WinMove('k')<CR>
+noremap <silent> <C-l> :call WinMove('l')<CR>
 
 "terminal
 tnoremap jk <C-\><C-n>
@@ -181,7 +185,8 @@ set mouse=
 
 "syntax
 syntax enable
-set number relativenumber
+set number
+set relativenumber
 set autoread
 set encoding=UTF-8
 
@@ -213,6 +218,7 @@ set ignorecase
 set smartcase
 
 set cursorline
+set laststatus=2
 
 augroup save_when_leave
     au BufLeave * silent! wall
@@ -228,9 +234,20 @@ set noshowmode
 " PLUGIN CONFIG
 "
 
+"needs manual activation with <C-e>
+let g:firenvim_config = {
+\  'localSettings': {
+\    '.*': {
+\      'takeover': 'never',
+\      'priority': 1,
+\    },
+\  },
+\}
+
+
 let g:spacevim_todo_labels = [
-  \ 'FIXME',
-  \ 'TODO',
+\  'FIXME',
+\  'TODO',
 \]
 
 nmap m <Plug>(easymotion-prefix)
@@ -244,7 +261,7 @@ call wilder#set_option('pipeline', [
 \    }),
 \    wilder#python_search_pipeline({
 \      'regex': 'fuzzy',
-\      'engine': 're2',
+\      'engine': 're',
 \      'sort': function('wilder#python_sort_difflib'),
 \    }),
 \  ),
@@ -295,9 +312,9 @@ let g:OmniSharp_highlighting = 2
 "let g:OmniSharp_start_without_solution = 1
 
 let g:OmniSharp_highlight_groups = {
-\    'LocalName': 'Text',
-\    'FieldName': 'Text',
-\    'ParameterName': 'Text',
+\  'LocalName': 'Text',
+\  'FieldName': 'Text',
+\  'ParameterName': 'Text',
 \}
 
 "linter
@@ -305,14 +322,14 @@ let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 0
 
 let g:ale_fixers = {
-\    '*': [ 'remove_trailing_lines', 'trim_whitespace' ],
-\    'javascript': [ 'eslint' ],
-\    'python': [ 'black' ],
-\    'rust': [ 'rustfmt' ],
+\  '*': [ 'remove_trailing_lines', 'trim_whitespace' ],
+\  'javascript': [ 'eslint' ],
+\  'python': [ 'black' ],
+\  'rust': [ 'rustfmt' ],
 \}
 
 let g:ale_linters = {
-\    'cs': [ 'OmniSharp' ],
+\  'cs': [ 'OmniSharp' ],
 \}
 
 "use single quotes in emmet
@@ -329,22 +346,22 @@ set shortmess+=c
 set signcolumn=yes
 
 let g:coc_global_extensions = [
-\    'coc-git',
-\    'coc-json',
-\    'coc-tsserver',
-\    'coc-jest',
-\    'coc-python',
-\    'coc-rls',
-\    'coc-go',
-\    'coc-svelte',
-\    'coc-vimtex',
+\  'coc-git',
+\  'coc-json',
+\  'coc-tsserver',
+\  'coc-jest',
+\  'coc-python',
+\  'coc-rls',
+\  'coc-go',
+\  'coc-svelte',
+\  'coc-vimtex',
 \]
 
 inoremap <silent><expr> <C-space> coc#refresh()
 
 "jump back to and forth
-nnoremap <space>o <C-o>zz
-nnoremap <space>i <C-i>zz
+noremap <space>o <C-o>zz
+noremap <space>i <C-i>zz
 
 "GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)zz
@@ -352,14 +369,14 @@ nmap <silent> gt <Plug>(coc-type-definition)zz
 nmap <silent> gi <Plug>(coc-implementation)zz
 nmap <silent> gr <Plug>(coc-references)zz
 
-nnoremap <silent> <leader>d :call <SID>show_documentation()<CR>
+noremap <silent> <leader>d :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    else
-        call CocAction('doHover')
-    endif
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
 endfunction
 
 "highlight the symbol and its references when holding the cursor
@@ -385,9 +402,9 @@ nmap <leader>qf <Plug>(coc-fix-current)
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 "show all diagnostics.
-nnoremap <silent> <space>d :<C-u>CocList diagnostics<cr>
+noremap <silent> <space>d :<C-u>CocList diagnostics<cr>
 "manage extensions.
-nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
+noremap <silent> <space>e :<C-u>CocList extensions<cr>
 
 "
 " THEMING
@@ -395,18 +412,18 @@ nnoremap <silent> <space>e :<C-u>CocList extensions<cr>
 
 "disable all extensions for a minimal setup
 let g:airline_extensions = ['tabline']
-let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 set background=dark
 
-"let g:airline_theme = 'onehalfdark'
 "let g:onedark_terminal_italics = 1
+"let g:palenight_terminal_italics = 1
+
 "let g:gruvbox_contrast_light='soft'
 "let g:gruvbox_contrast_dark='soft'
 "colorscheme gruvbox
 
-let g:airline_theme = 'gruvbox_material'
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
 let g:gruvbox_material_transparent_background = 0
@@ -425,3 +442,18 @@ highlight SpecialKey guifg=grey22
 "highlight only one character when line too long
 highlight ColorColumn ctermbg=grey guibg=grey25
 call matchadd('ColorColumn', '\%88v', 100)
+
+"
+" OVERRIDING DIFFERENT ENVIRONMENTS
+"
+
+if exists('g:started_by_firenvim')
+  let g:loaded_airline = 1
+  set laststatus=0
+  set nolist
+  set nonumber
+  set norelativenumber
+  set signcolumn=no
+  colorscheme onedark
+  startinsert
+endif
