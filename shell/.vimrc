@@ -19,15 +19,21 @@ Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'editorconfig/editorconfig-vim'
-"Plug 'rhysd/vim-grammarous'
+Plug 'rhysd/vim-grammarous'
 Plug 'mboughaba/i3config.vim'
+"displays css colors in vim
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'lervag/vimtex', { 'for': 'tex' }
 Plug 'wellle/context.vim'
+"highlights same keywords
+Plug 'RRethy/vim-illuminate'
+"renders leading whitespace as red
+Plug 'ntpeters/vim-better-whitespace'
 
 "fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+"Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
 
 "autopair
 Plug 'jiangmiao/auto-pairs'
@@ -87,12 +93,15 @@ call plug#end()
 " NATIVE CONFIG
 "
 
+let g:which_key_map = {}
+autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
+
 "plugin configurations
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 
 "mappings
-let mapleader = ','
+let mapleader = ' '
 inoremap jk <Esc>
 vnoremap <C-j> <Esc>
 
@@ -114,13 +123,7 @@ map <C-p> :bprevious<CR>
 "finder
 map ; :Files<CR>
 map <C-f> :Rg<CR>
-map <C-b> :NERDTreeToggle<CR>
-
-"editing
-map <leader>r :s/"/'/g<bar>:noh<CR>
-map <leader>q :ALEFix<CR>
-map <leader>n :noh<CR>
-map <leader>t :OpenTodo<CR>
+map <leader>b :NERDTreeToggle<CR>
 
 "inserts blank line below
 noremap <C-[> :set paste<CR>o<Esc>:set nopaste<CR>
@@ -134,10 +137,6 @@ noremap <silent> <C-i> :w<CR>
 noremap <C-u> :q<CR>
 inoremap <C-u> <Esc>:q<CR>
 
-"git
-map <leader>ad :Gdiffsplit<CR>
-map <leader>ab :Gblame<CR>
-
 "edit files
 map <leader>ee :e ~/.vimrc<CR>
 map <leader>et :e ~/.tmux.conf<CR>
@@ -147,6 +146,7 @@ map <leader>ea :e ~/.config/alacritty/alacritty.yml<CR>
 map <leader>ei :e ~/.i3/config<CR>
 map <leader>ed :e ~/cloud/default.todo<CR>
 map <leader>ef :e ~/cloud/temp.md<CR>
+let g:which_key_map['e'] = { 'name': 'file shortcuts' }
 
 "splits
 function! WinMove(key)
@@ -189,6 +189,7 @@ set number
 set relativenumber
 set autoread
 set encoding=UTF-8
+"set foldmethod=syntax
 
 set clipboard=unnamedplus
 
@@ -234,6 +235,12 @@ set noshowmode
 " PLUGIN CONFIG
 "
 
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :WhichKeyVisual '<Space>'<CR>
+set timeoutlen=500
+
+let g:Illuminate_delay = 500
+
 "needs manual activation with <C-e>
 let g:firenvim_config = {
 \  'localSettings': {
@@ -244,6 +251,10 @@ let g:firenvim_config = {
 \  },
 \}
 
+"git
+map <leader>hd :Gdiffsplit<CR>
+map <leader>hb :Gblame<CR>
+let g:which_key_map['h'] = { 'name': 'git' }
 
 let g:spacevim_todo_labels = [
 \  'FIXME',
@@ -317,6 +328,15 @@ let g:OmniSharp_highlight_groups = {
 \  'ParameterName': 'Text',
 \}
 
+"linting
+map <leader>ln :noh<CR>
+map <leader>ls :s/"/'/g<bar>:noh<CR>
+map <leader>lf :ALEFix<CR>
+map <leader>lg :GrammarousCheck<CR>
+map <leader>lr :GrammarousReset<CR>
+map <leader>lt :OpenTodo<CR>
+let g:which_key_map['l'] = { 'name': 'linting / syntax' }
+
 "linter
 let g:ale_completion_enabled = 0
 let g:ale_fix_on_save = 0
@@ -360,51 +380,45 @@ let g:coc_global_extensions = [
 inoremap <silent><expr> <C-space> coc#refresh()
 
 "jump back to and forth
-noremap <space>o <C-o>zz
-noremap <space>i <C-i>zz
+noremap <leader>o <C-o>zz
+noremap <leader>i <C-i>zz
 
 "GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)zz
 nmap <silent> gt <Plug>(coc-type-definition)zz
 nmap <silent> gi <Plug>(coc-implementation)zz
 nmap <silent> gr <Plug>(coc-references)zz
-
-noremap <silent> <leader>d :call <SID>show_documentation()<CR>
+let g:which_key_map['g'] = { 'name': 'goto' }
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
 
 "highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-nmap <leader>rn <Plug>(coc-rename)
-
-xmap <leader>f <Plug>(coc-format-selected)
-nmap <leader>f <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+vmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format)
 
 "remap keys for applying codeAction to the current line.
 nmap <leader>ac <Plug>(coc-codeaction)
 "apply AutoFix to problem on the current line.
-nmap <leader>qf <Plug>(coc-fix-current)
+nmap <leader>af <Plug>(coc-fix-current)
+nmap <leader>ar <Plug>(coc-rename)
+nmap <silent> <leader>ad :call <SID>show_documentation()<CR>
 
 "Add `:Fold` command to fold current buffer.
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
+nmap <leader>ao :Fold<CR>
+let g:which_key_map['a'] = { 'name': 'coc actions' }
 
-"show all diagnostics.
-noremap <silent> <space>d :<C-u>CocList diagnostics<cr>
-"manage extensions.
-noremap <silent> <space>e :<C-u>CocList extensions<cr>
+let g:which_key_map['c'] = { 'name': 'commenter' }
 
 "
 " THEMING
