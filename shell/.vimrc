@@ -64,7 +64,6 @@ Plug 'joshdick/onedark.vim'
 "Plug 'chriskempson/base16-vim'
 "Plug 'junegunn/seoul256.vim'
 "Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 "Plug 'drewtempelmeyer/palenight.vim'
 "Plug 'ayu-theme/ayu-vim'
@@ -83,6 +82,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'rhysd/clever-f.vim'
 Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
 Plug 'junegunn/limelight.vim', { 'on': 'Goyo' }
+Plug 'dstein64/vim-startuptime', { 'on': 'StartupTime' }
 
 "load as last plugin
 Plug 'ryanoasis/vim-devicons'
@@ -170,8 +170,6 @@ noremap <silent> <C-l> :call WinMove('l')<CR>
 "terminal
 tnoremap jk <C-\><C-n>
 tnoremap <C-u> <C-\><C-n>:q<CR>
-autocmd filetype python map <C-m> :below split <bar> :terminal python %<CR>
-autocmd filetype javascript,typescript map <C-m> :below split <bar> :terminal node %<CR>
 
 "true colors
 set termguicolors
@@ -373,6 +371,7 @@ let g:coc_global_extensions = [
 \  'coc-python',
 \  'coc-rls',
 \  'coc-go',
+\  'coc-java',
 \  'coc-svelte',
 \  'coc-vimtex',
 \]
@@ -434,10 +433,7 @@ set background=dark
 "let g:onedark_terminal_italics = 1
 "let g:palenight_terminal_italics = 1
 
-"let g:gruvbox_contrast_light='soft'
-"let g:gruvbox_contrast_dark='soft'
-"colorscheme gruvbox
-
+let g:gruvbox_material_better_performance = 1
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
 let g:gruvbox_material_transparent_background = 0
