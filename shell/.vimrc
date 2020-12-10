@@ -171,6 +171,10 @@ noremap <silent> <C-l> :call WinMove('l')<CR>
 tnoremap jk <C-\><C-n>
 tnoremap <C-u> <C-\><C-n>:q<CR>
 
+"run current buffer
+autocmd filetype python noremap <CR> :below split <bar> :terminal python %<CR>
+autocmd filetype javascript,typescript noremap <CR> :below split <bar> :terminal node %<CR>
+
 "true colors
 set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
