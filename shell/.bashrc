@@ -280,6 +280,9 @@ fi
 #export IDF_PATH=$HOME/inovex/esp-idf
 #. $HOME/inovex/esp-idf/export.sh >> /dev/null
 
+# poetry
+export PATH="$HOME/.poetry/bin:$PATH"
+
 # dotnet
 # opt out of dotnet telemetry data
 export DOTNET_CLI_TELEMETRY_OPTOUT=true

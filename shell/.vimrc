@@ -68,6 +68,7 @@ Plug 'sainnhe/gruvbox-material'
 "Plug 'drewtempelmeyer/palenight.vim'
 "Plug 'ayu-theme/ayu-vim'
 "Plug 'hardcoreplayers/oceanic-material'
+"Plug 'arzg/vim-colors-xcode'
 
 "organizing
 Plug 'wsdjeg/vim-todo', { 'on': 'OpenTodo' }
@@ -103,7 +104,7 @@ let g:python3_host_prog = '/usr/bin/python3'
 "mappings
 let mapleader = ' '
 inoremap jk <Esc>
-vnoremap <C-j> <Esc>
+vnoremap u <Esc>
 
 "trailing
 noremap <C-c> <S-j>
