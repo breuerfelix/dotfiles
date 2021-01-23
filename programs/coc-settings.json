@@ -1,5 +1,16 @@
 {
-    "javascript.suggest.names": false,
-    "python.linting.enabled": false,
-    "coc.source.OmniSharp.enable": true
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  },
+  "javascript.suggest.names": false,
+  "python.linting.enabled": false,
+  "coc.source.OmniSharp.enable": true
 }

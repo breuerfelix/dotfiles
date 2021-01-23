@@ -43,3 +43,5 @@ bindkey '^k' up-line-or-search
 bindkey '^j' down-line-or-search
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+bindkey '^r' fzf-history-widget
+bindkey '^f' fzf-file-widget

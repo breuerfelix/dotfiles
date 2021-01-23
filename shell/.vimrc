@@ -65,6 +65,7 @@ Plug 'joshdick/onedark.vim'
 "Plug 'junegunn/seoul256.vim'
 "Plug 'arcticicestudio/nord-vim'
 Plug 'sainnhe/gruvbox-material'
+"Plug 'gruvbox-community/gruvbox'
 "Plug 'drewtempelmeyer/palenight.vim'
 "Plug 'ayu-theme/ayu-vim'
 "Plug 'hardcoreplayers/oceanic-material'
@@ -223,6 +224,7 @@ set smartcase
 
 set cursorline
 set laststatus=2
+set scrolloff=8
 
 augroup save_when_leave
     au BufLeave * silent! wall
@@ -233,6 +235,8 @@ set nobackup
 set nowritebackup
 set noswapfile
 set noshowmode
+"automatically source .vimrc from project folder
+set exrc
 
 "
 " PLUGIN CONFIG

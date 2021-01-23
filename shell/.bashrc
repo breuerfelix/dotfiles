@@ -50,6 +50,7 @@ alias space='ncdu'
 alias o='xdg-open'
 alias c='cargo'
 alias tssh='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
+alias ydl='youtube-dl'
 
 # terraform
 alias tf='terraform'
