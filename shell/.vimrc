@@ -1,11 +1,11 @@
 "automated installation of vimplug
-if empty(glob('/home/felix/.local/share/nvim/site/autoload/plug.vim'))
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
 
-call plug#begin('/home/felix/.config/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 "PlugInstall, PlugUpdate, PlugClean,
 "PlugUpgrade (upgrade vim plug), PlugStatus
 
@@ -31,9 +31,8 @@ Plug 'RRethy/vim-illuminate'
 Plug 'ntpeters/vim-better-whitespace'
 
 "fuzzy finder
-"Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf', { 'tag': '0.22.0' }
-Plug 'junegunn/fzf.vim', { 'commit': '18205e071dc701ed9ca51971466b9997cd3d0778' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 "Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
 
 "autopair
@@ -100,8 +99,8 @@ let g:which_key_map = {}
 autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
 
 "plugin configurations
-"let g:python_host_prog = '/usr/bin/python2'
-"let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
 
 "mappings
 let mapleader = ' '
