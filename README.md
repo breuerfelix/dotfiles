@@ -1,5 +1,7 @@
 # my dotfiles
 
+__deprecated:__ i switched to [nixos](https://nixos.org/) now and my config lives [here](https://github.com/breuerfelix/nixos).
+
 ## installation
 
 * `git clone https://github.com/breuerfelix/dotfiles.git ~/dotfiles`
@@ -13,7 +15,3 @@
 - terminal: alacritty + tmux
 - shell: zsh + oh-my-zsh
 - editor: neovim
-
-## screenshots
-
-_coming soon_
