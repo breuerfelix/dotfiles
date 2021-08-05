@@ -1,17 +1,24 @@
 # my dotfiles
 
-__deprecated:__ i switched to [nixos](https://nixos.org/) now and my config lives [here](https://github.com/breuerfelix/nixos).
-
 ## installation
 
-* `git clone https://github.com/breuerfelix/dotfiles.git ~/dotfiles`
-* `bash ~/dotfiles/install.sh`
+* install nix for macOS
+  * `sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume`
+  * reboot
+  * `nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin`
+  * `nix-channel --update`
+  * `nix-shell '<darwin>' -A installer`
+  * `darwin-rebuild switch`
+
+* install these dotfiles
+  * `git clone https://github.com/breuerfelix/dotfiles.git ~/.nixpkgs`
+  * `darwin-rebuild switch`
 
 ## content
 
-- distro: arch / manjaro
-- window manager: i3
-- app launcher: rofi
+- distro: macOS
+- window manager: yabai
+- bar: spacebar
 - terminal: alacritty + tmux
-- shell: zsh + oh-my-zsh
+- shell: zsh + pretzo
 - editor: neovim
