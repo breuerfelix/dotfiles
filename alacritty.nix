@@ -28,7 +28,8 @@
         }
       ];
 
-      #font = let fontname = "Sauce Code Pro Nerd Font"; in {
+      #font = let fontname = "Sauce Code Pro Nerd Font Complete Mono"; in {
+      #font = let fontname = "SauceCodePro Nerd Font Mono"; in {
       font = let fontname = "Recursive Mono Linear Static"; in {
         normal = { family = fontname; style = "Medium"; };
         bold = { family = fontname; style = "Bold"; };

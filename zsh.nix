@@ -88,6 +88,10 @@
       }
 
       function dci() { docker inspect $(docker-compose ps -q $1) }
+
+      # shell completions
+      # TODO test this
+      . <(kubebuilder completion zsh)
     '';
 
     #dirHashes = {

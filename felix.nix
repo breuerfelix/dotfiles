@@ -18,10 +18,16 @@
       fd ripgrep
       gitAndTools.delta
 
+      kubectl
+
       starship
     ];
 
     sessionPath = [ "~/go/bin" ];
+    sessionVariables = {
+      GOROOT = "${pkgs.go.out}/share/go";
+      GO111MODULE = "on";
+    };
   };
 
   programs = {
