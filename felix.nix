@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }: {
   imports = [
     ./karabiner.nix
+    ./yabai.nix
     ./spacebar.nix
     ./alacritty.nix
     ./zsh.nix
@@ -17,16 +18,24 @@
       bottom
       fd ripgrep
       gitAndTools.delta
+      wget curl
+      thefuck
+      sshfs
 
       kubectl
+      k9s
 
       starship
+
+      # TODO m1 mac
+      #buildah
     ];
 
     sessionPath = [ "~/go/bin" ];
     sessionVariables = {
       GOROOT = "${pkgs.go.out}/share/go";
       GO111MODULE = "on";
+      GOPRIVATE = "github.com/stackitcloud";
     };
   };
 

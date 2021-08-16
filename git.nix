@@ -31,6 +31,9 @@
         commit = false;
         rebase = true;
       };
+      url = {
+        "ssh://git@github.com" = { insteadOf = "https://github.com"; };
+      };
     };
   };
 }

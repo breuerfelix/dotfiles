@@ -17,7 +17,7 @@ in {
   nixpkgs.config.allowUnfree = true;
   nix = {
     allowedUsers = [ "felix" ];
-    package = pkgs.nix;
+    package = pkgs.nixUnstable;
 
     gc = {
       automatic = true;
@@ -51,7 +51,7 @@ in {
     enableFontDir = true;
     fonts = with pkgs; [
       nerdfonts
-      corefonts
+      #corefonts
       recursive
     ];
   };

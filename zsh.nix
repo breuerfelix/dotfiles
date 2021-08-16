@@ -35,6 +35,7 @@
     initExtraBeforeCompInit = ''
       eval "$(/opt/homebrew/bin/brew shellenv)"
       eval "$(starship init zsh)"
+      eval "$(thefuck --alias)"
     '';
     initExtra = ''
       #path+=$HOME/.local/bin
@@ -168,7 +169,7 @@
       # nix
       ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
       nb = "darwin-rebuild switch";
-      nbu = "darwin-rebuild switch --upgrade";
+      nbu = "nix-channel --update && darwin-rebuild switch";
       #clean = "rm -rf ~/.Trash/* && nix-collect-garbage"; # TODO empty bin
       clean = "nix-collect-garbage";
       nsh = "nix-shell";
