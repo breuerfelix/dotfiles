@@ -38,7 +38,7 @@ in {
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    users.felix = import ./felix.nix;
+    users.felix = import ./mac.nix;
   };
 
   networking = {

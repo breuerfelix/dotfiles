@@ -32,17 +32,12 @@
       share = true;
     };
 
-    initExtraBeforeCompInit = ''
-      eval "$(/opt/homebrew/bin/brew shellenv)"
-      eval "$(starship init zsh)"
-      eval "$(thefuck --alias)"
-    '';
     initExtra = ''
       #path+=$HOME/.local/bin
       #source /secrets/environment.bash
 
       # make libgc++ available in the terminal
-      #export LD_LIBRARY_PATH=${lib.makeLibraryPath [pkgs.stdenv.cc.cc]}
+      export LD_LIBRARY_PATH=${lib.makeLibraryPath [pkgs.stdenv.cc.cc]}
 
       bindkey '^e' edit-command-line
       bindkey '^ ' autosuggest-accept

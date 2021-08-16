@@ -1,9 +1,5 @@
 { config, pkgs, lib, ... }: {
   imports = [
-    ./karabiner.nix
-    ./yabai.nix
-    ./spacebar.nix
-    ./alacritty.nix
     ./zsh.nix
     ./tmux.nix
     ./git.nix
