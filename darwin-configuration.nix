@@ -17,7 +17,7 @@ in {
   nixpkgs.config.allowUnfree = true;
   nix = {
     allowedUsers = [ "felix" ];
-    package = pkgs.nixUnstable;
+    package = pkgs.nix;
 
     gc = {
       automatic = true;
