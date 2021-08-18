@@ -17,6 +17,7 @@
       wget curl
       thefuck
       sshfs
+      gh
 
       kubectl
       k9s

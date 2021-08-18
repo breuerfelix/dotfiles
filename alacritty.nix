@@ -28,13 +28,12 @@
         }
       ];
 
-      #font = let fontname = "Sauce Code Pro Nerd Font Complete Mono"; in {
-      #font = let fontname = "SauceCodePro Nerd Font Mono"; in {
-      font = let fontname = "Recursive Mono Linear Static"; in {
-        normal = { family = fontname; style = "Medium"; };
+      font = let fontname = "SauceCodePro Nerd Font Mono"; in {
+      #font = let fontname = "Recursive Mono Linear Static"; in { # TODO fix this font with nerd font
+        normal = { family = fontname; style = "Semibold"; };
         bold = { family = fontname; style = "Bold"; };
         italic = { family = fontname; style = "Semibold Italic"; };
-        size = 13;
+        size = 16;
       };
       cursor.style = "Block";
 

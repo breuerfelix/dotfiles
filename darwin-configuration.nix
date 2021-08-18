@@ -51,7 +51,7 @@ in {
     enableFontDir = true;
     fonts = with pkgs; [
       nerdfonts
-      #corefonts
+      corefonts
       recursive
     ];
   };
