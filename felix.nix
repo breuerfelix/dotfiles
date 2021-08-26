@@ -11,21 +11,18 @@
 
     packages = with pkgs; [
       # terminal
-      bottom
-      fd ripgrep
-      gitAndTools.delta
+      bottom # htop alternative
+      fd ripgrep # fast search
+      gitAndTools.delta # pretty diff tool
       wget curl
-      thefuck
-      sshfs
-      gh
+      thefuck # auto correct
+      sshfs # mount folders via ssh
+      gh # github cli tool
+      # TODO m1 mac ttyd # terminal share via web
 
-      kubectl
-      k9s
+      kubectl k9s # k8s stuff
 
-      starship
-
-      # TODO m1 mac
-      #buildah
+      starship # terminal prompt
     ];
 
     sessionPath = [ "~/go/bin" ];

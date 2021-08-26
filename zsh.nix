@@ -151,6 +151,7 @@
       search = "sudo fd . '/' | grep"; # TODO replace with ripgrep
       shut = "sudo shutdown -h now";
       tssh = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
+      socks = "ssh -D 1337 -q -C -N";
 
       # clean
       dklocal = "docker run --rm -it -v `PWD`:/usr/workdir --workdir=/usr/workdir";
