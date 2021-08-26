@@ -26,14 +26,20 @@ darwin-rebuild switch
 curl -L https://nixos.org/nix/install | sh
 sudo reboot
 
+. ~/.nix-profile/etc/profile.d/nix.sh
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
 nix-shell '<home-manager>' -A install
 home-manager switch
 
 # install these dotfiles
+rm -rf ~/.config/nixpkgs
 git clone https://github.com/breuerfelix/dotfiles.git ~/.config/nixpkgs
 home-manager switch
+
+# change default shell to zsh
+echo $(which zsh) | sudo tee -a /etc/shells
+sudo chsh -s $(which zsh) $USER
 ```
 
 ## architecture
