@@ -1,5 +1,6 @@
 { config, pkgs, ... }: {
   imports = [
+    ./modules
     ./felix.nix
   ];
 

@@ -58,7 +58,7 @@ in {
       # lsp
       (plugin "neovim/nvim-lspconfig")
       #vim-vsnip
-      (plugin "hrsh7th/nvim-compe")
+      (plugin "hrsh7th/nvim-compe") # TODO switch to nvim cmp
       (plugin "Raimondi/delimitMate") # auto bracket
       (plugin "nvim-lua/lsp_extensions.nvim") # rust inline hints
 
@@ -67,9 +67,7 @@ in {
       # syntax highlighting
       (plugin "nvim-treesitter/nvim-treesitter")
       (plugin "p00f/nvim-ts-rainbow") # bracket highlighting
-
-      # TODO fix context
-      #nvim-treesitter-context
+      (plugin "romgrk/nvim-treesitter-context")
 
       # utilities
       #(plugin "nvim-lua/popup.nvim")
@@ -81,27 +79,26 @@ in {
       #(plugin "nvim-nonicons" "yamatsum/nvim-nonicons")
 
       # highlights current variable with underline
-      #(plugin "yamatsum/nvim-cursorline")
+      (plugin "yamatsum/nvim-cursorline")
       (plugin "lewis6991/gitsigns.nvim")
-      #(plugin "lukas-reineke/indent-blankline.nvim")
+      (plugin "lukas-reineke/indent-blankline.nvim")
 
       (plugin "hoob3rt/lualine.nvim")
       (plugin "akinsho/nvim-bufferline.lua")
 
-      #vim-airline
       fzfWrapper
       fzf-vim
       (plugin "norcalli/nvim-colorizer.lua")
       (plugin "rhysd/clever-f.vim")
       # TODO fix wilder (:UpdateRemotePlugins does not work)
       #(plugin "wilder" "gelguy/wilder.nvim")
-      #vim-better-whitespace
+      vim-better-whitespace
       vim-sleuth
-      #vim-smoothie
-      #nerdcommenter
+      vim-smoothie
+      nerdcommenter
 
-      #emmet-vim
-      #(plugin "AndrewRadev/tagalong.vim")
+      emmet-vim
+      (plugin "AndrewRadev/tagalong.vim")
       #(plugin "metakirby5/codi.vim")
 
       # TODO lazyload

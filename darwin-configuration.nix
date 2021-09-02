@@ -6,6 +6,7 @@ let
 in {
   imports = [
     (import "${home-manager}/nix-darwin")
+    ./modules
   ];
 
   system.stateVersion = 4;

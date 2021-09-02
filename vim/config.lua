@@ -20,6 +20,11 @@ require'nvim-treesitter.configs'.setup {
   rainbow = { enable = true, },
 }
 
+require'treesitter-context'.setup{
+  enable = true,
+  throttle = false,
+}
+
 require'bufferline'.setup {
   options = {
     show_close_icon = false,
