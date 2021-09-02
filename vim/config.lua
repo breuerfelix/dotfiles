@@ -22,7 +22,7 @@ require'nvim-treesitter.configs'.setup {
 
 require'treesitter-context'.setup{
   enable = true,
-  throttle = false,
+  throttle = true,
 }
 
 require'bufferline'.setup {
