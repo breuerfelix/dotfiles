@@ -86,13 +86,12 @@ in {
       #(plugin "lukas-reineke/indent-blankline.nvim")
 
       (plugin "hoob3rt/lualine.nvim")
-      #(plugin "akinsho/nvim-bufferline.lua")
+      (plugin "akinsho/nvim-bufferline.lua")
 
       #vim-airline
       fzfWrapper
       fzf-vim
-      #(plugin "norcalli/nvim-colorizer.lua")
-      #(plugin "clever-f" "rhysd/clever-f.vim")
+      (plugin "norcalli/nvim-colorizer.lua")
       (plugin "rhysd/clever-f.vim")
       # TODO fix wilder (:UpdateRemotePlugins does not work)
       #(plugin "wilder" "gelguy/wilder.nvim")
