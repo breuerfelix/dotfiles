@@ -1,5 +1,6 @@
 { config, pkgs, lib, ... }: {
   imports = [
+    ./modules
     ./zsh.nix
     ./tmux.nix
     ./git.nix
@@ -21,6 +22,7 @@
       # TODO m1 mac ttyd # terminal share via web
 
       kubectl k9s # k8s stuff
+      hyperfine # benchmark tool
 
       starship # terminal prompt
     ];

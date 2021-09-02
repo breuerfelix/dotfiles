@@ -182,6 +182,11 @@
         file = "nix-shell.plugin.zsh";
         src = "${pkgs.zsh-nix-shell}/share/zsh-nix-shell";
       }
+      {
+        name = "forgit";
+        file = "forgit.plugin.zsh";
+        src = "${pkgs.forgit}/share/forgit";
+      }
     ];
     prezto = {
       enable = true;
