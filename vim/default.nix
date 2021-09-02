@@ -92,7 +92,6 @@ in {
       (plugin "rhysd/clever-f.vim")
       # TODO fix wilder (:UpdateRemotePlugins does not work)
       #(plugin "wilder" "gelguy/wilder.nvim")
-      vim-better-whitespace
       vim-sleuth
       vim-smoothie
       nerdcommenter
