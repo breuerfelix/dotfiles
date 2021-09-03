@@ -17,7 +17,12 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
   highlight = { enable = true, },
   indent = { enable = false, },
-  rainbow = { enable = true, },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    -- prevents lagging in large files
+    max_file_lines = 1000,
+  },
 }
 
 require'treesitter-context'.setup{

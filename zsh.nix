@@ -110,8 +110,8 @@
       lsl = "ls -l";
       lsa = "ls -a";
       null = "/dev/null";
-      tu = "tmux";
       tmux = "tmux -u";
+      tu = "tmux";
 
       g = "git";
       gst = "git status";
