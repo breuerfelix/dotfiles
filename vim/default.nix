@@ -25,18 +25,16 @@ in {
       (lib.strings.fileContents ./base.vim)
       (lib.strings.fileContents ./plugins.vim)
       (lib.strings.fileContents ./lsp.vim)
-      #(lib.strings.fileContents ./coc.vim)
       ''
         lua << EOF
         ${lib.strings.fileContents ./config.lua}
         ${lib.strings.fileContents ./lsp.lua}
+        ${lib.strings.fileContents ./debug.lua}
         EOF
       ''
     ];
     extraPackages = with pkgs; [
       tree-sitter
-      #luajit # for nvim colorizer
-
       jq curl # rest.nvim
 
       # for telescope
@@ -51,6 +49,9 @@ in {
       texlab
       nodePackages.pyright
       rust-analyzer
+
+      # debugging
+      delve # golang
     ];
     plugins = with pkgs.vimPlugins; [
       vim-which-key
@@ -84,7 +85,9 @@ in {
       (plugin "lukas-reineke/indent-blankline.nvim")
 
       (plugin "hoob3rt/lualine.nvim")
+      (plugin "SmiteshP/nvim-gps") # shows code context
       (plugin "akinsho/nvim-bufferline.lua")
+      (plugin "qpkorr/vim-bufkill")
 
       fzfWrapper
       fzf-vim
@@ -99,6 +102,9 @@ in {
       emmet-vim
       (plugin "AndrewRadev/tagalong.vim")
       #(plugin "metakirby5/codi.vim")
+
+      # debugging
+      (plugin "mfussenegger/nvim-dap")
 
       # TODO lazyload
       #vimwiki

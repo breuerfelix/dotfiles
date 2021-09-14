@@ -116,3 +116,15 @@ let g:which_key_map['e'] = { 'name': 'exec' }
 "disable all extensions for a minimal setup
 let g:airline_extensions = []
 let g:airline_powerline_fonts = 0
+
+"debugging
+nnoremap <silent> <leader>dr :lua require'dap'.continue()<CR>
+nnoremap <silent> <leader>dk :lua require'dap'.step_over()<CR>
+nnoremap <silent> <leader>dj :lua require'dap'.step_into()<CR>
+nnoremap <silent> <leader>dl :lua require'dap'.step_out()<CR>
+nnoremap <silent> <leader>dt :lua require'dap'.toggle_breakpoint()<CR>
+"nnoremap <silent> <leader>db :lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+"nnoremap <silent> <leader>dp :lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+nnoremap <silent> <leader>do :lua require'dap'.repl.open()<CR>
+"nnoremap <silent> <leader>dh :lua require'dap'.run_last()<CR>
+nnoremap <silent> <leader>dh :lua :lua require('dap.ui.widgets').hover()<CR>

@@ -124,7 +124,7 @@
 
       # progrrams
       kc = "kubectl";
-      kci = "kubie";
+      ku = "kubie";
       dk = "docker";
       dc = "docker-compose";
       pd = "podman";
@@ -169,6 +169,7 @@
       #clean = "rm -rf ~/.Trash/* && nix-collect-garbage"; # TODO empty bin
       clean = "nix-collect-garbage";
       nsh = "nix-shell";
+      nbh = "LD_LIBRARY_PATH= home-manager switch";
     };
 
     plugins = [

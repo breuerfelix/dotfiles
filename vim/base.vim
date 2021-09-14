@@ -21,7 +21,8 @@ noremap <S-k> 3kzz
 "buffer
 nmap <C-n> :bnext<CR>
 nmap <C-p> :bprevious<CR>
-nmap <C-y> :bdelete<CR>
+"nmap <C-y> :bdelete<CR>
+nmap <C-y> :BD<CR>
 "map <C-t> :tabnew<CR>
 
 "finder

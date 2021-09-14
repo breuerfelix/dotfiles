@@ -22,6 +22,7 @@
 
       kubectl k9s # k8s stuff
       hyperfine # benchmark tool
+      kubie
 
       starship # terminal prompt
     ];
