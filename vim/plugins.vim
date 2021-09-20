@@ -27,7 +27,9 @@ let g:spacevim_todo_labels = [
 \]
 
 "let g:indentLine_char = '|'
-let g:indentLine_char = '│'
+"let g:indentLine_char = '│'
+"let g:indent_blankline_use_treesitter = v:true
+
 
 highlight IndentBlanklineChar guifg=grey25 gui=nocombine
 
@@ -100,6 +102,9 @@ let g:user_emmet_leader_key = '<C-e>'
 
 "fzf
 let g:fzf_layout = { 'window': { 'border': 'sharp', 'width': 0.9, 'height': 0.6 } }
+
+"editor config
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_compiler_method = 'generic'

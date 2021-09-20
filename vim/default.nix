@@ -69,6 +69,7 @@ in {
       (plugin "nvim-treesitter/nvim-treesitter")
       (plugin "p00f/nvim-ts-rainbow") # bracket highlighting
       (plugin "romgrk/nvim-treesitter-context")
+      (plugin "editorconfig/editorconfig-vim")
 
       # utilities
       #(plugin "nvim-lua/popup.nvim")
@@ -82,7 +83,7 @@ in {
       # highlights current variable with underline
       (plugin "yamatsum/nvim-cursorline")
       (plugin "lewis6991/gitsigns.nvim")
-      (plugin "lukas-reineke/indent-blankline.nvim")
+      #(plugin "lukas-reineke/indent-blankline.nvim") # TODO only load on files < 1k lines
 
       (plugin "hoob3rt/lualine.nvim")
       (plugin "SmiteshP/nvim-gps") # shows code context
