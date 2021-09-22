@@ -121,8 +121,11 @@
       # overrides
       cat = "bat";
       ssh = "TERM=screen ssh";
+      python = "python3";
+      pip = "python3 -m pip";
+      venv = "python3 -m venv";
 
-      # progrrams
+      # programs
       kc = "kubectl";
       ku = "kubie";
       dk = "docker";
@@ -130,9 +133,7 @@
       pd = "podman";
       pc = "podman-compose";
       sc = "sudo systemctl";
-      py = "python";
       poe = "poetry";
-      pi = "python -m pip";
       fb = "pcmanfm .";
       space = "ncdu";
       ca = "cargo";
@@ -198,8 +199,8 @@
         keymap = "vi";
       };
       python = {
-        #virtualenvInitialize = true;
-        #virtualenvAutoSwitch = true;
+        virtualenvInitialize = true;
+        virtualenvAutoSwitch = true;
       };
 
       pmodules = [
