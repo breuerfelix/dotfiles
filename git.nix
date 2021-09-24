@@ -7,9 +7,12 @@
     # TODO add signing
     aliases = {
       cm = "commit";
+      ca = "commit --amend --no-edit";
       di = "diff";
       dh = "diff HEAD";
       pu = "pull";
+      ps = "push";
+      pf = "push -f";
       st = "status -sb";
       co = "checkout";
       fe = "fetch";

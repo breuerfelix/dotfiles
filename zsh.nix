@@ -114,9 +114,6 @@
       tu = "tmux";
 
       g = "git";
-      gst = "git status";
-      gdi = "git diff";
-      gdh = "git diff HEAD";
 
       # overrides
       cat = "bat";
