@@ -168,6 +168,9 @@
       clean = "nix-collect-garbage";
       nsh = "nix-shell";
       nbh = "LD_LIBRARY_PATH= home-manager switch";
+      nbhu = "LD_LIBRARY_PATH= nix-channel --update && LD_LIBRARY_PATH= home-manager switch";
+
+      aupt = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y";
     };
 
     plugins = [

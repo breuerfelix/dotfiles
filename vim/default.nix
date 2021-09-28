@@ -94,6 +94,7 @@ in {
       fzf-vim
       (plugin "norcalli/nvim-colorizer.lua")
       (plugin "rhysd/clever-f.vim")
+      (plugin "tpope/vim-fugitive")
       # TODO fix wilder (:UpdateRemotePlugins does not work)
       #(plugin "wilder" "gelguy/wilder.nvim")
       vim-sleuth
