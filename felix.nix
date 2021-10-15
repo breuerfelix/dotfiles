@@ -25,6 +25,8 @@
       kubie
 
       starship # terminal prompt
+
+      poetry
     ];
 
     sessionPath = [ "~/go/bin" ];

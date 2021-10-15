@@ -30,7 +30,6 @@ let g:spacevim_todo_labels = [
 "let g:indentLine_char = '│'
 "let g:indent_blankline_use_treesitter = v:true
 
-
 highlight IndentBlanklineChar guifg=grey25 gui=nocombine
 
 "improve writing
@@ -50,6 +49,10 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 "inline hints for rust
 autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
+
+"vsnip
+imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 
 " fuzzy finder for wilder menu
 "call wilder#set_option('pipeline', [

@@ -42,7 +42,7 @@ in {
       #bat ripgrep fd
 
       # extra language servers
-      #rnix-lsp TODO fix slow closing time of neovim
+      rnix-lsp
       terraform-lsp
       nodePackages.typescript nodePackages.typescript-language-server
       gopls
@@ -58,8 +58,18 @@ in {
 
       # lsp
       (plugin "neovim/nvim-lspconfig")
-      #vim-vsnip
-      (plugin "hrsh7th/nvim-compe") # TODO switch to nvim cmp
+      # completion
+      (plugin "hrsh7th/cmp-nvim-lsp")
+      (plugin "hrsh7th/cmp-path")
+      #(plugin "hrsh7th/cmp-buffer")
+
+      (plugin "hrsh7th/nvim-cmp")
+
+      # snippets are needed for many language servers
+      (plugin "hrsh7th/cmp-vsnip")
+      (plugin "hrsh7th/vim-vsnip")
+      (plugin "rafamadriz/friendly-snippets")
+
       (plugin "Raimondi/delimitMate") # auto bracket
       (plugin "nvim-lua/lsp_extensions.nvim") # rust inline hints
 
