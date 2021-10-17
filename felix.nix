@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }: {
   imports = [
     ./zsh.nix
+    ./adblock.nix
     ./tmux.nix
     ./git.nix
     ./vim
@@ -26,7 +27,7 @@
 
       starship # terminal prompt
 
-      poetry
+      python3 poetry
     ];
 
     sessionPath = [ "~/go/bin" ];

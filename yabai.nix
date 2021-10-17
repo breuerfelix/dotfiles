@@ -47,8 +47,8 @@
       # shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
 
       # increase window size
-      shift + alt - a : yabai -m window --resize left:-20:0
-      shift + alt - s : yabai -m window --resize right:-20:0
+      shift + alt - a : /opt/homebrew/bin/yabai -m window --resize left:-20:0
+      shift + alt - s : /opt/homebrew/bin/yabai -m window --resize right:-20:0
       # shift + alt - w : yabai -m window --resize top:0:-20
 
       # decrease window size

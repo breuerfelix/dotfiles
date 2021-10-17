@@ -33,7 +33,7 @@
     };
 
     initExtra = ''
-      #path+=$HOME/.local/bin
+      path+=$HOME/.local/bin
       #source /secrets/environment.bash
 
       # make libgc++ available in the terminal
