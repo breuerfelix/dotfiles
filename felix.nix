@@ -79,6 +79,7 @@
       defaultOptions = [
         "--border sharp"
         "--inline-info"
+        "--bind ctrl-h:preview-down,ctrl-l:preview-up"
       ];
     };
   };

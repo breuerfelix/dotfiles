@@ -37,9 +37,8 @@ in {
       tree-sitter
       jq curl # rest.nvim
 
-      # for telescope
-      # TODO add telescope
-      #bat ripgrep fd
+      # for fzf
+      bat ripgrep fd fzf
 
       # extra language servers
       rnix-lsp
@@ -54,15 +53,15 @@ in {
       delve # golang
     ];
     plugins = with pkgs.vimPlugins; [
-      vim-which-key
+      (plugin "folke/which-key.nvim")
 
       # lsp
       (plugin "neovim/nvim-lspconfig")
+
       # completion
       (plugin "hrsh7th/cmp-nvim-lsp")
       (plugin "hrsh7th/cmp-path")
       #(plugin "hrsh7th/cmp-buffer")
-
       (plugin "hrsh7th/nvim-cmp")
 
       # snippets are needed for many language servers
@@ -72,8 +71,6 @@ in {
 
       (plugin "Raimondi/delimitMate") # auto bracket
       (plugin "nvim-lua/lsp_extensions.nvim") # rust inline hints
-
-      #vimtex
 
       # syntax highlighting
       (plugin "nvim-treesitter/nvim-treesitter")
@@ -87,31 +84,40 @@ in {
       #(plugin "nvim-telescope" "nvim-telescope/telescope.nvim")
       (plugin "kyazdani42/nvim-web-devicons")
 
-      # TODO get this going
-      #(plugin "nvim-nonicons" "yamatsum/nvim-nonicons")
+      # navigation
+      (plugin "easymotion/vim-easymotion")
+      (plugin "rhysd/clever-f.vim")
+      (plugin "kyazdani42/nvim-tree.lua")
 
       # highlights current variable with underline
       (plugin "yamatsum/nvim-cursorline")
       (plugin "lewis6991/gitsigns.nvim")
       #(plugin "lukas-reineke/indent-blankline.nvim") # TODO only load on files < 1k lines
 
+      # bars
       (plugin "hoob3rt/lualine.nvim")
       (plugin "SmiteshP/nvim-gps") # shows code context
       (plugin "akinsho/nvim-bufferline.lua")
       (plugin "qpkorr/vim-bufkill")
 
-      fzfWrapper
-      fzf-vim
-      (plugin "norcalli/nvim-colorizer.lua")
-      (plugin "rhysd/clever-f.vim")
-      (plugin "tpope/vim-fugitive")
-      # TODO fix wilder (:UpdateRemotePlugins does not work)
-      #(plugin "wilder" "gelguy/wilder.nvim")
-      vim-sleuth
-      vim-smoothie
-      nerdcommenter
+      # fzf
+      (plugin "ibhagwan/fzf-lua")
+      (plugin "vijaymarupudi/nvim-fzf")
 
-      emmet-vim
+      (plugin "preservim/vimux")
+
+      (plugin "norcalli/nvim-colorizer.lua")
+      (plugin "tpope/vim-fugitive")
+      (plugin "sindrets/diffview.nvim")
+
+      # wildmenu for commands
+      (plugin "gelguy/wilder.nvim")
+
+      (plugin "tpope/vim-sleuth")
+      (plugin "psliwka/vim-smoothie")
+      (plugin "preservim/nerdcommenter")
+      (plugin "mattn/emmet-vim")
+
       (plugin "AndrewRadev/tagalong.vim")
       #(plugin "metakirby5/codi.vim")
 
@@ -126,13 +132,6 @@ in {
       #goyo-vim
       #limelight-vim
       #(plugin "NTBBloodbath/rest.nvim") # http client
-
-      # TODO configure nvim tree lua
-      nerdtree
-      #nvim-tree-lua
-
-      # TODO maybe replace with nvim web devicons
-      vim-devicons
 
       # colorschemes
       (plugin "folke/tokyonight.nvim")

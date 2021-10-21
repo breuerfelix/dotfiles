@@ -137,6 +137,8 @@
       tf = "terraform";
       diff = "delta";
       nr = "npm run";
+      py = "python";
+      awake = "caffeinate";
 
       # terminal cheat sheet
       cht = "cht.sh";

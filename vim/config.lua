@@ -1,7 +1,24 @@
-require'nvim-web-devicons'.setup()
-require'colorizer'.setup()
+require('which-key').setup()
+require('nvim-web-devicons').setup()
+require('colorizer').setup()
+require('diffview').setup()
 
-require'gitsigns'.setup {
+require('nvim-tree').setup {
+  view = {
+    auto_resize = true,
+  },
+}
+
+require('fzf-lua').setup {
+  winopts = {
+    border = 'single',
+  },
+  fzf_opts = {
+    ['--border'] = 'none',
+  },
+}
+
+require('gitsigns').setup {
   signs = {
     -- source: https://en.wikipedia.org/wiki/Box-drawing_character
     add          = {hl = 'GitSignsAdd'   , text = '┃', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
@@ -12,11 +29,11 @@ require'gitsigns'.setup {
   },
 }
 
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   -- "all", "maintained" or a list
   ensure_installed = "maintained",
-  highlight = { enable = true, },
-  indent = { enable = false, },
+  highlight = { enable = true },
+  indent = { enable = true },
   rainbow = {
     enable = true,
     extended_mode = true,
@@ -25,12 +42,12 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
-require'treesitter-context'.setup{
+require('treesitter-context').setup {
   enable = true,
   throttle = true,
 }
 
-require'bufferline'.setup {
+require('bufferline').setup {
   options = {
     show_close_icon = false,
     show_buffer_close_icons = false,
@@ -45,7 +62,7 @@ require'bufferline'.setup {
   --},
 }
 
-require("nvim-gps").setup({
+require('nvim-gps').setup({
   icons = {
     ["class-name"] = ' ',
     ["function-name"] = ' ',
@@ -54,8 +71,8 @@ require("nvim-gps").setup({
   separator = ' > ',
 })
 
-local gps = require("nvim-gps")
-require'lualine'.setup {
+local gps = require('nvim-gps')
+require('lualine').setup {
   options = {
     theme = "nord",
     -- disable powerline

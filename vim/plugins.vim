@@ -1,25 +1,20 @@
-"whichkey
-let g:which_key_map = {}
-"autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map')
-call which_key#register('<Space>', 'g:which_key_map')
+"BufKill
+let g:BufKillCreateMappings = 0
 
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
-vnoremap <silent> <leader> :WhichKeyVisual '<Space>'<CR>
-let g:which_key_map['c'] = { 'name': 'commenter' }
+lua require('which-key').register({ ['<leader>c'] = { name = 'commenter' } })
 
 set timeoutlen=500
 set signcolumn=yes
 
-map <leader>b :NERDTreeToggle<CR>
-nmap <leader>s :Rg<CR>
+map <leader>b :NvimTreeToggle<CR>
+nmap <leader>s :FzfLua grep search=""<CR>
 nmap <leader>ln :noh<CR>
 nmap <leader>ls :s/"/'/g<bar>:noh<CR>
 nmap <leader>lc :%s/\t/  /g<CR>
 nmap <leader>lg :GrammarousCheck<CR>
 nmap <leader>lr :GrammarousReset<CR>
 nmap <leader>lt :OpenTodo<CR>
-"TODO doesn't work
-let g:which_key_map['l'] = { 'name': 'linting / syntax' }
+lua require('which-key').register({ ['<leader>l'] = { name = 'linting / syntax' } })
 
 let g:spacevim_todo_labels = [
 \  'FIXME',
@@ -48,34 +43,41 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 "inline hints for rust
-autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require'lsp_extensions'.inlay_hints{}
+autocmd BufEnter,BufWinEnter,TabEnter *.rs :lua require('lsp_extensions').inlay_hints{}
 
 "vsnip
 imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
 
-" fuzzy finder for wilder menu
-"call wilder#set_option('pipeline', [
-"\  wilder#branch(
-"\    wilder#cmdline_pipeline({
-"\      'fuzzy': 1,
-"\      'use_python': 1,
-"\    }),
-"\    wilder#python_search_pipeline({
-"\      'regex': 'fuzzy',
-"\      'engine': 're',
-"\      'sort': function('wilder#python_sort_difflib'),
-"\    }),
-"\  ),
-"\])
+call wilder#setup({
+  \ 'modes': [':', '/', '?'],
+  \ 'next_key': '<C-j>',
+  \ 'previous_key': '<C-k>',
+  \ 'accept_key': '<Down>',
+  \ 'reject_key': '<Up>',
+  \ })
 
-""command completion
-"call wilder#enable_cmdline_enter()
-"set wildcharm=<Tab>
-"cmap <expr> <Tab> wilder#in_context() ? wilder#next() : "\<Tab>"
-"cmap <expr> <S-Tab> wilder#in_context() ? wilder#previous() : "\<S-Tab>"
-" only / and ? is enabled by default
-"call wilder#set_option('modes', ['/', '?', ':'])
+call wilder#set_option('pipeline', [
+  \   wilder#branch(
+  \     wilder#cmdline_pipeline({
+  \       'language': 'python',
+  \       'fuzzy': 1,
+  \     }),
+  \     wilder#python_search_pipeline({
+  \       'pattern': wilder#python_fuzzy_pattern(),
+  \       'sorter': wilder#python_difflib_sorter(),
+  \       'engine': 're',
+  \     }),
+  \   ),
+  \ ])
+
+call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
+  \ 'highlighter': wilder#basic_highlighter(),
+  \ 'border': 'single',
+  \ 'left': [
+  \   ' ', wilder#popupmenu_devicons()
+  \ ],
+  \ })))
 
 "better wildmenu
 set wildmenu
@@ -83,16 +85,17 @@ set wildmode=longest:list,full
 
 "vimwiki
 let g:vimwiki_list = [{
-      \'path': '~/vimwiki/',
-      \'syntax': 'markdown',
-      \'ext': '.md'
-      \}]
+  \ 'path': '~/vimwiki/',
+  \ 'syntax': 'markdown',
+  \ 'ext': '.md'
+  \ }]
 "otherwhise vimwiki considers every .md file as vimwiki
 let g:vimwiki_global_ext = 0
 
 nmap <leader>wj <Plug>VimwikiNextLink
 nmap <leader>wk <Plug>VimwikiPrevLink
-let g:which_key_map['w'] = { 'name': 'vimwiki' }";
+"let g:which_key_map['w'] = { 'name': 'vimwiki' }";
+lua require('which-key').register({ ['<leader>w'] = { name = 'vimwiki' } })
 
 "vim smoothie
 nmap <C-d> <Plug>(SmoothieDownwards)
@@ -114,12 +117,12 @@ let g:vimtex_compiler_method = 'generic'
 let g:vimtex_compiler_generic = {
   \ 'cmd' : 'bash run.sh',
   \ 'build_dir' : '',
-  \}
+  \ }
 
 nmap <leader>el :VimtexCompile<CR>
 nmap <leader>ec :Codi!!<CR>
 nmap <leader>eh <Plug>RestNvim
-let g:which_key_map['e'] = { 'name': 'exec' }
+lua require('which-key').register({ ['<leader>e'] = { name = 'exec' } })
 
 "disable all extensions for a minimal setup
 let g:airline_extensions = []
