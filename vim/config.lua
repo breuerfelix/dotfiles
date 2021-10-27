@@ -4,6 +4,7 @@ require('colorizer').setup()
 require('diffview').setup()
 
 require('nvim-tree').setup {
+  auto_close = true,
   view = {
     auto_resize = true,
   },

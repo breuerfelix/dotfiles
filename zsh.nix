@@ -10,6 +10,14 @@
     '';
   };
 
+  home.file.kubie = {
+    target = ".kube/kubie.yaml";
+    text = ''
+      prompt:
+        zsh_use_rps1: true
+    '';
+  };
+
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -47,13 +55,6 @@
       bindkey '^r' fzf-history-widget
       bindkey '^f' fzf-file-widget
 
-      function watch() {
-          while sleep 1
-          do clear
-              $*
-          done
-      }
-
       function cd() {
           builtin cd $*
           lsd
@@ -90,9 +91,11 @@
       . <(kubebuilder completion zsh)
     '';
 
-    #dirHashes = {
-    #dl = "$HOME/Downloads";
-    #};
+    dirHashes = {
+      dl = "$HOME/Downloads";
+      nix = "$HOME/.nixpkgs";
+      code = "$HOME/code";
+    };
 
     shellAliases = {
       # builtins
@@ -113,8 +116,6 @@
       tmux = "tmux -u";
       tu = "tmux";
 
-      g = "git";
-
       # overrides
       cat = "bat";
       ssh = "TERM=screen ssh";
@@ -123,6 +124,7 @@
       venv = "python3 -m venv";
 
       # programs
+      g = "git";
       kc = "kubectl";
       ku = "kubie";
       dk = "docker";

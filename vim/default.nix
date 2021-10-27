@@ -59,10 +59,11 @@ in {
       (plugin "neovim/nvim-lspconfig")
 
       # completion
+      (plugin "hrsh7th/nvim-cmp")
       (plugin "hrsh7th/cmp-nvim-lsp")
       (plugin "hrsh7th/cmp-path")
       #(plugin "hrsh7th/cmp-buffer")
-      (plugin "hrsh7th/nvim-cmp")
+      (plugin "petertriho/cmp-git")
 
       # snippets are needed for many language servers
       (plugin "hrsh7th/cmp-vsnip")

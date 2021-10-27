@@ -20,10 +20,11 @@
       sshfs # mount folders via ssh
       gh # github cli tool
       # TODO m1 mac ttyd # terminal share via web
+      graph-easy
+      unixtools.watch
 
-      kubectl k9s # k8s stuff
+      kubectl k9s kubie # k8s stuff
       hyperfine # benchmark tool
-      kubie
 
       starship # terminal prompt
 

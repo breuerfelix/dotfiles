@@ -1,5 +1,5 @@
 -- nvim-cmp
-vim.o.completeopt = "menu,menuone,noselect"
+vim.o.completeopt = 'menu,menuone,noselect'
 
 local cmp = require('cmp')
 cmp.setup({
@@ -24,9 +24,13 @@ cmp.setup({
     { name = 'nvim_lsp' },
     { name = 'vsnip' },
     { name = 'path' },
+    { name = 'cmp_git' },
     --{ name = 'buffer' },
   },
 })
+
+-- cmp sources
+require('cmp_git').setup() -- requires github cli
 
 -- lspconfig
 -- updates while typing

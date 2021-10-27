@@ -66,9 +66,9 @@ tnoremap jk <C-\><C-n>
 tnoremap <C-u> <C-\><C-n>:q<CR>
 
 "run current buffer
-autocmd filetype python nnoremap <leader>er :VimuxRunCommand python %<CR>
-autocmd filetype javascript,typescript nnoremap <leader>er VimuxRunCommand node %<CR>
-autocmd filetype go noremap <leader>er :VimuxRunCommand go run .<CR>
+autocmd filetype python nnoremap <leader>er :VimuxRunCommand("python %")<CR>
+autocmd filetype javascript,typescript nnoremap <leader>er VimuxRunCommand("node %")<CR>
+autocmd filetype go noremap <leader>er :VimuxRunCommand("go run .")<CR>
 
 "true colors
 set termguicolors
