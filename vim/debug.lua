@@ -42,6 +42,12 @@ dap.configurations.go = {
   },
   {
     type = "go",
+    name = "main.go",
+    request = "launch",
+    program = "${workspaceFolder} main.go"
+  },
+  {
+    type = "go",
     name = "Debug test", -- configuration for debugging test files
     request = "launch",
     mode = "test",
@@ -54,5 +60,5 @@ dap.configurations.go = {
     request = "launch",
     mode = "test",
     program = "./${relativeFileDirname}"
-  } 
+  },
 }

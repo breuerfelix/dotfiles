@@ -2,11 +2,13 @@
 let g:BufKillCreateMappings = 0
 
 lua require('which-key').register({ ['<leader>c'] = { name = 'commenter' } })
+lua require('which-key').register({ ['<leader>d'] = { name = 'debugging' } })
 
 set timeoutlen=500
 set signcolumn=yes
 
 map <leader>b :NvimTreeToggle<CR>
+nmap <leader>t :Vista!!<CR>
 nmap <leader>s :FzfLua grep search=""<CR>
 nmap <leader>ln :noh<CR>
 nmap <leader>ls :s/"/'/g<bar>:noh<CR>

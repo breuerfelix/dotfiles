@@ -17,6 +17,14 @@ require('fzf-lua').setup {
   fzf_opts = {
     ['--border'] = 'none',
   },
+  files = {
+    cmd = 'fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor',
+  },
+  grep = {
+    rg_opts = "--hidden --column --line-number --no-heading " ..
+              "--color=always --smart-case " ..
+              "-g '!{.git,node_modules,vendor}/*'",
+  },
 }
 
 require('gitsigns').setup {

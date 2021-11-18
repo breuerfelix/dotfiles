@@ -21,7 +21,9 @@
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
-    enableCompletion = true;
+    # TODO reenable when issue is fixed
+    # https://github.com/NixOS/nix/issues/5445
+    enableCompletion = false;
     autocd = true;
     dotDir = ".config/zsh";
     #defaultKeymap = ""; #vicmd or viins

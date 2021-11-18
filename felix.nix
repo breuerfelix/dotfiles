@@ -23,7 +23,7 @@
       graph-easy
       unixtools.watch
 
-      kubectl k9s kubie # k8s stuff
+      kubectl k9s kubie kind # k8s stuff
       hyperfine # benchmark tool
 
       starship # terminal prompt
@@ -76,7 +76,7 @@
 
     fzf = {
       enable = true;
-      defaultCommand = "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache";
+      defaultCommand = "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor";
       defaultOptions = [
         "--border sharp"
         "--inline-info"

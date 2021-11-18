@@ -29,6 +29,14 @@ cmp.setup({
   },
 })
 
+--require'cmp'.cmdline.setup('/', {
+  --sources = cmp.config.sources({
+    --{ name = 'nvim_lsp_document_symbol' }
+  --}, {
+    --{ name = 'buffer' }
+  --})
+--})
+
 -- cmp sources
 require('cmp_git').setup() -- requires github cli
 

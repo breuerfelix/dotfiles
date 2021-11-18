@@ -36,9 +36,9 @@ in {
     extraPackages = with pkgs; [
       tree-sitter
       jq curl # rest.nvim
-
-      # for fzf
-      bat ripgrep fd fzf
+      bat ripgrep fd fzf # fzf
+      nodejs # github copilot
+      universal-ctags # vista
 
       # extra language servers
       rnix-lsp
@@ -63,12 +63,13 @@ in {
       (plugin "hrsh7th/cmp-nvim-lsp")
       (plugin "hrsh7th/cmp-path")
       #(plugin "hrsh7th/cmp-buffer")
+      #(plugin "hrsh7th/cmp-nvim-lsp-document-symbol") # TODO fix it
       (plugin "petertriho/cmp-git")
 
       # snippets are needed for many language servers
       (plugin "hrsh7th/cmp-vsnip")
       (plugin "hrsh7th/vim-vsnip")
-      (plugin "rafamadriz/friendly-snippets")
+      (plugin "rafamadriz/friendly-snippets") # snippet collection for all languages
 
       (plugin "Raimondi/delimitMate") # auto bracket
       (plugin "nvim-lua/lsp_extensions.nvim") # rust inline hints
@@ -89,6 +90,7 @@ in {
       (plugin "easymotion/vim-easymotion")
       (plugin "rhysd/clever-f.vim")
       (plugin "kyazdani42/nvim-tree.lua")
+      (plugin "liuchengxu/vista.vim")
 
       # highlights current variable with underline
       (plugin "yamatsum/nvim-cursorline")
@@ -124,6 +126,8 @@ in {
 
       # debugging
       (plugin "mfussenegger/nvim-dap")
+
+      (plugin "github/copilot.vim")
 
       # TODO lazyload
       #vimwiki
