@@ -10,10 +10,16 @@ in {
   ];
 
   system.stateVersion = 4;
-  environment.systemPackages = with pkgs; [
-    vim
-    #yabai # TODO fix yabai install with nix
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      vim
+      #yabai # TODO fix yabai install with nix
+    ];
+    sessionVariables = {
+      # make libgc++ available in the terminal
+      LD_LIBRARY_PATH = ${lib.makeLibraryPath [pkgs.stdenv.cc.cc]};
+    };
+  };
 
   nixpkgs.config.allowUnfree = true;
   nix = {
