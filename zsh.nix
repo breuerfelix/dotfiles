@@ -44,6 +44,7 @@
 
     initExtra = ''
       path+=$HOME/.local/bin
+      path+=$HOME/.cargo/bin
       #source /secrets/environment.bash
 
       # make libgc++ available in the terminal
@@ -173,6 +174,7 @@
       #clean = "rm -rf ~/.Trash/* && nix-collect-garbage"; # TODO empty bin
       clean = "nix-collect-garbage";
       nsh = "nix-shell";
+      "," = "nix-shell -p";
       nbh = "LD_LIBRARY_PATH= home-manager switch";
       nbhu = "LD_LIBRARY_PATH= nix-channel --update && LD_LIBRARY_PATH= home-manager switch";
 

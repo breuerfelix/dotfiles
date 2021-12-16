@@ -38,6 +38,10 @@ noremap <silent> <C-i> :w<CR>
 "sudo tee hack, write as root
 cmap w!! w !sudo tee > /dev/null %
 
+"save undo / redo across sessions
+set undofile
+set undodir=~/.vim/undo
+
 "quit
 nmap <C-u> :q<CR>
 imap <C-u> <Esc>:q<CR>
@@ -67,8 +71,11 @@ tnoremap <C-u> <C-\><C-n>:q<CR>
 
 "run current buffer
 autocmd filetype python nnoremap <leader>er :VimuxRunCommand("python %")<CR>
-autocmd filetype javascript,typescript nnoremap <leader>er VimuxRunCommand("node %")<CR>
+autocmd filetype javascript,typescript nnoremap <leader>er :VimuxRunCommand("node %")<CR>
 autocmd filetype go noremap <leader>er :VimuxRunCommand("go run .")<CR>
+
+"formatter
+"autocmd filetype python noremap <leader>f :silent execute \"!black -q %\" | edit!<CR>
 
 "true colors
 set termguicolors

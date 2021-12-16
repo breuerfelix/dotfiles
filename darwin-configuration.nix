@@ -20,11 +20,11 @@ in {
     allowedUsers = [ "felix" ];
     package = pkgs.nix;
 
-    gc = {
-      automatic = true;
-      user = "felix";
-      options = "--delete-older-than 7d";
-    };
+    #gc = {
+      #automatic = true;
+      #user = "felix";
+      #options = "--delete-older-than 7d";
+    #};
   };
 
   users.users.felix = {
@@ -45,7 +45,7 @@ in {
   networking = {
     hostName = "alucard";
     knownNetworkServices = [ "Wi-Fi" ];
-    dns = [ "1.1.1.1" "8.8.8.8" ];
+    #dns = [ "1.1.1.1" "8.8.8.8" ];
   };
 
   fonts = {
@@ -54,6 +54,7 @@ in {
       nerdfonts
       corefonts
       recursive
+      fira-code
     ];
   };
 }

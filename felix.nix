@@ -22,13 +22,20 @@
       # TODO m1 mac ttyd # terminal share via web
       graph-easy
       unixtools.watch
+      coreutils
+      cht-sh # cheat sheet -> cht python read file
+      dive # analyse docker images
+      hyperfine # benchmark tool
+      velero # k8s backup tool
+      sipcalc # ip subnet calculator
 
       kubectl k9s kubie kind # k8s stuff
-      hyperfine # benchmark tool
+      python3 poetry
+      rustup # rust
+      deno # node runtime
 
       starship # terminal prompt
 
-      python3 poetry
     ];
 
     sessionPath = [ "~/go/bin" ];
@@ -60,6 +67,7 @@
 
     go = {
       enable = true;
+      package = pkgs.go;
       goPath = "go";
       goBin = "go/bin";
     };

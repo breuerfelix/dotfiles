@@ -1,6 +1,7 @@
 require('which-key').setup()
 require('nvim-web-devicons').setup()
 require('colorizer').setup()
+-- :DiffviewOpen / DiffviewClose
 require('diffview').setup()
 
 require('nvim-tree').setup {

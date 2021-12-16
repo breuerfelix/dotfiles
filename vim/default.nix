@@ -46,7 +46,7 @@ in {
       nodePackages.typescript nodePackages.typescript-language-server
       gopls
       texlab
-      nodePackages.pyright
+      nodePackages.pyright black
       rust-analyzer
 
       # debugging
@@ -123,6 +123,10 @@ in {
 
       (plugin "AndrewRadev/tagalong.vim")
       #(plugin "metakirby5/codi.vim")
+
+      # formatters
+      # TODO fix this
+      #(plugin "psf/black")
 
       # debugging
       (plugin "mfussenegger/nvim-dap")
