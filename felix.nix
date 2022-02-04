@@ -12,37 +12,53 @@
 
     packages = with pkgs; [
       # terminal
-      bottom # htop alternative
+      bottom # htop alternatives
+      #btop 
       fd ripgrep # fast search
       gitAndTools.delta # pretty diff tool
       wget curl
-      thefuck # auto correct
+      thefuck # auto correct commands
       sshfs # mount folders via ssh
       gh # github cli tool
       # TODO m1 mac ttyd # terminal share via web
-      graph-easy
-      unixtools.watch
-      coreutils
+      graph-easy # draw graphs in the terminal
+      unixtools.watch # watches commands
       cht-sh # cheat sheet -> cht python read file
       dive # analyse docker images
       hyperfine # benchmark tool
-      velero # k8s backup tool
       sipcalc # ip subnet calculator
+      youtube-dl # download youtube videos
+      ffmpeg
 
-      kubectl k9s kubie kind # k8s stuff
-      python3 poetry
+      # gnu binaries
+      coreutils-full # installs some gnu versions of linux bins
+      gnutar # linux implementation of tar
+
+      # k8s stuff
+      kubectl krew k9s kubie kind
+      kubelogin-oidc
+      velero # k8s backup tool
+
+      #podman
+
+      python3 poetry # python tools
       rustup # rust
       deno # node runtime
 
       starship # terminal prompt
+      slides # terminal presentation tool
 
+      mongodb-tools
     ];
 
-    sessionPath = [ "~/go/bin" ];
+    sessionPath = [
+      "$HOME/go/bin"
+      "$HOME/.local/bin"
+      "$HOME/.cargo/bin"
+      "$HOME/.krew/bin"
+    ];
     sessionVariables = {
-      GOROOT = "${pkgs.go.out}/share/go";
       GO111MODULE = "on";
-      GOPRIVATE = "github.com/stackitcloud";
     };
   };
 
@@ -51,7 +67,7 @@
     home-manager.enable = true;
 
     # shell integrations are enabled by default
-    autojump.enable = true;
+    zoxide.enable = true;
     jq.enable = true;
 
     lsd = {
@@ -70,6 +86,7 @@
       package = pkgs.go;
       goPath = "go";
       goBin = "go/bin";
+      goPrivate = [ "github.com/stackitcloud" ];
     };
 
     htop = {

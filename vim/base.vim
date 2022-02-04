@@ -149,8 +149,10 @@ noremap <leader>i <C-i>zz
 au BufRead,BufNewFile *.nix set filetype=nix
 
 set background=dark
-"let g:tokyonight_style = "night"
+let g:tokyonight_style = "storm"
 colorscheme tokyonight
+"TODO find colorscheme for tmux and alacritty
+"colorscheme kanagawa
 
 "
 " THEMING

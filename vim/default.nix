@@ -72,12 +72,13 @@ in {
       (plugin "rafamadriz/friendly-snippets") # snippet collection for all languages
 
       (plugin "Raimondi/delimitMate") # auto bracket
-      (plugin "nvim-lua/lsp_extensions.nvim") # rust inline hints
+      # TODO fix this
+      #(plugin "nvim-lua/lsp_extensions.nvim") # rust inline hints
 
       # syntax highlighting
       (plugin "nvim-treesitter/nvim-treesitter")
       (plugin "p00f/nvim-ts-rainbow") # bracket highlighting
-      (plugin "romgrk/nvim-treesitter-context")
+      #(plugin "romgrk/nvim-treesitter-context") # TODO fix this
       (plugin "editorconfig/editorconfig-vim")
 
       # utilities
@@ -131,7 +132,7 @@ in {
       # debugging
       (plugin "mfussenegger/nvim-dap")
 
-      (plugin "github/copilot.vim")
+      #(plugin "github/copilot.vim")
 
       # TODO lazyload
       #vimwiki
@@ -144,6 +145,7 @@ in {
 
       # colorschemes
       (plugin "folke/tokyonight.nvim")
+      (plugin "rebelot/kanagawa.nvim")
     ];
   };
 }

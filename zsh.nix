@@ -43,8 +43,6 @@
     };
 
     initExtra = ''
-      path+=$HOME/.local/bin
-      path+=$HOME/.cargo/bin
       #source /secrets/environment.bash
 
       bindkey '^e' edit-command-line
@@ -86,9 +84,9 @@
 
       function dci() { docker inspect $(docker-compose ps -q $1) }
 
-      # shell completions
-      # TODO test this
-      . <(kubebuilder completion zsh)
+      function transfer() {
+          wget --method PUT --body-file=$1 https://up.fbr.ai/$1 -O - -nv
+      }
     '';
 
     dirHashes = {
@@ -114,7 +112,8 @@
       lsa = "ls -a";
       null = "/dev/null";
       tmux = "tmux -u";
-      tu = "tmux";
+      tu = "tmux -u";
+      tua = "tmux a -t";
 
       # overrides
       cat = "bat";
@@ -122,11 +121,14 @@
       python = "python3";
       pip = "python3 -m pip";
       venv = "python3 -m venv";
+      j = "z";
 
       # programs
       g = "git";
       kc = "kubectl";
       ku = "kubie";
+      li = "lima nerdctl";
+      lct = "limactl";
       dk = "docker";
       dc = "docker-compose";
       pd = "podman";
@@ -172,8 +174,9 @@
       clean = "nix-collect-garbage";
       nsh = "nix-shell";
       "," = "nix-shell -p";
-      nbh = "LD_LIBRARY_PATH= home-manager switch";
-      nbhu = "LD_LIBRARY_PATH= nix-channel --update && LD_LIBRARY_PATH= home-manager switch";
+
+      nbh = "home-manager switch";
+      nbhu = "nix-channel --update && home-manager switch";
 
       aupt = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y";
     };
@@ -203,11 +206,6 @@
         dotExpansion = true;
         keymap = "vi";
       };
-      python = {
-        virtualenvInitialize = true;
-        virtualenvAutoSwitch = true;
-      };
-
       pmodules = [
         "autosuggestions"
         "completion"

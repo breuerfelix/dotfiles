@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   home-manager = builtins.fetchGit {
     url = "https://github.com/rycee/home-manager.git";
@@ -15,9 +15,9 @@ in {
       vim
       #yabai # TODO fix yabai install with nix
     ];
-    sessionVariables = {
+    variables = {
       # make libgc++ available in the terminal
-      LD_LIBRARY_PATH = ${lib.makeLibraryPath [pkgs.stdenv.cc.cc]};
+      #LD_LIBRARY_PATH = "${lib.makeLibraryPath [pkgs.stdenv.cc.cc]}";
     };
   };
 
@@ -60,7 +60,6 @@ in {
       nerdfonts
       corefonts
       recursive
-      fira-code
     ];
   };
 }
