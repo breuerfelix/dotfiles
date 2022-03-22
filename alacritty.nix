@@ -3,9 +3,9 @@
     enable = true;
     settings = {
       env.TERM = "xterm-256color";
-      background_opacity = 1;
 
       window = {
+        opacity = 1;
         dynamic_title = true;
         dynamic_padding = true;
         decorations = "full";

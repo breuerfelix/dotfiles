@@ -6,7 +6,7 @@
 
 ```bash
 # install nix
-sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume
+sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon
 sudo reboot
 
 nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin

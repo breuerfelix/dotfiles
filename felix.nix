@@ -28,7 +28,8 @@
       hyperfine # benchmark tool
       sipcalc # ip subnet calculator
       youtube-dl # download youtube videos
-      ffmpeg
+      ffmpeg # video editing and cutting
+      rclone # sync files
 
       # gnu binaries
       coreutils-full # installs some gnu versions of linux bins
@@ -39,13 +40,13 @@
       kubelogin-oidc
       velero # k8s backup tool
 
-      #podman
+      #podman # TODO installed via brew - cannot be installed via nix right now
 
       python3 poetry # python tools
       rustup # rust
       deno # node runtime
 
-      starship # terminal prompt
+      #starship # terminal prompt
       slides # terminal presentation tool
 
       mongodb-tools
@@ -59,6 +60,8 @@
     ];
     sessionVariables = {
       GO111MODULE = "on";
+      EDITOR = "nvim";
+      VISUAL = "nvim";
     };
   };
 
@@ -106,6 +109,21 @@
         "--border sharp"
         "--inline-info"
         "--bind ctrl-h:preview-down,ctrl-l:preview-up"
+      ];
+    };
+
+    pet = {
+      enable = true;
+      snippets = [
+        {
+          description = "show short git rev";
+          command = "git rev-parse --short HEAD";
+          output = "888c0f8";
+        }
+        {
+          description = "garden kubeconfig from ske-ci ondemand cluster";
+          command = "kubectl get secret garden-kubeconfig-for-admin -n garden -o jsonpath='{.data.kubeconfig}' | base64 -d > garden-kubeconfig-for-admin.yaml";
+        }
       ];
     };
   };

@@ -42,7 +42,7 @@ in {
 
       # extra language servers
       rnix-lsp
-      terraform-lsp
+      terraform-ls terraform-lsp
       nodePackages.typescript nodePackages.typescript-language-server
       gopls
       texlab
@@ -135,7 +135,7 @@ in {
       #(plugin "github/copilot.vim")
 
       # TODO lazyload
-      #vimwiki
+      (plugin "vimwiki/vimwiki")
       #vim-grammarous
       #(plugin "dstein64/vim-startuptime")
       #(plugin "wsdjeg/vim-todo")

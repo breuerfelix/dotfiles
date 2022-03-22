@@ -5,12 +5,15 @@
     text = ''
       #!/usr/bin/env sh
 
+      # load scripting addition
+      sudo yabai --load-sa
+      yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
       yabai -m config layout bsp
       yabai -m config auto_balance off
       yabai -m config window_topmost on
 
-      # Set all padding and gaps to 20pt (default: 0)
-      yabai -m config top_padding    20
+      yabai -m config top_padding    0
       yabai -m config bottom_padding 0
       yabai -m config left_padding   0
       yabai -m config right_padding  0

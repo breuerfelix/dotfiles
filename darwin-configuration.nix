@@ -7,15 +7,15 @@ in {
   imports = [
     (import "${home-manager}/nix-darwin")
     ./modules
+    ./homebrew.nix
   ];
 
   system.stateVersion = 4;
   environment = {
-    systemPackages = with pkgs; [
-      vim
-      #yabai # TODO fix yabai install with nix
-    ];
+    systemPackages = with pkgs; [ vim ];
     variables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
       # make libgc++ available in the terminal
       #LD_LIBRARY_PATH = "${lib.makeLibraryPath [pkgs.stdenv.cc.cc]}";
     };
@@ -25,6 +25,7 @@ in {
   nix = {
     allowedUsers = [ "felix" ];
     package = pkgs.nix;
+    #autoOptimiseStore = true; # TODO doesnt work on mac
 
     #gc = {
       #automatic = true;

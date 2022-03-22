@@ -26,7 +26,7 @@
     enableCompletion = false;
     autocd = true;
     dotDir = ".config/zsh";
-    #defaultKeymap = ""; #vicmd or viins
+    #defaultKeymap = "viins"; #vicmd or viins
 
     sessionVariables = {
       EDITOR = "nvim";
@@ -36,13 +36,18 @@
     history = {
       expireDuplicatesFirst = true;
       ignoreDups = true;
-      ignoreSpace = false;
+      ignoreSpace = true; # ignore commands starting with a space
       save = 20000;
       size = 20000;
       share = true;
     };
 
     initExtra = ''
+      # TODO only because session variables are not getting picked up
+      export EDITOR=nvim
+      export VISUAL=nvim
+      export NIXPKGS_ALLOW_UNFREE=1
+
       #source /secrets/environment.bash
 
       bindkey '^e' edit-command-line
@@ -127,8 +132,6 @@
       g = "git";
       kc = "kubectl";
       ku = "kubie";
-      li = "lima nerdctl";
-      lct = "limactl";
       dk = "docker";
       dc = "docker-compose";
       pd = "podman";
@@ -206,6 +209,8 @@
         dotExpansion = true;
         keymap = "vi";
       };
+      #prompt.showReturnVal = true;
+      #tmux.autoStartLocal = true;
       pmodules = [
         "autosuggestions"
         "completion"
