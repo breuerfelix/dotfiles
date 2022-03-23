@@ -4,7 +4,6 @@
     ./yabai.nix
     ./spacebar.nix
     ./alacritty.nix
-    ./kitty.nix
     ./felix.nix
   ];
 
