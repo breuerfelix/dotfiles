@@ -6,7 +6,7 @@
     brews = [
       "helm"
       "kubebuilder" # generating k8s controller
-      "podman" # docker alternative
+      "lima" # docker alternative
       "spacebar" # macos bar alternative
       "skhd" # keybinding manager
       "openstackclient"
@@ -54,10 +54,13 @@
       "microsoft-teams"
       "zoom"
       "mumble"
+      "eul" # mac monitoring
+      "helix" # modal editor
     ];
     taps = [
       "cmacrae/formulae" # spacebar
       "koekeishiya/formulae" # yabai
+      "helix-editor/helix" # helix editor
       # default
       "homebrew/bundle"
       "homebrew/cask"

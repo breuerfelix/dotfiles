@@ -136,6 +136,8 @@
       dc = "docker-compose";
       pd = "podman";
       pc = "podman-compose";
+      li = "lima nerdctl";
+      lc = "limactl";
       sc = "sudo systemctl";
       poe = "poetry";
       fb = "pcmanfm .";
@@ -146,6 +148,7 @@
       nr = "npm run";
       py = "python";
       awake = "caffeinate";
+      os = "openstack";
 
       # terminal cheat sheet
       cht = "cht.sh";

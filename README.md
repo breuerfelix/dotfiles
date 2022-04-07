@@ -52,7 +52,7 @@ sudo chsh -s $(which zsh) $USER
 ## content
 
 - distro: macOS / remote server
-- window manager: yabai [WIP]
+- window manager: yabai
 - bar: spacebar [WIP]
 - terminal: alacritty + tmux
 - shell: zsh + pretzo

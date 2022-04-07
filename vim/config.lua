@@ -5,11 +5,7 @@ require('colorizer').setup()
 require('diffview').setup()
 
 require('nvim-tree').setup {
-  auto_close = true,
-  open_on_setup = true,
-  view = {
-    auto_resize = true,
-  },
+  --open_on_setup = true,
 }
 
 require('fzf-lua').setup {

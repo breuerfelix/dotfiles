@@ -50,6 +50,10 @@
       slides # terminal presentation tool
 
       mongodb-tools
+
+      (pkgs.writeShellScriptBin "nixFlakes" ''
+        exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
+      '')
     ];
 
     sessionPath = [
@@ -84,9 +88,13 @@
       #config = { theme = "base16"; };
     };
 
+    lazygit = {
+      enable = true;
+    };
+
     go = {
       enable = true;
-      package = pkgs.go;
+      package = pkgs.go_1_18;
       goPath = "go";
       goBin = "go/bin";
       goPrivate = [ "github.com/stackitcloud" ];
