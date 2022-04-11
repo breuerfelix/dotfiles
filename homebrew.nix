@@ -55,12 +55,10 @@
       "zoom"
       "mumble"
       "eul" # mac monitoring
-      "helix" # modal editor
     ];
     taps = [
       "cmacrae/formulae" # spacebar
       "koekeishiya/formulae" # yabai
-      "helix-editor/helix" # helix editor
       # default
       "homebrew/bundle"
       "homebrew/cask"

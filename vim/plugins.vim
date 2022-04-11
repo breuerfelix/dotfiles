@@ -87,6 +87,13 @@ call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_bo
   \ ],
   \ })))
 
+"git blamer
+let g:blamer_enabled = 1
+let g:blamer_delay = 1000
+let g:blamer_prefix = ' > '
+let g:blamer_relative_time = 1
+let g:blamer_show_in_insert_modes = 0
+
 "better wildmenu
 set wildmenu
 set wildmode=longest:list,full

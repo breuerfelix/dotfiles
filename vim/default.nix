@@ -96,6 +96,7 @@ in {
       # highlights current variable with underline
       (plugin "yamatsum/nvim-cursorline")
       (plugin "lewis6991/gitsigns.nvim")
+      (plugin "APZelos/blamer.nvim")
       #(plugin "lukas-reineke/indent-blankline.nvim") # TODO only load on files < 1k lines
 
       # bars
