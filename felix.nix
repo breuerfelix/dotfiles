@@ -24,12 +24,14 @@
       graph-easy # draw graphs in the terminal
       unixtools.watch # watches commands
       cht-sh # cheat sheet -> cht python read file
+      tealdeer # community driven man pages
       dive # analyse docker images
       hyperfine # benchmark tool
       sipcalc # ip subnet calculator
       youtube-dl # download youtube videos
       ffmpeg # video editing and cutting
       rclone # sync files
+      duf # disk usage
 
       # gnu binaries
       coreutils-full # installs some gnu versions of linux bins
