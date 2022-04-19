@@ -32,6 +32,9 @@
       ffmpeg # video editing and cutting
       rclone # sync files
       duf # disk usage
+      httpie # awesome alternative to curl
+      bitwarden-cli
+      mongodb-tools
 
       # gnu binaries
       coreutils-full # installs some gnu versions of linux bins
@@ -50,8 +53,6 @@
 
       #starship # terminal prompt
       slides # terminal presentation tool
-
-      mongodb-tools
 
       (pkgs.writeShellScriptBin "nixFlakes" ''
         exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
