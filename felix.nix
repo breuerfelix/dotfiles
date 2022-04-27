@@ -11,6 +11,8 @@
     stateVersion = "21.11";
 
     packages = with pkgs; [
+      # c links
+      clang llvm lld
       # terminal
       bottom # htop alternatives
       #btop 
@@ -35,6 +37,8 @@
       httpie # awesome alternative to curl
       bitwarden-cli
       mongodb-tools
+      pulumi-bin # manage infrastructure as code
+      mosh # alternative ssh shell
 
       # gnu binaries
       coreutils-full # installs some gnu versions of linux bins
@@ -49,7 +53,7 @@
 
       python3 poetry # python tools
       rustup # rust
-      deno # node runtime
+      #deno # node runtime
 
       #starship # terminal prompt
       slides # terminal presentation tool
@@ -136,10 +140,6 @@
           command = "kubectl get secret garden-kubeconfig-for-admin -n garden -o jsonpath='{.data.kubeconfig}' | base64 -d > garden-kubeconfig-for-admin.yaml";
         }
       ];
-    };
-
-    helix = {
-      enable = true;
     };
   };
 }

@@ -27,7 +27,6 @@
       "balenaetcher"
       "blender"
       "calibre" # ebook management
-      "darktable" # adobe lightroom
       "chromium"
       "firefox"
       "google-chrome"
@@ -48,13 +47,14 @@
       "ubersicht"
       "unity-hub"
       "visual-studio-code"
+      "vscodium" # unbranded vscode
       "vlc" # media player
-      "vscodium"
       "mutify" # one click mute button
       "microsoft-teams"
       "zoom"
-      "mumble"
+      "mumble" # teamspeak alternative
       "eul" # mac monitoring
+      "qmk-toolbox" # flashing keyboard
     ];
     taps = [
       "cmacrae/formulae" # spacebar
