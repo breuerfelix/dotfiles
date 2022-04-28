@@ -9,6 +9,7 @@
     username = "ubuntu";
     homeDirectory = "/home/ubuntu";
     packages = with pkgs; [
+      starship
       #gcc
     ];
   };

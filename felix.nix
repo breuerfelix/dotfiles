@@ -43,6 +43,11 @@
       # gnu binaries
       coreutils-full # installs some gnu versions of linux bins
       gnutar # linux implementation of tar
+      gnused
+      gnugrep
+      gnumake
+      findutils
+      gawk
 
       # k8s stuff
       kubectl krew k9s kubie kind
