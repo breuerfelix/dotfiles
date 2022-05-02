@@ -37,8 +37,8 @@ require('gitsigns').setup {
 }
 
 require('nvim-treesitter.configs').setup {
-  -- "all", "maintained" or a list
-  ensure_installed = "maintained",
+  -- "all", or a list
+  ensure_installed = "all",
   highlight = { enable = true },
   indent = { enable = true },
   rainbow = {
