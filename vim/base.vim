@@ -34,7 +34,7 @@ noremap gl $
 noremap gh 0
 
 "save
-noremap <silent> <C-i> :w<CR>
+nmap <C-i> :w<CR>
 "sudo tee hack, write as root
 cmap w!! w !sudo tee > /dev/null %
 
