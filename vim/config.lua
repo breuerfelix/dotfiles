@@ -38,7 +38,17 @@ require('gitsigns').setup {
 
 require('nvim-treesitter.configs').setup {
   -- "all", or a list
-  ensure_installed = "all",
+  ensure_installed = {
+    "bash", "c", "c_sharp",
+    "cpp", "css", "dart", "dockerfile",
+    "go", "gomod", "gowork",
+    "graphql", "hcl", "html", "http",
+    "java", "javascript", "jsdoc", "json",
+    "json5", "kotlin", "latex", "lua", "make",
+    "markdown", "nix", "proto", "python", "rust",
+    "ruby", "scss", "svelte", "toml", "tsx",
+    "typescript", "vim", "vue", "yaml",
+  },
   highlight = { enable = true },
   indent = { enable = true },
   rainbow = {

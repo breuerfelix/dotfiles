@@ -12,15 +12,10 @@ in {
 
   system.stateVersion = 4;
   environment = {
-    systemPackages = with pkgs; [
-      # c links
-      clang llvm lld
-    ];
+    systemPackages = with pkgs; [];
     variables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
-      # make libgc++ available in the terminal
-      #LD_LIBRARY_PATH = "${lib.makeLibraryPath [pkgs.stdenv.cc.cc]}";
     };
   };
 

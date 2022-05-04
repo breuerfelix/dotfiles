@@ -4,12 +4,13 @@
     ./adblock.nix
     ./tmux.nix
     ./git.nix
+    ./k9s.nix
+    ./krew.nix
     ./vim
   ];
 
   home = {
     stateVersion = "21.11";
-
     packages = with pkgs; [
       # terminal
       bottom # htop alternatives
@@ -53,9 +54,9 @@
 
       python3 poetry # python tools
       rustup # rust
-      #deno # node runtime
+      deno # node runtime
 
-      #starship # terminal prompt
+      starship # terminal prompt
       slides # terminal presentation tool
 
       (pkgs.writeShellScriptBin "nixFlakes" ''

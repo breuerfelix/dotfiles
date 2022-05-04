@@ -11,7 +11,6 @@
       "skhd" # keybinding manager
       "openstackclient"
       # broken nix builds
-      "starship"
       "yabai" # tiling window manager
     ];
     casks = [

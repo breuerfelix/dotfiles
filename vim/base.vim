@@ -34,9 +34,14 @@ noremap gl $
 noremap gh 0
 
 "save
-nmap <C-i> :w<CR>
+"Control-I is the same as Tab in the terminal
+nmap <leader>u :update<CR>
+nmap <C-i> :update<CR>
+nmap <Tab> :update<CR>
 "sudo tee hack, write as root
 cmap w!! w !sudo tee > /dev/null %
+set autowrite
+set autowriteall
 
 "save undo / redo across sessions
 set undofile

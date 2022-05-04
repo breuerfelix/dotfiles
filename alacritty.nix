@@ -3,7 +3,6 @@
     enable = true;
     settings = {
       env.TERM = "xterm-256color";
-
       window = {
         opacity = 1;
         dynamic_title = true;

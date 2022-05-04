@@ -47,6 +47,7 @@
       export EDITOR=nvim
       export VISUAL=nvim
       export NIXPKGS_ALLOW_UNFREE=1
+      #export LD_LIBRARY_PATH=${lib.makeLibraryPath [pkgs.stdenv.cc.cc]}
 
       #source /secrets/environment.bash
 
