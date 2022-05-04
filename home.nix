@@ -9,8 +9,9 @@
     username = "ubuntu";
     homeDirectory = "/home/ubuntu";
     packages = with pkgs; [
+      gcc
+      # TODO remove once its building for mac again
       starship
-      #gcc
     ];
   };
 

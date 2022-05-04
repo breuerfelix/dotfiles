@@ -12,7 +12,10 @@ in {
 
   system.stateVersion = 4;
   environment = {
-    systemPackages = with pkgs; [ vim ];
+    systemPackages = with pkgs; [
+      # c links
+      clang llvm lld
+    ];
     variables = {
       EDITOR = "nvim";
       VISUAL = "nvim";

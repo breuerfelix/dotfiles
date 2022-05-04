@@ -11,8 +11,6 @@
     stateVersion = "21.11";
 
     packages = with pkgs; [
-      # c links
-      clang llvm lld
       # terminal
       bottom # htop alternatives
       #btop 
