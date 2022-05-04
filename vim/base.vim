@@ -36,8 +36,8 @@ noremap gh 0
 "save
 "Control-I is the same as Tab in the terminal
 nmap <leader>u :update<CR>
-nmap <C-i> :update<CR>
-nmap <Tab> :update<CR>
+nmap <silent> <C-i> :update<CR>
+nmap <silent> <Tab> :update<CR>
 "sudo tee hack, write as root
 cmap w!! w !sudo tee > /dev/null %
 set autowrite
