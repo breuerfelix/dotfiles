@@ -48,6 +48,7 @@
       # k8s stuff
       kubectl krew k9s kubie kind
       kubelogin-oidc
+      etcd # used for kubebuilder assets (testing)
       velero # k8s backup tool
 
       #podman # TODO installed via brew - cannot be installed via nix right now
