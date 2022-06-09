@@ -21,6 +21,19 @@
       "karabiner-elements" # remap keyboard
       "macfuse" # file system utilities
 
+      # virtualization
+      "docker" # docker desktop
+      "utm" # virtual machines
+
+      # communication
+      "microsoft-teams"
+      "mutify" # one click mute button
+      "zoom"
+      "slack"
+      "mumble" # teamspeak alternative
+      "krisp" # micro noise reduction
+      "signal" # messenger
+
       "adobe-creative-cloud"
       "android-studio"
       "balenaetcher"
@@ -30,7 +43,6 @@
       "firefox"
       "google-chrome"
       "google-drive"
-      "krisp" # micro noise reduction
       "lens" # visual k9s
       "meld" # folder differ
       "mixxx" # dj software
@@ -40,7 +52,6 @@
       "protonmail-bridge"
       "raspberry-pi-imager"
       "shottr" # screenshot tool
-      "signal" # messenger
       "the-unarchiver"
       "tunnelblick" # vpn client
       "ubersicht"
@@ -48,12 +59,9 @@
       "visual-studio-code"
       "vscodium" # unbranded vscode
       "vlc" # media player
-      "mutify" # one click mute button
-      "microsoft-teams"
-      "zoom"
-      "mumble" # teamspeak alternative
       "eul" # mac monitoring
       "qmk-toolbox" # flashing keyboard
+      "kindavim" # vim keys for everything
     ];
     taps = [
       "cmacrae/formulae" # spacebar

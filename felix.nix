@@ -38,6 +38,11 @@
       mongodb-tools
       pulumi-bin # manage infrastructure as code
       mosh # alternative ssh shell
+      nodePackages.snyk # vulnerability scanner
+      nushell # new type of shell
+
+      # golang utils
+      golangci-lint
 
       # gnu binaries
       coreutils-full # installs some gnu versions of linux bins

@@ -6,6 +6,7 @@ let
     "oidc-login"
     "pv-migrate"
     "stern"
+    "explore" # fuzzy finder kubectl explain
   ];
 in {
   home.activation.krew = lib.hm.dag.entryAfter ["writeBoundary"] ''

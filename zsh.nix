@@ -83,6 +83,11 @@
 
       function gsm() { git submodule foreach "$* || :" }
 
+      function gitdel() {
+          git tag -d $1
+          git push --delete origin $1
+      }
+
       function lg() {
           git add --all
           git commit --signoff -a -m "$*"
