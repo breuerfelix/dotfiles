@@ -43,13 +43,22 @@
     };
 
     initExtra = ''
-      # TODO only because session variables are not getting picked up
+      # TODO all variables are set here because session variables are not getting picked up
+
+      # for kubebuilder tests only
+      export KUBEBUILDER_ASSETS=/Users/felix/code/programs/kubebuilder-assets
+      export ETCD_UNSUPPORTED_ARCH=arm64
+
+      # defaults
       export EDITOR=nvim
       export VISUAL=nvim
       export NIXPKGS_ALLOW_UNFREE=1
-      export ETCD_UNSUPPORTED_ARCH=arm64
+
+      # TODO only temp
+      export NIXPKGS_ALLOW_BROKEN=1
       #export LD_LIBRARY_PATH=${lib.makeLibraryPath [pkgs.stdenv.cc.cc]}
 
+      # TODO handle secrets somehow
       #source /secrets/environment.bash
 
       bindkey '^e' edit-command-line
@@ -138,6 +147,7 @@
       # programs
       g = "git";
       kc = "kubectl";
+      ks = "k9s";
       ku = "kubie";
       dk = "docker";
       dc = "docker-compose";

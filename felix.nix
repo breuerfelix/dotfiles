@@ -40,6 +40,8 @@
       mosh # alternative ssh shell
       nodePackages.snyk # vulnerability scanner
       nushell # new type of shell
+      viddy # terminal watch command
+      yq-go # yaml, toml parser
 
       # golang utils
       golangci-lint
@@ -53,7 +55,8 @@
       # k8s stuff
       kubectl krew k9s kubie kind
       kubelogin-oidc
-      etcd # used for kubebuilder assets (testing)
+      # TODO fix
+      #etcd # used for kubebuilder assets (testing)
       velero # k8s backup tool
 
       #podman # TODO installed via brew - cannot be installed via nix right now
@@ -61,6 +64,8 @@
       python3 poetry # python tools
       rustup # rust
       deno # node runtime
+      nodejs nodePackages.npm nodePackages.yarn
+      nodePackages.expo-cli
 
       starship # terminal prompt
       slides # terminal presentation tool

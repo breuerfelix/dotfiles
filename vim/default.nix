@@ -42,7 +42,7 @@ in {
 
       # extra language servers
       rnix-lsp
-      terraform-ls terraform-lsp
+      #terraform-ls terraform-lsp # TODO fix
       nodePackages.typescript nodePackages.typescript-language-server
       gopls
       texlab
@@ -74,12 +74,16 @@ in {
       (plugin "Raimondi/delimitMate") # auto bracket
       # TODO fix this
       #(plugin "nvim-lua/lsp_extensions.nvim") # rust inline hints
+      (plugin "ray-x/lsp_signature.nvim")
 
       # syntax highlighting
       (plugin "nvim-treesitter/nvim-treesitter")
       (plugin "p00f/nvim-ts-rainbow") # bracket highlighting
       #(plugin "romgrk/nvim-treesitter-context") # TODO fix this
       (plugin "editorconfig/editorconfig-vim")
+      (plugin "earthly/earthly.vim")
+      (plugin "towolf/vim-helm")
+      (plugin "lewis6991/spellsitter.nvim") # spellchecker for comments
 
       # utilities
       #(plugin "nvim-lua/popup.nvim")
@@ -97,7 +101,7 @@ in {
       (plugin "yamatsum/nvim-cursorline")
       (plugin "lewis6991/gitsigns.nvim")
       (plugin "APZelos/blamer.nvim")
-      #(plugin "lukas-reineke/indent-blankline.nvim") # TODO only load on files < 1k lines
+      (plugin "lukas-reineke/indent-blankline.nvim")
 
       # bars
       (plugin "hoob3rt/lualine.nvim")
@@ -124,7 +128,7 @@ in {
       (plugin "mattn/emmet-vim")
 
       (plugin "AndrewRadev/tagalong.vim")
-      #(plugin "metakirby5/codi.vim")
+      (plugin "metakirby5/codi.vim")
 
       # formatters
       # TODO fix this
@@ -147,6 +151,7 @@ in {
       # colorschemes
       (plugin "folke/tokyonight.nvim")
       (plugin "rebelot/kanagawa.nvim")
+      (plugin "ayu-theme/ayu-vim")
     ];
   };
 }

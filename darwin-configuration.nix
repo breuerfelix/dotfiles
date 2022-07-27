@@ -58,7 +58,7 @@ in {
     fontDir.enable = true;
     fonts = with pkgs; [
       nerdfonts
-      corefonts
+      #corefonts # TODO fix
       recursive
     ];
   };

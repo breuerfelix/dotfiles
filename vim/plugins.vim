@@ -139,6 +139,13 @@ nmap <leader>ec :Codi!!<CR>
 nmap <leader>eh <Plug>RestNvim
 lua require('which-key').register({ ['<leader>e'] = { name = 'exec' } })
 
+let g:codi#interpreters = {
+     \ 'python': {
+         \ 'bin': '/opt/homebrew/bin/python3',
+         \ 'prompt': '^\(>>>\|\.\.\.\) ',
+         \ },
+     \ }
+
 "disable all extensions for a minimal setup
 let g:airline_extensions = []
 let g:airline_powerline_fonts = 0

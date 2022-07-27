@@ -8,10 +8,13 @@
       "kubebuilder" # generating k8s controller
       "lima" # docker alternative
       "spacebar" # macos bar alternative
+      "sketchybar" # alternative spacebar
       "skhd" # keybinding manager
-      "openstackclient"
+      "cocoapods" "ios-deploy" # for ios development
       # broken nix builds
+      "openstackclient"
       "yabai" # tiling window manager
+      "earthly" # makefile alternative
     ];
     casks = [
       # utilities
@@ -24,6 +27,7 @@
       # virtualization
       "docker" # docker desktop
       "utm" # virtual machines
+      "kui" # UI for kubectl
 
       # communication
       "microsoft-teams"
@@ -31,8 +35,9 @@
       "zoom"
       "slack"
       "mumble" # teamspeak alternative
-      "krisp" # micro noise reduction
       "signal" # messenger
+      "teamviewer"
+      "discord"
 
       "adobe-creative-cloud"
       "android-studio"
@@ -42,7 +47,6 @@
       "chromium"
       "firefox"
       "google-chrome"
-      "google-drive"
       "lens" # visual k9s
       "meld" # folder differ
       "mixxx" # dj software
@@ -64,14 +68,17 @@
       "kindavim" # vim keys for everything
     ];
     taps = [
-      "cmacrae/formulae" # spacebar
-      "koekeishiya/formulae" # yabai
       # default
       "homebrew/bundle"
       "homebrew/cask"
       "homebrew/cask-drivers"
       "homebrew/core"
       "homebrew/services"
+      # custom
+      "cmacrae/formulae" # spacebar
+      "koekeishiya/formulae" # yabai
+      "earthly/earthly" # earthly
+      "FelixKratz/formulae" # sketchybar
     ];
   };
 }

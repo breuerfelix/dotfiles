@@ -38,6 +38,7 @@ require('gitsigns').setup {
 
 require('nvim-treesitter.configs').setup {
   -- "all", or a list
+  -- TODO maybe use all?
   ensure_installed = {
     "bash", "c", "c_sharp",
     "cpp", "css", "dart", "dockerfile",
@@ -49,7 +50,10 @@ require('nvim-treesitter.configs').setup {
     "ruby", "scss", "svelte", "toml", "tsx",
     "typescript", "vim", "vue", "yaml",
   },
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    additional_vim_regex_highlighting = false,
+  },
   indent = { enable = true },
   rainbow = {
     enable = true,
@@ -103,3 +107,9 @@ require('lualine').setup {
     },
   },
 }
+
+require('indent_blankline').setup {
+  show_current_context = true,
+}
+
+require('spellsitter').setup()

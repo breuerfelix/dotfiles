@@ -81,13 +81,20 @@ local on_attach = function(client, bufnr)
   elseif client.resolved_capabilities.document_range_formatting then
     buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
   end
+
+  require('lsp_signature').on_attach({
+    hint_enable = false,
+    handler_opts = {
+      border = "single",
+    },
+  }, bufnr)
 end
 
 local servers = {
   "tsserver",
   "gopls",
   "rnix",
-  "terraformls",
+  --"terraformls",
   "texlab",
   "pyright",
   "rust_analyzer",

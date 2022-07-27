@@ -158,6 +158,8 @@ let g:tokyonight_style = "storm"
 colorscheme tokyonight
 "TODO find colorscheme for tmux and alacritty
 "colorscheme kanagawa
+let ayucolor="mirage"
+"colorscheme ayu
 
 "
 " THEMING
