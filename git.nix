@@ -34,6 +34,7 @@
         commit = false;
         rebase = true;
       };
+      push.autoSetupRemote = true;
       url = {
         "ssh://git@github.com" = { insteadOf = "https://github.com"; };
       };

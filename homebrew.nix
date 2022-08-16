@@ -15,6 +15,7 @@
       "openstackclient"
       "yabai" # tiling window manager
       "earthly" # makefile alternative
+      "openvpn" "iproute2mac" "parallel" # gardener
     ];
     casks = [
       # utilities

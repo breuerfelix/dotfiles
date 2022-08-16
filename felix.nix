@@ -48,7 +48,7 @@
 
       # gnu binaries
       coreutils-full # installs some gnu versions of linux bins
-      gnutar gnused gnugrep gnumake # linux implementation of tar
+      gnutar gnused gnugrep gnumake gzip
       findutils
       gawk
 

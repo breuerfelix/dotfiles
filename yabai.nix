@@ -29,6 +29,10 @@
   home.file.skhd = {
     target = ".config/skhd/skhdrc";
     text = ''
+      # workspaces
+      # alt - y : /opt/homebrew/bin/yabai -m space --focus prev
+      # alt - i : /opt/homebrew/bin/yabai -m space --focus next
+
       # focus window
       alt - h : /opt/homebrew/bin/yabai -m window --focus west
       alt - j : /opt/homebrew/bin/yabai -m window --focus south
