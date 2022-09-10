@@ -50,6 +50,8 @@ require('nvim-treesitter.configs').setup {
     "ruby", "scss", "svelte", "toml", "tsx",
     "typescript", "vim", "vue", "yaml",
   },
+  -- the default path is read only due to nix
+  parser_install_dir = "~/.local/share/nvim/site",
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
@@ -62,6 +64,7 @@ require('nvim-treesitter.configs').setup {
     max_file_lines = 1000,
   },
 }
+vim.opt.runtimepath:append("~/.local/share/nvim/site")
 
 -- TODO fix
 --require('treesitter-context').setup {

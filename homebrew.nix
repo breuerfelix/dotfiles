@@ -1,8 +1,11 @@
 { config, pkgs, lib, ... }: {
   homebrew = {
     enable = true;
-    autoUpdate = true;
-    cleanup = "zap"; # "zap" removes manually installed brews and casks
+    onActivation = {
+      # "zap" removes manually installed brews and casks
+      cleanup = "zap";
+      autoUpdate = true;
+    };
     brews = [
       "helm"
       "kubebuilder" # generating k8s controller
@@ -10,12 +13,15 @@
       "spacebar" # macos bar alternative
       "sketchybar" # alternative spacebar
       "skhd" # keybinding manager
-      "cocoapods" "ios-deploy" # for ios development
+      "cocoapods"
+      "ios-deploy" # for ios development
       # broken nix builds
       "openstackclient"
       "yabai" # tiling window manager
       "earthly" # makefile alternative
-      "openvpn" "iproute2mac" "parallel" # gardener
+      "openvpn"
+      "iproute2mac"
+      "parallel" # gardener
     ];
     casks = [
       # utilities
@@ -67,6 +73,7 @@
       "eul" # mac monitoring
       "qmk-toolbox" # flashing keyboard
       "kindavim" # vim keys for everything
+      "kap" # screen recorder software
     ];
     taps = [
       # default

@@ -36,7 +36,7 @@
       httpie # awesome alternative to curl
       bitwarden-cli
       mongodb-tools
-      pulumi-bin # manage infrastructure as code
+      terraform pulumi-bin # manage infrastructure as code
       mosh # alternative ssh shell
       nodePackages.snyk # vulnerability scanner
       nushell # new type of shell

@@ -21,7 +21,9 @@ in {
 
   nixpkgs.config.allowUnfree = true;
   nix = {
-    allowedUsers = [ "felix" ];
+    settings = {
+      allowed-users = [ "felix" ];
+    };
     package = pkgs.nix;
     #autoOptimiseStore = true; # TODO doesnt work on mac
 
