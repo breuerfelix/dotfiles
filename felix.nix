@@ -5,8 +5,8 @@
     ./tmux.nix
     ./git.nix
     ./k9s.nix
-    ./krew.nix
-    ./vim
+    #./krew.nix
+    #./vim
   ];
 
   home = {
