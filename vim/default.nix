@@ -1,17 +1,15 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 let
   # installs a vim plugin from git with a given tag / branch
   pluginGit = ref: repo: pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "${lib.strings.sanitizeDerivationName repo}";
     version = ref;
-    src = builtins.fetchGit {
-      url = "https://github.com/${repo}.git";
-      ref = ref;
-    };
+    src = inputs.${repo};
   };
   # always installs latest version
   plugin = pluginGit "HEAD";
-in {
+in
+{
   programs.neovim = {
     enable = true;
     #package = pkgs.neovim-nightly;
@@ -35,18 +33,24 @@ in {
     ];
     extraPackages = with pkgs; [
       tree-sitter
-      jq curl # rest.nvim
-      bat ripgrep fd fzf # fzf
+      jq
+      curl # rest.nvim
+      bat
+      ripgrep
+      fd
+      fzf # fzf
       nodejs # github copilot
       universal-ctags # vista
 
       # extra language servers
       rnix-lsp
       #terraform-ls terraform-lsp # TODO fix
-      nodePackages.typescript nodePackages.typescript-language-server
+      nodePackages.typescript
+      nodePackages.typescript-language-server
       gopls
       texlab
-      nodePackages.pyright black
+      nodePackages.pyright
+      black
       rust-analyzer
 
       # debugging

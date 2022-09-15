@@ -20,6 +20,22 @@
         "type": "github"
       }
     },
+    "folke/which-key.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1663139160,
+        "narHash": "sha256-VST2WwgHakFPDsK4ZOox8K6vEGGfYyzWLvgD9fLRssE=",
+        "owner": "folke",
+        "repo": "which-key.nvim",
+        "rev": "66e69bad5151cfaefb3a1cf54906574a0d19749b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "which-key.nvim",
+        "type": "github"
+      }
+    },
     "forgit": {
       "flake": false,
       "locked": {
@@ -75,6 +91,7 @@
     "root": {
       "inputs": {
         "darwin": "darwin",
+        "folke/which-key.nvim": "folke/which-key.nvim",
         "forgit": "forgit",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs"
