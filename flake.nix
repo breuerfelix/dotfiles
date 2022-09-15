@@ -137,7 +137,7 @@
     in
     {
       # nix-darwin with home-manager for macOS
-      rocky = darwin.lib.darwinSystem {
+      alucard = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         specialArgs = { inherit inputs; };
         modules = [

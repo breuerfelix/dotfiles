@@ -75,7 +75,7 @@ in
       (plugin "hrsh7th/vim-vsnip")
       (plugin "rafamadriz/friendly-snippets") # snippet collection for all languages
 
-      (plugin "Raimondi/delimitMate") # auto bracket
+      (plugin "raimondi/delimitMate") # auto bracket
       # TODO fix this
       #(plugin "nvim-lua/lsp_extensions.nvim") # rust inline hints
       (plugin "ray-x/lsp_signature.nvim")
@@ -104,12 +104,12 @@ in
       # highlights current variable with underline
       (plugin "yamatsum/nvim-cursorline")
       (plugin "lewis6991/gitsigns.nvim")
-      (plugin "APZelos/blamer.nvim")
+      (plugin "apzelos/blamer.nvim")
       (plugin "lukas-reineke/indent-blankline.nvim")
 
       # bars
       (plugin "hoob3rt/lualine.nvim")
-      (plugin "SmiteshP/nvim-gps") # shows code context
+      (plugin "smiteshp/nvim-gps") # shows code context
       (plugin "akinsho/nvim-bufferline.lua")
       (plugin "qpkorr/vim-bufkill")
 
@@ -131,7 +131,7 @@ in
       (plugin "preservim/nerdcommenter")
       (plugin "mattn/emmet-vim")
 
-      (plugin "AndrewRadev/tagalong.vim")
+      (plugin "andrewradev/tagalong.vim")
       (plugin "metakirby5/codi.vim")
 
       # formatters
