@@ -67,3 +67,4 @@ nix flake lock --update-input <input>
 - terminal: alacritty + tmux
 - shell: zsh + pretzo
 - editor: neovim
+
