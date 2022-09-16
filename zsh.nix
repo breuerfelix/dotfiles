@@ -53,10 +53,10 @@
       # defaults
       export EDITOR=nvim
       export VISUAL=nvim
-      export NIXPKGS_ALLOW_UNFREE=1
+      #export NIXPKGS_ALLOW_UNFREE=1
 
       # TODO only temp
-      export NIXPKGS_ALLOW_BROKEN=1
+      #export NIXPKGS_ALLOW_BROKEN=1
       #export LD_LIBRARY_PATH=${lib.makeLibraryPath [pkgs.stdenv.cc.cc]}
 
       # TODO handle secrets somehow
@@ -108,6 +108,18 @@
 
       function transfer() {
           wget --method PUT --body-file=$1 https://up.fbr.ai/$1 -O - -nv
+      }
+
+      function nf() {
+        pushd ~/.nixpkgs
+        nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.alucard.system"
+        popd
+      }
+
+      function ns() {
+        pushd ~/.nixpkgs
+        ./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
+        popd
       }
     '';
 
@@ -191,14 +203,16 @@
       weather = "curl -4 http://wttr.in/Koeln";
 
       # nix
+      nx = "nix --experimental-features 'nix-command flakes'";
       ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
-      nb = "darwin-rebuild switch";
-      nbu = "nix-channel --update && darwin-rebuild switch";
       #clean = "rm -rf ~/.Trash/* && nix-collect-garbage"; # TODO empty bin
       clean = "nix-collect-garbage";
       nsh = "nix-shell";
       "," = "nix-shell -p";
 
+      # old system updates TODO delete in favor of flakes
+      nb = "darwin-rebuild switch";
+      nbu = "nix-channel --update && darwin-rebuild switch";
       nbh = "home-manager switch";
       nbhu = "nix-channel --update && home-manager switch";
 

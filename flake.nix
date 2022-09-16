@@ -1,12 +1,13 @@
 {
   description = "My Machines";
 
-  # build the configuration
-  # nix --experimental-features "nix-command flakes" build ".#solid.activationPackage"
-  # nix --experimental-features "nix-command flakes" build ".#rocky.system"
-
-  # activate configuration
+  # solid
+  # nix --experimental-features "nix-command flakes" build ".#homeConfigurations.solid.activationPackage"
   # ./result/activate
+
+  # rocky
+  # nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.alucard.system"
+  # ./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
@@ -137,7 +138,7 @@
     in
     {
       # nix-darwin with home-manager for macOS
-      alucard = darwin.lib.darwinSystem {
+      darwinConfigurations.alucard = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         specialArgs = { inherit inputs; };
         modules = [
@@ -158,10 +159,11 @@
               };
 
               nix = {
+                package = pkgs.nixFlakes;
                 settings = {
                   allowed-users = [ "felix" ];
+                  experimental-features = [ "nix-command" "flakes" ];
                 };
-                package = pkgs.nix;
               };
 
               users.users.felix = {
@@ -205,7 +207,7 @@
       };
 
       # standalone home-manager installation
-      solid =
+      homeConfigurations.solid =
         let
           system = "x86_64-linux";
           pkgs = import nixpkgs {
