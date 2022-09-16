@@ -1,11 +1,9 @@
-self: super: {
+inputs: self: super: {
   forgit = self.stdenvNoCC.mkDerivation rec {
     pname = "forgit";
     version = "latest";
 
-    src = builtins.fetchGit {
-      url = "https://github.com/wfxr/forgit.git";
-    };
+    src = inputs.forgit;
 
     dontConfigure = true;
     dontBuild = true;
@@ -19,7 +17,7 @@ self: super: {
     meta = with self.lib; {
       description =
         "A utility tool powered by fzf for using git interactively.";
-        homepage = "https://github.com/wfxr/forgit";
+      homepage = "https://github.com/wfxr/forgit";
       license = licenses.mit;
       platforms = platforms.unix;
     };

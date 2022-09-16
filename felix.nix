@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, inputs, ... }: {
   imports = [
     ./zsh.nix
     ./adblock.nix
@@ -6,18 +6,20 @@
     ./git.nix
     ./k9s.nix
     ./krew.nix
-    ./vim
   ];
 
   home = {
-    stateVersion = "21.11";
     packages = with pkgs; [
+      neovim # customized by overlay
+
       # terminal
       bottom # htop alternatives
       #btop 
-      fd ripgrep # fast search
+      fd
+      ripgrep # fast search
       gitAndTools.delta # pretty diff tool
-      wget curl
+      wget
+      curl
       thefuck # auto correct commands
       sshfs # mount folders via ssh
       gh # github cli tool
@@ -36,7 +38,8 @@
       httpie # awesome alternative to curl
       bitwarden-cli
       mongodb-tools
-      terraform pulumi-bin # manage infrastructure as code
+      terraform
+      pulumi-bin # manage infrastructure as code
       mosh # alternative ssh shell
       nodePackages.snyk # vulnerability scanner
       nushell # new type of shell
@@ -48,12 +51,20 @@
 
       # gnu binaries
       coreutils-full # installs some gnu versions of linux bins
-      gnutar gnused gnugrep gnumake gzip
+      gnutar
+      gnused
+      gnugrep
+      gnumake
+      gzip
       findutils
       gawk
 
       # k8s stuff
-      kubectl krew k9s kubie kind
+      kubectl
+      krew
+      k9s
+      kubie
+      kind
       kubelogin-oidc
       # TODO fix
       #etcd # used for kubebuilder assets (testing)
@@ -61,16 +72,20 @@
 
       #podman # TODO installed via brew - cannot be installed via nix right now
 
-      python3 poetry # python tools
+      python3
+      poetry # python tools
       rustup # rust
       deno # node runtime
-      nodejs nodePackages.npm nodePackages.yarn
+      nodejs
+      nodePackages.npm
+      nodePackages.yarn
       nodePackages.expo-cli
 
       starship # terminal prompt
       slides # terminal presentation tool
 
-      (pkgs.writeShellScriptBin "nixFlakes" ''
+      # custom nixFlakes command for home-manager standalone
+      (pkgs.writeShellScriptBin "nx" ''
         exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
       '')
     ];
@@ -95,20 +110,12 @@
     # shell integrations are enabled by default
     zoxide.enable = true;
     jq.enable = true;
+    bat.enable = true;
+    lazygit.enable = true;
 
     lsd = {
       enable = true;
       enableAliases = true;
-    };
-
-    bat = {
-      enable = true;
-      # TODO check if theme gets picked up
-      #config = { theme = "base16"; };
-    };
-
-    lazygit = {
-      enable = true;
     };
 
     go = {

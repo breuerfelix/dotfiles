@@ -42,6 +42,16 @@ echo $(which zsh) | sudo tee -a /etc/shells
 sudo chsh -s $(which zsh) $USER
 ```
 
+## update
+
+```bash
+# all inputs
+nix flake update
+
+# single input
+nix flake lock --update-input <input>
+```
+
 ## architecture
 
 * `home.nix` is the home-manager entrypoint for ssh servers 
@@ -57,3 +67,4 @@ sudo chsh -s $(which zsh) $USER
 - terminal: alacritty + tmux
 - shell: zsh + pretzo
 - editor: neovim
+
