@@ -203,7 +203,6 @@
       weather = "curl -4 http://wttr.in/Koeln";
 
       # nix
-      nx = "nix --experimental-features 'nix-command flakes'";
       ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
       #clean = "rm -rf ~/.Trash/* && nix-collect-garbage"; # TODO empty bin
       clean = "nix-collect-garbage";
