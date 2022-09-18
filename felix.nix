@@ -66,11 +66,9 @@
       kubie
       kind
       kubelogin-oidc
-      # TODO fix
+      # TODO: fix
       #etcd # used for kubebuilder assets (testing)
       velero # k8s backup tool
-
-      #podman # TODO installed via brew - cannot be installed via nix right now
 
       python3
       poetry # python tools

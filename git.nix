@@ -4,7 +4,7 @@
     delta.enable = true;
     userEmail = "fbreuer@pm.me";
     userName = "Felix Breuer";
-    # TODO add signing
+    # TODO: add signing
     aliases = {
       cm = "commit";
       ca = "commit --amend --no-edit";
