@@ -46,7 +46,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           (import ./darwin-configuration.nix)
-          ({ pkgs, lib, ... }:
+          ({ pkgs, ... }:
             {
               nixpkgs.config = nixpkgsConfig;
               system.stateVersion = 4;

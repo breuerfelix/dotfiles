@@ -56,13 +56,13 @@
       bindkey '^f' fzf-file-widget
 
       function cd() {
-          builtin cd $*
-          lsd
+        builtin cd $*
+        lsd
       }
 
       function mkd() {
-          mkdir $1
-          builtin cd $1
+        mkdir $1
+        builtin cd $1
       }
 
       function take() { builtin cd $(mktemp -d) }
@@ -79,31 +79,33 @@
       function gsm() { git submodule foreach "$* || :" }
 
       function gitdel() {
-          git tag -d $1
-          git push --delete origin $1
+        git tag -d $1
+        git push --delete origin $1
       }
 
       function lg() {
-          git add --all
-          git commit --signoff -a -m "$*"
-          git push
+        git add --all
+        git commit --signoff -a -m "$*"
+        git push
       }
 
       function dci() { docker inspect $(docker-compose ps -q $1) }
 
       function transfer() {
-          wget --method PUT --body-file=$1 https://up.fbr.ai/$1 -O - -nv
+        wget --method PUT --body-file=$1 https://up.fbr.ai/$1 -O - -nv
       }
 
       function nf() {
         pushd ~/.nixpkgs
         nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.alucard.system"
+        ./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
         popd
       }
 
-      function ns() {
-        pushd ~/.nixpkgs
-        ./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
+      function nfh() {
+        pushd ~/.config/nixpkgs
+        nix --experimental-features "nix-command flakes" build ".#homeConfigurations.solid.activationPackage"
+        ./result/activate
         popd
       }
     '';
@@ -193,12 +195,6 @@
       clean = "nix-collect-garbage";
       nsh = "nix-shell";
       "," = "nix-shell -p";
-
-      # old system updates TODO delete in favor of flakes
-      nb = "darwin-rebuild switch";
-      nbu = "nix-channel --update && darwin-rebuild switch";
-      nbh = "home-manager switch";
-      nbhu = "nix-channel --update && home-manager switch";
 
       aupt = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y";
     };
