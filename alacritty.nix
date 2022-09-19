@@ -41,10 +41,6 @@
           background = "0x24283b";
           foreground = "0xc0caf5";
         };
-        #cursor = {
-          #text = "";
-          #cursor = "";
-        #};
         normal = {
           black = "0x1D202F";
           red = "0xf7768e";

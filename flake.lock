@@ -43,11 +43,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1663535872,
-        "narHash": "sha256-sgfls0XzwuQqA9Pd7X7QuAEdCSqRj+hNf4RyuK2S5ws=",
+        "lastModified": 1663579828,
+        "narHash": "sha256-yPf1wI34tvHdi4vSKH5Bf3OOpr2OZpAcEQ33AWUXebs=",
         "owner": "breuerfelix",
         "repo": "feovim",
-        "rev": "b941280cbf38541c0ecace09ab4ad484d4f0c34f",
+        "rev": "ad0542a1680c5f081fdb8d488bf336d698f33318",
         "type": "github"
       },
       "original": {
