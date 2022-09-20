@@ -191,8 +191,7 @@
 
       # nix
       ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
-      #clean = "rm -rf ~/.Trash/* && nix-collect-garbage"; # TODO empty bin
-      clean = "nix-collect-garbage";
+      clean = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents --repair";
       nsh = "nix-shell";
       "," = "nix-shell -p";
 
