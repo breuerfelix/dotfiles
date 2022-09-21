@@ -13,15 +13,20 @@
       "spacebar" # macos bar alternative
       "sketchybar" # alternative spacebar
       "skhd" # keybinding manager
+
+      # ios development
       "cocoapods"
-      "ios-deploy" # for ios development
+      "ios-deploy"
+
       # broken nix builds
       "openstackclient"
       "yabai" # tiling window manager
       "earthly" # makefile alternative
+
+      # gardener
       "openvpn"
       "iproute2mac"
-      "parallel" # gardener
+      "parallel"
     ];
     casks = [
       # utilities
