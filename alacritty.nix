@@ -38,11 +38,11 @@
 
       colors = {
         primary = {
-          background = "0x24283b";
+          background = "0x1a1b26";
           foreground = "0xc0caf5";
         };
         normal = {
-          black = "0x1D202F";
+          black = "0x15161e";
           red = "0xf7768e";
           green = "0x9ece6a";
           yellow = "0xe0af68";
