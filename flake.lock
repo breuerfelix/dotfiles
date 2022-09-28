@@ -43,11 +43,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1663920093,
-        "narHash": "sha256-YqWCYcUUSiBwlc3To/4qRdYRm+npStshKSIDyd6Iuzc=",
+        "lastModified": 1664358439,
+        "narHash": "sha256-imNlEM0bLijAmZl4I1VktDt8hMWPWH5QjM2/vcE9a6s=",
         "owner": "breuerfelix",
         "repo": "feovim",
-        "rev": "5ccdbe1ddffb37b868d3b97b321d3b5fc19b91cd",
+        "rev": "75abad23c8bd26fa32b4f251087e6a4c8ed4834a",
         "type": "github"
       },
       "original": {
@@ -110,11 +110,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1663270227,
-        "narHash": "sha256-HWnPdlG+48f5Vgmco2Iij/20AjQuKjaNUJhh/VgbV5Q=",
+        "lastModified": 1664349153,
+        "narHash": "sha256-F6ZAHd9qR2lp49L1NiBFZ1NVJdTne56+dkI62glOj/w=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c2e7745b08a303b468fcaced4bf0774900aba9bc",
+        "rev": "467132e5ab10f122fbe313ebcc31eeaca65fae42",
         "type": "github"
       },
       "original": {
