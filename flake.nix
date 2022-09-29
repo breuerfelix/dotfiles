@@ -46,25 +46,24 @@
         specialArgs = { inherit inputs; };
         modules = [
           (import ./darwin-configuration.nix)
-          ({ pkgs, ... }:
-            {
-              nixpkgs.config = nixpkgsConfig;
-              system.stateVersion = 4;
+          ({ pkgs, ... }: {
+            nixpkgs.config = nixpkgsConfig;
+            system.stateVersion = 4;
 
-              users.users.${user} = {
-                home = "/Users/${user}";
-                shell = pkgs.zsh;
-              };
+            users.users.${user} = {
+              home = "/Users/${user}";
+              shell = pkgs.zsh;
+            };
 
-              nix = {
-                # enable flakes per default
-                package = pkgs.nixFlakes;
-                settings = {
-                  allowed-users = [ user ];
-                  experimental-features = [ "nix-command" "flakes" ];
-                };
+            nix = {
+              # enable flakes per default
+              package = pkgs.nixFlakes;
+              settings = {
+                allowed-users = [ user ];
+                experimental-features = [ "nix-command" "flakes" ];
               };
-            })
+            };
+          })
           home-manager.darwinModules.home-manager
           {
             home-manager = {

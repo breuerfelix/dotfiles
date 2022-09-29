@@ -1,7 +1,6 @@
 { config, pkgs, lib, ... }: {
   programs.tmux = {
     enable = true;
-    #plugins = with unstable; [ tmuxPlugins.nord ];
     shortcut = "o";
     baseIndex = 1;
     escapeTime = 0;

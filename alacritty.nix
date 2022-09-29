@@ -20,20 +20,22 @@
       mouse = { hide_when_typing = true; };
 
       key_bindings = [
-        { # clear terminal
+        {
+          # clear terminal
           key = "L";
           mods = "Control";
           chars = "\\x0c";
         }
       ];
 
-      font = let fontname = "SauceCodePro Nerd Font Mono"; in {
-      #font = let fontname = "Recursive Mono Linear"; in { # TODO fix this font with nerd font
-        normal = { family = fontname; style = "Medium"; };
-        bold = { family = fontname; style = "Bold"; };
-        italic = { family = fontname; style = "Light"; };
-        size = 16;
-      };
+      font = let fontname = "FiraCode Nerd Font Mono"; in
+        {
+          normal = { family = fontname; style = "Medium"; };
+          bold = { family = fontname; style = "Bold"; };
+          italic = { family = fontname; style = "Light"; };
+          size = 16;
+          use_thin_strokes = true;
+        };
       cursor.style = "Block";
 
       colors = {

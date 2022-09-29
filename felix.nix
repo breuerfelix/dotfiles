@@ -3,6 +3,7 @@
     ./zsh.nix
     ./adblock.nix
     ./tmux.nix
+    ./zellij.nix
     ./git.nix
     ./k9s.nix
     ./krew.nix
