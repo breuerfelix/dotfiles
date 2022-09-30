@@ -99,14 +99,12 @@
         pushd ~/.nixpkgs
         nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.alucard.system"
         ./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
-        popd
       }
 
       function nfh() {
         pushd ~/.config/nixpkgs
         nix --experimental-features "nix-command flakes" build ".#homeConfigurations.solid.activationPackage"
         ./result/activate
-        popd
       }
     '';
 
