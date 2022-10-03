@@ -1,10 +1,10 @@
 { config, pkgs, lib, ... }: {
   imports = [
-    ./karabiner.nix
-    ./yabai.nix
-    ./spacebar.nix
-    ./alacritty.nix
-    ./felix.nix
+    ../shell
+    ../darwin/karabiner.nix
+    ../darwin/yabai.nix
+    ../darwin/spacebar.nix
+    ../desktop/alacritty.nix
   ];
 
   programs = {

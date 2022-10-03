@@ -5,9 +5,12 @@
   # nix --experimental-features "nix-command flakes" build ".#homeConfigurations.solid.activationPackage"
   # ./result/activate
 
-  # rocky
+  # alucard
   # nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.alucard.system"
   # ./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
+
+  # rocky
+  # nix --experimental-features "nix-command flakes" build ".#nixosConfigurations.rocky.config.system.build.toplevel"
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
@@ -45,7 +48,8 @@
         # makes all inputs availble in imported files
         specialArgs = { inherit inputs; };
         modules = [
-          (import ./darwin-configuration.nix)
+          (import ./modules)
+          (import ./machines/alucard.nix)
           ({ pkgs, ... }: {
             nixpkgs.config = nixpkgsConfig;
             system.stateVersion = 4;
@@ -64,7 +68,7 @@
               };
             };
           })
-          home-manager.darwinModules.home-manager
+          home-manager.darwinModule
           {
             home-manager = {
               useGlobalPkgs = true;
@@ -72,7 +76,7 @@
               # makes all inputs available in imported files for hm
               extraSpecialArgs = { inherit inputs; };
               users.${user} = { pkgs, ... }: {
-                imports = [ ./mac.nix ];
+                imports = [ ./home/mac.nix ];
                 home.stateVersion = stateVersion;
               };
             };
@@ -95,7 +99,8 @@
           # makes all inputs available in imported files
           extraSpecialArgs = { inherit inputs; };
           modules = [
-            (import ./home.nix)
+            (import ./modules)
+            (import ./home/linux.nix)
             ({ pkgs, ... }: {
               home.stateVersion = stateVersion;
               # home-manager manages itself
@@ -108,5 +113,49 @@
             })
           ];
         };
+
+      # nixos system
+      nixosConfigurations.rocky = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        # makes all inputs availble in imported files
+        specialArgs = { inherit inputs; };
+        modules = [
+          (import ./modules)
+          (import ./machines/rocky.nix)
+          ({ pkgs, ... }: {
+            nixpkgs.config = nixpkgsConfig;
+            system.stateVersion = stateVersion;
+
+            users.users.${user} = {
+              home = "/Users/${user}";
+              shell = pkgs.zsh;
+              isNormalUser = true;
+            };
+
+            nix = {
+              # enable flakes per default
+              package = pkgs.nixFlakes;
+              settings = {
+                allowed-users = [ user ];
+                experimental-features = [ "nix-command" "flakes" ];
+              };
+            };
+          })
+          home-manager.nixosModule
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              # makes all inputs available in imported files for hm
+              extraSpecialArgs = { inherit inputs; };
+              users.${user} = { pkgs, ... }: {
+                imports = [ ./home/linux.nix ];
+                home.stateVersion = stateVersion;
+              };
+            };
+          }
+        ];
+      };
+
     };
 }

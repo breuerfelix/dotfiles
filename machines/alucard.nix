@@ -1,6 +1,5 @@
 { config, pkgs, lib, ... }: {
   imports = [
-    ./modules
     ./homebrew.nix
   ];
 
