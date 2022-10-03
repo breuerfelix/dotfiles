@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }: {
   imports = [
-    ./homebrew.nix
+    ../darwin/homebrew.nix
   ];
 
   environment = {
