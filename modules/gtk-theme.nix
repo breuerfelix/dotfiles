@@ -46,6 +46,7 @@ in
     mkdir -p $out/bin
     ln -s ${self.resvg}/bin/resvg $out/bin/rendersvg
   '';
+
   generated-gtk-theme = self.stdenv.mkDerivation rec {
     name = "generated-gtk-theme";
     src = inputs.materia-theme;

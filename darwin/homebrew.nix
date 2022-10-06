@@ -57,7 +57,6 @@
       "blender"
       "calibre" # ebook management
       "chromium"
-      "firefox"
       "google-chrome"
       "lens" # visual k9s
       "meld" # folder differ
@@ -79,6 +78,7 @@
       "qmk-toolbox" # flashing keyboard
       "kindavim" # vim keys for everything
       "kap" # screen recorder software
+      "wireshark" # network sniffer
     ];
     taps = [
       # default

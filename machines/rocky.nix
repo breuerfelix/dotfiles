@@ -28,6 +28,7 @@
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
     cleanTmpDir = true;
+    # TODO check
     #kernelPackages = pkgs.linuxPackages_latest;
     #extraModulePackages = with pkgs.linuxPackages_latest; [ zenpower ];
 
@@ -40,6 +41,8 @@
     };
   };
 
+  # TODO switch to labels
+  # TODO mount /data
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/48199c45-de75-4a8a-be1b-32b03c29a13b";
@@ -74,18 +77,23 @@
   #};
 
   #swapDevices = [{ device = "/dev/disk/by-label/swap"; }];
+  # TODO add swap
   swapDevices = [ ];
 
   hardware = {
+    # recommended on screens larger than fullhd
+    video.hidpi.enable = lib.mkDefault true;
+
     opengl.enable = true;
-    # TODO maybe no mkdefault?
     cpu.amd.updateMicrocode = config.hardware.enableRedistributableFirmware;
-    # high-resolution display
-    #video.hidpi.enable = lib.mkDefault true;
-    # disable until linux 5.10 (support for amd 5600x)
-    # BIOS handles fan control
-    #fancontrol.enable = true;
+
+    # TODO enable custom fan control
+    #fancontrol = {
+    #enable = true;
+    #config = "";
+    #};
   };
 
+  # TODO
   #powerManagement.cpuFreqGovernor = lib.mkDefault "conservative";
 }

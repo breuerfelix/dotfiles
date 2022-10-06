@@ -5,7 +5,7 @@
     mimeApps = {
       enable = true;
       defaultApplications =
-        let browsers = [ "firefox.desktop" "chromium.desktop" ]; in
+        let browsers = [ "vivaldi.desktop" "chromium.desktop" ]; in
         {
           "text/uri-list" = browsers;
           "text/html" = browsers;

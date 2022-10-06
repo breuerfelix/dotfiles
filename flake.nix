@@ -28,6 +28,7 @@
 
     # my custom neovim
     feovim.url = "github:breuerfelix/feovim";
+    krewfile.url = "github:brumhard/krewfile";
 
     forgit = {
       url = "github:wfxr/forgit";
@@ -40,6 +41,7 @@
       flake = false;
     };
 
+    # TODO test without rev
     materia-theme = {
       url = "github:nana-4/materia-theme?ref=76cac96ca7fe45dc9e5b9822b0fbb5f4cad47984";
       flake = false;
@@ -139,7 +141,7 @@
       nixosConfigurations.rocky = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         # makes all inputs availble in imported files
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; inherit user; };
         modules = [
           ./modules
           ./machines/rocky.nix

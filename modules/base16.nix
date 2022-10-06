@@ -1,10 +1,11 @@
-{ config, lib, pkgs, ...}:
+{ config, lib, pkgs, ... }:
 
 with lib;
 
 let
   cfg = config.programs.base16;
-in {
+in
+{
   options = {
     programs.base16 = {
       enable = mkEnableOption "base16 colors.";
@@ -89,9 +90,7 @@ in {
   # error: infinite recursion encountered when using config = with cfg.color
   config = mkIf cfg.enable {
     # https://github.com/aaron-williamson/base16-alacritty/blob/master/templates/default-256.mustache
-    # TODO fix it and readd the mkIf
     programs.alacritty.settings.colors = with cfg.colors; mkIf cfg.alacritty {
-    #programs.alacritty.settings.colors = with cfg.colors; {
       primary = {
         background = "0x${base00}";
         foreground = "0x${base05}";
@@ -234,16 +233,16 @@ in {
         separator_color = "#${base05}";
       };
       urgency_low = {
-          background = "#${base01}";
-          foreground = "#${base03}";
+        background = "#${base01}";
+        foreground = "#${base03}";
       };
       urgency_normal = {
-          background = "#${base02}";
-          foreground = "#${base05}";
+        background = "#${base02}";
+        foreground = "#${base05}";
       };
       urgency_critical = {
-          background = "#${base08}";
-          foreground = "#${base06}";
+        background = "#${base08}";
+        foreground = "#${base06}";
       };
     };
 

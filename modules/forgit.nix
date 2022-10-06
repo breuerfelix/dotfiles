@@ -1,8 +1,6 @@
 inputs: self: super: {
   forgit = self.stdenvNoCC.mkDerivation rec {
-    pname = "forgit";
-    version = "latest";
-
+    name = "forgit";
     src = inputs.forgit;
 
     dontConfigure = true;

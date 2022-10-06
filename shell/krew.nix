@@ -1,16 +1,19 @@
-{ config, pkgs, lib, ... }:
+{ pkgs, lib, ... }:
+with pkgs;
 let
-  krewfile = pkgs.writeText "krewfile" ''
+  plugins = writeText "plugins" ''
+    krew
     modify-secret
     neat
     oidc-login
     pv-migrate
     stern
     explore
-    krew
+    sniff
   '';
-in {
-  home.activation.krew = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    $DRY_RUN_CMD ${pkgs.krewfile}/bin/krewfile -command ${pkgs.krew}/bin/krew -file ${krewfile}
+in
+{
+  home.activation.krew = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    $DRY_RUN_CMD ${krewfile}/bin/krewfile -command ${krew}/bin/krew -file ${plugins}
   '';
 }

@@ -87,6 +87,21 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1659877975,
+        "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "c0e246b9b83f637f4681389ecabcb2681b4f3af0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "forgit": {
       "flake": false,
       "locked": {
@@ -124,6 +139,25 @@
         "type": "github"
       }
     },
+    "krewfile": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1663941931,
+        "narHash": "sha256-Zf9r0UOLgdgxs96uUS13HhYn4OkSQ0hHqCcZs5Ftj1E=",
+        "owner": "brumhard",
+        "repo": "krewfile",
+        "rev": "6b2bcb8a1aededc358eb458b9013f238904e2cb3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "brumhard",
+        "repo": "krewfile",
+        "type": "github"
+      }
+    },
     "materia-theme": {
       "flake": false,
       "locked": {
@@ -158,6 +192,21 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1663915729,
+        "narHash": "sha256-mJBV4qHXPLXHM2Kufz1R735gnAxC1suWsBXtSfpCUQM=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1e8414c50a6b3a3b4e08936ad9455445bc7477bd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1663248064,
         "narHash": "sha256-az30TEsuhLd2H3zHOSdb/vltJesuqDl/ZHi7h4KEKxU=",
         "owner": "nixos",
@@ -178,8 +227,9 @@
         "feovim": "feovim",
         "forgit": "forgit",
         "home-manager": "home-manager",
+        "krewfile": "krewfile",
         "materia-theme": "materia-theme",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       }
     },
     "utils": {

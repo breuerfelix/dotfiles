@@ -79,6 +79,12 @@
     border-color: @separatorcolor;
 }
 
+/* backwards compat to 1.6 */
+element-text, element-icon {
+    background-color: inherit;
+    text-color: inherit;
+}
+
 #inputbar {
     border: 0 solid 0 solid 1 solid 0 solid;
     margin: 0;

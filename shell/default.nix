@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }: {
+{ config, pkgs, lib, inputs, system, ... }: {
   imports = [
     ./zsh.nix
     ./adblock.nix
@@ -6,27 +6,36 @@
     ./zellij.nix
     ./git.nix
     ./k9s.nix
-    #./krew.nix
+    ./krew.nix
   ];
 
   home = {
     packages = with pkgs; [
       neovim # customized by overlay
 
-      # terminal
-      bottom # htop alternatives
-      #btop 
-      fd
-      ripgrep # fast search
-      gitAndTools.delta # pretty diff tool
+      # net tools
+      #bind # marked as broken
+      nmap
+      inetutils
+
+      # core
+      openssl
       wget
       curl
+      fd
+      ripgrep # fast search
+
+      # htop alternatives
+      bottom
+      btop 
+      gotop
+
+      grc # colored log output
+      gitAndTools.delta # pretty diff tool
       thefuck # auto correct commands
       sshfs # mount folders via ssh
       gh # github cli tool
-      # TODO m1 mac ttyd # terminal share via web
       graph-easy # draw graphs in the terminal
-      unixtools.watch # watches commands
       cht-sh # cheat sheet -> cht python read file
       tealdeer # community driven man pages
       dive # analyse docker images
@@ -41,11 +50,16 @@
       mongodb-tools
       terraform
       pulumi-bin # manage infrastructure as code
-      mosh # alternative ssh shell
       nodePackages.snyk # vulnerability scanner
-      nushell # new type of shell
       viddy # terminal watch command
+      unixtools.watch # watches commands
       yq-go # yaml, toml parser
+      termdown # terminal countdown
+      tmate # share terminal via web
+
+      # shells
+      nushell # new type of shell
+      mosh # alternative ssh shell
 
       # golang utils
       golangci-lint
@@ -71,6 +85,7 @@
       #etcd # used for kubebuilder assets (testing)
       velero # k8s backup tool
 
+      # programming
       python3
       poetry # python tools
       rustup # rust
@@ -107,11 +122,13 @@
     home-manager.enable = true;
 
     # shell integrations are enabled by default
-    zoxide.enable = true;
-    jq.enable = true;
-    bat.enable = true;
-    lazygit.enable = true;
+    zoxide.enable = true; # autojump
+    jq.enable = true; # json parser
+    bat.enable = true; # pretty cat
+    lazygit.enable = true; # git tui
+    nnn.enable = true; # file browser
 
+    # pretty ls
     lsd = {
       enable = true;
       enableAliases = true;
@@ -145,6 +162,7 @@
       ];
     };
 
+    # snippet manager
     pet = {
       enable = true;
       snippets = [

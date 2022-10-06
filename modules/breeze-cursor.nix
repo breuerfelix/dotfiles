@@ -1,8 +1,6 @@
 inputs: self: super: {
   breeze-cursor = self.stdenv.mkDerivation rec {
-    pname = "breeze-cursor";
-    version = "0.1.0";
-
+    name = "breeze-cursor";
     src = inputs.breeze;
 
     buildInputs = with self.pkgs; [

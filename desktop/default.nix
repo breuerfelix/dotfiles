@@ -5,6 +5,7 @@
     ./dunst.nix
     ./i3.nix
     ./xdg.nix
+    ./polybar.nix
   ];
 
   home.sessionVariables.GTK_THEME = "Generated";
@@ -25,34 +26,18 @@
       name = "Generated";
       package = pkgs.generated-gtk-theme;
     };
-    #gtk3 = {
-
-      #extraConfig = {
-        #gtk-cursor-theme-name = "breeze";
-        #gtk-application-prefer-dark-theme = 1;
-      #};
-    #};
   };
 
   programs = {
-    obs-studio.enable = false;
+    obs-studio.enable = true;
 
     rofi = {
       enable = true;
       cycle = true;
       font = "FuraMono Nerd Font Mono 12";
-      # TODO fix lines
-      #lines = 5;
+
       # TODO generate theme
-      # TODO use with config.lib.formats.rasi;
       theme = ./rofi.rasi;
-      # new config when using unstable
-      #extraConfig = {
-      #kb-remove-to-eol = "";
-      #kb-accept-entry = "Return";
-      #kb-row-up = "Control+k";
-      #kb-row-down = "Control+j";
-      #};
       extraConfig = {
         kb-remove-to-eol = "";
         kb-accept-entry = "Return";
@@ -61,26 +46,8 @@
       };
     };
 
-    # TODO fix firefox
-    #firefox = {
-    #enable = true;
-    #enableAdobeFlash = false;
-    # TODO fix this error message "profile is not accessible"
-    #profiles.felix = {
-    #id = 4711;
-    #isDefault = true;
-    #settings = {
-    #"browser.fullscreen.autohide" = false;
-    #"ui.context_menus.after_mouseup" = true;
-    #};
-    #};
-    #};
-
     chromium = {
       enable = true;
-      #extensions = [
-      #{ id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
-      #];
       extensions = [
         "cjpalhdlnbpafiamejdnhcphjbkeiagm" # ublock origin
       ];
@@ -115,20 +82,6 @@
         night = 3700;
         day = 5500;
       };
-    };
-
-    polybar = {
-      enable = true;
-      package = pkgs.polybar.override {
-        i3GapsSupport = true;
-        alsaSupport = true;
-      };
-      config = ./polybar.ini;
-
-      # i3 handles launching polybar
-      # at the time nix launches polybar
-      # there is no information about monitors available
-      script = "exit 0";
     };
   };
 }

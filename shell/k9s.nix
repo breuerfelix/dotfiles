@@ -1,6 +1,7 @@
 { config, pkgs, lib, ... }: {
   home.file.k9s = {
     target = ".config/k9s/plugin.yml";
+    # TODO add "remove finalzer" command
     text = ''
       plugin:
         edit-secret:
