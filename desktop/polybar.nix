@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }: {
   home.file.polybar = {
     executable = true;
-    target = ".config/polybar.sh";
+    target = ".config/polybar/start.sh";
     text = ''
       #!/run/current-system/sw/bin/bash
 
@@ -15,7 +15,7 @@
     '';
   };
 
-  programs.polybar = {
+  services.polybar = {
     enable = true;
     package = pkgs.polybar.override {
       i3GapsSupport = true;

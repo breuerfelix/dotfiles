@@ -107,6 +107,11 @@
         nix --experimental-features "nix-command flakes" build ".#homeConfigurations.solid.activationPackage"
         ./result/activate
       }
+
+      function nfs() {
+        pushd ~/.config/nixpkgs
+        sudo nixos-rebuild switch --flake ".#rocky"
+      }
     '';
 
     dirHashes = {

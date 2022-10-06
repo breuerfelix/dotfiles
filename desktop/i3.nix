@@ -6,9 +6,9 @@
     x11.enable = true;
   };
 
-  programs.betterlockscreen = {
+  services.betterlockscreen = {
     enable = true;
-    inactiveInternal = 10; # auto locks
+    inactiveInterval = 10; # auto locks
   };
 
   xsession = {

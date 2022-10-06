@@ -57,18 +57,17 @@
   # enables realtime processing
   security.rtkit.enable = true;
 
-  hardware.pulseaudio.enable = false; # use pipewire instead
   sound.enable = true;
   services = {
     printing.enable = true;
     pipewire = {
       enable = true;
+      # makes it default sound server
+      audio.enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-
-      # no other session manager are available right now
-      media-session.enable = true;
+      wireplumber.enable = true;
     };
 
     xserver = {

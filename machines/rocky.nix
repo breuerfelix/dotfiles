@@ -28,12 +28,13 @@
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
     cleanTmpDir = true;
-    # TODO check
-    #kernelPackages = pkgs.linuxPackages_latest;
-    #extraModulePackages = with pkgs.linuxPackages_latest; [ zenpower ];
 
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        # /boot/efi is a small partition
+        configurationLimit = 7;
+      };
       efi = {
         canTouchEfiVariables = true;
         efiSysMountPoint = "/boot/efi";
@@ -42,7 +43,6 @@
   };
 
   # TODO switch to labels
-  # TODO mount /data
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/48199c45-de75-4a8a-be1b-32b03c29a13b";
@@ -51,6 +51,16 @@
     "/boot/efi" = {
       device = "/dev/disk/by-uuid/76EE-E5BC";
       fsType = "vfat";
+    };
+    # shared with windows
+    "/data" = {
+      device = "/dev/disk/by-label/DATA";
+      fsType = "exfat";
+      options = [
+        "defaults"
+        "uid=1000"
+        "gid=100"
+      ];
     };
   };
 
@@ -63,16 +73,6 @@
   #"/boot" = {
   #device = "/dev/disk/by-label/boot";
   #fsType = "vfat";
-  #};
-
-  #"/data" = {
-  #device = "/dev/disk/by-label/DATA";
-  #fsType = "exfat";
-  #options = [
-  #"defaults"
-  #"uid=1000"
-  #"gid=100"
-  #];
   #};
   #};
 

@@ -36,6 +36,7 @@ in
       xournalpp # annotate pdf files
       nitrogen # wallpaper manager
       vivaldi # browser
+      vivaldi-ffmpeg-codecs # proprietary codecs
       vlc # media player
       vscode # for debugging
 

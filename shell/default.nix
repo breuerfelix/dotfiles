@@ -6,7 +6,7 @@
     ./zellij.nix
     ./git.nix
     ./k9s.nix
-    ./krew.nix
+    #./krew.nix
   ];
 
   home = {
