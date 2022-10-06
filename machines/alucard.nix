@@ -1,8 +1,4 @@
 { config, pkgs, lib, ... }: {
-  imports = [
-    ../darwin/homebrew.nix
-  ];
-
   environment = {
     systemPackages = with pkgs; [ ];
     variables = {

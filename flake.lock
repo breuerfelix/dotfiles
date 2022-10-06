@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "breeze": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1665054897,
+        "narHash": "sha256-XVKpVVcMq989TdZUvSz4Zo7zl0g4vf8hNjmV7cbDpDY=",
+        "owner": "KDE",
+        "repo": "breeze",
+        "rev": "137a445f4f1195acbdc1c52d6c2090668736d6ef",
+        "type": "github"
+      },
+      "original": {
+        "owner": "KDE",
+        "repo": "breeze",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -108,6 +124,23 @@
         "type": "github"
       }
     },
+    "materia-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1620818711,
+        "narHash": "sha256-0eCAfm/MWXv6BbCl2vbVbvgv8DiUH09TAUhoKq7Ow0k=",
+        "owner": "nana-4",
+        "repo": "materia-theme",
+        "rev": "76cac96ca7fe45dc9e5b9822b0fbb5f4cad47984",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nana-4",
+        "ref": "76cac96ca7fe45dc9e5b9822b0fbb5f4cad47984",
+        "repo": "materia-theme",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1664349153,
@@ -140,10 +173,12 @@
     },
     "root": {
       "inputs": {
+        "breeze": "breeze",
         "darwin": "darwin",
         "feovim": "feovim",
         "forgit": "forgit",
         "home-manager": "home-manager",
+        "materia-theme": "materia-theme",
         "nixpkgs": "nixpkgs_2"
       }
     },

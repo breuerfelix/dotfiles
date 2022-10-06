@@ -1,12 +1,4 @@
 { config, pkgs, lib, ... }: {
-  imports = [
-    ../shell
-    ../darwin/karabiner.nix
-    ../darwin/yabai.nix
-    ../darwin/spacebar.nix
-    ../desktop/alacritty.nix
-  ];
-
   programs = {
     zsh = {
       initExtraBeforeCompInit = ''

@@ -1,8 +1,4 @@
 { config, pkgs, ... }: {
-  imports = [
-    ../shell
-  ];
-
   programs = {
     zsh = {
       initExtraBeforeCompInit = ''

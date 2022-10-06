@@ -11,6 +11,9 @@
 
   # rocky
   # nix --experimental-features "nix-command flakes" build ".#nixosConfigurations.rocky.config.system.build.toplevel"
+  # ./result/bin/switch-to-configuration switch
+  # sudo nixos-rebuild switch --flake ".#rocky"
+
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
@@ -30,6 +33,17 @@
       url = "github:wfxr/forgit";
       flake = false;
     };
+
+    # custom cursor
+    breeze = {
+      url = "github:KDE/breeze";
+      flake = false;
+    };
+
+    materia-theme = {
+      url = "github:nana-4/materia-theme?ref=76cac96ca7fe45dc9e5b9822b0fbb5f4cad47984";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
@@ -38,7 +52,7 @@
         allowUnfree = true;
         allowUnsupportedSystem = false;
       };
-      stateVersion = "21.11";
+      stateVersion = "22.05";
       user = "felix";
     in
     {
@@ -48,8 +62,9 @@
         # makes all inputs availble in imported files
         specialArgs = { inherit inputs; };
         modules = [
-          (import ./modules)
-          (import ./machines/alucard.nix)
+          ./modules
+          ./machines/alucard.nix
+          ./darwin/homebrew.nix
           ({ pkgs, ... }: {
             nixpkgs.config = nixpkgsConfig;
             system.stateVersion = 4;
@@ -75,8 +90,13 @@
               useUserPackages = true;
               # makes all inputs available in imported files for hm
               extraSpecialArgs = { inherit inputs; };
-              users.${user} = { pkgs, ... }: {
-                imports = [ ./home/mac.nix ];
+              users.${user} = { ... }: {
+                imports = [
+                  ./home/mac.nix
+                  ./darwin
+                  ./shell
+                  ./desktop/alacritty.nix
+                ];
                 home.stateVersion = stateVersion;
               };
             };
@@ -99,9 +119,10 @@
           # makes all inputs available in imported files
           extraSpecialArgs = { inherit inputs; };
           modules = [
-            (import ./modules)
-            (import ./home/linux.nix)
-            ({ pkgs, ... }: {
+            ./modules
+            ./home/linux.nix
+            ./shell
+            ({ ... }: {
               home.stateVersion = stateVersion;
               # home-manager manages itself
               programs.home-manager.enable = true;
@@ -120,14 +141,15 @@
         # makes all inputs availble in imported files
         specialArgs = { inherit inputs; };
         modules = [
-          (import ./modules)
-          (import ./machines/rocky.nix)
+          ./modules
+          ./machines/rocky.nix
+          ./system
           ({ pkgs, ... }: {
             nixpkgs.config = nixpkgsConfig;
             system.stateVersion = stateVersion;
 
             users.users.${user} = {
-              home = "/Users/${user}";
+              home = "/home/${user}";
               shell = pkgs.zsh;
               isNormalUser = true;
             };
@@ -148,8 +170,13 @@
               useUserPackages = true;
               # makes all inputs available in imported files for hm
               extraSpecialArgs = { inherit inputs; };
-              users.${user} = { pkgs, ... }: {
-                imports = [ ./home/linux.nix ];
+              users.${user} = { ... }: {
+                imports = [
+                  ./home/linux.nix
+                  ./modules/base16.nix
+                  ./shell
+                  ./desktop
+                ];
                 home.stateVersion = stateVersion;
               };
             };
