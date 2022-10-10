@@ -103,7 +103,7 @@
         alt - s : ${yabai} -m space --layout stack
 
         # float / unfloat window and center on screen
-        alt - a : ${yabai} -m window --toggle float; \
+        alt - n : ${yabai} -m window --toggle float; \
                   ${yabai} -m window --grid 4:4:1:1:2:2
 
         # toggle sticky(+float), topmost, picture-in-picture
