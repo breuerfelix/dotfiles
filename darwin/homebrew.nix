@@ -10,8 +10,6 @@
       "helm"
       "kubebuilder" # generating k8s controller
       "lima" # docker alternative
-      "spacebar" # macos bar alternative
-      "sketchybar" # alternative spacebar
       "skhd" # keybinding manager
 
       # ios development
@@ -27,6 +25,10 @@
       "openvpn"
       "iproute2mac"
       "parallel"
+
+      # sketchybar
+      "sketchybar" # macos bar alternative
+      "ifstat" # network
     ];
     casks = [
       # utilities
@@ -35,6 +37,7 @@
       "browserosaurus" # choose browser on each link
       "karabiner-elements" # remap keyboard
       "macfuse" # file system utilities
+      "hammerspoon" # lua scripting engine
 
       # virtualization
       "docker" # docker desktop
@@ -79,12 +82,14 @@
       "kindavim" # vim keys for everything
       "kap" # screen recorder software
       "wireshark" # network sniffer
+      "sf-symbols" # patched font for sketchybar
     ];
     taps = [
       # default
       "homebrew/bundle"
       "homebrew/cask"
       "homebrew/cask-drivers"
+      "homebrew/cask-fonts"
       "homebrew/core"
       "homebrew/services"
       # custom
