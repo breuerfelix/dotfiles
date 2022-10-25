@@ -28,7 +28,7 @@
 
     # my custom neovim
     feovim.url = "github:breuerfelix/feovim";
-    krewfile.url = "github:brumhard/krewfile";
+    krewfile.url = "github:breuerfelix/krewfile";
 
     forgit = {
       url = "github:wfxr/forgit";
@@ -54,6 +54,10 @@
         allowUnfree = true;
         allowUnsupportedSystem = false;
       };
+      overlays = with inputs; [
+        feovim.overlay
+        krewfile.overlay
+      ];
       stateVersion = "22.05";
       user = "felix";
     in
@@ -69,6 +73,8 @@
           ./darwin/homebrew.nix
           ({ pkgs, ... }: {
             nixpkgs.config = nixpkgsConfig;
+            nixpkgs.overlays = overlays;
+
             system.stateVersion = 4;
 
             users.users.${user} = {
@@ -114,6 +120,7 @@
           pkgs = import nixpkgs {
             inherit system;
             config = nixpkgsConfig;
+            overlays = overlays;
           };
         in
         home-manager.lib.homeManagerConfiguration {
@@ -148,6 +155,8 @@
           ./system
           ({ pkgs, ... }: {
             nixpkgs.config = nixpkgsConfig;
+            nixpkgs.overlays = overlays;
+
             system.stateVersion = stateVersion;
 
             users.users.${user} = {

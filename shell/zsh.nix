@@ -151,6 +151,7 @@
       # programs
       g = "git";
       kc = "kubectl";
+      kca = "kubectl apply -f";
       ks = "k9s";
       ku = "kubie";
       dk = "docker";

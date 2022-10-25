@@ -27,7 +27,7 @@
 
       # htop alternatives
       bottom
-      btop 
+      btop
       gotop
 
       grc # colored log output
@@ -56,6 +56,7 @@
       yq-go # yaml, toml parser
       termdown # terminal countdown
       tmate # share terminal via web
+      silicon # create code snippets as images
 
       # shells
       nushell # new type of shell
@@ -120,6 +121,11 @@
   programs = {
     # let home-manager manage itself
     home-manager.enable = true;
+
+    # vim alternative
+    helix = {
+      enable = true;
+    };
 
     # shell integrations are enabled by default
     zoxide.enable = true; # autojump

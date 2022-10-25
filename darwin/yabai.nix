@@ -1,4 +1,5 @@
 { config, pkgs, lib, ... }: {
+  # TODO two files
   home.file.yabai = {
     executable = true;
     target = ".config/yabai/yabairc";
@@ -68,17 +69,19 @@
     target = ".config/skhd/skhdrc";
     text = let yabai = "/opt/homebrew/bin/yabai"; in
       ''
+        # alt + a / u / o / s are blocked due to umlaute
+
         # workspaces
-        ctrl + alt - j : ${yabai} -m space --focus next
-        ctrl + alt - k : ${yabai} -m space --focus prev
-        cmd + alt - j : ${yabai} -m space --focus next
-        cmd + alt - k : ${yabai} -m space --focus prev
+        ctrl + alt - j : ${yabai} -m space --focus prev
+        ctrl + alt - k : ${yabai} -m space --focus next
+        cmd + alt - j : ${yabai} -m space --focus prev
+        cmd + alt - k : ${yabai} -m space --focus next
 
         # send window to space and follow focus
-        ctrl + alt - l : ${yabai} -m window --space next; ${yabai} -m space --focus next
-        ctrl + alt - h : ${yabai} -m window --space prev; ${yabai} -m space --focus prev
-        cmd + alt - l : ${yabai} -m window --space next; ${yabai} -m space --focus next
-        cmd + alt - h : ${yabai} -m window --space prev; ${yabai} -m space --focus prev
+        ctrl + alt - l : ${yabai} -m window --space prev; ${yabai} -m space --focus prev
+        ctrl + alt - h : ${yabai} -m window --space next; ${yabai} -m space --focus next
+        cmd + alt - l : ${yabai} -m window --space prev; ${yabai} -m space --focus prev
+        cmd + alt - h : ${yabai} -m window --space next; ${yabai} -m space --focus next
 
         # focus window
         alt - h : ${yabai} -m window --focus west
@@ -100,7 +103,7 @@
 
         # toggle layout
         alt - t : ${yabai} -m space --layout bsp
-        alt - s : ${yabai} -m space --layout stack
+        alt - d : ${yabai} -m space --layout stack
 
         # float / unfloat window and center on screen
         alt - n : ${yabai} -m window --toggle float; \
