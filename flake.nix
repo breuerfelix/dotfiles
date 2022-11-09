@@ -12,7 +12,10 @@
   # rocky
   # nix --experimental-features "nix-command flakes" build ".#nixosConfigurations.rocky.config.system.build.toplevel"
   # ./result/bin/switch-to-configuration switch
+  # or if you want to edit boot entry
   # sudo nixos-rebuild switch --flake ".#rocky"
+  # or if you want to install from scratch
+  # sudo nixos-install --flake github:breuerfelix/dotfiles#rocky
 
 
   inputs = {

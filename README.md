@@ -2,6 +2,8 @@
 
 ## installation
 
+the installation instructions are *not* updated for my flake version.
+
 ### macos
 
 ```bash
