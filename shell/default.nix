@@ -28,7 +28,7 @@
       # htop alternatives
       bottom
       btop
-      gotop
+      #gotop # TODO fix
 
       grc # colored log output
       gitAndTools.delta # pretty diff tool

@@ -84,6 +84,8 @@
       "wireshark" # network sniffer
       "sf-symbols" # patched font for sketchybar
       "rekordbox" # dj software
+      "prusaslicer" # slicer for my printer
+      "autodesk-fusion360" # CAD tool
     ];
     taps = [
       # default
