@@ -49,7 +49,10 @@
       #source /secrets/environment.bash
 
       bindkey '^e' edit-command-line
+      # this is backspace
+      bindkey '^H' autosuggest-accept
       bindkey '^ ' autosuggest-accept
+
       bindkey '^k' up-line-or-search
       bindkey '^j' down-line-or-search
 

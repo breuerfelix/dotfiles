@@ -30,11 +30,10 @@
 
       font = let fontname = "FiraCode Nerd Font Mono"; in
         {
-          normal = { family = fontname; style = "Medium"; };
+          normal = { family = fontname; style = "Bold"; };
           bold = { family = fontname; style = "Bold"; };
           italic = { family = fontname; style = "Light"; };
-          size = 16;
-          use_thin_strokes = true;
+          size = 18;
         };
       cursor.style = "Block";
 
