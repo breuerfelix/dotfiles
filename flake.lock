@@ -145,15 +145,15 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1666701103,
+        "lastModified": 1667570987,
         "narHash": "sha256-b6W+SoMsTVn44sNs4mYKh0Gr6bkHX5bgy5N39quuJRA=",
-        "owner": "breuerfelix",
+        "owner": "brumhard",
         "repo": "krewfile",
-        "rev": "69ed988dcd9d090059bc7a7f57b4e19c04847468",
+        "rev": "58f85d46e0c1ac6b4d577bab9e22517809f17f35",
         "type": "github"
       },
       "original": {
-        "owner": "breuerfelix",
+        "owner": "brumhard",
         "repo": "krewfile",
         "type": "github"
       }

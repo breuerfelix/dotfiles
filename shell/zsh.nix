@@ -2,7 +2,7 @@
   home.file.starship = {
     target = ".config/starship.toml";
     text = ''
-      #add_newline = false
+      add_newline = false
       command_timeout = 2000
 
       [character]
@@ -43,6 +43,13 @@
     };
 
     initExtra = ''
+      # fixes starship swallowing newlines
+      precmd() {
+        precmd() {
+          echo
+        }
+      }
+
       #export LD_LIBRARY_PATH=${lib.makeLibraryPath [pkgs.stdenv.cc.cc]}
 
       # TODO: handle secrets somehow

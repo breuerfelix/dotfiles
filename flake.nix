@@ -31,7 +31,7 @@
 
     # my custom neovim
     feovim.url = "github:breuerfelix/feovim";
-    krewfile.url = "github:breuerfelix/krewfile";
+    krewfile.url = "github:brumhard/krewfile";
 
     forgit = {
       url = "github:wfxr/forgit";
