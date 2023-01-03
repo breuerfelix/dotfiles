@@ -30,6 +30,7 @@
       btop
       #gotop # TODO fix
 
+      comma # nix-shell wrapper
       grc # colored log output
       gitAndTools.delta # pretty diff tool
       thefuck # auto correct commands

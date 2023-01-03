@@ -86,6 +86,8 @@
       "rekordbox" # dj software
       "prusaslicer" # slicer for my printer
       "autodesk-fusion360" # CAD tool
+      "min" # minimal browser
+      "time-out" # blurs screen every x mins
     ];
     taps = [
       # default

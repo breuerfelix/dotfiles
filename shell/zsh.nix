@@ -208,7 +208,6 @@
       ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
       clean = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents --repair";
       nsh = "nix-shell";
-      "," = "nix-shell -p";
 
       aupt = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y";
     };
