@@ -18,6 +18,7 @@
       fe = "fetch";
       gr = "grep -in";
       re = "rebase -i";
+      cp = "cherry-pick";
     };
     ignores = [
       ".idea" ".vs" ".vsc" ".vscode" # ide

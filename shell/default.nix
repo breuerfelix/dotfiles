@@ -83,8 +83,6 @@
       kubie
       kind
       kubelogin-oidc
-      # TODO: fix
-      #etcd # used for kubebuilder assets (testing)
       velero # k8s backup tool
 
       # programming
