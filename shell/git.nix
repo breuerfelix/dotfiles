@@ -12,7 +12,7 @@
       dh = "diff HEAD";
       pu = "pull";
       ps = "push";
-      pf = "push -f";
+      pf = "push --force-with-lease";
       st = "status -sb";
       co = "checkout";
       fe = "fetch";

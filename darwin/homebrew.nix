@@ -88,6 +88,8 @@
       "autodesk-fusion360" # CAD tool
       "min" # minimal browser
       "time-out" # blurs screen every x mins
+      "firefox" # needed for my uploadpy profiles
+      "raycast" # launcher on steroids
     ];
     taps = [
       # default
