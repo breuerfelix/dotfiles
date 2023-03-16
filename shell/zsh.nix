@@ -50,6 +50,12 @@
         }
       }
 
+      # setup gardenctl
+      unset TERM_SESSION_ID
+      if (( $+commands[gardenctl] )); then
+        source <(gardenctl rc zsh -p gctl)
+      fi
+
       #export LD_LIBRARY_PATH=${lib.makeLibraryPath [pkgs.stdenv.cc.cc]}
 
       # TODO: handle secrets somehow
@@ -208,8 +214,19 @@
       ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
       clean = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents --repair";
       nsh = "nix-shell";
+      nse = "nix search nixpkgs";
 
       aupt = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y";
+
+
+      # gardener
+      gtv="gardenctl target view -o yaml";
+      gtc="gardenctl target control-plane";
+      gtc-="gardenctl target unset control-plane";
+      gtdev = "gardenctl target --garden dev";
+      gk="eval '$(gardenctl kubectl-env zsh)'";
+      gp="eval '$(gardenctl provider-env zsh)'";
+      gcv="gardenctl config view -o yaml";
     };
 
     plugins = [

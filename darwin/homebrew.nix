@@ -25,6 +25,7 @@
       "openvpn"
       "iproute2mac"
       "parallel"
+      "gardenctl-v2"
 
       # sketchybar
       "sketchybar" # macos bar alternative
@@ -104,6 +105,7 @@
       "koekeishiya/formulae" # yabai
       "earthly/earthly" # earthly
       "FelixKratz/formulae" # sketchybar
+      "gardener/tap"
     ];
   };
 }

@@ -15,11 +15,11 @@
     hostName = "alucard";
     knownNetworkServices = [ "Wi-Fi" ];
     # disabled in favor of my pi-hole at home
-    #dns = [
-    #"9.9.9.9"
-    #"1.1.1.1"
-    #"8.8.8.8"
-    #];
+    dns = [
+      "9.9.9.9"
+      "1.1.1.1"
+      "8.8.8.8"
+    ];
   };
 
   fonts = {

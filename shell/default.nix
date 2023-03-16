@@ -58,6 +58,7 @@
       termdown # terminal countdown
       tmate # share terminal via web
       silicon # create code snippets as images
+      crane # container registry tool
 
       # shells
       nushell # new type of shell
@@ -141,7 +142,7 @@
 
     go = {
       enable = true;
-      package = pkgs.go_1_18;
+      package = pkgs.go_1_19;
       goPath = "go";
       goBin = "go/bin";
       goPrivate = [ "github.com/stackitcloud" ];
