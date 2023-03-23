@@ -59,6 +59,7 @@
       tmate # share terminal via web
       silicon # create code snippets as images
       crane # container registry tool
+      ytt # yaml templating engine
 
       # shells
       nushell # new type of shell

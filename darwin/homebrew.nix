@@ -9,6 +9,7 @@
     brews = [
       "helm"
       "kubebuilder" # generating k8s controller
+      "sonobuoy" # k8s e2e tests
       "lima" # docker alternative
       "skhd" # keybinding manager
 
@@ -26,6 +27,7 @@
       "iproute2mac"
       "parallel"
       "gardenctl-v2"
+      "gardenlogin"
 
       # sketchybar
       "sketchybar" # macos bar alternative
