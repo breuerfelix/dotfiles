@@ -50,12 +50,6 @@
         }
       }
 
-      # setup gardenctl
-      unset TERM_SESSION_ID
-      if (( $+commands[gardenctl] )); then
-        source <(gardenctl rc zsh -p gctl)
-      fi
-
       #export LD_LIBRARY_PATH=${lib.makeLibraryPath [pkgs.stdenv.cc.cc]}
 
       # TODO: handle secrets somehow
