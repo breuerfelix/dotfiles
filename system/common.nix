@@ -59,6 +59,7 @@
 
   sound.enable = true;
   services = {
+    blueman.enable = true;
     printing.enable = true;
     pipewire = {
       enable = true;
