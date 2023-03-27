@@ -84,6 +84,7 @@
     # recommended on screens larger than fullhd
     video.hidpi.enable = lib.mkDefault true;
 
+    bluetooth.enable = true;
     opengl.enable = true;
     cpu.amd.updateMicrocode = config.hardware.enableRedistributableFirmware;
 
