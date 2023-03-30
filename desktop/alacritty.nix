@@ -33,7 +33,7 @@
           normal = { family = fontname; style = "Bold"; };
           bold = { family = fontname; style = "Bold"; };
           italic = { family = fontname; style = "Light"; };
-          size = 18;
+          size = 14;
         };
       cursor.style = "Block";
 

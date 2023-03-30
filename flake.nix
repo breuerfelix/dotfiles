@@ -56,6 +56,10 @@
       nixpkgsConfig = {
         allowUnfree = true;
         allowUnsupportedSystem = false;
+        vivaldi = {
+          proprietaryCodecs = true;
+          enableWideVine = true;
+        };
       };
       overlays = with inputs; [
         feovim.overlay

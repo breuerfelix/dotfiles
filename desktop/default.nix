@@ -61,7 +61,6 @@
       # turn off vsync because of stuttering in obs
       vSync = false;
       backend = "glx";
-      experimentalBackends = true;
       #shadow = true;
       #noDNDShadow = false;
       #noDockShadow = true;
