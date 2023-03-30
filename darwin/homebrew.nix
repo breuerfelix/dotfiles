@@ -41,6 +41,7 @@
       "karabiner-elements" # remap keyboard
       "macfuse" # file system utilities
       "hammerspoon" # lua scripting engine
+      "fly" # concourse ci
 
       # virtualization
       "docker" # docker desktop
@@ -60,7 +61,7 @@
       "adobe-creative-cloud"
       "android-studio"
       "balenaetcher"
-      "blender"
+      #"blender"
       "calibre" # ebook management
       "chromium"
       "google-chrome"
