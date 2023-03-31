@@ -80,7 +80,7 @@
       xkbVariant = "";
 
       # resolution of UI elements
-      dpi = 115;
+      dpi = 105;
 
       # keyboard repeat time
       autoRepeatInterval = 35;

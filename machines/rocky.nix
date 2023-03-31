@@ -33,7 +33,7 @@
       systemd-boot = {
         enable = true;
         # /boot/efi is a small partition
-        configurationLimit = 7;
+        configurationLimit = 5;
       };
       efi = {
         canTouchEfiVariables = true;

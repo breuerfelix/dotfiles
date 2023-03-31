@@ -29,9 +29,8 @@ in
       #esptool
 
       # pulseaudio
-      # TODO maybe pulsewire tools?
-      #pavucontrol
-      #pasystray 
+      pavucontrol
+      pasystray 
 
       xournalpp # annotate pdf files
       nitrogen # wallpaper manager
@@ -44,6 +43,7 @@ in
       screenkey
       signal-desktop
       spotify
+      postman
 
       # blender
       # asesprite
