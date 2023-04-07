@@ -17,7 +17,6 @@
   # or if you want to install from scratch
   # sudo nixos-install --flake github:breuerfelix/dotfiles#rocky
 
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
     home-manager = {

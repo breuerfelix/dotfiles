@@ -7,5 +7,8 @@
         eval "$(thefuck --alias)"
       '';
     };
+
+    # override mac font settings
+    alacritty.settings.font.size = lib.mkForce 18;
   };
 }

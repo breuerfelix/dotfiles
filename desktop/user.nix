@@ -6,8 +6,13 @@ in
   # manage itself
   programs.home-manager.enable = true;
   manual.manpages.enable = true;
+
   # allow installation of fonts
-  fonts.fontconfig.enable = true;
+  fonts = {
+    fontconfig.enable = true;
+    # recommended on screens larger than fullhd
+    optimizeForVeryHighDPI = true;
+  };
 
   home = {
     keyboard.layout = "eu";
@@ -30,7 +35,7 @@ in
 
       # pulseaudio
       pavucontrol
-      pasystray 
+      pasystray
 
       xournalpp # annotate pdf files
       nitrogen # wallpaper manager

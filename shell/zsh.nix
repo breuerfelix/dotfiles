@@ -181,6 +181,7 @@
       py = "python";
       awake = "caffeinate";
       os = "openstack";
+      pu = "pulumi";
 
       # terminal cheat sheet
       cht = "cht.sh";
@@ -218,8 +219,8 @@
       gtc="gardenctl target control-plane";
       gtc-="gardenctl target unset control-plane";
       gtdev = "gardenctl target --garden dev";
-      gk="eval '$(gardenctl kubectl-env zsh)'";
-      gp="eval '$(gardenctl provider-env zsh)'";
+      gk="eval $(gardenctl kubectl-env zsh)";
+      gp="eval $(gardenctl provider-env zsh)";
       gcv="gardenctl config view -o yaml";
     };
 

@@ -23,8 +23,6 @@
   };
 
   fonts = {
-    # recommended on screens larger than fullhd
-    optimizeForVeryHighDPI = true;
     fontDir.enable = true;
     fonts = with pkgs; [
       nerdfonts
