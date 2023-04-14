@@ -89,11 +89,13 @@
       "sf-symbols" # patched font for sketchybar
       "rekordbox" # dj software
       "prusaslicer" # slicer for my printer
+      "ultimaker-cura" # slicer for my printer
       "autodesk-fusion360" # CAD tool
       "min" # minimal browser
       "time-out" # blurs screen every x mins
       "firefox" # needed for my uploadpy profiles
       "raycast" # launcher on steroids
+      "vnc-viewer" # vnc application
     ];
     taps = [
       # default

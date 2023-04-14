@@ -87,6 +87,7 @@
       kind
       kubelogin-oidc
       velero # k8s backup tool
+      fluxcd # automation
 
       # programming
       python3

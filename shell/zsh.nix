@@ -213,7 +213,6 @@
 
       aupt = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y";
 
-
       # gardener
       gtv="gardenctl target view -o yaml";
       gtc="gardenctl target control-plane";
