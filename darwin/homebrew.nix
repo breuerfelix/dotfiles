@@ -12,6 +12,7 @@
       "sonobuoy" # k8s e2e tests
       "lima" # docker alternative
       "skhd" # keybinding manager
+      "restish" # httpie alternative
 
       # ios development
       "cocoapods"
@@ -96,6 +97,9 @@
       "firefox" # needed for my uploadpy profiles
       "raycast" # launcher on steroids
       "vnc-viewer" # vnc application
+      "darktable" # adobe lightroom alternative
+      "mongodb-compass" # mongodb native
+      "utterly" # background noise cancellation
     ];
     taps = [
       # default
@@ -108,9 +112,10 @@
       # custom
       "cmacrae/formulae" # spacebar
       "koekeishiya/formulae" # yabai
-      "earthly/earthly" # earthly
       "FelixKratz/formulae" # sketchybar
+      "earthly/earthly"
       "gardener/tap"
+      "danielgtaylor/restish"
     ];
   };
 }

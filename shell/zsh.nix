@@ -50,7 +50,10 @@
         }
       }
 
-      #export LD_LIBRARY_PATH=${lib.makeLibraryPath [pkgs.stdenv.cc.cc]}
+      # needed for gardenctl
+      if [ -z "$GCTL_SESSION_ID" ] && [ -z "$TERM_SESSION_ID" ]; then
+        export GCTL_SESSION_ID=$(uuidgen)
+      fi
 
       # TODO: handle secrets somehow
       #source /secrets/environment.bash
@@ -162,7 +165,8 @@
       g = "git";
       kc = "kubectl";
       kca = "kubectl apply -f";
-      ks = "k9s";
+      ks = "k9s --headless";
+      kss = "k9s --headless -c shoot";
       ku = "kubie";
       dk = "docker";
       dc = "docker-compose";
@@ -195,6 +199,7 @@
       shut = "sudo shutdown -h now";
       tssh = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
       socks = "ssh -D 1337 -q -C -N";
+      prox = "export http_proxy=socks5://127.0.0.1:1337 https_proxy=socks5://127.0.0.1:1337";
 
       # clean
       dklocal = "docker run --rm -it -v `PWD`:/usr/workdir --workdir=/usr/workdir";
@@ -248,8 +253,6 @@
         dotExpansion = true;
         keymap = "vi";
       };
-      #prompt.showReturnVal = true;
-      #tmux.autoStartLocal = true;
       pmodules = [
         "autosuggestions"
         "completion"

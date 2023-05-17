@@ -61,6 +61,8 @@
       silicon # create code snippets as images
       crane # container registry tool
       ytt # yaml templating engine
+      zk # zettelkasten
+      mask # taskrunner
 
       # shells
       nushell # new type of shell
@@ -88,6 +90,10 @@
       kubelogin-oidc
       velero # k8s backup tool
       fluxcd # automation
+      kubent # check for deprecations
+
+      # cloud
+      google-cloud-sdk
 
       # programming
       python3
