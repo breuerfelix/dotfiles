@@ -22,6 +22,7 @@
           bind "Ctrl u" { CloseFocus; SwitchToMode "Normal"; }
           bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
           bind "d" { Detach; }
+          bind "s" { ToggleActiveSyncTab; SwitchToMode "Normal"; }
 
           bind "h" { MoveFocus "Left"; SwitchToMode "Normal"; }
           bind "l" { MoveFocus "Right"; SwitchToMode "Normal"; }

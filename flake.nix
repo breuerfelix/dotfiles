@@ -104,8 +104,9 @@
               useUserPackages = true;
               # makes all inputs available in imported files for hm
               extraSpecialArgs = { inherit inputs; };
-              users.${user} = { ... }: {
+              users.${user} = { ... }: with inputs; {
                 imports = [
+                  feovim.ideavim
                   ./home/mac.nix
                   ./darwin
                   ./shell

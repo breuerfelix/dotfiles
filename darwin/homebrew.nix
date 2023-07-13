@@ -13,6 +13,8 @@
       "lima" # docker alternative
       "skhd" # keybinding manager
       "restish" # httpie alternative
+      "sniffnet" # monitor network traffic
+      "spacer" # outputs spacers after command paused
 
       # ios development
       "cocoapods"
@@ -44,6 +46,14 @@
       "hammerspoon" # lua scripting engine
       "fly" # concourse ci
 
+      # coding
+      "intellij-idea"
+      "postman"
+      "bloomrpc" # postman for grpc
+      "unity-hub"
+      "visual-studio-code"
+      "vscodium" # unbranded vscode
+
       # virtualization
       "docker" # docker desktop
       "utm" # virtual machines
@@ -70,17 +80,12 @@
       "meld" # folder differ
       "mixxx" # dj software
       "obs" # stream / recoding software
-      "postman"
-      "bloomrpc"
       "protonmail-bridge"
       "raspberry-pi-imager"
       "shottr" # screenshot tool
       "the-unarchiver"
       "tunnelblick" # vpn client
       "ubersicht"
-      "unity-hub"
-      "visual-studio-code"
-      "vscodium" # unbranded vscode
       "vlc" # media player
       "eul" # mac monitoring
       "qmk-toolbox" # flashing keyboard
@@ -100,6 +105,7 @@
       "darktable" # adobe lightroom alternative
       "mongodb-compass" # mongodb native
       "utterly" # background noise cancellation
+      "keycastr" # show keystrokes on screen
     ];
     taps = [
       # default
@@ -116,6 +122,7 @@
       "earthly/earthly"
       "gardener/tap"
       "danielgtaylor/restish"
+      "samwho/spacer"
     ];
   };
 }

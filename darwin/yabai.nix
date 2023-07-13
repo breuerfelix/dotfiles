@@ -1,5 +1,4 @@
 { config, pkgs, lib, ... }: {
-  # TODO two files
   home.file.yabai = {
     executable = true;
     target = ".config/yabai/yabairc";
@@ -38,7 +37,7 @@
       yabai -m config window_gap     0
 
       # rules
-      yabai -m rule --add app="^System Preferences$" manage=off
+      yabai -m rule --add app="^System Settings$" manage=off
 
       # workspace management
       yabai -m space 1 --label term
@@ -47,21 +46,29 @@
       yabai -m space 4 --label chat
       yabai -m space 5 --label todo
       yabai -m space 6 --label music
-      yabai -m space 7 --label seven
+      yabai -m space 7 --label voice
       yabai -m space 8 --label eight
       yabai -m space 9 --label nine
       yabai -m space 10 --label ten
 
       # assign apps to spaces
-      yabai -m rule --add app="Alacritty" space=term
-      yabai-m rule --add app="Visual Studio Code" space=code
+      yabai -m rule --add app="Alacritty" space=code
+      yabai -m rule --add app="Visual Studio Code" space=code
+
       yabai -m rule --add app="Vivaldi" space=www
-      yabai -m rule --add app="Google Chrome" space=seven
-      yabai -m rule --add app="Microsoft Teams" space=chat
+
       yabai -m rule --add app="Slack" space=chat
       yabai -m rule --add app="Signal" space=chat
-      yabai -m rule --add app="Spotify" space=music
+
       yabai -m rule --add app="Todoist" space=todo
+
+      yabai -m rule --add app="Spotify" space=music
+
+      yabai -m rule --add app="Mumble" space=voice
+
+      yabai -m rule --add app="Google Chrome" space=eight
+
+      yabai -m rule --add app="Microsoft Teams" space=nine
 
       echo "yabai configuration loaded.."
     '';

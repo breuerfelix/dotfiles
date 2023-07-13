@@ -63,6 +63,7 @@
       ytt # yaml templating engine
       zk # zettelkasten
       mask # taskrunner
+      diskonaut # explore disk size
 
       # shells
       nushell # new type of shell
@@ -91,6 +92,7 @@
       velero # k8s backup tool
       fluxcd # automation
       kubent # check for deprecations
+      termshark # tui for wireshark
 
       # cloud
       google-cloud-sdk
@@ -151,10 +153,12 @@
 
     go = {
       enable = true;
-      package = pkgs.go_1_19;
+      package = pkgs.go_1_20;
       goPath = "go";
       goBin = "go/bin";
-      goPrivate = [ "github.com/stackitcloud" ];
+      goPrivate = [
+        "github.com/stackitcloud"
+      ];
     };
 
     htop = {

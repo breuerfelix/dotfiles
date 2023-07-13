@@ -56,14 +56,15 @@
       "inputs": {
         "earthly-vim": "earthly-vim",
         "flake-utils": "flake-utils",
+        "github-nvim-theme": "github-nvim-theme",
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1683018605,
-        "narHash": "sha256-PSrV11CjswEAbAEFg7A4xKlvYeyJGSfpXMh3GemRMnc=",
+        "lastModified": 1689168470,
+        "narHash": "sha256-Srm23g7AYydlLkluqliHVLJjxiiMBfT/ymMcqN/faO8=",
         "owner": "breuerfelix",
         "repo": "feovim",
-        "rev": "63410b86e5970eda8f45205428fe2e20e2df52dc",
+        "rev": "dbb93182ea84ef9c41dd51b511efdf614f64d07b",
         "type": "github"
       },
       "original": {
@@ -115,6 +116,22 @@
       "original": {
         "owner": "wfxr",
         "repo": "forgit",
+        "type": "github"
+      }
+    },
+    "github-nvim-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1684822097,
+        "narHash": "sha256-q2H2v5Q8wae7OVACU7VMhTe9LwluEg7/m3Qe1+duiN0=",
+        "owner": "projekt0n",
+        "repo": "github-nvim-theme",
+        "rev": "20a949da713b58f28ba6af153a7d1691933ac942",
+        "type": "github"
+      },
+      "original": {
+        "owner": "projekt0n",
+        "repo": "github-nvim-theme",
         "type": "github"
       }
     },

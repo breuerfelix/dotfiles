@@ -164,6 +164,7 @@
       # programs
       g = "git";
       kc = "kubectl";
+      k = "kubectl";
       kca = "kubectl apply -f";
       ks = "k9s --headless";
       kss = "k9s --headless -c shoot";
