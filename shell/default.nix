@@ -6,6 +6,8 @@
     ./zellij.nix
     ./git.nix
     ./k9s.nix
+    # disabled because it sometimes errors out
+    # when making requests to git
     #./krew.nix
   ];
 
@@ -106,6 +108,9 @@
       nodePackages.npm
       nodePackages.yarn
       nodePackages.expo-cli
+      kotlin
+      kotlin-native
+      gradle
 
       starship # terminal prompt
       slides # terminal presentation tool
@@ -156,9 +161,7 @@
       package = pkgs.go_1_20;
       goPath = "go";
       goBin = "go/bin";
-      goPrivate = [
-        "github.com/stackitcloud"
-      ];
+      goPrivate = [ ];
     };
 
     htop = {

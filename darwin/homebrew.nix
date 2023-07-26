@@ -61,10 +61,8 @@
 
       # communication
       "microsoft-teams"
-      "mutify" # one click mute button
       "zoom"
       "slack"
-      "mumble" # teamspeak alternative
       "signal" # messenger
       "teamviewer"
       "discord"

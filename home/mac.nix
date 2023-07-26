@@ -12,5 +12,5 @@
     alacritty.settings.font.size = lib.mkForce 18;
   };
 
-  ideavim.enable = false;
+  ideavim.enable = true;
 }
