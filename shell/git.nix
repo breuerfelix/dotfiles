@@ -2,9 +2,25 @@
   programs.git = {
     enable = true;
     delta.enable = true;
-    userEmail = "fbreuer@pm.me";
     userName = "Felix Breuer";
-    # TODO: add signing
+    userEmail = "fbreuer@pm.me";
+    signing = {
+      key = null; # gnupg decides by mail
+      signByDefault = true;
+    };
+    includes = [
+      {
+        condition = "gitdir:~/code/rtl/";
+        contents.user.email = "felix.breuer@rtl-extern.de";
+      }
+      {
+        condition = "gitdir:~/code/inovex/";
+        contents.user.email = "felix.breuer@inovex.de";
+      }
+    ];
+    hooks = {
+      prepare-commit-msg = ./contract-hook.sh;
+    };
     aliases = {
       cm = "commit";
       ca = "commit --amend --no-edit";
@@ -21,24 +37,30 @@
       cp = "cherry-pick";
     };
     ignores = [
-      ".idea" ".vs" ".vsc" ".vscode" # ide
-      ".DS_Store" # mac
-      "node_modules" "npm-debug.log" # npm
-      "__pycache__" "*.pyc" # python
+      # ide
+      ".idea"
+      ".vs"
+      ".vsc"
+      ".vscode"
+      # npm
+      "node_modules"
+      "npm-debug.log"
+      # python
+      "__pycache__"
+      "*.pyc"
+
       ".ipynb_checkpoints" # jupyter
       "__sapper__" # svelte
+      ".DS_Store" # mac
     ];
     extraConfig = {
-      init = { defaultBranch = "main"; };
+      init.defaultBranch = "main";
       pull = {
         ff = false;
         commit = false;
         rebase = true;
       };
       push.autoSetupRemote = true;
-      #url = {
-        #"ssh://git@github.com" = { insteadOf = "https://github.com"; };
-      #};
       delta = {
         line-numbers = true;
       };

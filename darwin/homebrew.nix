@@ -15,6 +15,7 @@
       "restish" # httpie alternative
       "sniffnet" # monitor network traffic
       "spacer" # outputs spacers after command paused
+      "bitwarden-cli"
 
       # ios development
       "cocoapods"
@@ -104,6 +105,7 @@
       "mongodb-compass" # mongodb native
       "utterly" # background noise cancellation
       "keycastr" # show keystrokes on screen
+      "notion" # organizing app
     ];
     taps = [
       # default

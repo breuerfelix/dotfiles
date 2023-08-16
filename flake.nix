@@ -30,6 +30,7 @@
 
     # my custom neovim
     feovim.url = "github:breuerfelix/feovim";
+    calendarsync.url = "github:breuerfelix/calendarsync";
     krewfile.url = "github:brumhard/krewfile";
 
     forgit = {
@@ -63,6 +64,7 @@
       overlays = with inputs; [
         feovim.overlay
         krewfile.overlay
+        calendarsync.overlay
       ];
       stateVersion = "22.05";
       user = "felix";

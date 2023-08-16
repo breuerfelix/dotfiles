@@ -38,6 +38,10 @@
 
       # rules
       yabai -m rule --add app="^System Settings$" manage=off
+      yabai -m rule --add app="^System Information$" manage=off
+      yabai -m rule --add app="^System Preferences$" manage=off
+      yabai -m rule --add title="Preferences$" manage=off
+      yabai -m rule --add title="Settings$" manage=off
 
       # workspace management
       yabai -m space 1 --label term

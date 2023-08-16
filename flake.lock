@@ -16,6 +16,25 @@
         "type": "github"
       }
     },
+    "calendarsync": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1691419823,
+        "narHash": "sha256-f7yNP1Kfb1iqnLBNaLOJDbqidYTsHL4VAIL6hd4hHHc=",
+        "owner": "breuerfelix",
+        "repo": "calendarsync",
+        "rev": "25b3dd5134c535e38d838f105d66a34587f3a7f0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "breuerfelix",
+        "repo": "calendarsync",
+        "type": "github"
+      }
+    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -55,9 +74,9 @@
     "feovim": {
       "inputs": {
         "earthly-vim": "earthly-vim",
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "github-nvim-theme": "github-nvim-theme",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
         "lastModified": 1689776395,
@@ -74,6 +93,24 @@
       }
     },
     "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1689068808,
+        "narHash": "sha256-6ixXo3wt24N/melDWjq70UuHQLxGV8jZvooRanIHXw0=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "919d646de7be200f3bf08cb76ae1f09402b6f9b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
       "locked": {
         "lastModified": 1678901627,
         "narHash": "sha256-U02riOqrKKzwjsxc/400XnElV+UtPUQWpANPlyazjH0=",
@@ -88,7 +125,7 @@
         "type": "github"
       }
     },
-    "flake-utils_2": {
+    "flake-utils_3": {
       "locked": {
         "lastModified": 1659877975,
         "narHash": "sha256-zllb8aq3YO3h8B/U0/J1WBgAL8EX5yWf5pMj3G0NAmc=",
@@ -158,8 +195,8 @@
     },
     "krewfile": {
       "inputs": {
-        "flake-utils": "flake-utils_2",
-        "nixpkgs": "nixpkgs_2"
+        "flake-utils": "flake-utils_3",
+        "nixpkgs": "nixpkgs_3"
       },
       "locked": {
         "lastModified": 1667570987,
@@ -194,6 +231,21 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1691418107,
+        "narHash": "sha256-2MIv7kaWFmIw29ULy44UmCusLT9S2rAdEdTdI359acc=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "3013bd06cbe7a22c09b2e7942d787b31ca210ce4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1679566188,
         "narHash": "sha256-l/W6+9DtSGJY35EW8QoKezYEiFuIrI2z78qVdwdCoqk=",
         "owner": "nixos",
@@ -207,7 +259,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "nixpkgs_3": {
       "locked": {
         "lastModified": 1663915729,
         "narHash": "sha256-mJBV4qHXPLXHM2Kufz1R735gnAxC1suWsBXtSfpCUQM=",
@@ -222,7 +274,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_3": {
+    "nixpkgs_4": {
       "locked": {
         "lastModified": 1679580156,
         "narHash": "sha256-6XYBBdhI7krJsGzZ+0k+Yh3z2Jl1M71z5Iclso2xhvY=",
@@ -240,13 +292,29 @@
     "root": {
       "inputs": {
         "breeze": "breeze",
+        "calendarsync": "calendarsync",
         "darwin": "darwin",
         "feovim": "feovim",
         "forgit": "forgit",
         "home-manager": "home-manager",
         "krewfile": "krewfile",
         "materia-theme": "materia-theme",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_4"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
       }
     },
     "utils": {

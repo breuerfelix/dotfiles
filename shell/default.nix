@@ -14,6 +14,7 @@
   home = {
     packages = with pkgs; [
       neovim # customized by overlay
+      calendarsync
 
       # net tools
       #bind # marked as broken
@@ -66,6 +67,8 @@
       zk # zettelkasten
       mask # taskrunner
       diskonaut # explore disk size
+      lychee # link checker
+      gnupg # gpg
 
       # shells
       nushell # new type of shell
