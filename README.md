@@ -56,17 +56,22 @@ nix flake lock --update-input <input>
 
 ## architecture
 
-* `home.nix` is the home-manager entrypoint for ssh servers 
-* `mac.nix` is the home-manager entrypoint for macos
-* `felix.nix` is the common entrypoint config for remote and macos version
-* `darwin-configuration.nix` is the entrypoint for macos system
+- `flake.nix`
+  - `darwinConfigurations.alucard` is the entrypoint for macOS
+  - `homeConfigurations.solid` is the entrypoint for remote servers
+  - `nixosConfigurations.rocky` is the entrypoint for NixOS
+- `darwin/` everything mac specific
+- `system/` everything NixOS specific
+- `shell/` cross-platform shell configuration
+
+- `github.com:breuerfelix/feovim` my neovim configuration
 
 ## content
 
-- distro: macOS / remote server
+- distro: macOS / NixOS / linux remote server
 - window manager: yabai
 - bar: spacebar [WIP]
-- terminal: alacritty + tmux
+- terminal: alacritty + zellij
 - shell: zsh + pretzo
 - editor: neovim
 
