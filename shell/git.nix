@@ -24,17 +24,22 @@
     aliases = {
       cm = "commit";
       ca = "commit --amend --no-edit";
+      co = "checkout";
+      cp = "cherry-pick";
+
       di = "diff";
       dh = "diff HEAD";
+
       pu = "pull";
       ps = "push";
       pf = "push --force-with-lease";
+
       st = "status -sb";
-      co = "checkout";
       fe = "fetch";
       gr = "grep -in";
-      re = "rebase -i";
-      cp = "cherry-pick";
+
+      ri = "rebase -i";
+      rc = "rebase --continue";
     };
     ignores = [
       # ide
