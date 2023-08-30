@@ -58,6 +58,8 @@
       # TODO: handle secrets somehow
       #source /secrets/environment.bash
 
+      [ -f ~/.aws/env.sh ] && source ~/.aws/env.sh
+
       bindkey '^e' edit-command-line
       # this is backspace
       bindkey '^H' autosuggest-accept

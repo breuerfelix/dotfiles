@@ -16,6 +16,7 @@
       "sniffnet" # monitor network traffic
       "spacer" # outputs spacers after command paused
       "bitwarden-cli"
+      "aws-iam-authenticator" # eks login
 
       # ios development
       "cocoapods"

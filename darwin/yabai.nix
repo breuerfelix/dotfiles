@@ -27,7 +27,11 @@
       # layout
       yabai -m config layout bsp
       yabai -m config auto_balance off
-      yabai -m config window_topmost on
+
+      # floating windows are always on top
+      # when enabling this option, overlays in chrome are hidden
+      # this affects popups like site search or bitwarden extension
+      yabai -m config window_topmost off
 
       # gaps
       yabai -m config top_padding    0

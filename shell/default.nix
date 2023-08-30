@@ -101,6 +101,7 @@
 
       # cloud
       google-cloud-sdk
+      awscli2
 
       # programming
       python3
