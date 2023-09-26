@@ -14,13 +14,13 @@
       yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
 
       # borders
-      yabai -m config window_border on
-      yabai -m config window_border_width 2
-      yabai -m config window_border_radius 0
-      yabai -m config window_border_blur off
+      yabai -m config window_border              on
+      yabai -m config window_border_width        2
+      yabai -m config window_border_radius       0
+      yabai -m config window_border_blur         off
       yabai -m config active_window_border_color 0xFF40FF00
       yabai -m config normal_window_border_color 0x00FFFFFF
-      yabai -m config insert_feedback_color 0xffd75f5f
+      yabai -m config insert_feedback_color      0xffd75f5f
 
       yabai -m config window_shadow off
 
@@ -41,22 +41,22 @@
       yabai -m config window_gap     0
 
       # rules
-      yabai -m rule --add app="^System Settings$" manage=off
+      yabai -m rule --add app="^System Settings$"    manage=off
       yabai -m rule --add app="^System Information$" manage=off
       yabai -m rule --add app="^System Preferences$" manage=off
-      yabai -m rule --add title="Preferences$" manage=off
-      yabai -m rule --add title="Settings$" manage=off
+      yabai -m rule --add title="Preferences$"       manage=off
+      yabai -m rule --add title="Settings$"          manage=off
 
       # workspace management
-      yabai -m space 1 --label term
-      yabai -m space 2 --label code
-      yabai -m space 3 --label www
-      yabai -m space 4 --label chat
-      yabai -m space 5 --label todo
-      yabai -m space 6 --label music
-      yabai -m space 7 --label voice
-      yabai -m space 8 --label eight
-      yabai -m space 9 --label nine
+      yabai -m space 1  --label term
+      yabai -m space 2  --label code
+      yabai -m space 3  --label www
+      yabai -m space 4  --label chat
+      yabai -m space 5  --label todo
+      yabai -m space 6  --label music
+      yabai -m space 7  --label voice
+      yabai -m space 8  --label eight
+      yabai -m space 9  --label nine
       yabai -m space 10 --label ten
 
       # assign apps to spaces

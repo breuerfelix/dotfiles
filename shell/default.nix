@@ -39,6 +39,7 @@
       thefuck # auto correct commands
       sshfs # mount folders via ssh
       gh # github cli tool
+      glab # gitlab cli tool
       graph-easy # draw graphs in the terminal
       cht-sh # cheat sheet -> cht python read file
       tealdeer # community driven man pages
@@ -98,6 +99,7 @@
       fluxcd # automation
       kubent # check for deprecations
       termshark # tui for wireshark
+      prometheus # prometheus linter
 
       # cloud
       google-cloud-sdk

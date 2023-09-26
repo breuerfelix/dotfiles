@@ -71,6 +71,12 @@
       bindkey '^r' fzf-history-widget
       bindkey '^f' fzf-file-widget
 
+      function lmr () {
+        DESCRIPTION="## Review Checklist\n\n- [x] [Conventional Commit](https://www.conventionalcommits.org) eingehalten\n- [x] Jira Issue genannt (nur wenn vorhanden)\n- [x] Tests geschrieben (Coverage > 80%)"
+        TICKET=$(git branch --show-current | grep -E -i -o '(contract-)?[0-9]{4,}' | tr '[:lower:]' '[:upper:]')
+        glab mr create --yes --remove-source-branch --title="$* - CONTRACT-$TICKET" --description="$(echo -e $DESCRIPTION)"
+      }
+
       function cd() {
         builtin cd $*
         lsd
@@ -103,6 +109,12 @@
         git add --all
         git commit --signoff -a -m "$*"
         git push
+      }
+
+      function pfusch() {
+        git add --all
+        git commit --amend --no-edit
+        git push --force-with-lease
       }
 
       function dci() { docker inspect $(docker-compose ps -q $1) }

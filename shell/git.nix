@@ -65,6 +65,9 @@
         commit = false;
         rebase = true;
       };
+      fetch = {
+        prune = true;
+      };
       push.autoSetupRemote = true;
       delta = {
         line-numbers = true;

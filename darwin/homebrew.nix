@@ -15,7 +15,6 @@
       "restish" # httpie alternative
       "sniffnet" # monitor network traffic
       "spacer" # outputs spacers after command paused
-      "bitwarden-cli"
       "aws-iam-authenticator" # eks login
 
       # ios development
@@ -42,7 +41,6 @@
       # utilities
       "aldente" # battery management
       "bartender" # hides mac bar icons
-      "browserosaurus" # choose browser on each link
       "karabiner-elements" # remap keyboard
       "macfuse" # file system utilities
       "hammerspoon" # lua scripting engine
