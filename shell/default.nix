@@ -56,7 +56,6 @@
       terraform
       terragrunt
       pulumi-bin # manage infrastructure as code
-      nodePackages.snyk # vulnerability scanner
       viddy # terminal watch command
       unixtools.watch # watches commands
       yq-go # yaml, toml parser
