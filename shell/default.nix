@@ -69,6 +69,7 @@
       diskonaut # explore disk size
       lychee # link checker
       gnupg # gpg
+      gping # ping with a graph
 
       # shells
       nushell # new type of shell
