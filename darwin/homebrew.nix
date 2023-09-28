@@ -5,6 +5,7 @@
       # "zap" removes manually installed brews and casks
       cleanup = "zap";
       autoUpdate = true;
+      upgrade = true;
     };
     brews = [
       "helm"
@@ -102,7 +103,6 @@
       "vnc-viewer" # vnc application
       "darktable" # adobe lightroom alternative
       "mongodb-compass" # mongodb native
-      "utterly" # background noise cancellation
       "keycastr" # show keystrokes on screen
       "notion" # organizing app
     ];
