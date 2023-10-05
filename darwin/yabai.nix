@@ -64,6 +64,7 @@
       yabai -m rule --add app="Visual Studio Code" space=code
 
       yabai -m rule --add app="Vivaldi" space=www
+      yabai -m rule --add app="Arc" space=www
 
       yabai -m rule --add app="Slack" space=chat
       yabai -m rule --add app="Signal" space=chat
