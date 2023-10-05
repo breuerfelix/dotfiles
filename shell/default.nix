@@ -6,9 +6,7 @@
     ./zellij.nix
     ./git.nix
     ./k9s.nix
-    # disabled because it sometimes errors out
-    # when making requests to git
-    #./krew.nix
+    ./krew.nix
   ];
 
   home = {
