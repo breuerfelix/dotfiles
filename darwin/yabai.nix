@@ -10,8 +10,10 @@
       yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
       # bar configuration
-      yabai -m config external_bar all:0:39
+      yabai -m config external_bar all:0:45
       yabai -m signal --add event=window_focused action="sketchybar --trigger window_focus"
+      yabai -m signal --add event=window_created action="sketchybar --trigger windows_on_spaces"
+      yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
 
       # borders
       yabai -m config window_border              on

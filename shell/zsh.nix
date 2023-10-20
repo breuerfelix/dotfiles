@@ -55,8 +55,10 @@
         export GCTL_SESSION_ID=$(uuidgen)
       fi
 
-      # TODO: handle secrets somehow
-      #source /secrets/environment.bash
+      # used for homebrew
+      export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share
+
+      source ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
 
       [ -f ~/.aws/env.sh ] && source ~/.aws/env.sh
 

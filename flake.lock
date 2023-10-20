@@ -79,11 +79,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1695737526,
-        "narHash": "sha256-yV6LMtneWyX2ZEKYYOdqL4gTjB8MwSMdeNyqIMo4MaM=",
+        "lastModified": 1696584595,
+        "narHash": "sha256-5lE2Uj3NjyfOBF6eJqtLTrd9cFBH3vqydDgT6zcyGBI=",
         "owner": "breuerfelix",
         "repo": "feovim",
-        "rev": "0145012decad208b7d4c0914a371c1c8c89dad3e",
+        "rev": "b6c24eda60449e911c5531a2aa5d52a933d6b106",
         "type": "github"
       },
       "original": {
@@ -304,7 +304,24 @@
         "home-manager": "home-manager",
         "krewfile": "krewfile",
         "materia-theme": "materia-theme",
-        "nixpkgs": "nixpkgs_4"
+        "nixpkgs": "nixpkgs_4",
+        "sketchybar": "sketchybar"
+      }
+    },
+    "sketchybar": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1697373929,
+        "narHash": "sha256-yF+E8dGOTQqMNgjqunnjmFgEPtfV59nes1WF520AbmQ=",
+        "owner": "FelixKratz",
+        "repo": "dotfiles",
+        "rev": "1f8c073fdb56d2201e8a0a7c25cf6df46e610153",
+        "type": "github"
+      },
+      "original": {
+        "owner": "FelixKratz",
+        "repo": "dotfiles",
+        "type": "github"
       }
     },
     "systems": {

@@ -68,6 +68,7 @@
       lychee # link checker
       gnupg # gpg
       gping # ping with a graph
+      asdf-vm # tools version manager
 
       # shells
       nushell # new type of shell

@@ -1,121 +1,114 @@
 { inputs, ... }:
 let
-  folder = "${inputs.sketchybar}/config/sketchybar";
+  folder = "${inputs.sketchybar}/.config/sketchybar";
 in
 {
-  home.file.sketchybar = {
-    executable = true;
-    target = ".config/sketchybar/sketchybarrc";
-    text = ''
-      #!/usr/bin/env sh
+  home.file = {
+    icons = {
+      target = ".config/sketchybar/icons.sh";
+      text = builtins.readFile "${folder}/icons.sh";
+    };
+    colors = {
+      target = ".config/sketchybar/colors.sh";
+      text = builtins.readFile "${folder}/colors.sh";
+    };
+    icon-map = {
+      executable = true;
+      target = ".config/sketchybar/plugins/icon_map.sh";
+      text = builtins.readFile "${folder}/plugins/icon_map.sh";
+    };
+    sketchybar = {
+      executable = true;
+      target = ".config/sketchybar/sketchybarrc";
+      text = ''
+        #!/bin/bash
 
-      source "${folder}/colors.sh"
-      source "${folder}/icons.sh"
+        CONFIG_DIR="${folder}"
+        source "$CONFIG_DIR/colors.sh" # Loads all defined colors
+        source "$CONFIG_DIR/icons.sh" # Loads all defined icons
 
-      ITEM_DIR="${folder}/items" # Directory where the items are configured
-      PLUGIN_DIR="${folder}/plugins" # Directory where all the plugin scripts are stored
+        ITEM_DIR="$CONFIG_DIR/items" # Directory where the items are configured
+        PLUGIN_DIR="$CONFIG_DIR/plugins" # Directory where all the plugin scripts are stored
 
-      FONT="SF Regular" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
-      SPACE_CLICK_SCRIPT="yabai -m space --focus \$SID 2>/dev/null" # The script that is run for clicking on space components
-      POPUP_CLICK_SCRIPT="sketchybar -m --set \"\$NAME\" popup.drawing=toggle" # The script that toggles the popup windows
+        FONT="SF Pro" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+        PADDINGS=3 # All paddings use this value (icon, label, background)
 
-      PADDINGS=3 # All paddings use this value (icon, label, background and bar paddings)
-      SEGMENT_SPACING=13 # The spacing between segments
+        # Unload the macOS on screen indicator overlay for volume change
+        launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
 
-      POPUP_BORDER_WIDTH=2
-      POPUP_CORNER_RADIUS=3
+        # Setting up the general bar appearance of the bar
+        bar=(
+          height=45
+          color=$BAR_COLOR
+          border_width=2
+          border_color=$BAR_BORDER_COLOR
+          shadow=off
+          position=bottom
+          sticky=on
+          padding_right=10
+          padding_left=10
+          y_offset=0
+          margin=-2
+          topmost=window
+        )
 
-      SHADOW=off
-      SHADOW_DISTANCE=3
-      SHADOW_ANGLE=35
+        sketchybar --bar "''${bar[@]}"
 
-      # Setting up the general bar appearance and default values
-      sketchybar --bar     height=39                                           \
-                           corner_radius=0                                     \
-                           border_width=0                                      \
-                           margin=-200                                         \
-                           blur_radius=0                                       \
-                           position=bottom                                     \
-                           padding_left=4                                      \
-                           padding_right=4                                     \
-                           color=0x000000                                      \
-                           topmost=off                                         \
-                           font_smoothing=off                                  \
-                           y_offset=-32                                        \
-                           shadow=off                                          \
-                           notch_width=0                                       \
-                                                                               \
-                 --default drawing=on                                          \
-                           updates=when_shown                                  \
-                           label.font="$FONT:Semibold:13.0"                    \
-                           icon.font="$FONT:Bold:14.0"                         \
-                           icon.color=$ICON_COLOR                              \
-                           label.color=$LABEL_COLOR                            \
-                           icon.padding_left=$PADDINGS                         \
-                           icon.padding_right=$PADDINGS                        \
-                           label.padding_left=$PADDINGS                        \
-                           label.padding_right=$PADDINGS                       \
-                           background.padding_right=$PADDINGS                  \
-                           background.padding_left=$PADDINGS                   \
-                           popup.background.border_width=$POPUP_BORDER_WIDTH   \
-                           popup.background.corner_radius=$POPUP_CORNER_RADIUS \
-                           popup.background.border_color=$POPUP_BORDER_COLOR   \
-                           popup.background.color=$POPUP_BACKGROUND_COLOR      \
-                           popup.background.shadow.drawing=$SHADOW             \
-                           popup.blur_radius=50                                \
-                           icon.shadow.color=$SHADOW_COLOR                     \
-                           icon.shadow.distance=$SHADOW_DISTANCE               \
-                           icon.shadow.angle=$SHADOW_ANGLE                     \
-                           icon.shadow.drawing=$SHADOW                         \
-                           label.shadow.color=$SHADOW_COLOR                    \
-                           label.shadow.distance=$SHADOW_DISTANCE              \
-                           label.shadow.angle=$SHADOW_ANGLE                    \
-                           label.shadow.drawing=$SHADOW
+        # Setting up default values
+        defaults=(
+          updates=when_shown
+          icon.font="$FONT:Bold:14.0"
+          icon.color=$ICON_COLOR
+          icon.padding_left=$PADDINGS
+          icon.padding_right=$PADDINGS
+          label.font="$FONT:Semibold:13.0"
+          label.color=$LABEL_COLOR
+          label.padding_left=$PADDINGS
+          label.padding_right=$PADDINGS
+          padding_right=$PADDINGS
+          padding_left=$PADDINGS
+          background.height=26
+          background.corner_radius=9
+          background.border_width=2
+          popup.background.border_width=2
+          popup.background.corner_radius=9
+          popup.background.border_color=$POPUP_BORDER_COLOR
+          popup.background.color=$POPUP_BACKGROUND_COLOR
+          popup.blur_radius=20
+          popup.background.shadow.drawing=on
+        )
 
+        sketchybar --default "''${defaults[@]}"
 
-      # Template for the segment labels, i.e. space name, active app, date, ...
-      sketchybar --add item           label_template left                          \
-                 --set label_template icon.drawing=off                             \
-                                      label.font="$FONT:Black:12.0"                \
-                                      label.padding_right=5                        \
-                                      click_script="$PLUGIN_DIR/toggle_bracket.sh" \
-                                      background.padding_left=$SEGMENT_SPACING     \
-                                      background.padding_right=0                   \
-                                      drawing=off
+        # Left
+        source "$ITEM_DIR/apple.sh"
+        source "$ITEM_DIR/spaces.sh"
+        source "$ITEM_DIR/yabai.sh"
+        source "$ITEM_DIR/front_app.sh"
 
-      source "$ITEM_DIR/apple.sh"
-      source "$ITEM_DIR/spaces.sh"
-      source "$ITEM_DIR/calendar.sh"
-      # source "$ITEM_DIR/github.sh"
-      source "$ITEM_DIR/network.sh"
-      source "$ITEM_DIR/memory.sh"
+        # Center
+        source "$ITEM_DIR/spotify.sh"
 
-      source "$ITEM_DIR/cpu.sh"
-      source "$ITEM_DIR/system.sh"
-      source "$ITEM_DIR/spotify.sh"
+        # Right
+        source "$ITEM_DIR/calendar.sh"
+        source "$ITEM_DIR/brew.sh"
+        source "$ITEM_DIR/github.sh"
+        source "$ITEM_DIR/wifi.sh"
+        source "$ITEM_DIR/battery.sh"
+        source "$ITEM_DIR/volume.sh"
 
-      ############## FINALIZING THE SETUP ##############
-      sketchybar --update
+        sketchybar --add alias      MeetingBar right          \
+                   --set MeetingBar background.padding_right=0 \
+                                    background.padding_left=0   \
+                                    update_freq=10
 
-      ############## Animation ########################
-      # sketchybar --animate sin 30 \
-      #            --bar y_offset=0 \
-      #                  notch_width=200 \
-      #                  margin=0 \
-      #                  shadow=on \
-      #                  corner_radius=20 \
-      #                  corner_radius=20 \
-      #                  corner_radius=20 \
-      #                  corner_radius=0 \
-      #                  color=0x000000 \
-      #                  color=0x000000 \
-      #                  color=$BAR_COLOR \
-      #                  blur_radius=0 \
-      #                  blur_radius=0 \
-      #                  blur_radius=0 \
-      #                  blur_radius=50
-      #
-      echo "sketchybar configuation loaded.."
-    '';
+        sketchybar --hotload on
+
+        # Forcing all item scripts to run (never do this outside of sketchybarrc)
+        sketchybar --update
+
+        echo "sketchybar configuation loaded.."
+      '';
+    };
   };
 }

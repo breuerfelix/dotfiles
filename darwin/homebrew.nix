@@ -17,6 +17,7 @@
       "sniffnet" # monitor network traffic
       "spacer" # outputs spacers after command paused
       "aws-iam-authenticator" # eks login
+      "czkawka" # cleaner app
 
       # ios development
       "cocoapods"
@@ -36,7 +37,9 @@
 
       # sketchybar
       "sketchybar" # macos bar alternative
-      "ifstat" # network
+      "switchaudio-osx" # audio switcher
+      "jq" # json parser
+      "gh" # github-cli
     ];
     casks = [
       # utilities

@@ -38,6 +38,12 @@
       flake = false;
     };
 
+    # sketchybar config
+    sketchybar = {
+      url = "github:FelixKratz/dotfiles";
+      flake = false;
+    };
+
     # custom cursor
     breeze = {
       url = "github:KDE/breeze";
