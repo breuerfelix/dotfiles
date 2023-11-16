@@ -33,11 +33,6 @@
     calendarsync.url = "github:breuerfelix/calendarsync";
     krewfile.url = "github:brumhard/krewfile";
 
-    forgit = {
-      url = "github:wfxr/forgit";
-      flake = false;
-    };
-
     # sketchybar config
     sketchybar = {
       url = "github:FelixKratz/dotfiles";

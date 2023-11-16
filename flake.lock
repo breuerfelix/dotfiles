@@ -146,22 +146,6 @@
         "type": "github"
       }
     },
-    "forgit": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1693148790,
-        "narHash": "sha256-WvJxjEzF3vi+YPVSH3QdDyp3oxNypMoB71TAJ7D8hOQ=",
-        "owner": "wfxr",
-        "repo": "forgit",
-        "rev": "48e91dadb53f7ac33cab238fb761b18630b6da6e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "wfxr",
-        "repo": "forgit",
-        "type": "github"
-      }
-    },
     "github-nvim-theme": {
       "flake": false,
       "locked": {
@@ -300,7 +284,6 @@
         "calendarsync": "calendarsync",
         "darwin": "darwin",
         "feovim": "feovim",
-        "forgit": "forgit",
         "home-manager": "home-manager",
         "krewfile": "krewfile",
         "materia-theme": "materia-theme",
@@ -311,11 +294,11 @@
     "sketchybar": {
       "flake": false,
       "locked": {
-        "lastModified": 1697373929,
-        "narHash": "sha256-yF+E8dGOTQqMNgjqunnjmFgEPtfV59nes1WF520AbmQ=",
+        "lastModified": 1698238549,
+        "narHash": "sha256-DvF78T1tn2hia7ZFJnIO+LjRCd7xB4rWBzpJTFkrd00=",
         "owner": "FelixKratz",
         "repo": "dotfiles",
-        "rev": "1f8c073fdb56d2201e8a0a7c25cf6df46e610153",
+        "rev": "08c2db10dd70f762a122ab15a1cbb2c287368282",
         "type": "github"
       },
       "original": {

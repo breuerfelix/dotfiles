@@ -27,8 +27,6 @@ in
       pcmanfm # filebrowser
       libnotify # used for notifications
       translate-shell # used for rofi-translate
-      # TODO marked as broken
-      #qmk_firmware # flash keyboard
       playerctl # media keys
       xclip # clipboard
       #esptool

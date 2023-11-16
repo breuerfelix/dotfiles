@@ -3,7 +3,6 @@
     target = ".config/starship.toml";
     text = ''
       add_newline = false
-      command_timeout = 2000
 
       [character]
       success_symbol = "[➜](bold green) "
@@ -22,7 +21,7 @@
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
-    enableCompletion = true;
+    enableCompletion = false;
     autocd = true;
     dotDir = ".config/zsh";
     #defaultKeymap = "viins"; #vicmd or viins
@@ -58,8 +57,6 @@
       # used for homebrew
       export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share
 
-      source ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
-
       [ -f ~/.aws/env.sh ] && source ~/.aws/env.sh
 
       bindkey '^e' edit-command-line
@@ -74,9 +71,8 @@
       bindkey '^f' fzf-file-widget
 
       function lmr () {
-        DESCRIPTION="## Review Checklist\n\n- [x] [Conventional Commit](https://www.conventionalcommits.org) eingehalten\n- [x] Jira Issue genannt (nur wenn vorhanden)\n- [x] Tests geschrieben (Coverage > 80%)"
         TICKET=$(git branch --show-current | grep -E -i -o '(contract-)?[0-9]{4,}' | tr '[:lower:]' '[:upper:]')
-        glab mr create --yes --remove-source-branch --title="$* - CONTRACT-$TICKET" --description="$(echo -e $DESCRIPTION)"
+        glab mr create --yes --remove-source-branch --title="$* - CONTRACT-$TICKET"
       }
 
       function cd() {
@@ -248,18 +244,19 @@
     plugins = [
       {
         name = "fast-syntax-highlighting";
-        file = "fast-syntax-highlighting.plugin.zsh";
         src = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions";
       }
       {
         name = "zsh-nix-shell";
-        file = "nix-shell.plugin.zsh";
         src = "${pkgs.zsh-nix-shell}/share/zsh-nix-shell";
       }
       {
         name = "forgit";
-        file = "forgit.plugin.zsh";
-        src = "${pkgs.forgit}/share/forgit";
+        src = "${pkgs.zsh-forgit}/share/zsh/zsh-forgit";
+      }
+      {
+        name = "fzf-tab";
+        src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
       }
     ];
     prezto = {
@@ -272,7 +269,6 @@
       };
       pmodules = [
         "autosuggestions"
-        "completion"
         "directory"
         "editor"
         "git"

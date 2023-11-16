@@ -37,9 +37,10 @@
 
       # sketchybar
       "sketchybar" # macos bar alternative
-      "switchaudio-osx" # audio switcher
       "jq" # json parser
       "gh" # github-cli
+
+      "borders" # borders for windows
     ];
     casks = [
       # utilities
@@ -90,7 +91,6 @@
       "ubersicht"
       "vlc" # media player
       "eul" # mac monitoring
-      "qmk-toolbox" # flashing keyboard
       "kindavim" # vim keys for everything
       "kap" # screen recorder software
       "wireshark" # network sniffer
@@ -120,7 +120,7 @@
       # custom
       "cmacrae/formulae" # spacebar
       "koekeishiya/formulae" # yabai
-      "FelixKratz/formulae" # sketchybar
+      "FelixKratz/formulae" # sketchybar | jankyborders
       "earthly/earthly"
       "gardener/tap"
       "danielgtaylor/restish"

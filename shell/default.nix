@@ -68,7 +68,6 @@
       lychee # link checker
       gnupg # gpg
       gping # ping with a graph
-      asdf-vm # tools version manager
 
       # shells
       nushell # new type of shell
@@ -99,6 +98,7 @@
       kubent # check for deprecations
       termshark # tui for wireshark
       prometheus # prometheus linter
+      kubent # deprecation notices
 
       # cloud
       google-cloud-sdk
@@ -113,9 +113,6 @@
       nodePackages.npm
       nodePackages.yarn
       nodePackages.expo-cli
-      kotlin
-      kotlin-native
-      gradle
 
       starship # terminal prompt
       slides # terminal presentation tool
@@ -181,6 +178,7 @@
 
     fzf = {
       enable = true;
+      enableZshIntegration = true;
       defaultCommand = "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor";
       defaultOptions = [
         "--border sharp"

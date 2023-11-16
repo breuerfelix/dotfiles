@@ -95,12 +95,19 @@ in
         source "$ITEM_DIR/github.sh"
         source "$ITEM_DIR/wifi.sh"
         source "$ITEM_DIR/battery.sh"
-        source "$ITEM_DIR/volume.sh"
+        #source "$ITEM_DIR/volume.sh"
 
-        sketchybar --add alias      MeetingBar right          \
-                   --set MeetingBar background.padding_right=0 \
-                                    background.padding_left=0   \
-                                    update_freq=10
+        # add bracket around items
+        sketchybar --add bracket status brew github.bell wifi \
+                   --set status "''${status_bracket[@]}"
+
+        # add meetingbar
+        sketchybar --add alias      MeetingBar right           \
+                   --set MeetingBar background.padding_right=0  \
+                                    background.padding_left=0    \
+                                    update_freq=10                \
+                                    icon.font="$FONT:Regular:14.0" \
+                                    label.font="$FONT:Regular:14.0"
 
         sketchybar --hotload on
 
