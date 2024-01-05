@@ -66,6 +66,7 @@
 
       # communication
       "microsoft-teams"
+      "microsoft-outlook"
       "zoom"
       "slack"
       "signal" # messenger

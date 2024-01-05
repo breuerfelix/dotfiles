@@ -68,6 +68,9 @@
       lychee # link checker
       gnupg # gpg
       gping # ping with a graph
+      ruby # scripting language
+      corepack # node wrappers
+      redis # to use the cli
 
       # shells
       nushell # new type of shell

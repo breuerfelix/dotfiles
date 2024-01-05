@@ -98,6 +98,11 @@ in
         #source "$ITEM_DIR/volume.sh"
 
         # add bracket around items
+        status_bracket=(
+          background.color=$BACKGROUND_1
+          background.border_color=$BACKGROUND_2
+        )
+
         sketchybar --add bracket status brew github.bell wifi \
                    --set status "''${status_bracket[@]}"
 
