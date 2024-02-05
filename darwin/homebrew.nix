@@ -25,7 +25,6 @@
       # broken nix builds
       "openstackclient"
       "yabai" # tiling window manager
-      "earthly" # makefile alternative
 
       # sketchybar
       "sketchybar" # macos bar alternative
@@ -40,18 +39,14 @@
       "bartender" # hides mac bar icons
       "karabiner-elements" # remap keyboard
       "macfuse" # file system utilities
-      "hammerspoon" # lua scripting engine
 
       # coding
       "intellij-idea"
       "postman"
-      "bloomrpc" # postman for grpc
       "unity-hub"
       "visual-studio-code"
-      "vscodium" # unbranded vscode
 
       # virtualization
-      "docker" # docker desktop
       "utm" # virtual machines
 
       # communication
@@ -69,7 +64,6 @@
       #"blender"
       "calibre" # ebook management
       "lens" # visual k9s
-      "meld" # folder differ
       "mixxx" # dj software
       "rekordbox" # dj software
       "obs" # stream / recoding software
@@ -80,7 +74,6 @@
       "tunnelblick" # vpn client
       "vlc" # media player
       "eul" # mac monitoring
-      "kindavim" # vim keys for everything
       "kap" # screen recorder software
       "wireshark" # network sniffer
       "sf-symbols" # patched font for sketchybar
