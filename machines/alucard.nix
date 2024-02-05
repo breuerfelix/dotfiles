@@ -14,7 +14,6 @@
   networking = {
     hostName = "alucard";
     knownNetworkServices = [ "Wi-Fi" ];
-    # disabled in favor of my pi-hole at home
     dns = [
       "9.9.9.9"
       "1.1.1.1"

@@ -18,21 +18,12 @@
 
       mouse = { hide_when_typing = true; };
 
-      key_bindings = [
-        {
-          # clear terminal
-          key = "L";
-          mods = "Control";
-          chars = "\\x0c";
-        }
-      ];
-
-      font = let fontname = "FiraCode Nerd Font Mono"; in
+      font = let fontname = "JetBrainsMono Nerd Font"; in
         {
           normal = { family = fontname; style = "Bold"; };
-          bold = { family = fontname; style = "Bold"; };
-          italic = { family = fontname; style = "Light"; };
-          size = 14;
+          bold = { family = fontname; style = "ExtraBold"; };
+          italic = { family = fontname; style = "ExtraLight"; };
+          size = 15;
         };
       cursor.style = "Block";
 

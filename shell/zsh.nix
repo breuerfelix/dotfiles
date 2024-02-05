@@ -18,6 +18,33 @@
     '';
   };
 
+  home.file.jrnl = {
+    target = ".config/jrnl/jrnl.yaml";
+    text = ''
+      colors:
+        body: none
+        date: none
+        tags: none
+        title: none
+      default_hour: 9
+      default_minute: 0
+      editor: nvim
+      encrypt: false
+      highlight: true
+      indent_character: '|'
+      journals:
+        ctrlf: ~/wiki/journals/ctrlf.txt
+        default: ~/wiki/journals/personal.txt
+        inovex: ~/wiki/journals/inovex.txt
+        rtl: ~/wiki/journals/rtl.txt
+      linewrap: 79
+      tagsymbols: '#@'
+      template: false
+      timeformat: '%F %r'
+      version: v4.1
+    '';
+  };
+
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -115,11 +142,15 @@
         git push --force-with-lease
       }
 
-      function dci() { docker inspect $(docker-compose ps -q $1) }
-
-      function transfer() {
-        wget --method PUT --body-file=$1 https://up.fbr.ai/$1 -O - -nv
+      function jrc() {
+        jrnl rtl $* @contract
       }
+
+      function jrs() {
+        jrnl rtl $* @systems
+      }
+
+      function dci() { docker inspect $(docker-compose ps -q $1) }
 
       function nf() {
         pushd ~/.nixpkgs
@@ -200,6 +231,12 @@
       os = "openstack";
       pu = "pulumi";
 
+      # journal
+      jd = "jrnl";
+      jr = "jrnl rtl";
+      ji = "jrnl inovex";
+      jf = "jrnl ctrlf";
+
       # terminal cheat sheet
       cht = "cht.sh";
       # lists node_modules folder and their size
@@ -230,15 +267,6 @@
       nse = "nix search nixpkgs";
 
       aupt = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y";
-
-      # gardener
-      gtv="gardenctl target view -o yaml";
-      gtc="gardenctl target control-plane";
-      gtc-="gardenctl target unset control-plane";
-      gtdev = "gardenctl target --garden dev";
-      gk="eval $(gardenctl kubectl-env zsh)";
-      gp="eval $(gardenctl provider-env zsh)";
-      gcv="gardenctl config view -o yaml";
     };
 
     plugins = [

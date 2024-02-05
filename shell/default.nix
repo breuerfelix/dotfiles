@@ -12,10 +12,10 @@
   home = {
     packages = with pkgs; [
       neovim # customized by overlay
-      calendarsync
+      calendarsync # sync calenders
 
       # net tools
-      #bind # marked as broken
+      bind # marked as broken
       nmap
       inetutils
 
@@ -29,7 +29,6 @@
       # htop alternatives
       bottom
       btop
-      #gotop # TODO fix
 
       comma # nix-shell wrapper
       grc # colored log output
@@ -71,13 +70,11 @@
       ruby # scripting language
       corepack # node wrappers
       redis # to use the cli
-
-      # shells
+      k6 # load testing tool
+      jrnl # terminal journaling tool
+      starship # terminal prompt
+      slides # terminal presentation tool
       nushell # new type of shell
-      mosh # alternative ssh shell
-
-      # golang utils
-      golangci-lint
 
       # gnu binaries
       coreutils-full # installs some gnu versions of linux bins
@@ -89,36 +86,43 @@
       findutils
       gawk
 
-      # k8s stuff
+      # kubernetes stuff
       kubectl
-      krew
-      k9s
-      kubie
-      kind
-      kubelogin-oidc
+      krew # kubectl plugins
+      k9s # tui for kubectl
+      kubie # fzf kubeconfig browser
+      kind # k8s in docker
       velero # k8s backup tool
       fluxcd # automation
       kubent # check for deprecations
       termshark # tui for wireshark
       prometheus # prometheus linter
-      kubent # deprecation notices
 
       # cloud
       google-cloud-sdk
       awscli2
 
       # programming
+
+      ## python
       python3
       poetry # python tools
       rustup # rust
+      
+      ## node
       deno # node runtime
       nodejs
       nodePackages.npm
       nodePackages.yarn
       nodePackages.expo-cli
 
-      starship # terminal prompt
-      slides # terminal presentation tool
+      ## golang
+      golangci-lint
+
+      ## kotlin
+      ktlint
+      kotlin
+      gradle
 
       # custom nixFlakes command for home-manager standalone
       (pkgs.writeShellScriptBin "nx" ''

@@ -1,8 +1,12 @@
 # my dotfiles
 
+## editor
+
+i use a separate repository for my neovim config. it can be found [here](https://github.com/breuerfelix/feovim)!
+
 ## installation
 
-the installation instructions are *not* updated for my flake version.
+the installation instructions are *not* updated for my flake version!!
 
 ### macos
 
@@ -73,5 +77,4 @@ nix flake lock --update-input <input>
 - bar: spacebar [WIP]
 - terminal: alacritty + zellij
 - shell: zsh + pretzo
-- editor: neovim
-
+- editor: neovim ([configuration](https://github.com/breuerfelix/feovim))
