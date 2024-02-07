@@ -97,6 +97,7 @@
       kubent # check for deprecations
       termshark # tui for wireshark
       prometheus # prometheus linter
+      dyff # better kubectl diff
 
       # cloud
       google-cloud-sdk
@@ -202,6 +203,10 @@
           description = "show short git rev";
           command = "git rev-parse --short HEAD";
           output = "888c0f8";
+        }
+        {
+          description = "show size of a folder";
+          command = "du -hs /path/to/folder";
         }
         {
           description = "garden kubeconfig from ske-ci ondemand cluster";

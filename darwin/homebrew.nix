@@ -36,9 +36,9 @@
     casks = [
       # utilities
       "aldente" # battery management
-      "bartender" # hides mac bar icons
       "karabiner-elements" # remap keyboard
       "macfuse" # file system utilities
+      "hiddenbar" # hides menu bar icons
 
       # coding
       "intellij-idea"

@@ -19,7 +19,7 @@
       }
     ];
     hooks = {
-      prepare-commit-msg = ./contract-hook.sh;
+      prepare-commit-msg = ./rtl-hook.sh;
     };
     aliases = {
       cm = "commit";

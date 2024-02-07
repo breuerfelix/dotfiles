@@ -76,14 +76,13 @@
         }
       }
 
-      # needed for gardenctl
-      if [ -z "$GCTL_SESSION_ID" ] && [ -z "$TERM_SESSION_ID" ]; then
-        export GCTL_SESSION_ID=$(uuidgen)
-      fi
-
       # used for homebrew
       export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share
 
+      # better kubectl diff
+      export KUBECTL_EXTERNAL_DIFF="dyff between --omit-header --set-exit-code"
+
+      # used for RTL AWS login
       [ -f ~/.aws/env.sh ] && source ~/.aws/env.sh
 
       bindkey '^e' edit-command-line
