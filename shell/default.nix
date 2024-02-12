@@ -48,10 +48,8 @@
       rclone # sync files
       duf # disk usage
       httpie # awesome alternative to curl
-      bitwarden-cli
+      # bitwarden-cli # NOTE: installed via homebrew
       mongodb-tools
-      terraform
-      terragrunt
       pulumi-bin # manage infrastructure as code
       viddy # terminal watch command
       unixtools.watch # watches commands
@@ -75,9 +73,11 @@
       starship # terminal prompt
       slides # terminal presentation tool
       nushell # new type of shell
+      asdf-vm # managing different versions
+      docker # container runtime
 
       # gnu binaries
-      coreutils-full # installs some gnu versions of linux bins
+      coreutils-full # multiple tools
       gnutar
       gnused
       gnugrep
@@ -109,7 +109,7 @@
       python3
       poetry # python tools
       rustup # rust
-      
+
       ## node
       deno # node runtime
       nodejs

@@ -85,6 +85,8 @@
       # used for RTL AWS login
       [ -f ~/.aws/env.sh ] && source ~/.aws/env.sh
 
+      source ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
+
       bindkey '^e' edit-command-line
       # this is backspace
       bindkey '^H' autosuggest-accept

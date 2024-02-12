@@ -4,8 +4,8 @@
     onActivation = {
       # "zap" removes manually installed brews and casks
       cleanup = "zap";
-      autoUpdate = true;
-      upgrade = true;
+      autoUpdate = false;
+      upgrade = false;
     };
     brews = [
       "helm"
@@ -17,6 +17,7 @@
       "spacer" # outputs spacers after command paused
       "aws-iam-authenticator" # eks login
       "colima" # docker desktop alternative
+      "bitwarden-cli" # raycast extension does not like nix version
 
       # ios development
       "cocoapods"
