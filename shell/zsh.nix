@@ -217,8 +217,9 @@
       dc = "docker-compose";
       pd = "podman";
       pc = "podman-compose";
-      li = "lima nerdctl";
-      lc = "limactl";
+      cod = "colima start --runtime docker";
+      coc = "colima start --runtime containerd";
+      cos = "colima stop";
       sc = "sudo systemctl";
       poe = "poetry";
       fb = "pcmanfm .";

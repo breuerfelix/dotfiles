@@ -89,6 +89,7 @@
       "mongodb-compass" # mongodb native
       "keycastr" # show keystrokes on screen
       "notion" # organizing app
+      "linear-linear" # planning tool
     ];
     taps = [
       # default
