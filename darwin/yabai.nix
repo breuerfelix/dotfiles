@@ -46,27 +46,26 @@
       yabai -m rule --add app="Reminder" space=todo
       yabai -m rule --add app="Notion" space=todo
       yabai -m rule --add app="Mail" space=todo
+      yabai -m rule --add app="Linear" space=todo
 
       yabai -m rule --add app="Alacritty" space=productive
-      yabai -m rule --add app="Arc" space=productive
+      yabai -m rule --add app="Firefox" space=productive
 
+      yabai -m rule --add app="Microsoft Teams" space=chat
       yabai -m rule --add app="Slack" space=chat
       yabai -m rule --add app="Signal" space=chat
       yabai -m rule --add app="Messages" space=chat
 
       yabai -m rule --add app="Spotify" space=utils
       yabai -m rule --add app="Bitwarden" space=utils
-      yabai -m rule --add app="Microsoft Teams" space=utils
       yabai -m rule --add app="Ivanti Secure Access" space=utils
       yabai -m rule --add app="Vivaldi" space=utils
+      yabai -m rule --add app="Arc" space=utils
 
       yabai -m rule --add app="Visual Studio Code" space=code
       yabai -m rule --add app="IntelliJ IDEA" space=code
 
       echo "yabai configuration loaded"
-
-      borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=10.0 2>/dev/null 1>&2 &
-      echo "borders started or updated"
     '';
   };
 

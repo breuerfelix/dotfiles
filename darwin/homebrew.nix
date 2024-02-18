@@ -14,7 +14,6 @@
       "skhd" # keybinding manager
       "restish" # httpie alternative
       "sniffnet" # monitor network traffic
-      "spacer" # outputs spacers after command paused
       "aws-iam-authenticator" # eks login
       "colima" # docker desktop alternative
       "bitwarden-cli" # raycast extension does not like nix version
@@ -24,7 +23,6 @@
       "ios-deploy"
 
       # broken nix builds
-      "openstackclient"
       "yabai" # tiling window manager
 
       # sketchybar
@@ -80,7 +78,8 @@
       "sf-symbols" # patched font for sketchybar
       "prusaslicer" # slicer for my printer
       "ultimaker-cura" # slicer for my printer
-      "autodesk-fusion360" # CAD tool
+      # FIXME: bugged
+      #"autodesk-fusion" # CAD tool
       "time-out" # blurs screen every x mins
       "firefox" # needed for my uploadpy profiles
       "raycast" # launcher on steroids
@@ -90,11 +89,11 @@
       "keycastr" # show keystrokes on screen
       "notion" # organizing app
       "linear-linear" # planning tool
+      "obsidian" # zettelkaste
     ];
     taps = [
       # default
       "homebrew/bundle"
-      "homebrew/cask-drivers"
       "homebrew/cask-fonts"
       "homebrew/services"
       # custom
@@ -103,7 +102,6 @@
       "FelixKratz/formulae" # sketchybar | jankyborders
       "earthly/earthly"
       "danielgtaylor/restish"
-      "samwho/spacer"
     ];
   };
 }

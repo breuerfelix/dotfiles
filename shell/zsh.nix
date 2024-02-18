@@ -18,33 +18,6 @@
     '';
   };
 
-  home.file.jrnl = {
-    target = ".config/jrnl/jrnl.yaml";
-    text = ''
-      colors:
-        body: none
-        date: none
-        tags: none
-        title: none
-      default_hour: 9
-      default_minute: 0
-      editor: nvim
-      encrypt: false
-      highlight: true
-      indent_character: '|'
-      journals:
-        ctrlf: ~/wiki/journals/ctrlf.txt
-        default: ~/wiki/journals/personal.txt
-        inovex: ~/wiki/journals/inovex.txt
-        rtl: ~/wiki/journals/rtl.txt
-      linewrap: 79
-      tagsymbols: '#@'
-      template: false
-      timeformat: '%F %r'
-      version: v4.1
-    '';
-  };
-
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
@@ -143,14 +116,6 @@
         git push --force-with-lease
       }
 
-      function jrc() {
-        jrnl rtl $* @contract
-      }
-
-      function jrs() {
-        jrnl rtl $* @systems
-      }
-
       function dci() { docker inspect $(docker-compose ps -q $1) }
 
       function nf() {
@@ -230,14 +195,7 @@
       nr = "npm run";
       py = "python";
       awake = "caffeinate";
-      os = "openstack";
       pu = "pulumi";
-
-      # journal
-      jd = "jrnl";
-      jr = "jrnl rtl";
-      ji = "jrnl inovex";
-      jf = "jrnl ctrlf";
 
       # terminal cheat sheet
       cht = "cht.sh";

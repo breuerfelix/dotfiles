@@ -69,7 +69,6 @@
       corepack # node wrappers
       redis # to use the cli
       k6 # load testing tool
-      jrnl # terminal journaling tool
       starship # terminal prompt
       slides # terminal presentation tool
       nushell # new type of shell
@@ -168,7 +167,7 @@
 
     go = {
       enable = true;
-      package = pkgs.go_1_20;
+      package = pkgs.go_1_22;
       goPath = "go";
       goBin = "go/bin";
       goPrivate = [ ];
