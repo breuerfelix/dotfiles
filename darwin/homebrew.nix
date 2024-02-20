@@ -78,8 +78,7 @@
       "sf-symbols" # patched font for sketchybar
       "prusaslicer" # slicer for my printer
       "ultimaker-cura" # slicer for my printer
-      # FIXME: bugged
-      #"autodesk-fusion" # CAD tool
+      "autodesk-fusion" # CAD tool
       "time-out" # blurs screen every x mins
       "firefox" # needed for my uploadpy profiles
       "raycast" # launcher on steroids

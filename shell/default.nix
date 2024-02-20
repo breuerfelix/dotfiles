@@ -71,6 +71,7 @@
       k6 # load testing tool
       starship # terminal prompt
       slides # terminal presentation tool
+      presenterm # presentation tool
       nushell # new type of shell
       asdf-vm # managing different versions
       docker # container runtime
