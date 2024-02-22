@@ -30,7 +30,6 @@
 
     # my custom neovim
     feovim.url = "github:breuerfelix/feovim";
-    calendarsync.url = "github:breuerfelix/calendarsync";
     krewfile.url = "github:brumhard/krewfile";
 
     # sketchybar config
@@ -45,7 +44,7 @@
       flake = false;
     };
 
-    # TODO test without rev
+    # TODO test without ref
     materia-theme = {
       url = "github:nana-4/materia-theme?ref=76cac96ca7fe45dc9e5b9822b0fbb5f4cad47984";
       flake = false;
@@ -65,7 +64,6 @@
       overlays = with inputs; [
         feovim.overlay
         krewfile.overlay
-        calendarsync.overlay
       ];
       stateVersion = "22.05";
       user = "felix";
@@ -97,6 +95,7 @@
               settings = {
                 allowed-users = [ user ];
                 experimental-features = [ "nix-command" "flakes" ];
+                warn-dirty = false;
               };
             };
           })
@@ -181,6 +180,7 @@
               settings = {
                 allowed-users = [ user ];
                 experimental-features = [ "nix-command" "flakes" ];
+                warn-dirty = false;
               };
             };
           })

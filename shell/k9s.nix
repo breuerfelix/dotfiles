@@ -1,89 +1,72 @@
 { config, pkgs, lib, ... }: {
-  home.file.k9s = {
-    target = ".config/k9s/plugin.yml";
-    # TODO add "remove finalzer" command
-    text = ''
-      plugin:
-        edit-secret:
-          shortCut: Ctrl-X
-          confirm: false
-          description: "Edit Decoded Secret"
-          scopes:
-            - secrets
-          command: kubectl
-          background: false
-          args:
-            - modify-secret
-            - --namespace
-            - $NAMESPACE
-            - --context
-            - $CONTEXT
-            - $NAME
+  programs.zsh.shellAliases.ks = "XDG_CONFIG_HOME=/Users/felix/.config XDG_DATA_HOME=/Users/felix/.config k9s";
+  programs.k9s = {
+    enable = true;
+    settings.k9s = {
+      ui = {
+        headless = true;
+        logoless = true;
+        noIcons = true;
+      };
+      skipLatestRevCheck = true;
+    };
 
-        reconcile:
-          shortCut: r
-          confirm: false
-          description: "Reconcile resource"
-          scopes:
-            - shoots
-            # all resources in extensions.gardener.cloud/v1alpha1
-            - backupbuckets
-            - backupentries
-            - bastions
-            - clusters
-            - containerruntimes
-            - controlplanes
-            - dnsrecords
-            - extensions
-            - infrastructures
-            - networks
-            - operatingsystemconfigs
-            - workers
-          command: kubectl
-          background: true
-          args:
-            - --namespace
-            - $NAMESPACE
-            - --context
-            - $CONTEXT
-            - annotate
-            - $RESOURCE_NAME
-            - $NAME
-            - gardener.cloud/operation=reconcile
+    plugin.plugin = {
+      modify-secret = {
+        shortCut = "Ctrl-X";
+        description = "Edit Decoded Secret";
+        confirm = false;
+        scopes = [ "secrets" ];
+        command = "kubectl";
+        background = false;
+        args = [
+          "modify-secret"
+          "--context"
+          "$CONTEXT"
+          "--namespace"
+          "$NAMESPACE"
+          "$NAME"
+        ];
+      };
 
-        reconcile-seed:
-          shortCut: r
-          confirm: false
-          description: "Reconcile seed"
-          scopes:
-            - managedseeds
-          command: kubectl
-          background: true
-          args:
-            - --context
-            - $CONTEXT
-            - annotate
-            - $RESOURCE_NAME
-            - $NAME
-            - gardener.cloud/operation=reconcile
+      flux-disable-reconcile = {
+        shortCut = "Ctrl-F";
+        description = "Disable Flux Reconcile";
+        confirm = false;
+        scopes = [ "all" ];
+        command = "kubectl";
+        background = false;
+        args = [
+          "annotate"
+          "--context"
+          "$CONTEXT"
+          "--namespace"
+          "$NAMESPACE"
+          "$RESOURCE_NAME"
+          "$NAME"
+          "kustomize.toolkit.fluxcd.io/reconcile=disabled"
+        ];
+      };
 
-        retry-shoot:
-          shortCut: t
-          confirm: false
-          description: "Retry shoot operation"
-          scopes:
-            - shoots
-          command: kubectl
-          background: true
-          args:
-            - --namespace
-            - $NAMESPACE
-            - --context
-            - $CONTEXT
-            - annotate
-            - $RESOURCE_NAME
-            - $NAME
-            - gardener.cloud/operation=retry
-    '';
+      flux-enable-reconcile = {
+        shortCut = "Ctrl-B";
+        description = "Enable Flux Reconcile";
+        confirm = false;
+        scopes = [ "all" ];
+        command = "kubectl";
+        background = false;
+        args = [
+          "annotate"
+          "--context"
+          "$CONTEXT"
+          "--namespace"
+          "$NAMESPACE"
+          "$RESOURCE_NAME"
+          "$NAME"
+          "kustomize.toolkit.fluxcd.io/reconcile-"
+        ];
+      };
+
+    };
   };
 }

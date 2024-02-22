@@ -27,6 +27,7 @@
         };
       cursor.style = "Block";
 
+      # nord theme
       colors = {
         primary = {
           background = "0x1a1b26";

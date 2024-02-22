@@ -12,7 +12,6 @@
   home = {
     packages = with pkgs; [
       neovim # customized by overlay
-      calendarsync # sync calenders
 
       # net tools
       bind # marked as broken
@@ -89,7 +88,6 @@
       # kubernetes stuff
       kubectl
       krew # kubectl plugins
-      k9s # tui for kubectl
       kubie # fzf kubeconfig browser
       kind # k8s in docker
       velero # k8s backup tool
@@ -198,15 +196,17 @@
     # snippet manager
     pet = {
       enable = true;
+      # <param=default-value> -> use variables
       snippets = [
         {
-          description = "show short git rev";
           command = "git rev-parse --short HEAD";
+          description = "show short git rev";
           output = "888c0f8";
+          tag = [ "git" ];
         }
         {
           description = "show size of a folder";
-          command = "du -hs /path/to/folder";
+          command = "du -hs <folder>";
         }
         {
           description = "garden kubeconfig from ske-ci ondemand cluster";

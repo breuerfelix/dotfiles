@@ -134,6 +134,21 @@
         pushd ~/.config/nixpkgs
         sudo nixos-rebuild switch --flake ".#rocky"
       }
+
+      # RTL
+      function expose-customer() {
+        (
+          kubectl port-forward deployment/subscriptions 8080:8080 &
+          kubectl port-forward deployment/credits 8081:8080 &
+          kubectl port-forward deployment/customer-care-subscriptions 8082:8080 &
+          kubectl port-forward deployment/customer365 8083:8080 &
+          kubectl port-forward deployment/scoring 8084:8080 &
+          kubectl port-forward deployment/trialfraud 8085:8080 &
+
+          echo "Press CTRL-C to stop port forwarding"
+          wait
+        )
+      }
     '';
 
     dirHashes = {
@@ -175,8 +190,6 @@
       kc = "kubectl";
       k = "kubectl";
       kca = "kubectl apply -f";
-      ks = "k9s --headless";
-      kss = "k9s --headless -c shoot";
       ku = "kubie";
       dk = "docker";
       dc = "docker-compose";
