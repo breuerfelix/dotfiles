@@ -86,7 +86,6 @@
       "darktable" # adobe lightroom alternative
       "mongodb-compass" # mongodb native
       "keycastr" # show keystrokes on screen
-      "notion" # organizing app
       "obsidian" # zettelkaste
     ];
     taps = [

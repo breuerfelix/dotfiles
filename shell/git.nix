@@ -17,6 +17,16 @@
         condition = "gitdir:~/code/inovex/";
         contents.user.email = "felix.breuer@inovex.de";
       }
+      {
+        condition = "gitdir:~/code/ctrlf/";
+        contents = {
+          commit.gpgSign = false;
+          user = {
+            email = "daniel@controlf.io";
+            name = "Daniel Tremer";
+          };
+        };
+      }
     ];
     hooks = {
       prepare-commit-msg = ./rtl-hook.sh;
