@@ -57,14 +57,15 @@
         "earthly-vim": "earthly-vim",
         "flake-utils": "flake-utils",
         "github-nvim-theme": "github-nvim-theme",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "vim-tabby": "vim-tabby"
       },
       "locked": {
-        "lastModified": 1708612456,
-        "narHash": "sha256-JTSvQjcfpMOlOoRUw+Zlad3+xI3PIIsby7Ep6flMQr4=",
+        "lastModified": 1709888410,
+        "narHash": "sha256-ODKQPQjytO5MWUylxyr/2FCfP2Wvuve/vnKH9MYIhjg=",
         "owner": "breuerfelix",
         "repo": "feovim",
-        "rev": "302e51b24b7c050f8598547572f0687a7213c77c",
+        "rev": "46ddf609df70019bc2ceddd210332bd4a8f20a4b",
         "type": "github"
       },
       "original": {
@@ -281,6 +282,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "vim-tabby": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1709310821,
+        "narHash": "sha256-z6SlQpLJSgeKvgYyplsS5c0KL89oEYm4BgDMkmpg5XI=",
+        "owner": "tabbyml",
+        "repo": "vim-tabby",
+        "rev": "afd76df166ed0f223ede1071e0cfde8075cc4a24",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tabbyml",
+        "repo": "vim-tabby",
         "type": "github"
       }
     }

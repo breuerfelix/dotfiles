@@ -1,32 +1,30 @@
 { config, pkgs, lib, ... }: {
-  home.file.yabai = {
-    executable = true;
-    target = ".config/yabai/yabairc";
-    text = ''
-      #!/usr/bin/env sh
+  services.yabai = {
+    enable = true;
+    config = {
+      external_bar = "all:0:45";
+      layout = "stack";
+      auto_balance = "off";
 
+      mouse_modifier = "alt";
+      # set modifier + right-click drag to resize window (default: resize)
+      mouse_action2 = "resize";
+      # set modifier + left-click drag to resize window (default: move)
+      mouse_action1 = "move";
+
+      # gaps
+      top_padding = 15;
+      bottom_padding = 15;
+      left_padding = 15;
+      right_padding = 15;
+      window_gap = 15;
+    };
+    extraConfig = ''
       # bar configuration
-      yabai -m config external_bar all:0:45
       yabai -m signal --add event=window_focused   action="sketchybar --trigger window_focus"
       yabai -m signal --add event=window_created   action="sketchybar --trigger windows_on_spaces"
       yabai -m signal --add event=window_destroyed action="sketchybar --trigger windows_on_spaces"
 
-      # layout
-      yabai -m config layout stack
-      yabai -m config auto_balance off
-
-      yabai -m config mouse_modifier alt
-      # set modifier + right-click drag to resize window (default: resize)
-      yabai -m config mouse_action2 resize
-      # set modifier + left-click drag to resize window (default: move)
-      yabai -m config mouse_action1 move
-
-      # gaps
-      yabai -m config top_padding    15
-      yabai -m config bottom_padding 15
-      yabai -m config left_padding   15
-      yabai -m config right_padding  15
-      yabai -m config window_gap     15
 
       # rules
       yabai -m rule --add app="^System Settings$"    manage=off
@@ -64,36 +62,6 @@
 
       yabai -m rule --add app="Visual Studio Code" space=code
       yabai -m rule --add app="IntelliJ IDEA" space=code
-
-      echo "yabai configuration loaded"
     '';
-  };
-
-  home.file.skhd = {
-    target = ".config/skhd/skhdrc";
-    text = let yabai = "/opt/homebrew/bin/yabai"; in
-      ''
-        # alt + a / u / o / s are blocked due to umlaute
-
-        # focus window
-        alt - h : ${yabai} -m window --focus west
-        alt - l : ${yabai} -m window --focus east
-
-        # focus window in stacked
-        alt - j : if [ "$(${yabai} -m query --spaces --space | jq -r '.type')" = "stack" ]; then ${yabai} -m window --focus stack.next || ${yabai} -m window --focus stack.first; else ${yabai} -m window --focus south; fi
-        alt - v : if [ "$(${yabai} -m query --spaces --space | jq -r '.type')" = "stack" ]; then ${yabai} -m window --focus stack.next || ${yabai} -m window --focus stack.first; else ${yabai} -m window --focus south; fi
-
-        alt - k : if [ "$(${yabai} -m query --spaces --space | jq -r '.type')" = "stack" ]; then ${yabai} -m window --focus stack.prev || ${yabai} -m window --focus stack.last; else ${yabai} -m window --focus north; fi
-        alt - c : if [ "$(${yabai} -m query --spaces --space | jq -r '.type')" = "stack" ]; then ${yabai} -m window --focus stack.prev || ${yabai} -m window --focus stack.last; else ${yabai} -m window --focus north; fi
-
-        # swap managed window
-        shift + alt - h : ${yabai} -m window --swap west
-        shift + alt - j : ${yabai} -m window --swap south
-        shift + alt - k : ${yabai} -m window --swap north
-        shift + alt - l : ${yabai} -m window --swap east
-
-        # toggle layout
-        alt - d : ${yabai} -m space --layout $(${yabai} -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')
-      '';
   };
 }

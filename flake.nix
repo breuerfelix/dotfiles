@@ -78,6 +78,7 @@
           ./modules
           ./machines/alucard.nix
           ./darwin/homebrew.nix
+          ./darwin/services.nix
           ({ pkgs, ... }: {
             nixpkgs.config = nixpkgsConfig;
             nixpkgs.overlays = overlays;
@@ -92,10 +93,15 @@
             nix = {
               # enable flakes per default
               package = pkgs.nixFlakes;
+              gc = {
+                automatic = true;
+                user = user;
+              };
               settings = {
                 allowed-users = [ user ];
                 experimental-features = [ "nix-command" "flakes" ];
                 warn-dirty = false;
+                auto-optimise-store = true;
               };
             };
           })
@@ -113,6 +119,7 @@
                   ./darwin
                   ./shell
                   ./desktop/alacritty.nix
+                  ./desktop/vscode.nix
                 ];
                 home.stateVersion = stateVersion;
               };

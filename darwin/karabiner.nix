@@ -8,7 +8,7 @@ let
     };
     to = [{ key_code = to; }];
     conditions = [{
-      type = "frontmost_application_if";
+      type = "frontmost_application_unless";
       bundle_identifiers = [
         "^com\\.apple\\.Terminal$"
         "^com\\.utmapp\\.utm$"

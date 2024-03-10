@@ -74,6 +74,8 @@
       nushell # new type of shell
       asdf-vm # managing different versions
       docker # container runtime
+      # FIXME: not present in recent nixpkgs
+      #tabby # ai coding assistant
 
       # gnu binaries
       coreutils-full # multiple tools
@@ -96,6 +98,8 @@
       termshark # tui for wireshark
       prometheus # prometheus linter
       dyff # better kubectl diff
+      kubebuilder # generate controller
+      kubernetes-helm # deploy applications
 
       # cloud
       google-cloud-sdk
@@ -157,6 +161,7 @@
     bat.enable = true; # pretty cat
     lazygit.enable = true; # git tui
     nnn.enable = true; # file browser
+    nix-index.enable = true;
 
     # pretty ls
     lsd = {
