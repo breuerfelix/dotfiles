@@ -7,6 +7,7 @@
     # will not be uninstalled when removed
     #masApps = [
       #{
+      # transporter
         #"1Password for Safari" = 1569813296;
         #Xcode = 497799835;
       #}

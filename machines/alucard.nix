@@ -31,7 +31,10 @@
     ];
   };
 
-  #security.sudo.extraConfig = [ "%admin ALL = (ALL) NOPASSWD: ALL" ];
+  security = {
+    pam.enableSudoTouchIdAuth = true;
+    #sudo.extraConfig = [ "%admin ALL = (ALL) NOPASSWD: ALL" ];
+  };
 
   system = {
     keyboard = {
