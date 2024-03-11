@@ -2,7 +2,7 @@
   imports = [
     ./zsh.nix
     ./adblock.nix
-    ./tmux.nix
+    #./tmux.nix NOTE: i use zellij now
     ./zellij.nix
     ./git.nix
     ./k9s.nix
@@ -14,7 +14,7 @@
       neovim # customized by overlay
 
       # net tools
-      bind # marked as broken
+      bind
       nmap
       inetutils
 
@@ -25,14 +25,8 @@
       fd
       ripgrep # fast search
 
-      # htop alternatives
-      bottom
-      btop
-
-      comma # nix-shell wrapper
       grc # colored log output
       gitAndTools.delta # pretty diff tool
-      thefuck # auto correct commands
       sshfs # mount folders via ssh
       gh # github cli tool
       glab # gitlab cli tool
@@ -61,7 +55,6 @@
       zk # zettelkasten
       mask # taskrunner
       diskonaut # explore disk size
-      lychee # link checker
       gnupg # gpg
       gping # ping with a graph
       ruby # scripting language
@@ -161,7 +154,10 @@
     bat.enable = true; # pretty cat
     lazygit.enable = true; # git tui
     nnn.enable = true; # file browser
-    nix-index.enable = true;
+    btop.enable = true; # htop alternative
+
+    # install and wrap comma
+    nix-index-database.comma.enable = true;
 
     # pretty ls
     lsd = {

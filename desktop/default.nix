@@ -6,6 +6,8 @@
     ./i3.nix
     ./xdg.nix
     ./polybar.nix
+    ./firefox.nix
+    ./vscode.nix
   ];
 
   home.sessionVariables.GTK_THEME = "Generated";

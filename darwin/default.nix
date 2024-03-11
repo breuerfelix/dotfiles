@@ -1,7 +1,17 @@
-{ ... }: {
+{ pkgs, ... }: {
   imports = [
-    ./karabiner.nix
-    ./sketchybar.nix
-    ./borders.nix
+    ./homebrew.nix
+    ./skhd.nix
+    ./yabai.nix
   ];
+
+  services = {
+    # FIXME: driver issues
+    karabiner-elements.enable = false;
+    nix-daemon.enable = true;
+    sketchybar = {
+      enable = true;
+      extraPackages = with pkgs; [ jq gh ];
+    };
+  };
 }

@@ -11,18 +11,14 @@
     zsh.enable = true;
   };
 
-  networking = let name = "alucard"; in
-    {
-      computerName = name;
-      hostName = name;
-      localHostName = name;
-      knownNetworkServices = [ "Wi-Fi" ];
-      dns = [
-        "9.9.9.9"
-        "1.1.1.1"
-        "8.8.8.8"
-      ];
-    };
+  networking = {
+    knownNetworkServices = [ "Wi-Fi" ];
+    dns = [
+      "9.9.9.9"
+      "1.1.1.1"
+      "8.8.8.8"
+    ];
+  };
 
   fonts = {
     fontDir.enable = true;
@@ -33,7 +29,6 @@
 
   security = {
     pam.enableSudoTouchIdAuth = true;
-    #sudo.extraConfig = [ "%admin ALL = (ALL) NOPASSWD: ALL" ];
   };
 
   system = {
@@ -41,6 +36,7 @@
       enableKeyMapping = true;
       remapCapsLockToControl = true;
     };
+
     defaults = {
       NSGlobalDomain = {
         AppleFontSmoothing = 0;
@@ -49,8 +45,9 @@
         AppleScrollerPagingBehavior = true;
         AppleShowAllExtensions = true;
         AppleShowAllFiles = true;
-        InitialKeyRepeat = 500;
-        KeyRepeat = 50;
+        # FIXME: find suitable values
+        #InitialKeyRepeat = 2;
+        #KeyRepeat = 1;
         NSAutomaticSpellingCorrectionEnabled = false;
         NSAutomaticWindowAnimationsEnabled = false;
         NSWindowResizeTime = 0.0;
@@ -58,12 +55,14 @@
         "com.apple.sound.beep.feedback" = 0;
         "com.apple.trackpad.scaling" = 3.0;
       };
+
       dock = {
         autohide = true;
         autohide-delay = 0.0;
         autohide-time-modifier = 0.0;
         orientation = "bottom";
       };
+
       finder = {
         AppleShowAllExtensions = true;
         AppleShowAllFiles = true;
@@ -71,6 +70,7 @@
         FXDefaultSearchScope = "SCcf"; # current folder
         QuitMenuItem = true;
       };
+
       spaces.spans-displays = false;
     };
   };

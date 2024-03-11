@@ -5,8 +5,8 @@
   # nix --experimental-features "nix-command flakes" build ".#homeConfigurations.solid.activationPackage"
   # ./result/activate
 
-  # alucard
-  # nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.alucard.system"
+  # brummi
+  # nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.brummi.system"
   # ./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
 
   # rocky
@@ -25,6 +25,11 @@
     };
     darwin = {
       url = "github:lnl7/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -65,29 +70,37 @@
         feovim.overlay
         krewfile.overlay
       ];
-      stateVersion = "22.05";
       user = "felix";
+      hostname = "brummi";
     in
     {
       # nix-darwin with home-manager for macOS
-      darwinConfigurations.alucard = darwin.lib.darwinSystem {
+      darwinConfigurations.brummi = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         # makes all inputs availble in imported files
         specialArgs = { inherit inputs; };
         modules = [
           ./modules
-          ./machines/alucard.nix
-          ./darwin/homebrew.nix
-          ./darwin/services.nix
+          ./machines/brummi.nix
+          ./darwin
           ({ pkgs, ... }: {
             nixpkgs.config = nixpkgsConfig;
             nixpkgs.overlays = overlays;
 
-            system.stateVersion = 4;
+            system = {
+              stateVersion = 4;
+              configurationRevision = self.rev or self.dirtyRev or null;
+            };
 
             users.users.${user} = {
               home = "/Users/${user}";
               shell = pkgs.zsh;
+            };
+
+            networking = {
+              computerName = hostname;
+              hostName = hostname;
+              localHostName = hostname;
             };
 
             nix = {
@@ -108,6 +121,11 @@
           home-manager.darwinModule
           {
             home-manager = {
+              # NOTE: check if this works
+              modules = [
+                inputs.nix-index-database.hmModules.nix-index
+              ];
+
               useGlobalPkgs = true;
               useUserPackages = true;
               # makes all inputs available in imported files for hm
@@ -116,12 +134,13 @@
                 imports = [
                   feovim.ideavim
                   ./home/mac.nix
-                  ./darwin
+                  ./darwin/hm.nix
                   ./shell
                   ./desktop/alacritty.nix
                   ./desktop/vscode.nix
+                  ./desktop/firefox.nix
                 ];
-                home.stateVersion = stateVersion;
+                home.stateVersion = "23.11";
               };
             };
           }
@@ -148,7 +167,7 @@
             ./home/linux.nix
             ./shell
             ({ ... }: {
-              home.stateVersion = stateVersion;
+              home.stateVersion = "22.05";
               # home-manager manages itself
               programs.home-manager.enable = true;
 
@@ -173,7 +192,7 @@
             nixpkgs.config = nixpkgsConfig;
             nixpkgs.overlays = overlays;
 
-            system.stateVersion = stateVersion;
+            system.stateVersion = 4;
 
             users.users.${user} = {
               home = "/home/${user}";
@@ -205,7 +224,7 @@
                   ./shell
                   ./desktop
                 ];
-                home.stateVersion = stateVersion;
+                home.stateVersion = "22.05";
               };
             };
           }

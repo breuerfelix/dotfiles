@@ -120,7 +120,7 @@
 
       function nf() {
         pushd ~/.nixpkgs
-        nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.alucard.system"
+        nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.brummi.system"
         ./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
       }
 
@@ -153,7 +153,6 @@
 
     dirHashes = {
       dl = "$HOME/Downloads";
-      nix = "$HOME/.nixpkgs";
       code = "$HOME/code";
     };
 
@@ -173,12 +172,11 @@
       lsl = "ls -l";
       lsa = "ls -a";
       null = "/dev/null";
-      tmux = "tmux -u";
-      tu = "tmux -u";
-      tua = "tmux a -t";
 
       # overrides
       cat = "bat";
+      htop = "btop";
+      ping = "gping";
       ssh = "TERM=screen ssh";
       python = "python3";
       pip = "python3 -m pip";

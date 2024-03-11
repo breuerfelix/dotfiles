@@ -66,7 +66,6 @@
       "prusaslicer" # slicer for my printer
       "autodesk-fusion" # CAD tool
       "time-out" # blurs screen every x mins
-      "firefox" # needed for my uploadpy profiles
       "raycast" # launcher on steroids
       "keycastr" # show keystrokes on screen
       "obsidian" # zettelkasten

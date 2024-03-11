@@ -6,47 +6,21 @@ i use a separate repository for my neovim config. it can be found [here](https:/
 
 ## installation
 
-the installation instructions are *not* updated for my flake version!!
-
 ### macos
 
 ```bash
 # install nix
-sh <(curl -L https://nixos.org/nix/install) --darwin-use-unencrypted-nix-store-volume --daemon
+sh <(curl -L https://nixos.org/nix/install)
 sudo reboot
 
-nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
-nix-channel --update
-nix-shell '<darwin>' -A installer
-darwin-rebuild switch
-
-# install these dotfiles
-git clone https://github.com/breuerfelix/dotfiles.git ~/.nixpkgs
-darwin-rebuild switch
+nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.brummi.system"
+# make sure your hostname is set to "brummi"
+./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
 ```
 
-### remote ssh server with home-manager
+### linux
 
-```bash
-# install nix
-curl -L https://nixos.org/nix/install | sh
-sudo reboot
-
-. ~/.nix-profile/etc/profile.d/nix.sh
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
-nix-shell '<home-manager>' -A install
-home-manager switch
-
-# install these dotfiles
-rm -rf ~/.config/nixpkgs
-git clone https://github.com/breuerfelix/dotfiles.git ~/.config/nixpkgs
-home-manager switch
-
-# change default shell to zsh
-echo $(which zsh) | sudo tee -a /etc/shells
-sudo chsh -s $(which zsh) $USER
-```
+i currently only use macos for my daily driver. linux configurations are not up-to-date.
 
 ## update
 
@@ -61,7 +35,7 @@ nix flake lock --update-input <input>
 ## architecture
 
 - `flake.nix`
-  - `darwinConfigurations.alucard` is the entrypoint for macOS
+  - `darwinConfigurations.brummi` is the entrypoint for macOS
   - `homeConfigurations.solid` is the entrypoint for remote servers
   - `nixosConfigurations.rocky` is the entrypoint for NixOS
 - `darwin/` everything mac specific
@@ -73,8 +47,8 @@ nix flake lock --update-input <input>
 ## content
 
 - distro: macOS / NixOS / linux remote server
-- window manager: yabai
-- bar: spacebar [WIP]
+- window manager: yabai / i3
+- bar: spacebar / rofi
 - terminal: alacritty + zellij
 - shell: zsh + pretzo
 - editor: neovim ([configuration](https://github.com/breuerfelix/feovim))

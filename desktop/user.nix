@@ -40,7 +40,6 @@ in
       vivaldi # browser
       vivaldi-ffmpeg-codecs # proprietary codecs
       vlc # media player
-      vscode # for debugging
 
       zoom-us
       screenkey
