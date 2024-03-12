@@ -6,6 +6,7 @@
     userEmail = "fbreuer@pm.me";
     signing = {
       key = null; # gnupg decides by mail
+      # FIXME: auto import gpg from bitwarden maybe?
       signByDefault = false;
     };
     includes = [

@@ -23,6 +23,9 @@ nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.b
 nix run nix-darwin -- switch --flake ~/.nixpkgs
 ```
 
+manual steps:
+- configure raycast (use import / export)
+
 ## linux
 
 i currently only use macos for my daily driver. linux configurations are not up-to-date.

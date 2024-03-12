@@ -67,6 +67,7 @@
       nushell # new type of shell
       asdf-vm # managing different versions
       docker # container runtime
+      # TODO: create config file for tabby
       tabby # ai coding assistant
 
       # gnu binaries

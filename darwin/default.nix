@@ -14,4 +14,6 @@
       extraPackages = with pkgs; [ jq gh ];
     };
   };
+
+  fonts.fonts = with pkgs; [ sketchybar-app-font ];
 }
