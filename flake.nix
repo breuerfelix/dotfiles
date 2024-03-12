@@ -27,6 +27,10 @@
       url = "github:lnl7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    firefox-darwin = {
+      url = "github:bandithedoge/nixpkgs-firefox-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
@@ -83,9 +87,9 @@
           ./modules
           ./machines/brummi.nix
           ./darwin
-          ({ pkgs, ... }: {
+          ({ pkgs, inputs, ... }: {
             nixpkgs.config = nixpkgsConfig;
-            nixpkgs.overlays = overlays;
+            nixpkgs.overlays = overlays ++ [inputs.firefox-darwin.overlay];
 
             system = {
               stateVersion = 4;
@@ -121,11 +125,6 @@
           home-manager.darwinModule
           {
             home-manager = {
-              # NOTE: check if this works
-              modules = [
-                inputs.nix-index-database.hmModules.nix-index
-              ];
-
               useGlobalPkgs = true;
               useUserPackages = true;
               # makes all inputs available in imported files for hm

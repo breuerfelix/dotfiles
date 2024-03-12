@@ -4,21 +4,26 @@
 
 i use a separate repository for my neovim config. it can be found [here](https://github.com/breuerfelix/feovim)!
 
-## installation
-
-### macos
+## macos
 
 ```bash
-# install nix
+# installation
 sh <(curl -L https://nixos.org/nix/install)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+git clone git@github.com:breuerfelix/dotfiles.git ~/.nixpkgs
+# make sure your hostname is set to "brummi"
 sudo reboot
 
+# build the system
 nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.brummi.system"
-# make sure your hostname is set to "brummi"
+# switch to new system
 ./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
+
+# all in one command
+nix run nix-darwin -- switch --flake ~/.nixpkgs
 ```
 
-### linux
+## linux
 
 i currently only use macos for my daily driver. linux configurations are not up-to-date.
 

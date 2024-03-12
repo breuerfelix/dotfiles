@@ -74,6 +74,26 @@
         "type": "github"
       }
     },
+    "firefox-darwin": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1710204024,
+        "narHash": "sha256-VVdOaCYOW2Cn2hE71FvtG2BniVggBZ3kzyJ5Cs5N6XQ=",
+        "owner": "bandithedoge",
+        "repo": "nixpkgs-firefox-darwin",
+        "rev": "9fb4b4697b847db697011eee481587ddb1381d62",
+        "type": "github"
+      },
+      "original": {
+        "owner": "bandithedoge",
+        "repo": "nixpkgs-firefox-darwin",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -182,6 +202,26 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1710120787,
+        "narHash": "sha256-tlLuB73OCOKtU2j83bQzSYFyzjJo3rjpITZE5MoofG8=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "e76ff2df6bfd2abe06abd8e7b9f217df941c1b07",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1708262067,
@@ -232,9 +272,11 @@
         "breeze": "breeze",
         "darwin": "darwin",
         "feovim": "feovim",
+        "firefox-darwin": "firefox-darwin",
         "home-manager": "home-manager",
         "krewfile": "krewfile",
         "materia-theme": "materia-theme",
+        "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_3",
         "sketchybar": "sketchybar"
       }

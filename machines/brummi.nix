@@ -38,22 +38,11 @@
     };
 
     defaults = {
-      NSGlobalDomain = {
-        AppleFontSmoothing = 0;
-        AppleInterfaceStyle = "Dark";
-        AppleKeyboardUIMode = 3;
-        AppleScrollerPagingBehavior = true;
-        AppleShowAllExtensions = true;
-        AppleShowAllFiles = true;
-        # FIXME: find suitable values
-        #InitialKeyRepeat = 2;
-        #KeyRepeat = 1;
-        NSAutomaticSpellingCorrectionEnabled = false;
-        NSAutomaticWindowAnimationsEnabled = false;
-        NSWindowResizeTime = 0.0;
-        _HIHideMenuBar = true;
-        "com.apple.sound.beep.feedback" = 0;
-        "com.apple.trackpad.scaling" = 3.0;
+      spaces.spans-displays = false;
+      universalaccess = {
+        # FIXME: cannot write universal access
+        #reduceMotion = true;
+        #reduceTransparency = true;
       };
 
       dock = {
@@ -61,6 +50,14 @@
         autohide-delay = 0.0;
         autohide-time-modifier = 0.0;
         orientation = "bottom";
+        dashboard-in-overlay = true;
+        largesize = 16;
+        tilesize = 50;
+        launchanim = false;
+        mru-spaces = false;
+        show-recents = false;
+        static-only = true;
+        magnification = true;
       };
 
       finder = {
@@ -71,7 +68,22 @@
         QuitMenuItem = true;
       };
 
-      spaces.spans-displays = false;
+      NSGlobalDomain = {
+        AppleFontSmoothing = 0;
+        AppleInterfaceStyle = "Dark";
+        AppleKeyboardUIMode = 3;
+        AppleScrollerPagingBehavior = true;
+        AppleShowAllExtensions = true;
+        AppleShowAllFiles = true;
+        InitialKeyRepeat = 10;
+        KeyRepeat = 2;
+        NSAutomaticSpellingCorrectionEnabled = false;
+        NSAutomaticWindowAnimationsEnabled = false;
+        NSWindowResizeTime = 0.0;
+        _HIHideMenuBar = true;
+        "com.apple.sound.beep.feedback" = 0;
+        "com.apple.trackpad.scaling" = 2.0;
+      };
     };
   };
 }

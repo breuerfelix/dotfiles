@@ -38,18 +38,20 @@ in
 
         # Setting up the general bar appearance of the bar
         bar=(
-          height=45
+          height=39
           color=$BAR_COLOR
-          border_width=2
+          border_width=0
           border_color=$BAR_BORDER_COLOR
           shadow=off
-          position=bottom
+          position=top
           sticky=on
-          padding_right=10
-          padding_left=10
+          padding_right=12
+          padding_left=12
           y_offset=0
-          margin=-2
+          margin=0
           topmost=window
+          notch_width=200
+          corner_radius=0
         )
 
         sketchybar --bar "''${bar[@]}"
@@ -87,7 +89,8 @@ in
         source "$ITEM_DIR/front_app.sh"
 
         # Center
-        source "$ITEM_DIR/spotify.sh"
+        # does not work because of notch
+        #source "$ITEM_DIR/spotify.sh"
 
         # Right
         source "$ITEM_DIR/calendar.sh"

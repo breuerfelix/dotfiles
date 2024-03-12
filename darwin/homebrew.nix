@@ -37,6 +37,7 @@
       "macfuse" # file system utilities
       "hiddenbar" # hides menu bar icons
       "karabiner-elements" # keyboard remap
+      "eurkey" # keyboard layout
 
       # coding
       "intellij-idea"
@@ -64,7 +65,7 @@
       "wireshark" # network sniffer
       "sf-symbols" # patched font for sketchybar
       "prusaslicer" # slicer for my printer
-      "autodesk-fusion" # CAD tool
+      #"autodesk-fusion" # CAD tool
       "time-out" # blurs screen every x mins
       "raycast" # launcher on steroids
       "keycastr" # show keystrokes on screen

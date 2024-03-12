@@ -6,7 +6,7 @@
     ./zellij.nix
     ./git.nix
     ./k9s.nix
-    ./krew.nix
+    #./krew.nix
   ];
 
   home = {
@@ -157,7 +157,7 @@
     btop.enable = true; # htop alternative
 
     # install and wrap comma
-    nix-index-database.comma.enable = true;
+    #nix-index-database.comma.enable = true;
 
     # pretty ls
     lsd = {

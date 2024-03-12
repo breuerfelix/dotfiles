@@ -6,7 +6,7 @@
     userEmail = "fbreuer@pm.me";
     signing = {
       key = null; # gnupg decides by mail
-      signByDefault = true;
+      signByDefault = false;
     };
     includes = [
       {

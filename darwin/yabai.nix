@@ -2,7 +2,7 @@
   services.yabai = {
     enable = true;
     config = {
-      external_bar = "all:0:45";
+      external_bar = "all:0:0";
       layout = "stack";
       auto_balance = "off";
 
