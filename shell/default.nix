@@ -67,8 +67,7 @@
       nushell # new type of shell
       asdf-vm # managing different versions
       docker # container runtime
-      # FIXME: not present in recent nixpkgs
-      #tabby # ai coding assistant
+      tabby # ai coding assistant
 
       # gnu binaries
       coreutils-full # multiple tools

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, pkgs-zsh-fzf-tab, ... }: {
   home.file.starship = {
     target = ".config/starship.toml";
     text = ''
@@ -255,7 +255,7 @@
       }
       {
         name = "fzf-tab";
-        src = "${pkgs.zsh-fzf-tab}/share/fzf-tab";
+        src = "${pkgs-zsh-fzf-tab.zsh-fzf-tab}/share/fzf-tab";
       }
     ];
     prezto = {

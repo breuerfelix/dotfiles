@@ -6,11 +6,11 @@
     };
     # will not be uninstalled when removed
     #masApps = [
-      #{
-      # transporter
-        #"1Password for Safari" = 1569813296;
-        #Xcode = 497799835;
-      #}
+    #{
+    # transporter
+    #"1Password for Safari" = 1569813296;
+    #Xcode = 497799835;
+    #}
     #];
     onActivation = {
       # "zap" removes manually installed brews and casks
@@ -24,8 +24,6 @@
       "colima" # docker desktop alternative
       "bitwarden-cli" # raycast extension does not like nix version
       "borders" # borders for windows
-      # FIXME: not present in recent nixpkgs
-      "tabby" # ai coding assistant
 
       # ios development
       "cocoapods"
@@ -78,7 +76,6 @@
       "homebrew/services"
       # custom
       "FelixKratz/formulae" # sketchybar | jankyborders
-      "tabbyml/tabby" # ai coding assistant
     ];
   };
 }

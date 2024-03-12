@@ -37,6 +37,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixpkgs-zsh-fzf-tab.url = "github:nixos/nixpkgs/8193e46376fdc6a13e8075ad263b4b5ca2592c03";
+
     # my custom neovim
     feovim.url = "github:breuerfelix/feovim";
     krewfile.url = "github:brumhard/krewfile";
@@ -79,72 +81,80 @@
     in
     {
       # nix-darwin with home-manager for macOS
-      darwinConfigurations.brummi = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        # makes all inputs availble in imported files
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./modules
-          ./machines/brummi.nix
-          ./darwin
-          ({ pkgs, inputs, ... }: {
-            nixpkgs.config = nixpkgsConfig;
-            nixpkgs.overlays = overlays ++ [inputs.firefox-darwin.overlay];
+      darwinConfigurations.brummi =
+        let
+          system = "aarch64-darwin";
+        in
+        darwin.lib.darwinSystem {
+          inherit system;
+          # makes all inputs availble in imported files
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./modules
+            ./machines/brummi.nix
+            ./darwin
+            ({ pkgs, inputs, ... }: {
+              nixpkgs.config = nixpkgsConfig;
+              nixpkgs.overlays = overlays ++ [ inputs.firefox-darwin.overlay ];
 
-            system = {
-              stateVersion = 4;
-              configurationRevision = self.rev or self.dirtyRev or null;
-            };
-
-            users.users.${user} = {
-              home = "/Users/${user}";
-              shell = pkgs.zsh;
-            };
-
-            networking = {
-              computerName = hostname;
-              hostName = hostname;
-              localHostName = hostname;
-            };
-
-            nix = {
-              # enable flakes per default
-              package = pkgs.nixFlakes;
-              gc = {
-                automatic = true;
-                user = user;
+              system = {
+                stateVersion = 4;
+                configurationRevision = self.rev or self.dirtyRev or null;
               };
-              settings = {
-                allowed-users = [ user ];
-                experimental-features = [ "nix-command" "flakes" ];
-                warn-dirty = false;
-                auto-optimise-store = true;
+
+              users.users.${user} = {
+                home = "/Users/${user}";
+                shell = pkgs.zsh;
               };
-            };
-          })
-          home-manager.darwinModule
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              # makes all inputs available in imported files for hm
-              extraSpecialArgs = { inherit inputs; };
-              users.${user} = { ... }: with inputs; {
-                imports = [
-                  feovim.ideavim
-                  ./home/mac.nix
-                  ./darwin/hm.nix
-                  ./shell
-                  ./desktop/alacritty.nix
-                  ./desktop/vscode.nix
-                  ./desktop/firefox.nix
-                ];
-                home.stateVersion = "23.11";
+
+              networking = {
+                computerName = hostname;
+                hostName = hostname;
+                localHostName = hostname;
               };
-            };
-          }
-        ];
-      };
+
+              nix = {
+                # enable flakes per default
+                package = pkgs.nixFlakes;
+                gc = {
+                  automatic = true;
+                  user = user;
+                };
+                settings = {
+                  allowed-users = [ user ];
+                  experimental-features = [ "nix-command" "flakes" ];
+                  warn-dirty = false;
+                  auto-optimise-store = true;
+                };
+              };
+            })
+            home-manager.darwinModule
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                # makes all inputs available in imported files for hm
+                extraSpecialArgs = {
+                  inherit inputs;
+                  pkgs-zsh-fzf-tab =
+                    import inputs.nixpkgs-zsh-fzf-tab { inherit system; };
+                };
+                users.${user} = { ... }: with inputs; {
+                  imports = [
+                    feovim.ideavim
+                    ./home/mac.nix
+                    ./darwin/hm.nix
+                    ./shell
+                    ./desktop/alacritty.nix
+                    ./desktop/vscode.nix
+                    ./desktop/firefox.nix
+                  ];
+                  home.stateVersion = "23.11";
+                };
+              };
+            }
+          ];
+        };
 
       # standalone home-manager installation
       homeConfigurations.solid =
