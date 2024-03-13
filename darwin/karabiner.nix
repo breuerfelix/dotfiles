@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  swap = from: to: {
+  swapIfNotTerminal = from: to: {
     type = "basic";
     from = {
       key_code = from;
@@ -17,16 +17,52 @@ let
       file_paths = [ "/etc/profiles/per-user/felix/bin/alacritty" ];
     }];
   };
-in {
+
+  swapIfInternal = from: to: {
+    type = "basic";
+    from = {
+      key_code = from;
+      modifiers = { optional = [ "any" ]; };
+    };
+    to = [{ key_code = to; }];
+    conditions = [{
+      type = "device_if";
+      identifiers = [{ is_built_in_keyboard = true; }];
+    }];
+  };
+
+  swap = from: to: {
+    type = "basic";
+    from = {
+      key_code = from;
+      modifiers = { optional = [ "any" ]; };
+    };
+    to = [{ key_code = to; }];
+    conditions = [ ];
+  };
+in
+{
   home.file.karabiner = {
-    target = ".config/karabiner/assets/complex_modifications/control-command.json";
+    target = ".config/karabiner/assets/complex_modifications/nix.json";
     text = builtins.toJSON {
-      title = "Control <-> Command";
+      title = "Nix Managed";
       rules = [{
-        description = "Swap Command and Control";
+        description = "Modifications managed by Nix";
         manipulators = [
-          (swap "left_command" "left_control")
-          (swap "left_control" "left_command")
+          # for "normal" keyboards
+          (swapIfNotTerminal "caps_lock" "left_command")
+          (swap "caps_lock" "left_control")
+
+          # ensure CMD is ALT for internal keyboard
+          (swapIfInternal "left_command" "left_option")
+          (swapIfInternal "left_option" "left_command")
+
+          # for ctrl + t: new tab in browser
+          (swapIfNotTerminal "left_control" "left_command")
+          (swapIfNotTerminal "left_command" "left_control")
+
+          # for umlaute
+          (swapIfInternal "right_command" "right_option")
         ];
       }];
     };

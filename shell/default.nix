@@ -67,6 +67,7 @@
       nushell # new type of shell
       asdf-vm # managing different versions
       docker # container runtime
+      comma # run nix binaries on demand
       # TODO: create config file for tabby
       tabby # ai coding assistant
 
@@ -155,9 +156,6 @@
     lazygit.enable = true; # git tui
     nnn.enable = true; # file browser
     btop.enable = true; # htop alternative
-
-    # install and wrap comma
-    #nix-index-database.comma.enable = true;
 
     # pretty ls
     lsd = {

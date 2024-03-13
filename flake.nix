@@ -90,6 +90,7 @@
           # makes all inputs availble in imported files
           specialArgs = { inherit inputs; };
           modules = [
+            inputs.nix-index-database.darwinModules.nix-index
             ./modules
             ./machines/brummi.nix
             ./darwin
