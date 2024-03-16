@@ -61,11 +61,11 @@
         "vim-tabby": "vim-tabby"
       },
       "locked": {
-        "lastModified": 1709888410,
-        "narHash": "sha256-ODKQPQjytO5MWUylxyr/2FCfP2Wvuve/vnKH9MYIhjg=",
+        "lastModified": 1710589449,
+        "narHash": "sha256-SKJ0ZnSU7jqNfKw2otXnttUPWPgXvs2+4sPi3IW7Bn0=",
         "owner": "breuerfelix",
         "repo": "feovim",
-        "rev": "46ddf609df70019bc2ceddd210332bd4a8f20a4b",
+        "rev": "1b49fae191ad8cba9f3678ca82a0e35ab11f15a9",
         "type": "github"
       },
       "original": {

@@ -38,6 +38,7 @@
     };
 
     defaults = {
+      ".GlobalPreferences"."com.apple.mouse.scaling" = 4.0;
       spaces.spans-displays = false;
       universalaccess = {
         # FIXME: cannot write universal access
@@ -51,13 +52,14 @@
         autohide-time-modifier = 0.0;
         orientation = "bottom";
         dashboard-in-overlay = true;
-        largesize = 16;
+        largesize = 85;
         tilesize = 50;
+        magnification = true;
         launchanim = false;
         mru-spaces = false;
         show-recents = false;
+        show-process-indicators = false;
         static-only = true;
-        magnification = true;
       };
 
       finder = {

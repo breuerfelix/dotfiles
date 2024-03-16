@@ -3,6 +3,7 @@
     enable = true;
   };
 
+  # TODO: port to zellij nix config
   home.file.zellij = {
     target = ".config/zellij/config.kdl";
     text = ''

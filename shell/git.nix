@@ -6,20 +6,19 @@
     userEmail = "fbreuer@pm.me";
     signing = {
       key = null; # gnupg decides by mail
-      # FIXME: auto import gpg from bitwarden maybe?
-      signByDefault = false;
+      signByDefault = true;
     };
     includes = [
       {
-        condition = "gitdir:~/code/rtl/";
+        condition = "gitdir:~/code/rtl";
         contents.user.email = "felix.breuer@rtl-extern.de";
       }
       {
-        condition = "gitdir:~/code/inovex/";
+        condition = "gitdir:~/code/inovex";
         contents.user.email = "felix.breuer@inovex.de";
       }
       {
-        condition = "gitdir:~/code/ctrlf/";
+        condition = "gitdir:~/code/ctrlf";
         contents = {
           commit.gpgSign = false;
           user = {

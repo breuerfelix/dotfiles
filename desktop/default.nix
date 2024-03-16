@@ -6,7 +6,6 @@
     ./i3.nix
     ./xdg.nix
     ./polybar.nix
-    ./firefox.nix
     ./vscode.nix
   ];
 

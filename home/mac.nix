@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ lib, ... }: {
   programs = {
     zsh = {
       initExtraBeforeCompInit = ''
@@ -8,7 +8,7 @@
     };
 
     # override mac font settings
-    alacritty.settings.font.size = lib.mkForce 18;
+    alacritty.settings.font.size = lib.mkForce 17;
   };
 
   ideavim.enable = true;

@@ -15,6 +15,7 @@ git clone git@github.com:breuerfelix/dotfiles.git ~/.nixpkgs
 sudo reboot
 
 # build the system
+cd ~/.nixpkgs
 nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.brummi.system"
 # switch to new system
 ./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
@@ -24,7 +25,31 @@ nix run nix-darwin -- switch --flake ~/.nixpkgs
 ```
 
 manual steps:
-- configure raycast (use import / export)
+- enable brew services
+  - `brew services start borders`
+- update secrets from secrets manager
+- change macOS keybindings
+  - disable spotlight search
+  - alt + q | w | e | r | t to space 1-5
+  - disable input source swap keybindings
+- import `Nix Managed` complex modification in Karabiner
+- login to firefox and sync settings
+- use EURKey as keyboard layout
+  - remove default keyboard layout
+  - https://superuser.com/questions/712306/remove-keyboard-layout-from-os-x-leaving-custom-layouts-only
+- set universalaccess until fixed in darwin
+  - reduceMotion
+  - recuceTransparency - decide
+- configure applications
+  - raycast (use import / export)
+  - aldente
+  - meetingbar
+  - hiddenbar
+  - time-out
+  - apple calender / mail
+  - slack / teams / signal
+  - firefox / arc
+- enable icloud sync
 
 ## linux
 

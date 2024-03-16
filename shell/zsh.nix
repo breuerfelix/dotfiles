@@ -1,15 +1,4 @@
 { config, pkgs, lib, pkgs-zsh-fzf-tab, ... }: {
-  home.file.starship = {
-    target = ".config/starship.toml";
-    text = ''
-      add_newline = false
-
-      [character]
-      success_symbol = "[➜](bold green) "
-      error_symbol = "[✗](bold red) "
-    '';
-  };
-
   home.file.kubie = {
     target = ".kube/kubie.yaml";
     text = ''
@@ -68,7 +57,6 @@
       bindkey '^k' up-line-or-search
       bindkey '^j' down-line-or-search
 
-      bindkey '^r' fzf-history-widget
       bindkey '^f' fzf-file-widget
 
       function lmr () {
@@ -216,7 +204,6 @@
       # utilities
       psf = "ps -aux | grep";
       lsf = "ls | grep";
-      search = "sudo fd . '/' | grep"; # TODO replace with ripgrep
       shut = "sudo shutdown -h now";
       tssh = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
       socks = "ssh -D 1337 -q -C -N";

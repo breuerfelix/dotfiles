@@ -61,10 +61,8 @@
       corepack # node wrappers
       redis # to use the cli
       k6 # load testing tool
-      starship # terminal prompt
       slides # terminal presentation tool
       presenterm # presentation tool
-      nushell # new type of shell
       asdf-vm # managing different versions
       docker # container runtime
       comma # run nix binaries on demand
@@ -147,6 +145,41 @@
     # vim alternative
     helix = {
       enable = true;
+      extraPackages = with pkgs; [
+        nil
+        gopls
+      ];
+      settings = {
+        theme = "tokyonight";
+
+        keys = {
+          insert = {
+            j = { k = "normal_mode"; };
+          };
+          normal = {
+            C-e = ":write";
+            C-q = ":quit";
+          };
+        };
+
+        editor = {
+          line-number = "relative";
+          idle-timeout = 200;
+          bufferline = "multiple";
+          lsp.display-inlay-hints = true;
+          cursor-shape.insert = "bar";
+          file-picker.hidden = false;
+          whitespace.render = "all";
+          indent-guides.render = true;
+          statusline = {
+            mode = {
+              normal = "NORMAL";
+              insert = "INSERT";
+              select = "SELECT";
+            };
+          };
+        };
+      };
     };
 
     # shell integrations are enabled by default
@@ -156,6 +189,21 @@
     lazygit.enable = true; # git tui
     nnn.enable = true; # file browser
     btop.enable = true; # htop alternative
+    nushell.enable = true; # zsh alternative
+    broot.enable = true; # browser big folders
+    atuin.enable = true; # sqlite browser history
+
+    # pretty prompt
+    starship = {
+      enable = true;
+      settings = {
+        add_newline = true;
+        character = {
+          success_symbol = "[➜](bold green)";
+          error_symbol = "[✗](bold red)";
+        };
+      };
+    };
 
     # pretty ls
     lsd = {

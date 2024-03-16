@@ -148,7 +148,6 @@
                     ./shell
                     ./desktop/alacritty.nix
                     ./desktop/vscode.nix
-                    ./desktop/firefox.nix
                   ];
                   home.stateVersion = "23.11";
                 };

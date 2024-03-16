@@ -5,13 +5,10 @@
       autoUpdate = false;
     };
     # will not be uninstalled when removed
-    #masApps = [
-    #{
-    # transporter
-    #"1Password for Safari" = 1569813296;
-    #Xcode = 497799835;
-    #}
-    #];
+    masApps = {
+      Xcode = 497799835;
+      Transporter = 1450874784;
+    };
     onActivation = {
       # "zap" removes manually installed brews and casks
       cleanup = "zap";
@@ -34,6 +31,7 @@
       "aldente" # battery management
       "macfuse" # file system utilities
       "hiddenbar" # hides menu bar icons
+      "meetingbar" # shows upcoming meetings
       "karabiner-elements" # keyboard remap
       "eurkey" # keyboard layout
 
@@ -52,6 +50,8 @@
       "signal"
       "discord"
 
+      "bitwarden" # password manager
+      "spotify" # music
       "android-studio" # needed for react-native
       "rekordbox" # dj software
       "obs" # stream / recoding software
@@ -68,6 +68,8 @@
       "raycast" # launcher on steroids
       "keycastr" # show keystrokes on screen
       "obsidian" # zettelkasten
+      "firefox" # browser
+      "arc" # mac browser
     ];
     taps = [
       # default
@@ -75,7 +77,7 @@
       "homebrew/cask-fonts"
       "homebrew/services"
       # custom
-      "FelixKratz/formulae" # sketchybar | jankyborders
+      "FelixKratz/formulae" # borders
     ];
   };
 }
