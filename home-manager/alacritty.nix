@@ -7,8 +7,14 @@
         dynamic_title = true;
         dynamic_padding = true;
         decorations = "full";
-        dimensions = { lines = 0; columns = 0; };
-        padding = { x = 5; y = 5; };
+        dimensions = {
+          lines = 0;
+          columns = 0;
+        };
+        padding = {
+          x = 5;
+          y = 5;
+        };
       };
 
       scrolling = {
@@ -18,13 +24,22 @@
 
       mouse = { hide_when_typing = true; };
 
-      font = let fontname = "JetBrainsMono Nerd Font"; in
-        {
-          normal = { family = fontname; style = "Bold"; };
-          bold = { family = fontname; style = "ExtraBold"; };
-          italic = { family = fontname; style = "ExtraLight"; };
-          size = 17;
+      font = let fontname = "JetBrainsMono Nerd Font";
+      in {
+        normal = {
+          family = fontname;
+          style = "Bold";
         };
+        bold = {
+          family = fontname;
+          style = "ExtraBold";
+        };
+        italic = {
+          family = fontname;
+          style = "ExtraLight";
+        };
+        size = 17;
+      };
       cursor.style = "Block";
 
       # nord theme
@@ -54,8 +69,14 @@
           white = "0xc0caf5";
         };
         indexed_colors = [
-          { index = 16; color = "0xff9e64"; }
-          { index = 17; color = "0xdb4b4b"; }
+          {
+            index = 16;
+            color = "0xff9e64";
+          }
+          {
+            index = 17;
+            color = "0xdb4b4b";
+          }
         ];
       };
     };

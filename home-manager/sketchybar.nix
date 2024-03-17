@@ -1,8 +1,6 @@
 { inputs, ... }:
-let
-  folder = "${inputs.sketchybar}/.config/sketchybar";
-in
-{
+let folder = "${inputs.sketchybar}/.config/sketchybar";
+in {
   home.file = {
     icons = {
       target = ".config/sketchybar/icons.sh";

@@ -11,8 +11,7 @@ let
     explore
     sniff
   '';
-in
-{
+in {
   home.activation.krew = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     $DRY_RUN_CMD ${krewfile}/bin/krewfile -command ${krew}/bin/krew -file ${plugins}
   '';

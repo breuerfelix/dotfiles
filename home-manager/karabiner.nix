@@ -40,8 +40,7 @@ let
     to = [{ key_code = to; }];
     conditions = [ ];
   };
-in
-{
+in {
   home.file.karabiner = {
     target = ".config/karabiner/assets/complex_modifications/nix.json";
     text = builtins.toJSON {

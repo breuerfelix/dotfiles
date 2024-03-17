@@ -28,9 +28,7 @@
         };
       }
     ];
-    hooks = {
-      prepare-commit-msg = ./rtl-hook.sh;
-    };
+    hooks = { prepare-commit-msg = ./rtl-hook.sh; };
     aliases = {
       cm = "commit";
       ca = "commit --amend --no-edit";
@@ -75,13 +73,9 @@
         commit = false;
         rebase = true;
       };
-      fetch = {
-        prune = true;
-      };
+      fetch = { prune = true; };
       push.autoSetupRemote = true;
-      delta = {
-        line-numbers = true;
-      };
+      delta = { line-numbers = true; };
     };
   };
 }

@@ -1,9 +1,5 @@
 { pkgs, ... }: {
-  imports = [
-    ./homebrew.nix
-    ./skhd.nix
-    ./yabai.nix
-  ];
+  imports = [ ./homebrew.nix ./skhd.nix ./yabai.nix ];
 
   environment = {
     variables = {
@@ -12,9 +8,7 @@
     };
   };
 
-  programs = {
-    zsh.enable = true;
-  };
+  programs = { zsh.enable = true; };
 
   services = {
     # FIXME: driver issues
@@ -26,14 +20,9 @@
     };
   };
 
-
   networking = {
     knownNetworkServices = [ "Wi-Fi" ];
-    dns = [
-      "9.9.9.9"
-      "1.1.1.1"
-      "8.8.8.8"
-    ];
+    dns = [ "9.9.9.9" "1.1.1.1" "8.8.8.8" ];
   };
 
   fonts = {
@@ -44,9 +33,7 @@
     ];
   };
 
-  security = {
-    pam.enableSudoTouchIdAuth = true;
-  };
+  security = { pam.enableSudoTouchIdAuth = true; };
 
   system = {
     keyboard = {

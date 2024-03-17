@@ -145,6 +145,7 @@
       code = "$HOME/code";
     };
 
+    # TODO: move to home.shellAliases
     shellAliases = {
       # builtins
       size = "du -sh";
@@ -208,20 +209,24 @@
       shut = "sudo shutdown -h now";
       tssh = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
       socks = "ssh -D 1337 -q -C -N";
-      prox = "export http_proxy=socks5://127.0.0.1:1337 https_proxy=socks5://127.0.0.1:1337";
+      prox =
+        "export http_proxy=socks5://127.0.0.1:1337 https_proxy=socks5://127.0.0.1:1337";
 
       # clean
-      dklocal = "docker run --rm -it -v `PWD`:/usr/workdir --workdir=/usr/workdir";
+      dklocal =
+        "docker run --rm -it -v `PWD`:/usr/workdir --workdir=/usr/workdir";
       dkclean = "docker container rm $(docker container ls -aq)";
 
       caps = "xdotool key Caps_Lock";
-      gclean = "git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done";
+      gclean =
+        "git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done";
       ew = "nvim -c ':cd ~/vimwiki' ~/vimwiki";
       weather = "curl -4 http://wttr.in/Koeln";
 
       # nix
       ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
-      clean = "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents --repair";
+      clean =
+        "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents --repair";
       nsh = "nix-shell";
       nse = "nix search nixpkgs";
 
@@ -254,13 +259,7 @@
         dotExpansion = true;
         keymap = "vi";
       };
-      pmodules = [
-        "autosuggestions"
-        "directory"
-        "editor"
-        "git"
-        "terminal"
-      ];
+      pmodules = [ "autosuggestions" "directory" "editor" "git" "terminal" ];
     };
   };
 }

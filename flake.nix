@@ -17,7 +17,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs-zsh-fzf-tab.url = "github:nixos/nixpkgs/8193e46376fdc6a13e8075ad263b4b5ca2592c03";
+    nixpkgs-zsh-fzf-tab.url =
+      "github:nixos/nixpkgs/8193e46376fdc6a13e8075ad263b4b5ca2592c03";
 
     # my custom neovim
     feovim.url = "github:breuerfelix/feovim";
@@ -36,15 +37,12 @@
         allowUnfree = true;
         allowUnsupportedSystem = false;
       };
-      overlays = with inputs; [
-        feovim.overlay
-        krewfile.overlay
-      ];
+      overlays = with inputs; [ feovim.overlay krewfile.overlay ];
       user = "felix";
       hostname = "brummi";
       system = "aarch64-darwin";
-    in
-    {
+    in {
+      formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;
       # nix-darwin with home-manager for macOS
       darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
         inherit system;
@@ -99,16 +97,13 @@
                 pkgs-zsh-fzf-tab =
                   import inputs.nixpkgs-zsh-fzf-tab { inherit system; };
               };
-              users.${user} = { ... }: with inputs; {
-                imports = [
-                  feovim.ideavim
-                  ./home-manager
-                  ./shell
-                ];
-                home.stateVersion = "23.11";
-                # from feovim
-                ideavim.enable = true;
-              };
+              users.${user} = { ... }:
+                with inputs; {
+                  imports = [ feovim.ideavim ./home-manager ./shell ];
+                  home.stateVersion = "23.11";
+                  # from feovim
+                  ideavim.enable = true;
+                };
             };
           }
         ];

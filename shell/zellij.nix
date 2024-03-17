@@ -1,7 +1,5 @@
 { config, pkgs, lib, ... }: {
-  programs.zellij = {
-    enable = true;
-  };
+  programs.zellij = { enable = true; };
 
   # TODO: port to zellij nix config
   home.file.zellij = {

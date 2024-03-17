@@ -1,9 +1,7 @@
 { ... }: {
   homebrew = {
     enable = true;
-    global = {
-      autoUpdate = false;
-    };
+    global = { autoUpdate = false; };
     # will not be uninstalled when removed
     masApps = {
       Xcode = 497799835;

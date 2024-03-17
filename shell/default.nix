@@ -137,17 +137,12 @@
     # vim alternative
     helix = {
       enable = true;
-      extraPackages = with pkgs; [
-        nil
-        gopls
-      ];
+      extraPackages = with pkgs; [ nil gopls ];
       settings = {
         theme = "tokyonight";
 
         keys = {
-          insert = {
-            j = { k = "normal_mode"; };
-          };
+          insert = { j = { k = "normal_mode"; }; };
           normal = {
             C-e = ":write";
             C-q = ":quit";
@@ -224,7 +219,8 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
-      defaultCommand = "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor";
+      defaultCommand =
+        "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor";
       defaultOptions = [
         "--border sharp"
         "--inline-info"
@@ -249,7 +245,8 @@
         }
         {
           description = "garden kubeconfig from ske-ci ondemand cluster";
-          command = "kubectl get secret garden-kubeconfig-for-admin -n garden -o jsonpath='{.data.kubeconfig}' | base64 -d > garden-kubeconfig-for-admin.yaml";
+          command =
+            "kubectl get secret garden-kubeconfig-for-admin -n garden -o jsonpath='{.data.kubeconfig}' | base64 -d > garden-kubeconfig-for-admin.yaml";
         }
       ];
     };
