@@ -1,4 +1,4 @@
-{ config, pkgs, lib, pkgs-zsh-fzf-tab, ... }: {
+{ pkgs, pkgs-zsh-fzf-tab, ... }: {
   home.file.kubie = {
     target = ".kube/kubie.yaml";
     text = ''
@@ -48,6 +48,7 @@
       [ -f ~/.aws/env.sh ] && source ~/.aws/env.sh
 
       source ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
+      eval "$(/opt/homebrew/bin/brew shellenv)"
 
       bindkey '^e' edit-command-line
       # this is backspace

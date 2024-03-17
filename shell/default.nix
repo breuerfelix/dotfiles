@@ -1,8 +1,6 @@
-{ config, pkgs, lib, inputs, system, ... }: {
+{ pkgs, ... }: {
   imports = [
     ./zsh.nix
-    ./adblock.nix
-    #./tmux.nix NOTE: i use zellij now
     ./zellij.nix
     ./git.nix
     ./k9s.nix
@@ -41,7 +39,6 @@
       rclone # sync files
       duf # disk usage
       httpie # awesome alternative to curl
-      # bitwarden-cli # NOTE: installed via homebrew
       mongodb-tools
       pulumi-bin # manage infrastructure as code
       viddy # terminal watch command
@@ -118,11 +115,6 @@
       ktlint
       kotlin
       gradle
-
-      # custom nixFlakes command for home-manager standalone
-      (pkgs.writeShellScriptBin "nx" ''
-        exec ${pkgs.nixFlakes}/bin/nix --experimental-features "nix-command flakes" "$@"
-      '')
     ];
 
     sessionPath = [

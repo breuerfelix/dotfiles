@@ -1,8 +1,24 @@
 # my dotfiles
 
-## editor
+i currently only use macos as my daily driver so this repository is really system specific. everything inside `shell/` also works on linux.
 
-i use a separate repository for my neovim config. it can be found [here](https://github.com/breuerfelix/feovim)!
+## programs
+
+- distro: macOS
+- window manager: yabai
+- bar: spacebar
+- terminal: alacritty + zellij
+- shell: zsh + pretzo
+- editor: helix / neovim ([configuration](https://github.com/breuerfelix/feovim))
+
+## architecture
+
+- `flake.nix`
+  - `darwinConfigurations.brummi` is the entrypoint for macOS
+- `darwin/` nix-darwin configuration
+- `home-manager/` home-manager configuration
+- `shell/` cross-platform shell configuration
+- `github.com:breuerfelix/feovim` neovim configuration
 
 ## macos
 
@@ -51,9 +67,6 @@ manual steps:
   - firefox / arc
 - enable icloud sync
 
-## linux
-
-i currently only use macos for my daily driver. linux configurations are not up-to-date.
 
 ## update
 
@@ -64,24 +77,3 @@ nix flake update
 # single input
 nix flake lock --update-input <input>
 ```
-
-## architecture
-
-- `flake.nix`
-  - `darwinConfigurations.brummi` is the entrypoint for macOS
-  - `homeConfigurations.solid` is the entrypoint for remote servers
-  - `nixosConfigurations.rocky` is the entrypoint for NixOS
-- `darwin/` everything mac specific
-- `system/` everything NixOS specific
-- `shell/` cross-platform shell configuration
-
-- `github.com:breuerfelix/feovim` my neovim configuration
-
-## content
-
-- distro: macOS / NixOS / linux remote server
-- window manager: yabai / i3
-- bar: spacebar / rofi
-- terminal: alacritty + zellij
-- shell: zsh + pretzo
-- editor: neovim ([configuration](https://github.com/breuerfelix/feovim))

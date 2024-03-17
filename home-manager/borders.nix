@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ ... }: {
   home.file.borders = {
     executable = true;
     target = ".config/borders/bordersrc";

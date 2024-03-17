@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ ... }:
 let
   swapIfNotTerminal = from: to: {
     type = "basic";

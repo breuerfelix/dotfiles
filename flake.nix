@@ -1,21 +1,5 @@
 {
-  description = "My Machines";
-
-  # solid
-  # nix --experimental-features "nix-command flakes" build ".#homeConfigurations.solid.activationPackage"
-  # ./result/activate
-
-  # brummi
-  # nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.brummi.system"
-  # ./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
-
-  # rocky
-  # nix --experimental-features "nix-command flakes" build ".#nixosConfigurations.rocky.config.system.build.toplevel"
-  # ./result/bin/switch-to-configuration switch
-  # or if you want to edit boot entry
-  # sudo nixos-rebuild switch --flake ".#rocky"
-  # or if you want to install from scratch
-  # sudo nixos-install --flake github:breuerfelix/dotfiles#rocky
+  description = "my dotfiles";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
@@ -25,10 +9,6 @@
     };
     darwin = {
       url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    firefox-darwin = {
-      url = "github:bandithedoge/nixpkgs-firefox-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -48,18 +28,6 @@
       url = "github:FelixKratz/dotfiles";
       flake = false;
     };
-
-    # custom cursor
-    breeze = {
-      url = "github:KDE/breeze";
-      flake = false;
-    };
-
-    # TODO test without ref
-    materia-theme = {
-      url = "github:nana-4/materia-theme?ref=76cac96ca7fe45dc9e5b9822b0fbb5f4cad47984";
-      flake = false;
-    };
   };
 
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
@@ -67,10 +35,6 @@
       nixpkgsConfig = {
         allowUnfree = true;
         allowUnsupportedSystem = false;
-        vivaldi = {
-          proprietaryCodecs = true;
-          enableWideVine = true;
-        };
       };
       overlays = with inputs; [
         feovim.overlay
@@ -78,162 +42,72 @@
       ];
       user = "felix";
       hostname = "brummi";
+      system = "aarch64-darwin";
     in
     {
       # nix-darwin with home-manager for macOS
-      darwinConfigurations.brummi =
-        let
-          system = "aarch64-darwin";
-        in
-        darwin.lib.darwinSystem {
-          inherit system;
-          # makes all inputs availble in imported files
-          specialArgs = { inherit inputs; };
-          modules = [
-            inputs.nix-index-database.darwinModules.nix-index
-            ./modules
-            ./machines/brummi.nix
-            ./darwin
-            ({ pkgs, inputs, ... }: {
-              nixpkgs.config = nixpkgsConfig;
-              nixpkgs.overlays = overlays ++ [ inputs.firefox-darwin.overlay ];
-
-              system = {
-                stateVersion = 4;
-                configurationRevision = self.rev or self.dirtyRev or null;
-              };
-
-              users.users.${user} = {
-                home = "/Users/${user}";
-                shell = pkgs.zsh;
-              };
-
-              networking = {
-                computerName = hostname;
-                hostName = hostname;
-                localHostName = hostname;
-              };
-
-              nix = {
-                # enable flakes per default
-                package = pkgs.nixFlakes;
-                gc = {
-                  automatic = true;
-                  user = user;
-                };
-                settings = {
-                  allowed-users = [ user ];
-                  experimental-features = [ "nix-command" "flakes" ];
-                  warn-dirty = false;
-                  auto-optimise-store = true;
-                };
-              };
-            })
-            home-manager.darwinModule
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                # makes all inputs available in imported files for hm
-                extraSpecialArgs = {
-                  inherit inputs;
-                  pkgs-zsh-fzf-tab =
-                    import inputs.nixpkgs-zsh-fzf-tab { inherit system; };
-                };
-                users.${user} = { ... }: with inputs; {
-                  imports = [
-                    feovim.ideavim
-                    ./home/mac.nix
-                    ./darwin/hm.nix
-                    ./shell
-                    ./desktop/alacritty.nix
-                    ./desktop/vscode.nix
-                  ];
-                  home.stateVersion = "23.11";
-                };
-              };
-            }
-          ];
-        };
-
-      # standalone home-manager installation
-      homeConfigurations.solid =
-        let
-          system = "x86_64-linux";
-          # modifies pkgs to allow unfree packages
-          pkgs = import nixpkgs {
-            inherit system;
-            config = nixpkgsConfig;
-            overlays = overlays;
-          };
-        in
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          # makes all inputs available in imported files
-          extraSpecialArgs = { inherit inputs; };
-          modules = [
-            ./modules
-            ./home/linux.nix
-            ./shell
-            ({ ... }: {
-              home.stateVersion = "22.05";
-              # home-manager manages itself
-              programs.home-manager.enable = true;
-
-              home = {
-                username = user;
-                homeDirectory = "/home/${user}";
-              };
-            })
-          ];
-        };
-
-      # nixos system
-      nixosConfigurations.rocky = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
+        inherit system;
         # makes all inputs availble in imported files
-        specialArgs = { inherit inputs; inherit user; };
+        specialArgs = { inherit inputs; };
         modules = [
-          ./modules
-          ./machines/rocky.nix
-          ./system
-          ({ pkgs, ... }: {
+          inputs.nix-index-database.darwinModules.nix-index
+          ./darwin
+          ({ pkgs, inputs, ... }: {
             nixpkgs.config = nixpkgsConfig;
             nixpkgs.overlays = overlays;
 
-            system.stateVersion = 4;
+            system = {
+              stateVersion = 4;
+              configurationRevision = self.rev or self.dirtyRev or null;
+            };
 
             users.users.${user} = {
-              home = "/home/${user}";
+              home = "/Users/${user}";
               shell = pkgs.zsh;
-              isNormalUser = true;
+            };
+
+            networking = {
+              computerName = hostname;
+              hostName = hostname;
+              localHostName = hostname;
             };
 
             nix = {
               # enable flakes per default
               package = pkgs.nixFlakes;
+              gc = {
+                automatic = true;
+                user = user;
+              };
               settings = {
                 allowed-users = [ user ];
                 experimental-features = [ "nix-command" "flakes" ];
                 warn-dirty = false;
+                auto-optimise-store = true;
               };
             };
           })
-          home-manager.nixosModule
+          home-manager.darwinModule
           {
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               # makes all inputs available in imported files for hm
-              extraSpecialArgs = { inherit inputs; };
-              users.${user} = { ... }: {
+              extraSpecialArgs = {
+                inherit inputs;
+                pkgs-zsh-fzf-tab =
+                  import inputs.nixpkgs-zsh-fzf-tab { inherit system; };
+              };
+              users.${user} = { ... }: with inputs; {
                 imports = [
-                  ./home/linux.nix
-                  ./modules/base16.nix
+                  feovim.ideavim
+                  ./home-manager
                   ./shell
-                  ./desktop
                 ];
-                home.stateVersion = "22.05";
+                home.stateVersion = "23.11";
+                # from feovim
+                ideavim.enable = true;
               };
             };
           }

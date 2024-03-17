@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "breeze": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1710117033,
-        "narHash": "sha256-PnUV54THzRrdgqtKibHXzyuqlMnCfxNUbHogyM4o8+8=",
-        "owner": "KDE",
-        "repo": "breeze",
-        "rev": "ddd43721a202666727ec88f81cee67e0f1f6743f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "KDE",
-        "repo": "breeze",
-        "type": "github"
-      }
-    },
     "darwin": {
       "inputs": {
         "nixpkgs": [
@@ -71,26 +55,6 @@
       "original": {
         "owner": "breuerfelix",
         "repo": "feovim",
-        "type": "github"
-      }
-    },
-    "firefox-darwin": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1710204024,
-        "narHash": "sha256-VVdOaCYOW2Cn2hE71FvtG2BniVggBZ3kzyJ5Cs5N6XQ=",
-        "owner": "bandithedoge",
-        "repo": "nixpkgs-firefox-darwin",
-        "rev": "9fb4b4697b847db697011eee481587ddb1381d62",
-        "type": "github"
-      },
-      "original": {
-        "owner": "bandithedoge",
-        "repo": "nixpkgs-firefox-darwin",
         "type": "github"
       }
     },
@@ -185,23 +149,6 @@
         "type": "github"
       }
     },
-    "materia-theme": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1620818711,
-        "narHash": "sha256-0eCAfm/MWXv6BbCl2vbVbvgv8DiUH09TAUhoKq7Ow0k=",
-        "owner": "nana-4",
-        "repo": "materia-theme",
-        "rev": "76cac96ca7fe45dc9e5b9822b0fbb5f4cad47984",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nana-4",
-        "ref": "76cac96ca7fe45dc9e5b9822b0fbb5f4cad47984",
-        "repo": "materia-theme",
-        "type": "github"
-      }
-    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -285,13 +232,10 @@
     },
     "root": {
       "inputs": {
-        "breeze": "breeze",
         "darwin": "darwin",
         "feovim": "feovim",
-        "firefox-darwin": "firefox-darwin",
         "home-manager": "home-manager",
         "krewfile": "krewfile",
-        "materia-theme": "materia-theme",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-zsh-fzf-tab": "nixpkgs-zsh-fzf-tab",

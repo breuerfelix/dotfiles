@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }: {
+{ ... }: {
   programs.alacritty = {
     enable = true;
     settings = {
@@ -23,7 +23,7 @@
           normal = { family = fontname; style = "Bold"; };
           bold = { family = fontname; style = "ExtraBold"; };
           italic = { family = fontname; style = "ExtraLight"; };
-          size = 15;
+          size = 17;
         };
       cursor.style = "Block";
 
