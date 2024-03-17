@@ -41,15 +41,14 @@
         "earthly-vim": "earthly-vim",
         "flake-utils": "flake-utils",
         "github-nvim-theme": "github-nvim-theme",
-        "nixpkgs": "nixpkgs",
-        "vim-tabby": "vim-tabby"
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1710589449,
-        "narHash": "sha256-SKJ0ZnSU7jqNfKw2otXnttUPWPgXvs2+4sPi3IW7Bn0=",
+        "lastModified": 1710710452,
+        "narHash": "sha256-sae2fSyivcqkLWqPmoEBPUH5p/0C4SIb9OIaGsd4aLc=",
         "owner": "breuerfelix",
         "repo": "feovim",
-        "rev": "1b49fae191ad8cba9f3678ca82a0e35ab11f15a9",
+        "rev": "bcad48470095c3a91c6dc6ef388f02900e9c6e43",
         "type": "github"
       },
       "original": {
@@ -63,11 +62,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1705309234,
-        "narHash": "sha256-uNRRNRKmJyCRC/8y1RqBkqWBLM034y4qN7EprSdmgyA=",
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "1ef2e671c3b0c19053962c07dbda38332dcebf26",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
         "type": "github"
       },
       "original": {
@@ -171,11 +170,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1708262067,
-        "narHash": "sha256-AqYl5qScB2aguUI7yH/y3O6r7lNVd0BT1iqVlyOgWTE=",
+        "lastModified": 1710708480,
+        "narHash": "sha256-A1PbUD6jvJzVXmJVbFk6z9KmfIDPfxXRL/qC+ehPrHE=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a91bcc62f505966f01e9e470a7edb60166971b59",
+        "rev": "c00f438a492db58d8c29df4da70046ea6820c954",
         "type": "github"
       },
       "original": {
@@ -285,22 +284,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "vim-tabby": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1709310821,
-        "narHash": "sha256-z6SlQpLJSgeKvgYyplsS5c0KL89oEYm4BgDMkmpg5XI=",
-        "owner": "tabbyml",
-        "repo": "vim-tabby",
-        "rev": "afd76df166ed0f223ede1071e0cfde8075cc4a24",
-        "type": "github"
-      },
-      "original": {
-        "owner": "tabbyml",
-        "repo": "vim-tabby",
         "type": "github"
       }
     }

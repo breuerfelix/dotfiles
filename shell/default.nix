@@ -4,6 +4,7 @@
     ./zellij.nix
     ./git.nix
     ./k9s.nix
+    ./kubie.nix
     #./krew.nix
   ];
 
@@ -117,16 +118,61 @@
       gradle
     ];
 
+    shellAliases = {
+      # builtins
+      size = "du -sh";
+      cp = "cp -i";
+      mkdir = "mkdir -p";
+      df = "df -h";
+      free = "free -h";
+      du = "du -sh";
+      del = "rm -rf";
+      lst = "ls --tree -I .git";
+      lsl = "ls -l";
+      lsa = "ls -a";
+      null = "/dev/null";
+
+      # overrides
+      cat = "bat";
+      top = "btop";
+      htop = "btop";
+      ping = "gping";
+      diff = "delta";
+      ssh = "TERM=screen ssh";
+      python = "python3";
+      pip = "python3 -m pip";
+      venv = "python3 -m venv";
+      j = "z";
+
+      # programs
+      g = "git";
+      k = "kubectl";
+      d = "docker";
+      kca = "kubectl apply -f";
+      dc = "docker-compose";
+      cod = "colima start --runtime docker";
+      coc = "colima start --runtime containerd";
+      cos = "colima stop";
+      poe = "poetry";
+      tf = "terraform";
+      nr = "npm run";
+      py = "python";
+      pu = "pulumi";
+      cht = "cht.sh"; # terminal cheat sheet
+    };
+
     sessionPath = [
       "$HOME/go/bin"
       "$HOME/.local/bin"
       "$HOME/.cargo/bin"
       "$HOME/.krew/bin"
     ];
+
     sessionVariables = {
       GO111MODULE = "on";
       EDITOR = "nvim";
       VISUAL = "nvim";
+      NIXPKGS_ALLOW_UNFREE = "1";
     };
   };
 
@@ -178,7 +224,15 @@
     btop.enable = true; # htop alternative
     nushell.enable = true; # zsh alternative
     broot.enable = true; # browser big folders
-    atuin.enable = true; # sqlite browser history
+
+    # sqlite browser history
+    atuin = {
+      enable = true;
+      settings = {
+        inline_height = 20;
+        style = "compact";
+      };
+    };
 
     # pretty prompt
     starship = {

@@ -15,12 +15,6 @@
     dotDir = ".config/zsh";
     #defaultKeymap = "viins"; #vicmd or viins
 
-    sessionVariables = {
-      EDITOR = "nvim";
-      VISUAL = "nvim";
-      NIXPKGS_ALLOW_UNFREE = "1";
-    };
-
     history = {
       expireDuplicatesFirst = true;
       ignoreDups = true;
@@ -31,13 +25,6 @@
     };
 
     initExtra = ''
-      # fixes starship swallowing newlines
-      precmd() {
-        precmd() {
-          echo
-        }
-      }
-
       # used for homebrew
       export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share
 
@@ -60,11 +47,6 @@
 
       bindkey '^f' fzf-file-widget
 
-      function lmr () {
-        TICKET=$(git branch --show-current | grep -E -i -o '(contract-)?[0-9]{4,}' | tr '[:lower:]' '[:upper:]')
-        glab mr create --yes --remove-source-branch --title="$* - CONTRACT-$TICKET"
-      }
-
       function cd() {
         builtin cd $*
         lsd
@@ -78,21 +60,12 @@
       function take() { builtin cd $(mktemp -d) }
       function vit() { nvim $(mktemp) }
 
-      function lgc() { git commit --signoff -m "$*" }
-
       function clone() { git clone git@$1.git }
-
       function gclone() { clone github.com:$1 }
-
       function bclone() { gclone breuerfelix/$1 }
-
       function gsm() { git submodule foreach "$* || :" }
 
-      function gitdel() {
-        git tag -d $1
-        git push --delete origin $1
-      }
-
+      function lgc() { git commit --signoff -m "$*" }
       function lg() {
         git add --all
         git commit --signoff -a -m "$*"
@@ -107,24 +80,12 @@
 
       function dci() { docker inspect $(docker-compose ps -q $1) }
 
-      function nf() {
-        pushd ~/.nixpkgs
-        nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.brummi.system"
-        ./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
-      }
-
-      function nfh() {
-        pushd ~/.config/nixpkgs
-        nix --experimental-features "nix-command flakes" build ".#homeConfigurations.solid.activationPackage"
-        ./result/activate
-      }
-
-      function nfs() {
-        pushd ~/.config/nixpkgs
-        sudo nixos-rebuild switch --flake ".#rocky"
-      }
-
       # RTL
+      function lmr () {
+        TICKET=$(git branch --show-current | grep -E -i -o '(contract-)?[0-9]{4,}' | tr '[:lower:]' '[:upper:]')
+        glab mr create --yes --remove-source-branch --title="$* - CONTRACT-$TICKET"
+      }
+
       function expose-customer() {
         (
           kubectl port-forward deployment/subscriptions 8080:8080 &
@@ -140,73 +101,9 @@
       }
     '';
 
-    dirHashes = {
-      dl = "$HOME/Downloads";
-      code = "$HOME/code";
-    };
-
-    # TODO: move to home.shellAliases
     shellAliases = {
-      # builtins
-      size = "du -sh";
-      cp = "cp -i";
-      mkdir = "mkdir -p";
-      df = "df -h";
-      free = "free -h";
-      du = "du -sh";
-      susu = "sudo su";
-      op = "xdg-open";
-      del = "rm -rf";
-      sdel = "sudo rm -rf";
-      lst = "ls --tree -I .git";
-      lsl = "ls -l";
-      lsa = "ls -a";
-      null = "/dev/null";
-
-      # overrides
-      cat = "bat";
-      htop = "btop";
-      ping = "gping";
-      ssh = "TERM=screen ssh";
-      python = "python3";
-      pip = "python3 -m pip";
-      venv = "python3 -m venv";
-      j = "z";
-
-      # programs
-      g = "git";
-      kc = "kubectl";
-      k = "kubectl";
-      kca = "kubectl apply -f";
-      ku = "kubie";
-      dk = "docker";
-      dc = "docker-compose";
-      pd = "podman";
-      pc = "podman-compose";
-      cod = "colima start --runtime docker";
-      coc = "colima start --runtime containerd";
-      cos = "colima stop";
-      sc = "sudo systemctl";
-      poe = "poetry";
-      fb = "pcmanfm .";
-      space = "ncdu";
-      ca = "cargo";
-      tf = "terraform";
-      diff = "delta";
-      nr = "npm run";
-      py = "python";
-      awake = "caffeinate";
-      pu = "pulumi";
-
-      # terminal cheat sheet
-      cht = "cht.sh";
-      # lists node_modules folder and their size
-      npkill = "npx npkill";
-
-      # utilities
       psf = "ps -aux | grep";
       lsf = "ls | grep";
-      shut = "sudo shutdown -h now";
       tssh = "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null";
       socks = "ssh -D 1337 -q -C -N";
       prox =
@@ -217,20 +114,17 @@
         "docker run --rm -it -v `PWD`:/usr/workdir --workdir=/usr/workdir";
       dkclean = "docker container rm $(docker container ls -aq)";
 
-      caps = "xdotool key Caps_Lock";
       gclean =
         "git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done";
-      ew = "nvim -c ':cd ~/vimwiki' ~/vimwiki";
       weather = "curl -4 http://wttr.in/Koeln";
 
       # nix
       ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
+      nf = "nix run nix-darwin -- switch --flake ~/.nixpkgs";
       clean =
         "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents --repair";
       nsh = "nix-shell";
       nse = "nix search nixpkgs";
-
-      aupt = "sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y";
     };
 
     plugins = [
