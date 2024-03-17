@@ -1,7 +1,7 @@
-{ config, pkgs, lib, ... }: {
+{ ... }: {
   programs.zellij = { enable = true; };
 
-  # TODO: port to zellij nix config
+  # NOTE: the module only supports YAML config which is deprecated
   home.file.zellij = {
     target = ".config/zellij/config.kdl";
     text = ''
