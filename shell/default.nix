@@ -190,8 +190,8 @@
         keys = {
           insert = { j = { k = "normal_mode"; }; };
           normal = {
-            C-e = ":write";
-            C-q = ":quit";
+            C-m = ":write";
+            C-p = ":quit";
           };
         };
 
@@ -238,7 +238,7 @@
     starship = {
       enable = true;
       settings = {
-        add_newline = true;
+        add_newline = false;
         character = {
           success_symbol = "[➜](bold green)";
           error_symbol = "[✗](bold red)";

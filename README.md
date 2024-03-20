@@ -66,6 +66,8 @@ manual steps:
   - slack / teams / signal
   - firefox / arc
 - enable icloud sync
+- `npm install -g aws-azure-login`
+  - enable rosetta
 
 
 ## update
