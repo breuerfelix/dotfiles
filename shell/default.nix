@@ -2,6 +2,7 @@
   imports = [
     ./zsh.nix
     ./zellij.nix
+    ./tmux.nix
     ./git.nix
     ./k9s.nix
     ./kubie.nix
@@ -278,7 +279,6 @@
       defaultOptions = [
         "--border sharp"
         "--inline-info"
-        "--bind ctrl-h:preview-down,ctrl-l:preview-up"
       ];
     };
 

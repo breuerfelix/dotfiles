@@ -6,6 +6,7 @@
     masApps = {
       Xcode = 497799835;
       Transporter = 1450874784;
+      VN = 1494451650;
     };
     onActivation = {
       # "zap" removes manually installed brews and casks
@@ -66,7 +67,6 @@
       "raycast" # launcher on steroids
       "keycastr" # show keystrokes on screen
       "obsidian" # zettelkasten
-      "firefox" # browser
       "arc" # mac browser
     ];
     taps = [

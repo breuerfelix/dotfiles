@@ -49,7 +49,7 @@ manual steps:
   - alt + q | w | e | r | t to space 1-5
   - disable input source swap keybindings
 - import `Nix Managed` complex modification in Karabiner
-- login to firefox and sync settings
+- login to arc and sync settings
 - use EURKey as keyboard layout
   - remove default keyboard layout
   - https://superuser.com/questions/712306/remove-keyboard-layout-from-os-x-leaving-custom-layouts-only
@@ -64,7 +64,7 @@ manual steps:
   - time-out
   - apple calender / mail
   - slack / teams / signal
-  - firefox / arc
+  - arc
 - enable icloud sync
 - `npm install -g aws-azure-login`
   - enable rosetta
