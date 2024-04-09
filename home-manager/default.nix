@@ -4,6 +4,5 @@
     ./borders.nix
     ./karabiner.nix
     ./sketchybar.nix
-    ./vscode.nix
   ];
 }

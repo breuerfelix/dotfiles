@@ -17,9 +17,9 @@
     brews = [
       "sniffnet" # monitor network traffic
       "aws-iam-authenticator" # eks login
-      "colima" # docker desktop alternative
       "bitwarden-cli" # raycast extension does not like nix version
       "borders" # borders for windows
+      "openai-whisper" # transcode audio to text
 
       # ios development
       "cocoapods"
@@ -33,6 +33,7 @@
       "meetingbar" # shows upcoming meetings
       "karabiner-elements" # keyboard remap
       "eurkey" # keyboard layout
+      "nikitabobko/tap/aerospace" # tiling window manager
 
       # coding
       "intellij-idea"
@@ -40,6 +41,7 @@
 
       # virtualization
       "utm" # virtual machines
+      "docker" # docker desktop
 
       # communication
       "microsoft-teams"
@@ -68,6 +70,8 @@
       "keycastr" # show keystrokes on screen
       "obsidian" # zettelkasten
       "arc" # mac browser
+      "logitech-g-hub" # used for microphone
+      "visual-studio-code" # code editor
     ];
     taps = [
       # default

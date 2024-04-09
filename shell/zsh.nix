@@ -17,6 +17,8 @@
     };
 
     initExtra = ''
+      [ -f ~/.env/env.sh ] && source ~/.env/env.sh
+
       # used for homebrew
       export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share
 
@@ -33,9 +35,6 @@
       # this is backspace
       bindkey '^H' autosuggest-accept
       bindkey '^ ' autosuggest-accept
-
-      bindkey '^k' up-line-or-search
-      bindkey '^j' down-line-or-search
 
       bindkey '^f' fzf-file-widget
 

@@ -63,10 +63,7 @@
       slides # terminal presentation tool
       presenterm # presentation tool
       asdf-vm # managing different versions
-      docker # container runtime
       comma # run nix binaries on demand
-      # TODO: create config file for tabby
-      tabby # ai coding assistant
 
       # gnu binaries
       coreutils-full # multiple tools
@@ -151,9 +148,6 @@
       d = "docker";
       kca = "kubectl apply -f";
       dc = "docker-compose";
-      cod = "colima start --runtime docker";
-      coc = "colima start --runtime containerd";
-      cos = "colima stop";
       poe = "poetry";
       tf = "terraform";
       nr = "npm run";
@@ -174,6 +168,7 @@
       EDITOR = "nvim";
       VISUAL = "nvim";
       NIXPKGS_ALLOW_UNFREE = "1";
+      PULUMI_CONFIG_PASSPHRASE = "";
     };
   };
 

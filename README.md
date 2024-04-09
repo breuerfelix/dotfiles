@@ -48,6 +48,7 @@ manual steps:
   - disable spotlight search
   - alt + q | w | e | r | t to space 1-5
   - disable input source swap keybindings
+  - mission control to alt + b
 - import `Nix Managed` complex modification in Karabiner
 - login to arc and sync settings
 - use EURKey as keyboard layout
@@ -68,7 +69,9 @@ manual steps:
 - enable icloud sync
 - `npm install -g aws-azure-login`
   - enable rosetta
-
+- login to vscode for settings sync
+- enable key repeat for vim extension in intellij and vscode
+  - `defaults write -g ApplePressAndHoldEnabled -bool false`
 
 ## update
 

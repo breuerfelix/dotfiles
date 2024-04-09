@@ -15,7 +15,7 @@
     karabiner-elements.enable = false;
     nix-daemon.enable = true;
     sketchybar = {
-      enable = true;
+      enable = false;
       extraPackages = with pkgs; [ jq gh ];
     };
   };
@@ -75,6 +75,7 @@
       };
 
       NSGlobalDomain = {
+        _HIHideMenuBar = false;
         AppleFontSmoothing = 0;
         AppleInterfaceStyle = "Dark";
         AppleKeyboardUIMode = 3;
@@ -86,7 +87,6 @@
         NSAutomaticSpellingCorrectionEnabled = false;
         NSAutomaticWindowAnimationsEnabled = false;
         NSWindowResizeTime = 0.0;
-        _HIHideMenuBar = true;
         "com.apple.sound.beep.feedback" = 0;
         "com.apple.trackpad.scaling" = 2.0;
       };

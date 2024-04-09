@@ -1,6 +1,6 @@
 { ... }: {
   services.skhd = {
-    enable = true;
+    enable = false;
     skhdConfig = ''
       # alt + a / u / o / s are blocked due to umlaute
 

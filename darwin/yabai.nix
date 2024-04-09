@@ -1,6 +1,6 @@
 { ... }: {
   services.yabai = {
-    enable = true;
+    enable = false;
     config = {
       external_bar = "all:39:0";
       layout = "stack";
