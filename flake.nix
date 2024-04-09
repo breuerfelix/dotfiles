@@ -99,10 +99,13 @@
               };
               users.${user} = { ... }:
                 with inputs; {
-                  imports = [ feovim.ideavim ./home-manager ./shell ];
+                  imports = [ feovim.feovim ./home-manager ./shell ];
                   home.stateVersion = "23.11";
                   # from feovim
-                  ideavim.enable = true;
+                  feovim = {
+                    ideavim.enable = true;
+                    vscode.enable = true;
+                  };
                 };
             };
           }

@@ -92,6 +92,7 @@
       # cloud
       google-cloud-sdk
       awscli2
+      azure-cli
 
       # programming
 
