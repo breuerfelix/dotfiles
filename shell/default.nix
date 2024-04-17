@@ -93,6 +93,8 @@
       google-cloud-sdk
       awscli2
       azure-cli
+      openstackclient
+      s3cmd
 
       # programming
 
@@ -225,6 +227,7 @@
     # sqlite browser history
     atuin = {
       enable = true;
+      flags = [ "--disable-up-arrow" ];
       settings = {
         inline_height = 20;
         style = "compact";

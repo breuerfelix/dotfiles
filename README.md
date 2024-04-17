@@ -72,6 +72,7 @@ manual steps:
 - login to vscode for settings sync
 - enable key repeat for vim extension in intellij and vscode
   - `defaults write -g ApplePressAndHoldEnabled -bool false`
+- connect bluetooth keyboard and select `disable internal keyboard`
 
 ## update
 

@@ -4,5 +4,6 @@
     ./borders.nix
     ./karabiner.nix
     ./sketchybar.nix
+    ./aerospace.nix
   ];
 }

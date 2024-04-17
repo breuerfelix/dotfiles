@@ -72,6 +72,7 @@
       "arc" # mac browser
       "logitech-g-hub" # used for microphone
       "visual-studio-code" # code editor
+      "zed" # vim like editor
     ];
     taps = [
       # default

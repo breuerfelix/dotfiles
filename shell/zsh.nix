@@ -32,10 +32,9 @@
       eval "$(/opt/homebrew/bin/brew shellenv)"
 
       bindkey '^e' edit-command-line
-      # this is backspace
-      bindkey '^H' autosuggest-accept
       bindkey '^ ' autosuggest-accept
-
+      bindkey '^p' history-search-backward
+      bindkey '^n' history-search-forward
       bindkey '^f' fzf-file-widget
 
       function cd() {

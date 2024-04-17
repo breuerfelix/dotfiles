@@ -65,6 +65,7 @@
       ".ipynb_checkpoints" # jupyter
       "__sapper__" # svelte
       ".DS_Store" # mac
+      "kls_database.db" # kotlin lsp
     ];
     extraConfig = {
       init.defaultBranch = "main";
