@@ -274,7 +274,7 @@
       enable = true;
       enableZshIntegration = true;
       defaultCommand =
-        "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor";
+        "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor --exclude node_modules";
       defaultOptions = [
         "--border sharp"
         "--inline-info"
@@ -300,6 +300,11 @@
           description = "garden kubeconfig from ske-ci ondemand cluster";
           command =
             "kubectl get secret garden-kubeconfig-for-admin -n garden -o jsonpath='{.data.kubeconfig}' | base64 -d > garden-kubeconfig-for-admin.yaml";
+        }
+        {
+          description = "get all images used in a kubernetes cluster";
+          command =
+            "kubectl get pods --all-namespaces -o jsonpath=\"{.items[*].spec['initContainers', 'containers'][*].image}\" | tr -s '[[:space:]]' '\n' | sort | uniq -c";
         }
       ];
     };
