@@ -29,7 +29,6 @@
       [ -f ~/.aws/env.sh ] && source ~/.aws/env.sh
 
       source ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
-      eval "$(/opt/homebrew/bin/brew shellenv)"
 
       bindkey '^e' edit-command-line
       bindkey '^ ' autosuggest-accept
@@ -112,7 +111,7 @@
       ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
       nf = "nix run nix-darwin -- switch --flake ~/.nixpkgs";
       clean =
-        "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents --repair";
+        "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents --repair && nix store optimise";
       nsh = "nix-shell";
       nse = "nix search nixpkgs";
     };

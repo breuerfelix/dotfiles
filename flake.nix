@@ -82,7 +82,9 @@
                 allowed-users = [ user ];
                 experimental-features = [ "nix-command" "flakes" ];
                 warn-dirty = false;
-                auto-optimise-store = true;
+                # produces linking issues when updating on macOS
+                # https://github.com/NixOS/nix/issues/7273
+                auto-optimise-store = false;
               };
             };
           })

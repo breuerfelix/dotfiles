@@ -64,6 +64,7 @@
       presenterm # presentation tool
       asdf-vm # managing different versions
       comma # run nix binaries on demand
+      sshuttle # vpn over ssh
 
       # gnu binaries
       coreutils-full # multiple tools
