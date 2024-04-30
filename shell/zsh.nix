@@ -111,7 +111,7 @@
       ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";
       nf = "nix run nix-darwin -- switch --flake ~/.nixpkgs";
       clean =
-        "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents --repair && nix store optimise";
+        "nix-collect-garbage -d && nix-store --gc && nix-store --verify --check-contents && nix store optimise";
       nsh = "nix-shell";
       nse = "nix search nixpkgs";
     };

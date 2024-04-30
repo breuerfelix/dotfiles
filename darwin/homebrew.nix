@@ -73,6 +73,7 @@
       "logitech-g-hub" # used for microphone
       "visual-studio-code" # code editor
       "zed" # vim like editor
+      "vlc" # media player
     ];
     taps = [
       # default

@@ -48,15 +48,6 @@
       alt-shift-t = 'move-node-to-workspace 5'
 
       alt-shift-c = 'reload-config'
-      alt-shift-g = 'mode resize'
-
-      [mode.resize.binding]
-      h = 'resize width -100'
-      j = 'resize height +100'
-      k = 'resize height -100'
-      l = 'resize width +100'
-      enter = 'mode main'
-      esc = 'mode main'
 
       [workspace-to-monitor-force-assignment]
       1 = 'main'
