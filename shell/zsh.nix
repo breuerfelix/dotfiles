@@ -1,11 +1,10 @@
 { pkgs, pkgs-zsh-fzf-tab, ... }: {
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
     enableCompletion = false;
     autocd = true;
     dotDir = ".config/zsh";
-    #defaultKeymap = "viins"; #vicmd or viins
+    autosuggestion.enable = true;
 
     history = {
       expireDuplicatesFirst = true;

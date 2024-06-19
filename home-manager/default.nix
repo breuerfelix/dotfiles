@@ -3,7 +3,7 @@
     ./alacritty.nix
     ./borders.nix
     ./karabiner.nix
-    ./sketchybar.nix
+    #./sketchybar.nix
     ./aerospace.nix
   ];
 }
