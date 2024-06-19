@@ -66,6 +66,10 @@
       comma # run nix binaries on demand
       sshuttle # vpn over ssh
 
+      # work
+      kafkactl # kafka
+      go-task
+
       # gnu binaries
       coreutils-full # multiple tools
       gnutar
@@ -78,6 +82,7 @@
 
       # kubernetes stuff
       kubectl
+      kubelogin # oidc login azure
       krew # kubectl plugins
       kubie # fzf kubeconfig browser
       kind # k8s in docker

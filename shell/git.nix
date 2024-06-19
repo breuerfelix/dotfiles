@@ -18,12 +18,12 @@
         contents.user.email = "felix.breuer@inovex.de";
       }
       {
-        condition = "gitdir:~/code/ctrlf/";
+        condition = "gitdir:~/code/controlf/";
         contents = {
           commit.gpgSign = false;
           user = {
-            email = "daniel@controlf.io";
-            name = "Daniel Tremer";
+            email = "felix@controlf.io";
+            name = "Felix Breuer";
           };
         };
       }

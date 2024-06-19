@@ -20,10 +20,14 @@
       "bitwarden-cli" # raycast extension does not like nix version
       "borders" # borders for windows
       "openai-whisper" # transcode audio to text
+      "databricks" # databricks cli
 
       # ios development
       "cocoapods"
       "ios-deploy"
+
+      # work
+      "libmagic"
     ];
     casks = [
       # utilities
@@ -64,7 +68,7 @@
       "wireshark" # network sniffer
       "sf-symbols" # patched font for sketchybar
       "prusaslicer" # slicer for my printer
-      #"autodesk-fusion" # CAD tool
+      "autodesk-fusion" # CAD tool
       "time-out" # blurs screen every x mins
       "raycast" # launcher on steroids
       "keycastr" # show keystrokes on screen
@@ -74,6 +78,8 @@
       "visual-studio-code" # code editor
       "zed" # vim like editor
       "vlc" # media player
+      "linear-linear" # task management
+      "balenaetcher" # usb flashing
     ];
     taps = [
       # default
@@ -82,6 +88,7 @@
       "homebrew/services"
       # custom
       "FelixKratz/formulae" # borders
+      "databricks/tap" # databricks
     ];
   };
 }
