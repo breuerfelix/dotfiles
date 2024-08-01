@@ -38,6 +38,7 @@
       "karabiner-elements" # keyboard remap
       "eurkey" # keyboard layout
       "nikitabobko/tap/aerospace" # tiling window manager
+      "displaylink" # connect to external dell displays
 
       # coding
       "intellij-idea"
