@@ -41,14 +41,15 @@
         "earthly-vim": "earthly-vim",
         "flake-utils": "flake-utils",
         "github-nvim-theme": "github-nvim-theme",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "whaler": "whaler"
       },
       "locked": {
-        "lastModified": 1718783147,
-        "narHash": "sha256-I+OwVdAEpz7nmsdeEwr6T3KNAWi3VLQUbmdLBzncroI=",
+        "lastModified": 1722610368,
+        "narHash": "sha256-t/AavpadsuVgjC16lg2gCIT6KEq7fcK71HEl1YnBcLY=",
         "owner": "breuerfelix",
         "repo": "feovim",
-        "rev": "14a7ff612d0fbc4390344f83692fe8868e47f436",
+        "rev": "df9ca3c9377761178358a136649271349068b6e5",
         "type": "github"
       },
       "original": {
@@ -96,11 +97,11 @@
     "github-nvim-theme": {
       "flake": false,
       "locked": {
-        "lastModified": 1715167607,
-        "narHash": "sha256-vsIr3UrnajxixDo0cp+6GoQfmO0KDkPX8jw1e0fPHo4=",
+        "lastModified": 1722474538,
+        "narHash": "sha256-EPHKWcn/2XSmdWRJp2Ta/WJQOim6Bl0yTY4uwZEUt60=",
         "owner": "projekt0n",
         "repo": "github-nvim-theme",
-        "rev": "d832925e77cef27b16011a8dfd8835f49bdcd055",
+        "rev": "b607c2cde988daca0cb43269fcf81acf73ba9f2d",
         "type": "github"
       },
       "original": {
@@ -170,11 +171,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1718781954,
-        "narHash": "sha256-43LzmeT6zAIOMYDKkee18/laXr1LahQjWktqJXHP+14=",
+        "lastModified": 1722512416,
+        "narHash": "sha256-jBVlNMKcjpVUUY/HZpFxA8Oy6momPw9uUIw1yGXO2eo=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "9a7660458dfebc9e0feeca7fbb075e9fee99b460",
+        "rev": "d67951898e81e3eda031547f43a950c67d80eca1",
         "type": "github"
       },
       "original": {
@@ -284,6 +285,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "whaler": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1704281882,
+        "narHash": "sha256-1s6XGi4xIuWZv+2Q1++sdg1HvBkhR0A/4GJoMXDA+QY=",
+        "owner": "SalOrak",
+        "repo": "whaler",
+        "rev": "9e0b67e36250cb80e679563adcd4b7451eae26b2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SalOrak",
+        "repo": "whaler",
         "type": "github"
       }
     }

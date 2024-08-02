@@ -150,6 +150,7 @@
       pip = "python3 -m pip";
       venv = "python3 -m venv";
       j = "z";
+      ji = "zi";
 
       # programs
       g = "git";
