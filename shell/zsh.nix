@@ -68,24 +68,10 @@
 
       function dci() { docker inspect $(docker-compose ps -q $1) }
 
-      # RTL
       function lmr () {
-        TICKET=$(git branch --show-current | grep -E -i -o '(contract-)?[0-9]{4,}' | tr '[:lower:]' '[:upper:]')
-        glab mr create --yes --remove-source-branch --title="$* - CONTRACT-$TICKET"
-      }
-
-      function expose-customer() {
-        (
-          kubectl port-forward deployment/subscriptions 8080:8080 &
-          kubectl port-forward deployment/credits 8081:8080 &
-          kubectl port-forward deployment/customer-care-subscriptions 8082:8080 &
-          kubectl port-forward deployment/customer365 8083:8080 &
-          kubectl port-forward deployment/scoring 8084:8080 &
-          kubectl port-forward deployment/trialfraud 8085:8080 &
-
-          echo "Press CTRL-C to stop port forwarding"
-          wait
-        )
+        TICKET=$(git branch --show-current | grep -E -i -o '^[0-9]+')
+        SQUAD=$(basename $(dirname $(git rev-parse --show-toplevel)) | tr '[:lower:]' '[:upper:]')
+        glab mr create --yes --remove-source-branch --title="$* - $SQUAD-$TICKET"
       }
     '';
 

@@ -164,6 +164,7 @@
       py = "python";
       pu = "pulumi";
       cht = "cht.sh"; # terminal cheat sheet
+      kapitan = "docker run -t --rm -v $(pwd):/src:delegated kapicorp/kapitan";
     };
 
     sessionPath = [

@@ -28,6 +28,7 @@
 
       # work
       "libmagic"
+      "ruff" # python linter
     ];
     casks = [
       # utilities
@@ -81,6 +82,7 @@
       "vlc" # media player
       "linear-linear" # task management
       "balenaetcher" # usb flashing
+      "steam"
     ];
     taps = [
       # default
