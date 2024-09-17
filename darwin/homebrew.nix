@@ -21,6 +21,7 @@
       "borders" # borders for windows
       "openai-whisper" # transcode audio to text
       "databricks" # databricks cli
+      "pkgxdev/made/pkgx" # run anything
 
       # ios development
       "cocoapods"
@@ -76,7 +77,6 @@
       "keycastr" # show keystrokes on screen
       "obsidian" # zettelkasten
       "arc" # mac browser
-      "logitech-g-hub" # used for microphone
       "visual-studio-code" # code editor
       "zed" # vim like editor
       "vlc" # media player
@@ -92,6 +92,7 @@
       # custom
       "FelixKratz/formulae" # borders
       "databricks/tap" # databricks
+      "pkgxdev/made" # pkgx
     ];
   };
 }

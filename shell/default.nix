@@ -36,7 +36,7 @@
       dive # analyse docker images
       hyperfine # benchmark tool
       sipcalc # ip subnet calculator
-      youtube-dl # download youtube videos
+      yt-dlp # download youtube videos
       ffmpeg # video editing and cutting
       rclone # sync files
       duf # disk usage

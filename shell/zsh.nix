@@ -69,9 +69,10 @@
       function dci() { docker inspect $(docker-compose ps -q $1) }
 
       function lmr () {
-        TICKET=$(git branch --show-current | grep -E -i -o '^[0-9]+')
-        SQUAD=$(basename $(dirname $(git rev-parse --show-toplevel)) | tr '[:lower:]' '[:upper:]')
-        glab mr create --yes --remove-source-branch --title="$* - $SQUAD-$TICKET"
+        T=$(git branch --show-current | grep -E -i -o '^[A-Za-z]+-[0-9]+')
+        TICKET=$(echo "$T" | tr '[:lower:]' '[:upper:]')
+
+        glab mr create --yes --fill --remove-source-branch --title="$TICKET: $*"
       }
     '';
 
