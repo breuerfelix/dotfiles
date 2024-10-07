@@ -52,6 +52,7 @@
 
       # communication
       "microsoft-teams"
+      "microsoft-auto-update"
       "microsoft-outlook"
       "zoom"
       "slack"
@@ -82,7 +83,8 @@
       "vlc" # media player
       "linear-linear" # task management
       "balenaetcher" # usb flashing
-      "steam"
+      "spacedrive" # file explorer
+      "steam" # gaming
     ];
     taps = [
       # default
@@ -93,6 +95,7 @@
       "FelixKratz/formulae" # borders
       "databricks/tap" # databricks
       "pkgxdev/made" # pkgx
+      "nikitabobko/tap" # aerospace
     ];
   };
 }
