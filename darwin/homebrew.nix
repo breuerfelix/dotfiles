@@ -85,6 +85,7 @@
       "balenaetcher" # usb flashing
       "spacedrive" # file explorer
       "steam" # gaming
+      "chatgpt" # open ai desktop client
     ];
     taps = [
       # default
