@@ -68,7 +68,7 @@
 
       # work
       kafkactl # kafka
-      go-task
+      # go-task # FIXME: does not build
 
       # gnu binaries
       coreutils-full # multiple tools
