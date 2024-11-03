@@ -48,16 +48,21 @@
       function take() { builtin cd $(mktemp -d) }
       function vit() { nvim $(mktemp) }
 
-      function clone() { git clone git@$1.git }
-      function gclone() { clone github.com:$1 }
-      function bclone() { gclone breuerfelix/$1 }
+      function gclone() { git clone $(pbpaste) }
       function gsm() { git submodule foreach "$* || :" }
-
       function lgc() { git commit --signoff -m "$*" }
       function lg() {
         git add --all
         git commit --signoff -a -m "$*"
         git push
+      }
+
+      function gref() {
+        git reset --hard
+        git clean -df
+        git checkout main
+        git fetch
+        git pull
       }
 
       function pfusch() {

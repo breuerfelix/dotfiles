@@ -21,8 +21,8 @@
   };
 
   networking = {
-    knownNetworkServices = [ "Wi-Fi" ];
-    dns = [ "9.9.9.9" "1.1.1.1" "8.8.8.8" ];
+    knownNetworkServices = [ "Wi-Fi" "Thunderbolt Bridge" ];
+    dns = [ "192.168.178.10" "9.9.9.9" "1.1.1.1" "8.8.8.8" ];
   };
 
   fonts = {

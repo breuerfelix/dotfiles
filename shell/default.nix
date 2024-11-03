@@ -68,7 +68,7 @@
 
       # work
       kafkactl # kafka
-      # go-task # FIXME: does not build
+      openconnect # cli vpn client
 
       # gnu binaries
       coreutils-full # multiple tools
@@ -118,6 +118,7 @@
 
       ## golang
       golangci-lint
+      cue
 
       ## kotlin
       ktlint

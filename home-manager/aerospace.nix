@@ -24,16 +24,9 @@
       alt-shift-l = 'move right'
       alt-shift-h = 'move left'
 
-      #alt-h = 'split horizontal'
-      #alt-v = 'split vertical'
-
       alt-f = 'fullscreen'
-
-      #alt-d = 'layout v_accordion' # 'layout stacking' in i3
       alt-d = 'layout h_accordion tiles' # 'layout tabbed' in i3
-      #alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
-
-      alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
+      alt-shift-space = 'layout floating tiling'
 
       alt-q = 'workspace 1'
       alt-w = 'workspace 2'
@@ -56,7 +49,6 @@
       4 = 'main'
       5 = ['built-in', 'secondary', 'main']
 
-      # todo
       [[on-window-detected]]
       if.app-name-regex-substring = 'reminder'
       run = 'move-node-to-workspace 1'

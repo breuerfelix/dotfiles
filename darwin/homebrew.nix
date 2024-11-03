@@ -41,6 +41,8 @@
       "eurkey" # keyboard layout
       "nikitabobko/tap/aerospace" # tiling window manager
       "displaylink" # connect to external dell displays
+      "raspberry-pi-imager" # flash images to sd card
+      "logitech-g-hub" # microphone and mouse
 
       # coding
       "intellij-idea"
