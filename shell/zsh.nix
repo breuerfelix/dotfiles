@@ -29,7 +29,7 @@
 
       source ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
 
-      bindkey '^e' edit-command-line
+      bindkey '^w' edit-command-line
       bindkey '^ ' autosuggest-accept
       bindkey '^p' history-search-backward
       bindkey '^n' history-search-forward
