@@ -3,7 +3,7 @@
     enable = true;
     enableCompletion = false;
     autocd = true;
-    dotDir = ".config/zsh";
+    #dotDir = ".config/zsh";
     autosuggestion.enable = true;
 
     history = {
@@ -22,7 +22,7 @@
       export XDG_DATA_DIRS=$XDG_DATA_DIRS:/opt/homebrew/share
 
       # better kubectl diff
-      export KUBECTL_EXTERNAL_DIFF="dyff between --omit-header --set-exit-code"
+      export KUBECTL_EXTERNAL_DIFF="${pkgs.dyff}/bin/dyff between --omit-header --set-exit-code"
 
       # used for RTL AWS login
       [ -f ~/.aws/env.sh ] && source ~/.aws/env.sh
@@ -129,6 +129,7 @@
       enable = true;
       caseSensitive = false;
       utility.safeOps = true;
+      tmux.autoStartLocal = true;
       editor = {
         dotExpansion = true;
         keymap = "vi";

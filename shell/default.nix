@@ -91,7 +91,6 @@
       kubent # check for deprecations
       termshark # tui for wireshark
       prometheus # prometheus linter
-      dyff # better kubectl diff
       kubebuilder # generate controller
       kubernetes-helm # deploy applications
 

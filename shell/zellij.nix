@@ -36,7 +36,9 @@
           bind "Ctrl h" { GoToPreviousTab; SwitchToMode "Normal"; }
         }
       }
+
       theme "catppuccin-mocha"
+
       themes {
         tokyo-night-dark {
           fg 169 177 214
