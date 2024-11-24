@@ -67,7 +67,6 @@
       "rekordbox" # dj software
       "obs" # stream / recoding software
       "protonmail-bridge"
-      "shottr" # screenshot tool
       "the-unarchiver"
       "tunnelblick" # vpn client
       "eul" # mac monitoring

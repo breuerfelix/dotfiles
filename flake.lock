@@ -23,16 +23,17 @@
     "feovim": {
       "inputs": {
         "flake-utils": "flake-utils",
+        "inlay-hints": "inlay-hints",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "whaler": "whaler"
       },
       "locked": {
-        "lastModified": 1730710878,
-        "narHash": "sha256-hYfFzhr6A4Yhb8hzKoOlAikoMYdwICchG+P7OYIm+4s=",
+        "lastModified": 1730815498,
+        "narHash": "sha256-/y9Yf03GfOSfOR+CWCAaKKlvP0qxEX8tktVBFgyQCBM=",
         "owner": "breuerfelix",
         "repo": "feovim",
-        "rev": "0032c3236ab9bba7be3ff07456cfa5f67d65e48e",
+        "rev": "0dae9b80617138904b8fc4e8e805c63612635c21",
         "type": "github"
       },
       "original": {
@@ -94,6 +95,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "inlay-hints": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724405543,
+        "narHash": "sha256-DZVtFAUK9c8GInp+JdCQ1BKe0dkAheHKI67oxdMmA24=",
+        "owner": "MysticalDevil",
+        "repo": "inlay-hints.nvim",
+        "rev": "af84dee42cd118af6d592b06c1c0e45d6432a6c0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MysticalDevil",
+        "repo": "inlay-hints.nvim",
         "type": "github"
       }
     },
@@ -167,6 +184,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-unstable_2": {
+      "locked": {
+        "lastModified": 1730531603,
+        "narHash": "sha256-Dqg6si5CqIzm87sp57j5nTaeBbWhHFaVyG7V6L8k3lY=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "7ffd9ae656aec493492b44d0ddfb28e79a1ea25d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-zsh-fzf-tab": {
       "locked": {
         "lastModified": 1707152963,
@@ -221,6 +254,7 @@
         "krewfile": "krewfile",
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_3",
+        "nixpkgs-unstable": "nixpkgs-unstable_2",
         "nixpkgs-zsh-fzf-tab": "nixpkgs-zsh-fzf-tab",
         "sketchybar": "sketchybar"
       }

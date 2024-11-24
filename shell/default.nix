@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, unstable, ... }: {
   imports = [
     ./zsh.nix
     ./zellij.nix
@@ -109,7 +109,8 @@
       rustup # rust
 
       ## node
-      deno # node runtime
+      # TODO: remove unstable once deno 2 is in stable
+      unstable.deno # node runtime
       nodejs
       nodePackages.npm
       nodePackages.yarn

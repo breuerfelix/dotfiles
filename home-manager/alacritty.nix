@@ -42,41 +42,73 @@
       };
       cursor.style = "Block";
 
-      # nord theme
+      # catppuccin mocha
       colors = {
         primary = {
-          background = "0x1a1b26";
-          foreground = "0xc0caf5";
+          background = "#1e1e2e";
+          foreground = "#cdd6f4";
+          dim_foreground = "#7f849c";
+          bright_foreground = "#cdd6f4";
+        };
+        cursor = {
+          text = "#1e1e2e";
+          cursor = "#f5e0dc";
+        };
+        vi_mode_cursor = {
+          text = "#1e1e2e";
+          cursor = "#b4befe";
+        };
+        search = {
+          matches = {
+            foreground = "#1e1e2e";
+            background = "#a6adc8";
+          };
+          focused_match = {
+            foreground = "#1e1e2e";
+            background = "#a6e3a1";
+          };
+        };
+        footer_bar = {
+          foreground = "#1e1e2e";
+          background = "#a6adc8";
+        };
+        hints = {
+          start = {
+            foreground = "#1e1e2e";
+            background = "#f9e2af";
+          };
+          end = {
+            foreground = "#1e1e2e";
+            background = "#a6adc8";
+          };
+        };
+        selection = {
+          text = "#1e1e2e";
+          background = "#f5e0dc";
         };
         normal = {
-          black = "0x15161e";
-          red = "0xf7768e";
-          green = "0x9ece6a";
-          yellow = "0xe0af68";
-          blue = "0x7aa2f7";
-          magenta = "0xbb9af7";
-          cyan = "0x7dcfff";
-          white = "0xa9b1d6";
+          black = "#45475a";
+          red = "#f38ba8";
+          green = "#a6e3a1";
+          yellow = "#f9e2af";
+          blue = "#89b4fa";
+          magenta = "#f5c2e7";
+          cyan = "#94e2d5";
+          white = "#bac2de";
         };
         bright = {
-          black = "0x414868";
-          red = "0xf7768e";
-          green = "0x9ece6a";
-          yellow = "0xe0af68";
-          blue = "0x7aa2f7";
-          magenta = "0xbb9af7";
-          cyan = "0x7dcfff";
-          white = "0xc0caf5";
+          black = "#585b70";
+          red = "#f38ba8";
+          green = "#a6e3a1";
+          yellow = "#f9e2af";
+          blue = "#89b4fa";
+          magenta = "#f5c2e7";
+          cyan = "#94e2d5";
+          white = "#a6adc8";
         };
         indexed_colors = [
-          {
-            index = 16;
-            color = "0xff9e64";
-          }
-          {
-            index = 17;
-            color = "0xdb4b4b";
-          }
+          { index = 16; color = "#fab387"; }
+          { index = 17; color = "#f5e0dc"; }
         ];
       };
     };

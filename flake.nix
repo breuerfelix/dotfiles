@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,6 +38,8 @@
         allowUnfree = true;
         allowUnsupportedSystem = false;
       };
+
+      unstable = import inputs.nixpkgs-unstable { inherit system; };
       overlays = with inputs; [ feovim.overlay krewfile.overlay ];
       user = "felix";
       hostname = "brummi";
@@ -47,7 +50,7 @@
       darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
         inherit system;
         # makes all inputs availble in imported files
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; inherit unstable; };
         modules = [
           inputs.nix-index-database.darwinModules.nix-index
           ./darwin
@@ -96,6 +99,7 @@
               # makes all inputs available in imported files for hm
               extraSpecialArgs = {
                 inherit inputs;
+                inherit unstable;
                 pkgs-zsh-fzf-tab =
                   import inputs.nixpkgs-zsh-fzf-tab { inherit system; };
               };
