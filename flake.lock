@@ -29,11 +29,11 @@
         "whaler": "whaler"
       },
       "locked": {
-        "lastModified": 1730815498,
-        "narHash": "sha256-/y9Yf03GfOSfOR+CWCAaKKlvP0qxEX8tktVBFgyQCBM=",
+        "lastModified": 1732530516,
+        "narHash": "sha256-3VH2/ZyquA/5YgDCBoMg6wGb0a/yna3nfHpXEhMPfjU=",
         "owner": "breuerfelix",
         "repo": "feovim",
-        "rev": "0dae9b80617138904b8fc4e8e805c63612635c21",
+        "rev": "1fab4f08e3adf30f7a375476e66a61730be2a003",
         "type": "github"
       },
       "original": {
