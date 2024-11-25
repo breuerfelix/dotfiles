@@ -76,7 +76,7 @@
 
             nix = {
               # enable flakes per default
-              package = pkgs.nixFlakes;
+              package = pkgs.nixVersions.stable;
               gc = {
                 automatic = false;
                 user = user;
