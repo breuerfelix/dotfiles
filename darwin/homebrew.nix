@@ -22,6 +22,7 @@
       "openai-whisper" # transcode audio to text
       "databricks" # databricks cli
       "pkgxdev/made/pkgx" # run anything
+      "diffutils" # gnupkg diff binary
 
       # ios development
       "cocoapods"
@@ -42,7 +43,6 @@
       "nikitabobko/tap/aerospace" # tiling window manager
       "displaylink" # connect to external dell displays
       "raspberry-pi-imager" # flash images to sd card
-      "logitech-g-hub" # microphone and mouse
 
       # coding
       "intellij-idea"
@@ -79,6 +79,7 @@
       "keycastr" # show keystrokes on screen
       "obsidian" # zettelkasten
       "arc" # mac browser
+      "google-chrome" # used for selenium and testing
       "visual-studio-code" # code editor
       "zed" # vim like editor
       "vlc" # media player
@@ -87,6 +88,7 @@
       "spacedrive" # file explorer
       "steam" # gaming
       "chatgpt" # open ai desktop client
+      "loop" # window manager
     ];
     taps = [
       # default

@@ -200,22 +200,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-zsh-fzf-tab": {
-      "locked": {
-        "lastModified": 1707152963,
-        "narHash": "sha256-JvSs+aPLtsXsXJWJqpllFQyanCK0KWuX2SHSshCAs0I=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "8193e46376fdc6a13e8075ad263b4b5ca2592c03",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "8193e46376fdc6a13e8075ad263b4b5ca2592c03",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1725896647,
@@ -255,7 +239,6 @@
         "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs_3",
         "nixpkgs-unstable": "nixpkgs-unstable_2",
-        "nixpkgs-zsh-fzf-tab": "nixpkgs-zsh-fzf-tab",
         "sketchybar": "sketchybar"
       }
     },

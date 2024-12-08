@@ -1,9 +1,8 @@
-{ pkgs, pkgs-zsh-fzf-tab, ... }: {
+{ pkgs, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = false;
     autocd = true;
-    #dotDir = ".config/zsh";
     autosuggestion.enable = true;
 
     history = {
@@ -27,7 +26,8 @@
       # used for RTL AWS login
       [ -f ~/.aws/env.sh ] && source ~/.aws/env.sh
 
-      source ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
+      # asdf slows down my terminal start a lot
+      #source ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
 
       bindkey '^w' edit-command-line
       bindkey '^ ' autosuggest-accept
@@ -73,6 +73,10 @@
 
       function dci() { docker inspect $(docker-compose ps -q $1) }
 
+      function psp () {
+        git checkout -b PSPDX-$1
+      }
+
       function lmr () {
         T=$(git branch --show-current | grep -E -i -o '^[A-Za-z]+-[0-9]+')
         TICKET=$(echo "$T" | tr '[:lower:]' '[:upper:]')
@@ -112,29 +116,6 @@
         name = "fast-syntax-highlighting";
         src = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions";
       }
-      {
-        name = "zsh-nix-shell";
-        src = "${pkgs.zsh-nix-shell}/share/zsh-nix-shell";
-      }
-      {
-        name = "forgit";
-        src = "${pkgs.zsh-forgit}/share/zsh/zsh-forgit";
-      }
-      {
-        name = "fzf-tab";
-        src = "${pkgs-zsh-fzf-tab.zsh-fzf-tab}/share/fzf-tab";
-      }
     ];
-    prezto = {
-      enable = true;
-      caseSensitive = false;
-      utility.safeOps = true;
-      tmux.autoStartLocal = true;
-      editor = {
-        dotExpansion = true;
-        keymap = "vi";
-      };
-      pmodules = [ "autosuggestions" "directory" "editor" "git" "terminal" ];
-    };
   };
 }

@@ -65,6 +65,7 @@
       asdf-vm # managing different versions
       comma # run nix binaries on demand
       sshuttle # vpn over ssh
+      fblog # json log viewer
 
       # work
       kafkactl # kafka
@@ -224,14 +225,15 @@
     };
 
     # shell integrations are enabled by default
+    nushell.enable = true; # zsh alternative
     zoxide.enable = true; # autojump
     jq.enable = true; # json parser
     bat.enable = true; # pretty cat
     lazygit.enable = true; # git tui
-    nnn.enable = true; # file browser
+    yazi.enable = true; # file browser
     btop.enable = true; # htop alternative
-    nushell.enable = true; # zsh alternative
     broot.enable = true; # browser big folders
+    carapace.enable = true; # autocompletion
 
     # sqlite browser history
     atuin = {
@@ -263,7 +265,6 @@
 
     go = {
       enable = true;
-      package = pkgs.go_1_22;
       goPath = "go";
       goBin = "go/bin";
       goPrivate = [ ];
