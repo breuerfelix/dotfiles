@@ -82,5 +82,5 @@ manual steps:
 nix flake update
 
 # single input
-nix flake lock --update-input <input>
+nix flake update <input>
 ```
