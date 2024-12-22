@@ -89,6 +89,8 @@
       "steam" # gaming
       "chatgpt" # open ai desktop client
       "loop" # window manager
+      "shortcat" # mouse emulation
+      "homerow" # vimium for mac
     ];
     taps = [
       # default

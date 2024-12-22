@@ -110,12 +110,10 @@
       rustup # rust
 
       ## node
-      # TODO: remove unstable once deno 2 is in stable
-      unstable.deno # node runtime
+      deno # node runtime
       nodejs
       nodePackages.npm
       nodePackages.yarn
-      nodePackages.expo-cli
 
       ## golang
       golangci-lint
