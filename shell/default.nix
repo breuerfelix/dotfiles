@@ -13,6 +13,10 @@
     packages = with pkgs; [
       neovim # customized by overlay
 
+      # terminal
+      # TODO: currently broken
+      #unstable.ghostty
+
       # net tools
       bind
       nmap

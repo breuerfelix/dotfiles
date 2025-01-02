@@ -66,7 +66,7 @@
       "android-studio" # needed for react-native
       "rekordbox" # dj software
       "obs" # stream / recoding software
-      "protonmail-bridge"
+      "proton-mail-bridge"
       "the-unarchiver"
       "tunnelblick" # vpn client
       "eul" # mac monitoring
@@ -90,6 +90,7 @@
       "chatgpt" # open ai desktop client
       "loop" # window manager
       "homerow" # vimium for mac
+      "ghostty" # terminal
     ];
     taps = [
       # default
