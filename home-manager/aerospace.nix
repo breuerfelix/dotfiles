@@ -51,7 +51,7 @@
 
       [[on-window-detected]]
       if.app-name-regex-substring = 'reminder'
-      run = 'move-node-to-workspace 1'
+      run = ['layout floating', 'move-node-to-workspace 1']
 
       [[on-window-detected]]
       if.app-name-regex-substring = 'mail'

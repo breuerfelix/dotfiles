@@ -91,6 +91,7 @@
       "loop" # window manager
       "homerow" # vimium for mac
       "ghostty" # terminal
+      "jan" # local ChatGPT
     ];
     taps = [
       # default

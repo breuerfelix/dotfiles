@@ -57,6 +57,13 @@
         git push
       }
 
+      function gm() {
+        git reset --hard
+        git checkout main
+        git fetch
+        git pull
+      }
+
       function gref() {
         git reset --hard
         git clean -df

@@ -33,6 +33,7 @@
       cm = "commit";
       ca = "commit --amend --no-edit";
       co = "checkout";
+      si = "switch";
       cp = "cherry-pick";
 
       di = "diff";
