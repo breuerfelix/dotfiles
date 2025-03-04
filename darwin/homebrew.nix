@@ -31,6 +31,7 @@
       # work
       "libmagic"
       "ruff" # python linter
+      "totp-cli" # for backstage e2e tests
     ];
     casks = [
       # utilities
@@ -92,6 +93,7 @@
       "homerow" # vimium for mac
       "ghostty" # terminal
       "jan" # local ChatGPT
+      "firefox"
     ];
     taps = [
       # default

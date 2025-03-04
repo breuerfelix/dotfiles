@@ -118,6 +118,7 @@
       nodejs
       nodePackages.npm
       nodePackages.yarn
+      nodePackages.pnpm
 
       ## golang
       golangci-lint
