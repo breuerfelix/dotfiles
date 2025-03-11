@@ -70,6 +70,8 @@
       comma # run nix binaries on demand
       sshuttle # vpn over ssh
       fblog # json log viewer
+      terraform
+      opentofu
 
       # work
       kafkactl # kafka
@@ -177,6 +179,7 @@
       "$HOME/.local/bin"
       "$HOME/.cargo/bin"
       "$HOME/.krew/bin"
+      "$HOME/.npm-global/bin"
     ];
 
     sessionVariables = {

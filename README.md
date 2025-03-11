@@ -67,8 +67,11 @@ manual steps:
   - slack / teams / signal
   - arc
 - enable icloud sync
-- `npm install -g aws-azure-login`
-  - enable rosetta
+- configure npm
+  - `mkdir ~/.npm-global`
+  - `npm config set prefix '~/.npm-global'`
+  - `npm install -g aws-azure-login`
+    - enable rosetta
 - login to vscode for settings sync
 - enable key repeat for vim extension in intellij and vscode
   - `defaults write -g ApplePressAndHoldEnabled -bool false`
