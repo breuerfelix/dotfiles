@@ -13,7 +13,6 @@
   services = {
     # FIXME: driver issues
     karabiner-elements.enable = false;
-    nix-daemon.enable = true;
     sketchybar = {
       enable = false;
       extraPackages = with pkgs; [ jq gh ];
@@ -32,7 +31,7 @@
     ];
   };
 
-  security = { pam.enableSudoTouchIdAuth = true; };
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   system = {
     keyboard = {

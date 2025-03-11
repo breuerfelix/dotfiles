@@ -74,10 +74,8 @@
             nix = {
               # enable flakes per default
               package = pkgs.nixVersions.stable;
-              gc = {
-                automatic = false;
-                user = user;
-              };
+              enable = true;
+              gc.automatic = false;
               settings = {
                 allowed-users = [ user ];
                 experimental-features = [ "nix-command" "flakes" ];
@@ -88,7 +86,7 @@
               };
             };
           })
-          home-manager.darwinModule
+          home-manager.darwinModules.home-manager
           {
             home-manager = {
               useGlobalPkgs = true;

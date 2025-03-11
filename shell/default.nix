@@ -57,7 +57,6 @@
       ytt # yaml templating engine
       zk # zettelkasten
       mask # taskrunner
-      diskonaut # explore disk size
       gnupg # gpg
       gping # ping with a graph
       ruby # scripting language
