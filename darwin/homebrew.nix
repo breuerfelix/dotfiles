@@ -3,11 +3,11 @@
     enable = true;
     global = { autoUpdate = false; };
     # will not be uninstalled when removed
-    masApps = {
-      Xcode = 497799835;
-      Transporter = 1450874784;
-      VN = 1494451650;
-    };
+    # masApps = {
+    #   Xcode = 497799835;
+    #   Transporter = 1450874784;
+    #   VN = 1494451650;
+    # };
     onActivation = {
       # "zap" removes manually installed brews and casks
       cleanup = "zap";

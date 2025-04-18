@@ -112,7 +112,7 @@
 
       ## python
       python3
-      poetry # python tools
+      #poetry # python tools # TODO tests failing
       rustup # rust
       uv # workspace management tool
 
