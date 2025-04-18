@@ -71,6 +71,7 @@
       fblog # json log viewer
       terraform
       opentofu
+      putty # for kubernetes training
 
       # work
       kafkactl # kafka
@@ -113,6 +114,7 @@
       python3
       poetry # python tools
       rustup # rust
+      uv # workspace management tool
 
       ## node
       deno # node runtime
@@ -179,6 +181,7 @@
       "$HOME/.cargo/bin"
       "$HOME/.krew/bin"
       "$HOME/.npm-global/bin"
+      "/opt/homebrew/bin"
     ];
 
     sessionVariables = {

@@ -93,7 +93,11 @@
       "homerow" # vimium for mac
       "ghostty" # terminal
       "jan" # local ChatGPT
-      "firefox"
+      "firefox" # because chromium can't be shared in teams...
+      "todoist" # better reminders
+      "battle-net" # some fun
+      "neohtop" # nice htop gui alternative
+      "freelens" # kubernetes IDE
     ];
     taps = [
       # default
@@ -105,6 +109,7 @@
       "databricks/tap" # databricks
       "pkgxdev/made" # pkgx
       "nikitabobko/tap" # aerospace
+      "freelensapp/tap" # freelens
     ];
   };
 }
