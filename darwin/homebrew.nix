@@ -68,6 +68,7 @@
       "rekordbox" # dj software
       "obs" # stream / recoding software
       "proton-mail-bridge"
+      "protonvpn"
       "the-unarchiver"
       "tunnelblick" # vpn client
       "eul" # mac monitoring
@@ -98,6 +99,7 @@
       "battle-net" # some fun
       "neohtop" # nice htop gui alternative
       "freelens" # kubernetes IDE
+      "cursor" # ai IDE
     ];
     taps = [
       # default

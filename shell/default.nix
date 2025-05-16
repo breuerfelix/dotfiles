@@ -190,6 +190,7 @@
       VISUAL = "nvim";
       NIXPKGS_ALLOW_UNFREE = "1";
       PULUMI_CONFIG_PASSPHRASE = "";
+      COREPACK_ENABLE_AUTO_PIN = "0";
     };
   };
 
