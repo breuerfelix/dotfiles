@@ -122,8 +122,8 @@
       deno # node runtime
       nodejs
       nodePackages.npm
-      nodePackages.yarn
-      nodePackages.pnpm
+      #nodePackages.yarn
+      #nodePackages.pnpm
 
       ## golang
       golangci-lint
@@ -245,6 +245,7 @@
     btop.enable = true; # htop alternative
     broot.enable = true; # browser big folders
     carapace.enable = true; # autocompletion
+    lsd.enable = true; # pretty ls
 
     # sqlite browser history
     atuin = {
@@ -266,12 +267,6 @@
           error_symbol = "[✗](bold red)";
         };
       };
-    };
-
-    # pretty ls
-    lsd = {
-      enable = true;
-      enableAliases = true;
     };
 
     go = {

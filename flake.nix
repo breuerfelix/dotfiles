@@ -57,6 +57,7 @@
 
             system = {
               stateVersion = 4;
+              primaryUser = user;
               configurationRevision = self.rev or self.dirtyRev or null;
             };
 
