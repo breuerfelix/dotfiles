@@ -84,6 +84,10 @@
       run = 'move-node-to-workspace 3'
 
       [[on-window-detected]]
+      if.app-name-regex-substring = 'whatsapp'
+      run = 'move-node-to-workspace 3'
+
+      [[on-window-detected]]
       if.app-name-regex-substring = 'messages'
       run = 'move-node-to-workspace 3'
 

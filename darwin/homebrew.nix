@@ -19,7 +19,7 @@
       "aws-iam-authenticator" # eks login
       "bitwarden-cli" # raycast extension does not like nix version
       "borders" # borders for windows
-      "openai-whisper" # transcode audio to text
+      #"openai-whisper" # transcode audio to text
       "databricks" # databricks cli
       "pkgxdev/made/pkgx" # run anything
       "diffutils" # gnupkg diff binary
@@ -46,8 +46,12 @@
       "raspberry-pi-imager" # flash images to sd card
 
       # coding
+      "visual-studio-code" # code editor
+      "cursor" # ai IDE
+      "zed" # vim like editor
       "intellij-idea"
       "postman"
+      "android-studio" # needed for react-native
 
       # virtualization
       "utm" # virtual machines
@@ -60,11 +64,22 @@
       "zoom"
       "slack"
       "signal"
+      "whatsapp"
       "discord"
 
+      # browsers
+      "google-chrome" # used for selenium and testing
+      "firefox" # because chromium can't be shared in teams...
+
+      # ai
+      "chatgpt" # open ai desktop client
+      "jan" # local ChatGPT
+      "diffusionbee" # local image generation
+      "draw-things" # local image generation
+
+      # other
       "bitwarden" # password manager
       "spotify" # music
-      "android-studio" # needed for react-native
       "rekordbox" # dj software
       "obs" # stream / recoding software
       "proton-mail-bridge"
@@ -76,30 +91,20 @@
       "sf-symbols" # patched font for sketchybar
       "prusaslicer" # slicer for my printer
       "autodesk-fusion" # CAD tool
+      "openscad" # autodesk alternative
       "time-out" # blurs screen every x mins
       "raycast" # launcher on steroids
       "keycastr" # show keystrokes on screen
       "obsidian" # zettelkasten
       "arc" # mac browser
-      "google-chrome" # used for selenium and testing
-      "visual-studio-code" # code editor
-      "zed" # vim like editor
       "vlc" # media player
-      "linear-linear" # task management
       "balenaetcher" # usb flashing
-      "spacedrive" # file explorer
       "steam" # gaming
-      "chatgpt" # open ai desktop client
       "loop" # window manager
       "homerow" # vimium for mac
-      "ghostty" # terminal
-      "jan" # local ChatGPT
-      "firefox" # because chromium can't be shared in teams...
       "todoist" # better reminders
-      "battle-net" # some fun
       "neohtop" # nice htop gui alternative
       "freelens" # kubernetes IDE
-      "cursor" # ai IDE
     ];
     taps = [
       # default

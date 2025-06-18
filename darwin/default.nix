@@ -8,7 +8,12 @@
     };
   };
 
-  programs = { zsh.enable = true; };
+  programs = {
+    # is needed for shell integrations to work
+    # most of them fail if zsh is only enabled via hm
+    zsh.enable = true;
+    nix-index.enable = true;
+  };
 
   services = {
     # FIXME: driver issues

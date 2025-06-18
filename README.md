@@ -76,7 +76,7 @@ manual steps:
 - enable key repeat for vim extension in intellij and vscode
   - `defaults write -g ApplePressAndHoldEnabled -bool false`
 - connect bluetooth keyboard and select `disable internal keyboard`
-- `defaults write -g NSWindowShouldDragOnGesture -bool true` TODO: put into home manager config
+- `defaults write -g NSWindowShouldDragOnGesture -bool true` TODO: put into home manager config - this lets you drag and drop windows with aerospace by hold alt
 
 ## update
 

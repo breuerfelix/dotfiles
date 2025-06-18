@@ -72,10 +72,12 @@
       terraform
       opentofu
       putty # for kubernetes training
+      procs # better ps
 
       # work
       kafkactl # kafka
       openconnect # cli vpn client
+      jira-cli-go # jira cli
 
       # gnu binaries
       coreutils-full # multiple tools
