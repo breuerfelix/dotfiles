@@ -24,6 +24,7 @@
       "pkgxdev/made/pkgx" # run anything
       "diffutils" # gnupkg diff binary
       "multi-gitter" # interact with a company via git
+      "nodejs"
 
       # ai
       "gemini-cli"

@@ -108,7 +108,8 @@
       # cloud
       google-cloud-sdk
       awscli2
-      azure-cli
+      # TODO: compile fails
+      #azure-cli
       openstackclient
       s3cmd
 
@@ -116,14 +117,15 @@
 
       ## python
       python3
-      #poetry # python tools # TODO tests failing
+      poetry # python tools # TODO tests failing
       rustup # rust
       uv # workspace management tool
 
       ## node
       deno # node runtime
-      nodejs
-      nodePackages.npm
+      # FIXME: is compiling from scratch
+      #nodejs
+      #nodePackages.npm
 
       ## golang
       golangci-lint

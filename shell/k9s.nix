@@ -17,7 +17,7 @@
       catppuccin-mocha = ./k9s-catppuccin-mocha.yaml;
     };
 
-    plugin.plugin = {
+    plugins = {
       modify-secret = {
         shortCut = "Ctrl-X";
         description = "Edit Decoded Secret";
