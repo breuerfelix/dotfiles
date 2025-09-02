@@ -73,6 +73,8 @@
       opentofu
       putty # for kubernetes training
       procs # better ps
+      mob # mob programming tool
+      claude-code # ai cli tool
 
       # work
       kafkactl # kafka
@@ -122,8 +124,6 @@
       deno # node runtime
       nodejs
       nodePackages.npm
-      #nodePackages.yarn
-      #nodePackages.pnpm
 
       ## golang
       golangci-lint
@@ -193,6 +193,9 @@
       NIXPKGS_ALLOW_UNFREE = "1";
       PULUMI_CONFIG_PASSPHRASE = "";
       COREPACK_ENABLE_AUTO_PIN = "0";
+      # TODO: do not use hardcoded path
+      # somehow ~/ or $HOME does not work
+      SSH_AUTH_SOCK = "/Users/felix/.bitwarden-ssh-agent.sock";
     };
   };
 

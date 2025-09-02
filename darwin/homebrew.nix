@@ -23,6 +23,13 @@
       "databricks" # databricks cli
       "pkgxdev/made/pkgx" # run anything
       "diffutils" # gnupkg diff binary
+      "multi-gitter" # interact with a company via git
+
+      # ai
+      "gemini-cli"
+      "yt-dlp" # youtube downloader cli
+      "charmbracelet/tap/crush"
+      "sst/tap/opencode"
 
       # ios development
       "cocoapods"
@@ -35,6 +42,7 @@
     ];
     casks = [
       # utilities
+      "blackhole-2ch" # virtual audio driver
       "aldente" # battery management
       "macfuse" # file system utilities
       "hiddenbar" # hides menu bar icons
@@ -49,13 +57,13 @@
       "visual-studio-code" # code editor
       "cursor" # ai IDE
       "zed" # vim like editor
-      "intellij-idea"
       "postman"
       "android-studio" # needed for react-native
+      "godot" # game engine
 
       # virtualization
       "utm" # virtual machines
-      "docker" # docker desktop
+      "docker-desktop" # docker desktop
 
       # communication
       "microsoft-teams"
@@ -73,9 +81,6 @@
 
       # ai
       "chatgpt" # open ai desktop client
-      "jan" # local ChatGPT
-      "diffusionbee" # local image generation
-      "draw-things" # local image generation
 
       # other
       "bitwarden" # password manager
@@ -87,9 +92,11 @@
       "the-unarchiver"
       "tunnelblick" # vpn client
       "eul" # mac monitoring
-      "wireshark" # network sniffer
+      "wireshark-app" # network sniffer
       "sf-symbols" # patched font for sketchybar
       "prusaslicer" # slicer for my printer
+      "superslicer" # prusaslicer fork
+      "ultimaker-cura" # better prusaslicer
       "autodesk-fusion" # CAD tool
       "openscad" # autodesk alternative
       "time-out" # blurs screen every x mins
@@ -102,14 +109,13 @@
       "steam" # gaming
       "loop" # window manager
       "homerow" # vimium for mac
-      "todoist" # better reminders
+      "todoist-app" # better reminders
       "neohtop" # nice htop gui alternative
       "freelens" # kubernetes IDE
     ];
     taps = [
       # default
       "homebrew/bundle"
-      "homebrew/cask-fonts"
       "homebrew/services"
       # custom
       "FelixKratz/formulae" # borders
@@ -117,6 +123,9 @@
       "pkgxdev/made" # pkgx
       "nikitabobko/tap" # aerospace
       "freelensapp/tap" # freelens
+      "lindell/multi-gitter" # multi-gitter
+      "charmbracelet/tap" # crush
+      "sst/tap" # opencode
     ];
   };
 }
