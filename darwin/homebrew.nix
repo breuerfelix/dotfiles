@@ -25,6 +25,9 @@
       "diffutils" # gnupkg diff binary
       "multi-gitter" # interact with a company via git
       "nodejs"
+      "hey" # http load testing tool
+      "qcachegrind" # view callgrinds
+      "jsonnet"
 
       # ai
       "gemini-cli"
@@ -79,6 +82,7 @@
       # browsers
       "google-chrome" # used for selenium and testing
       "firefox" # because chromium can't be shared in teams...
+      "sigmaos" # safari based with vertical tabs
 
       # ai
       "chatgpt" # open ai desktop client

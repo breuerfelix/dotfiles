@@ -75,6 +75,7 @@
       procs # better ps
       mob # mob programming tool
       claude-code # ai cli tool
+      jsonnet-language-server # grafana lsp
 
       # work
       kafkactl # kafka
@@ -92,6 +93,7 @@
       gawk
 
       # kubernetes stuff
+      docker-compose
       kubectl
       kubelogin # oidc login azure
       krew # kubectl plugins
@@ -251,6 +253,8 @@
     broot.enable = true; # browser big folders
     carapace.enable = true; # autocompletion
     lsd.enable = true; # pretty ls
+    mise.enable = true; # version manager
+    direnv.enable = true; # environment switcher
 
     # sqlite browser history
     atuin = {
