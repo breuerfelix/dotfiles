@@ -9,8 +9,6 @@
       expireDuplicatesFirst = true;
       ignoreDups = true;
       ignoreSpace = true; # ignore commands starting with a space
-      save = 20000;
-      size = 20000;
       share = true;
     };
 
@@ -25,9 +23,6 @@
 
       # used for RTL AWS login
       [ -f ~/.aws/env.sh ] && source ~/.aws/env.sh
-
-      # asdf slows down my terminal start a lot
-      #source ${pkgs.asdf-vm}/share/asdf-vm/asdf.sh
 
       bindkey '^w' edit-command-line
       bindkey '^ ' autosuggest-accept
@@ -80,11 +75,11 @@
 
       function dci() { docker inspect $(docker-compose ps -q $1) }
 
-      function psp () {
+      function psp() {
         git checkout -b PSPDX-$1
       }
 
-      function lmr () {
+      function lmr() {
         T=$(git branch --show-current | grep -E -i -o '^[A-Za-z]+-[0-9]+')
         TICKET=$(echo "$T" | tr '[:lower:]' '[:upper:]')
 
@@ -107,7 +102,7 @@
 
       gclean =
         "git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done";
-      weather = "curl -4 http://wttr.in/Koeln";
+      weather = "curl -4 http://wttr.in/Bonn";
 
       # nix
       ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";

@@ -1,4 +1,4 @@
-{ pkgs, unstable, ... }: {
+{ pkgs, unstable, user, ... }: {
   imports = [
     ./zsh.nix
     ./zellij.nix
@@ -13,10 +13,6 @@
     packages = with pkgs; [
       neovim # customized by overlay
 
-      # terminal
-      # TODO: currently broken
-      #unstable.ghostty
-
       # net tools
       bind
       nmap
@@ -30,7 +26,7 @@
       ripgrep # fast search
 
       grc # colored log output
-      gitAndTools.delta # pretty diff tool
+      delta # pretty diff tool
       sshfs # mount folders via ssh
       gh # github cli tool
       glab # gitlab cli tool
@@ -60,27 +56,18 @@
       gnupg # gpg
       gping # ping with a graph
       ruby # scripting language
-      corepack # node wrappers
       redis # to use the cli
       k6 # load testing tool
       slides # terminal presentation tool
       presenterm # presentation tool
-      asdf-vm # managing different versions
       comma # run nix binaries on demand
       sshuttle # vpn over ssh
       fblog # json log viewer
-      terraform
-      opentofu
-      putty # for kubernetes training
       procs # better ps
       mob # mob programming tool
-      claude-code # ai cli tool
-      jsonnet-language-server # grafana lsp
 
-      # work
-      kafkactl # kafka
-      openconnect # cli vpn client
-      jira-cli-go # jira cli
+      # lsps
+      jsonnet-language-server # grafana lsp, used for screeps
 
       # gnu binaries
       coreutils-full # multiple tools
@@ -108,35 +95,22 @@
       kubernetes-helm # deploy applications
 
       # cloud
-      google-cloud-sdk
-      awscli2
-      # TODO: compile fails
-      #azure-cli
       openstackclient
       s3cmd
+
+      # ai
+      claude-code # ai cli tool
 
       # programming
 
       ## python
-      python3
-      poetry # python tools # TODO tests failing
+      poetry # python tools
       rustup # rust
       uv # workspace management tool
-
-      ## node
-      deno # node runtime
-      # FIXME: is compiling from scratch
-      #nodejs
-      #nodePackages.npm
 
       ## golang
       golangci-lint
       cue
-
-      ## kotlin
-      ktlint
-      kotlin
-      gradle
     ];
 
     shellAliases = {
@@ -197,9 +171,8 @@
       NIXPKGS_ALLOW_UNFREE = "1";
       PULUMI_CONFIG_PASSPHRASE = "";
       COREPACK_ENABLE_AUTO_PIN = "0";
-      # TODO: do not use hardcoded path
-      # somehow ~/ or $HOME does not work
-      SSH_AUTH_SOCK = "/Users/felix/.bitwarden-ssh-agent.sock";
+      HOMEBREW_NO_AUTO_UPDATE = "1";
+      SSH_AUTH_SOCK = "/Users/${user}/.bitwarden-ssh-agent.sock";
     };
   };
 
@@ -253,7 +226,7 @@
     broot.enable = true; # browser big folders
     carapace.enable = true; # autocompletion
     lsd.enable = true; # pretty ls
-    mise.enable = true; # version manager
+    mise.enable = true; # version manager for tools like node or python
     direnv.enable = true; # environment switcher
 
     # sqlite browser history
@@ -278,12 +251,14 @@
       };
     };
 
-    go = {
-      enable = true;
-      goPath = "go";
-      goBin = "go/bin";
-      goPrivate = [ ];
-    };
+    # go = {
+    #   enable = true;
+    #   env = {
+    #     GOPATH = "go";
+    #     GOBIN = "go/bin";
+    #     GOPRIVATE = "";
+    #   };
+    # };
 
     htop = {
       enable = true;

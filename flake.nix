@@ -38,13 +38,15 @@
 
       unstable = import inputs.nixpkgs-unstable { inherit system; };
       overlays = with inputs; [ feovim.overlay krewfile.overlay ];
-      user = "felix";
-      hostname = "brummi";
       system = "aarch64-darwin";
     in {
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;
+
       # nix-darwin with home-manager for macOS
-      darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
+      darwinConfigurations.brummi = let
+        user = "felix";
+      in
+      darwin.lib.darwinSystem {
         inherit system;
         # makes all inputs availble in imported files
         specialArgs = { inherit inputs; inherit unstable; };
@@ -56,7 +58,6 @@
             nixpkgs.overlays = overlays;
 
             system = {
-              stateVersion = 4;
               primaryUser = user;
               configurationRevision = self.rev or self.dirtyRev or null;
             };
@@ -66,7 +67,7 @@
               shell = pkgs.zsh;
             };
 
-            networking = {
+            networking = let hostname = "brummi"; in {
               computerName = hostname;
               hostName = hostname;
               localHostName = hostname;
@@ -96,13 +97,12 @@
               extraSpecialArgs = {
                 inherit inputs;
                 inherit unstable;
-                pkgs-zsh-fzf-tab =
-                  import inputs.nixpkgs-zsh-fzf-tab { inherit system; };
+                inherit user;
               };
               users.${user} = { ... }:
                 with inputs; {
                   imports = [ feovim.feovim ./home-manager ./shell ];
-                  home.stateVersion = "23.11";
+                  home.stateVersion = "25.11";
                   # from feovim
                   feovim = {
                     ideavim.enable = true;
@@ -113,5 +113,44 @@
           }
         ];
       };
+
+      # standalone home-manager installation
+      homeConfigurations."SIT-SMBP-446M7F" =
+        let
+          user = "breuer";
+          # modifies pkgs to allow unfree packages
+          pkgs = import nixpkgs {
+            inherit system;
+            config = nixpkgsConfig;
+            overlays = overlays;
+          };
+        in
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          # makes all inputs available in imported files
+          extraSpecialArgs = { inherit inputs; inherit unstable; inherit user; };
+          modules = [
+            inputs.feovim.feovim
+            ./home-manager
+            ./shell
+            ({ ... }: {
+              home.stateVersion = "25.11";
+              feovim = {
+                ideavim.enable = true;
+                vscode.enable = true;
+              };
+              
+              fonts.fontconfig.enable = true;
+              home = {
+                username = user;
+                homeDirectory = "/Users/${user}";
+                packages = with pkgs; [
+                  nerd-fonts.jetbrains-mono
+                ];
+              };
+            })
+          ];
+        };
+
     };
 }

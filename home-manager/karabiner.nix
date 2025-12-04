@@ -13,7 +13,6 @@ let
         "^com\\.apple\\.Terminal$"
         "^com\\.utmapp\\.utm$"
         "^org\\.alacritty$"
-        "^com\\.mitchellh\\.ghostty$"
       ];
       file_paths = [ "/etc/profiles/per-user/felix/bin/alacritty" ];
     }];

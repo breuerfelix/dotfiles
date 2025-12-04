@@ -5,17 +5,18 @@ i currently only use macos as my daily driver so this repository is really syste
 ## programs
 
 - distro: macOS
-- window manager: yabai
+- window manager: aerospace
 - bar: spacebar
 - terminal: alacritty + zellij
-- shell: zsh + pretzo
-- editor: helix / neovim ([configuration](https://github.com/breuerfelix/feovim))
+- shell: zsh
+- editor: neovim ([configuration](https://github.com/breuerfelix/feovim))
 
 ## architecture
 
 - `flake.nix`
-  - `darwinConfigurations.brummi` is the entrypoint for macOS
-- `darwin/` nix-darwin configuration
+  - `darwinConfigurations.brummi` is the entrypoint for nix-darwin setup
+  - `homeConfigurations."SIT-SMBP-446M7F"` is the entrypoint for home-manager only setup
+- `darwin/` nix-darwin specific configuration
 - `home-manager/` home-manager configuration
 - `shell/` cross-platform shell configuration
 - `github.com:breuerfelix/feovim` neovim configuration
@@ -24,12 +25,14 @@ i currently only use macos as my daily driver so this repository is really syste
 
 ```bash
 # installation
-sh <(curl -L https://nixos.org/nix/install)
+# install nix via determinate
+# install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 git clone git@github.com:breuerfelix/dotfiles.git ~/.nixpkgs
 # make sure your hostname is set to "brummi"
 sudo reboot
 
+# -- for nix-darwin only --
 # build the system
 cd ~/.nixpkgs
 nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.brummi.system"
@@ -38,6 +41,10 @@ nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.b
 
 # all in one command
 nix run nix-darwin -- switch --flake ~/.nixpkgs
+
+# -- for home-manager only --
+nix --experimental-features "nix-command flakes" build ".#homeConfigurations.SIT-SMBP-446M7F.activationPackage"
+./result/activate
 ```
 
 manual steps:
@@ -67,11 +74,6 @@ manual steps:
   - slack / teams / signal
   - arc
 - enable icloud sync
-- configure npm
-  - `mkdir ~/.npm-global`
-  - `npm config set prefix '~/.npm-global'`
-  - `npm install -g aws-azure-login`
-    - enable rosetta
 - login to vscode for settings sync
 - enable key repeat for vim extension in intellij and vscode
   - `defaults write -g ApplePressAndHoldEnabled -bool false`
