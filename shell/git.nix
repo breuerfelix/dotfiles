@@ -77,6 +77,11 @@
       fetch = { prune = true; };
       push.autoSetupRemote = true;
       delta = { line-numbers = true; };
+      url = {
+        "git@ssh.dev.azure.com:v3" = {
+          insteadOf = "https://dev.azure.com";
+        };
+      };
     };
   };
 }

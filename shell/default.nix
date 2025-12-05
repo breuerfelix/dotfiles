@@ -166,6 +166,7 @@
 
     sessionVariables = {
       GO111MODULE = "on";
+      GOPRIVATE = "github.com/stackitcloud,dev.azure.com/*";
       EDITOR = "nvim";
       VISUAL = "nvim";
       NIXPKGS_ALLOW_UNFREE = "1";
