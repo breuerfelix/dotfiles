@@ -58,6 +58,7 @@
             nixpkgs.overlays = overlays;
 
             system = {
+              stateVersion = 6;
               primaryUser = user;
               configurationRevision = self.rev or self.dirtyRev or null;
             };

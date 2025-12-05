@@ -2,12 +2,6 @@
   homebrew = {
     enable = true;
     global = { autoUpdate = false; };
-    # will not be uninstalled when removed
-    # masApps = {
-    #   Xcode = 497799835;
-    #   Transporter = 1450874784;
-    #   VN = 1494451650;
-    # };
     onActivation = {
       # "zap" removes manually installed brews and casks
       cleanup = "zap";
@@ -16,15 +10,10 @@
     };
     brews = [
       "sniffnet" # monitor network traffic
-      "aws-iam-authenticator" # eks login
       "bitwarden-cli" # raycast extension does not like nix version
       "borders" # borders for windows
       #"openai-whisper" # transcode audio to text
       "databricks" # databricks cli
-      "pkgxdev/made/pkgx" # run anything
-      "diffutils" # gnupkg diff binary
-      "multi-gitter" # interact with a company via git
-      "nodejs"
       "hey" # http load testing tool
       "qcachegrind" # view callgrinds
       "jsonnet"
@@ -34,15 +23,6 @@
       "yt-dlp" # youtube downloader cli
       "charmbracelet/tap/crush"
       "sst/tap/opencode"
-
-      # ios development
-      "cocoapods"
-      "ios-deploy"
-
-      # work
-      "libmagic"
-      "ruff" # python linter
-      "totp-cli" # for backstage e2e tests
     ];
     casks = [
       # utilities
@@ -50,31 +30,25 @@
       "aldente" # battery management
       "macfuse" # file system utilities
       "hiddenbar" # hides menu bar icons
-      "meetingbar" # shows upcoming meetings
+      # "meetingbar" # shows upcoming meetings
       "karabiner-elements" # keyboard remap
       "eurkey" # keyboard layout
       "nikitabobko/tap/aerospace" # tiling window manager
-      "displaylink" # connect to external dell displays
       "raspberry-pi-imager" # flash images to sd card
 
       # coding
       "visual-studio-code" # code editor
-      "cursor" # ai IDE
       "zed" # vim like editor
       "postman"
-      "android-studio" # needed for react-native
       "godot" # game engine
 
       # virtualization
-      "utm" # virtual machines
+      # "utm" # virtual machines
       "docker-desktop" # docker desktop
 
       # communication
       "microsoft-teams"
       "microsoft-auto-update"
-      "microsoft-outlook"
-      "zoom"
-      "slack"
       "signal"
       "whatsapp"
       "discord"
@@ -82,7 +56,6 @@
       # browsers
       "google-chrome" # used for selenium and testing
       "firefox" # because chromium can't be shared in teams...
-      "sigmaos" # safari based with vertical tabs
 
       # ai
       "chatgpt" # open ai desktop client
@@ -93,30 +66,21 @@
       "rekordbox" # dj software
       "obs" # stream / recoding software
       "proton-mail-bridge"
-      "protonvpn"
       "the-unarchiver"
-      "tunnelblick" # vpn client
       "eul" # mac monitoring
       "wireshark-app" # network sniffer
       "sf-symbols" # patched font for sketchybar
       "prusaslicer" # slicer for my printer
-      "superslicer" # prusaslicer fork
       "ultimaker-cura" # better prusaslicer
       "autodesk-fusion" # CAD tool
-      "openscad" # autodesk alternative
       "time-out" # blurs screen every x mins
       "raycast" # launcher on steroids
       "keycastr" # show keystrokes on screen
       "obsidian" # zettelkasten
-      "arc" # mac browser
       "vlc" # media player
       "balenaetcher" # usb flashing
-      "steam" # gaming
       "loop" # window manager
       "homerow" # vimium for mac
-      "todoist-app" # better reminders
-      "neohtop" # nice htop gui alternative
-      "freelens" # kubernetes IDE
     ];
     taps = [
       # default
@@ -125,10 +89,8 @@
       # custom
       "FelixKratz/formulae" # borders
       "databricks/tap" # databricks
-      "pkgxdev/made" # pkgx
       "nikitabobko/tap" # aerospace
-      "freelensapp/tap" # freelens
-      "lindell/multi-gitter" # multi-gitter
+      # "lindell/multi-gitter" # multi-gitter
       "charmbracelet/tap" # crush
       "sst/tap" # opencode
     ];
