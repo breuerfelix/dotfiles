@@ -21,8 +21,9 @@
       # better kubectl diff
       export KUBECTL_EXTERNAL_DIFF="${pkgs.dyff}/bin/dyff between --omit-header --set-exit-code"
 
-      # used for RTL AWS login
-      [ -f ~/.aws/env.sh ] && source ~/.aws/env.sh
+      if (( $+commands[gardenctl] )); then
+        source <(gardenctl rc zsh -p gctl)
+      fi
 
       bindkey '^w' edit-command-line
       bindkey '^ ' autosuggest-accept
