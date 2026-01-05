@@ -6,10 +6,15 @@
     autosuggestion.enable = true;
 
     history = {
+      append = true;
       expireDuplicatesFirst = true;
       ignoreDups = true;
       ignoreSpace = true; # ignore commands starting with a space
       share = true;
+    };
+
+    syntaxHighlighting = {
+      enable = true;
     };
 
     initContent = ''
@@ -86,6 +91,13 @@
 
         glab mr create --yes --fill --remove-source-branch --title="$TICKET: $*"
       }
+
+      function nfh() {
+        pushd ~/.nixpkgs
+        nix --experimental-features 'nix-command flakes' build '.#homeConfigurations.SIT-SMBP-446M7F.activationPackage'
+        ./result/activate
+        popd
+      }
     '';
 
     shellAliases = {
@@ -113,12 +125,5 @@
       nsh = "nix-shell";
       nse = "nix search nixpkgs";
     };
-
-    plugins = [
-      {
-        name = "fast-syntax-highlighting";
-        src = "${pkgs.zsh-fast-syntax-highlighting}/share/zsh/site-functions";
-      }
-    ];
   };
 }

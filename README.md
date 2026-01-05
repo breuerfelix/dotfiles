@@ -48,6 +48,7 @@ nix --experimental-features "nix-command flakes" build ".#homeConfigurations.SIT
 ```
 
 manual steps:
+
 - enable brew services
   - `brew services start borders`
 - update secrets from secrets manager
@@ -59,8 +60,7 @@ manual steps:
 - import `Nix Managed` complex modification in Karabiner
 - login to arc and sync settings
 - use EURKey as keyboard layout
-  - remove default keyboard layout
-  - https://superuser.com/questions/712306/remove-keyboard-layout-from-os-x-leaving-custom-layouts-only
+  - [remove default keyboard layout](https://superuser.com/questions/712306/remove-keyboard-layout-from-os-x-leaving-custom-layouts-only)
 - set universalaccess until fixed in darwin
   - reduceMotion
   - recuceTransparency - decide
