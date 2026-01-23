@@ -26,9 +26,12 @@
       # better kubectl diff
       export KUBECTL_EXTERNAL_DIFF="${pkgs.dyff}/bin/dyff between --omit-header --set-exit-code"
 
-      if (( $+commands[gardenctl] )); then
-        source <(gardenctl rc zsh -p gctl)
+      export GCTL_SHELL=zsh
+      if [ -z "$GCTL_SESSION_ID" ] && [ -z "$TERM_SESSION_ID" ]; then
+        export GCTL_SESSION_ID=$(uuidgen)
       fi
+      eval "$(gardenctl kubectl-env zsh)"
+      source <(gardenctl completion zsh)
 
       bindkey '^w' edit-command-line
       bindkey '^ ' autosuggest-accept
@@ -52,7 +55,7 @@
       function gclone() { git clone $(pbpaste) }
       function gsm() { git submodule foreach "$* || :" }
       function lgc() { git commit --signoff -m "$*" }
-      function lg() {
+      function lgp() {
         git add --all
         git commit --signoff -a -m "$*"
         git push
@@ -98,6 +101,12 @@
         ./result/activate
         popd
       }
+
+      # ondemand
+      function ondconnect() {
+        export OND="$1"
+        kubectl ske connect ondemand ond-$OND
+      }
     '';
 
     shellAliases = {
@@ -107,6 +116,16 @@
       socks = "ssh -D 1337 -q -C -N";
       prox =
         "export http_proxy=socks5://127.0.0.1:1337 https_proxy=socks5://127.0.0.1:1337";
+
+      # gardenctl
+      gc = "gardenctl";
+      gcprow = "gc target --garden prd --project 74140853d0 --shoot prow-trust";
+      gcprovider = "eval $(gardenctl provider-env zsh)";
+      ondc = "gcprow && ondconnect";
+      ond = "gc target --garden ond-$OND";
+      ondi = "ond --seed stackit";
+      onds = "ond --seed s-eu01-000";
+      ondr = "ond --seed r-eu01-0";
 
       # clean
       dklocal =

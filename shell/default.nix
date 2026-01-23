@@ -113,6 +113,8 @@
       cue
     ];
 
+    # enable integrations
+    shell.enableZshIntegration = true;
     shellAliases = {
       # builtins
       size = "du -sh";

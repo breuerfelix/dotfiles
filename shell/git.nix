@@ -12,7 +12,7 @@
     };
     includes = [
       {
-        condition = "gitdir:~/code/stackit/azure";
+        condition = "gitdir:~/code/stackit/azure/";
         contents.user.email = "felix.breuer@stackit.cloud";
       }
       {
