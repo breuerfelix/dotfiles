@@ -19,10 +19,9 @@
       "jsonnet"
 
       # ai
-      "gemini-cli"
       "yt-dlp" # youtube downloader cli
-      "charmbracelet/tap/crush"
-      "sst/tap/opencode"
+      # "charmbracelet/tap/crush"
+      # "sst/tap/opencode"
     ];
     casks = [
       # utilities
@@ -35,10 +34,10 @@
       "eurkey" # keyboard layout
       "nikitabobko/tap/aerospace" # tiling window manager
       "raspberry-pi-imager" # flash images to sd card
+      "steam" # gaming
 
       # coding
       "visual-studio-code" # code editor
-      "zed" # vim like editor
       "postman"
       "godot" # game engine
 
@@ -56,9 +55,6 @@
       # browsers
       "google-chrome" # used for selenium and testing
       "firefox" # because chromium can't be shared in teams...
-
-      # ai
-      "chatgpt" # open ai desktop client
 
       # other
       "bitwarden" # password manager
@@ -83,9 +79,6 @@
       "homerow" # vimium for mac
     ];
     taps = [
-      # default
-      "homebrew/bundle"
-      "homebrew/services"
       # custom
       "FelixKratz/formulae" # borders
       "databricks/tap" # databricks

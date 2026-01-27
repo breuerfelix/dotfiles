@@ -37,7 +37,7 @@ sudo reboot
 cd ~/.nixpkgs
 nix --experimental-features "nix-command flakes" build ".#darwinConfigurations.brummi.system"
 # switch to new system
-./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
+sudo ./result/sw/bin/darwin-rebuild switch --flake ~/.nixpkgs
 
 # all in one command
 nix run nix-darwin -- switch --flake ~/.nixpkgs
