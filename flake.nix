@@ -37,7 +37,10 @@
       };
 
       unstable = import inputs.nixpkgs-unstable { inherit system; };
-      overlays = with inputs; [ feovim.overlay krewfile.overlay ];
+      overlays = with inputs; [
+        feovim.overlay
+        # krewfile.overlay
+      ];
       system = "aarch64-darwin";
     in {
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt;

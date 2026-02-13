@@ -65,6 +65,8 @@
       fblog # json log viewer
       procs # better ps
       mob # mob programming tool
+      # TODO: eval "$(tirith init --shell zsh)" to activate
+      tirith # intercepts weird URLs
 
       # lsps
       jsonnet-language-server # grafana lsp, used for screeps
@@ -253,15 +255,6 @@
         };
       };
     };
-
-    # go = {
-    #   enable = true;
-    #   env = {
-    #     GOPATH = "go";
-    #     GOBIN = "go/bin";
-    #     GOPRIVATE = "";
-    #   };
-    # };
 
     htop = {
       enable = true;
