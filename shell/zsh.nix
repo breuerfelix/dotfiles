@@ -26,12 +26,15 @@
       # better kubectl diff
       export KUBECTL_EXTERNAL_DIFF="${pkgs.dyff}/bin/dyff between --omit-header --set-exit-code"
 
-      export GCTL_SHELL=zsh
-      if [ -z "$GCTL_SESSION_ID" ] && [ -z "$TERM_SESSION_ID" ]; then
-        export GCTL_SESSION_ID=$(uuidgen)
+      if command -v gardenctl &> /dev/null; then
+        export GCTL_SHELL=zsh
+        if [ -z "$GCTL_SESSION_ID" ] && [ -z "$TERM_SESSION_ID" ]; then
+          export GCTL_SESSION_ID=$(uuidgen)
+        fi
+
+        eval "$(gardenctl kubectl-env zsh)"
+        source <(gardenctl completion zsh)
       fi
-      eval "$(gardenctl kubectl-env zsh)"
-      source <(gardenctl completion zsh)
 
       bindkey '^w' edit-command-line
       bindkey '^ ' autosuggest-accept

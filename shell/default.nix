@@ -36,7 +36,7 @@
       dive # analyse docker images
       hyperfine # benchmark tool
       sipcalc # ip subnet calculator
-      yt-dlp # download youtube videos
+      # yt-dlp # download youtube videos # TODO: requires deno
       ffmpeg # video editing and cutting
       rclone # sync files
       duf # disk usage
@@ -226,7 +226,11 @@
     jq.enable = true; # json parser
     bat.enable = true; # pretty cat
     lazygit.enable = true; # git tui
-    yazi.enable = true; # file browser
+    # file browser
+    yazi = {
+      enable = true;
+      shellWrapperName = "y";
+    };
     btop.enable = true; # htop alternative
     broot.enable = true; # browser big folders
     carapace.enable = true; # autocompletion
