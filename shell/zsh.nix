@@ -108,6 +108,10 @@
       # ondemand
       function ondconnect() {
         export OND="$1"
+        mkdir -p ~/.config/stackit/profiles/ondemand-$OND
+        if [ ! -f ~/.config/stackit/profiles/ondemand-"$OND"/cli-config.json ]; then
+          cp ~/.config/stackit/profiles/qa/cli-config.json ~/.config/stackit/profiles/ondemand-"$OND"/cli-config.json
+        fi
         kubectl ske connect ondemand ond-$OND
       }
     '';
@@ -119,6 +123,10 @@
       socks = "ssh -D 1337 -q -C -N";
       prox =
         "export http_proxy=socks5://127.0.0.1:1337 https_proxy=socks5://127.0.0.1:1337";
+
+      # programs
+      oc = "opencode";
+      cc = "claude --dangerously-skip-permissions";
 
       # gardenctl
       gc = "gardenctl";

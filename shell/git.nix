@@ -13,7 +13,10 @@
     includes = [
       {
         condition = "gitdir:~/code/stackit/azure/";
-        contents.user.email = "felix.breuer@stackit.cloud";
+        contents = {
+          user.email = "felix.breuer@digits.schwarz";
+          core.sshCommand = "ssh -i ~/.ssh/azure.pub -o IdentitiesOnly=yes";
+        };
       }
       {
         condition = "gitdir:~/code/controlf/";

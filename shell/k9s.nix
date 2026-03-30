@@ -1,6 +1,9 @@
 { ... }: {
   # otherwhise k9s is not able to locate the config
-  programs.zsh.shellAliases.ks = "k9s";
+  programs.zsh.shellAliases = {
+    ks = "k9s";
+    ksr = "k9s --readonly";
+  };
   programs.k9s = {
     enable = true;
     settings.k9s = {
