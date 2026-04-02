@@ -126,6 +126,7 @@
 
       # programs
       oc = "opencode";
+      ocs = "OH_MY_OPENCODE_SLIM_PRESET=stackit opencode";
       cc = "claude --dangerously-skip-permissions";
 
       # gardenctl
