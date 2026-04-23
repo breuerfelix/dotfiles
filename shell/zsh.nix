@@ -112,6 +112,13 @@
         if [ ! -f ~/.config/stackit/profiles/ondemand-"$OND"/cli-config.json ]; then
           cp ~/.config/stackit/profiles/qa/cli-config.json ~/.config/stackit/profiles/ondemand-"$OND"/cli-config.json
         fi
+
+        export BASIC_AUTH_USERNAME=$(kubectl get -n ondemand secret ond-$OND-credentials -ojsonpath='{.data.username}' | base64 -d)
+        export BASIC_AUTH_PASSWORD=$(kubectl get -n ondemand secret ond-$OND-credentials -ojsonpath='{.data.password}' | base64 -d)
+        export PROJECT_ID=$(kubectl get -n ondemand secret ond-$OND-credentials -ojsonpath='{.data.projectID}' | base64 -d)
+        export SNA_PROJECT_ID=$(kubectl get -n ondemand secret ond-$OND-credentials -ojsonpath='{.data.snaProjectID}' | base64 -d)
+        export SKE_API=https://ske-api.ing.ond-$OND.ci.ske.eu01.stackit.cloud
+
         kubectl ske connect ondemand ond-$OND
       }
     '';
