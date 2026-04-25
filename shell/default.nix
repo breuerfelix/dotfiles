@@ -67,6 +67,7 @@
       mob # mob programming tool
       # TODO: eval "$(tirith init --shell zsh)" to activate
       tirith # intercepts weird URLs
+      bun
 
       # lsps
       jsonnet-language-server # grafana lsp, used for screeps

@@ -4,7 +4,7 @@
     global = { autoUpdate = false; };
     onActivation = {
       # "zap" removes manually installed brews and casks
-      cleanup = "zap";
+      # cleanup = "zap";
       autoUpdate = false;
       upgrade = false;
     };
@@ -20,8 +20,7 @@
 
       # ai
       "yt-dlp" # youtube downloader cli
-      # "charmbracelet/tap/crush"
-      # "sst/tap/opencode"
+      "anomalyco/tap/opencode"
     ];
     casks = [
       # utilities
@@ -35,6 +34,7 @@
       "nikitabobko/tap/aerospace" # tiling window manager
       "raspberry-pi-imager" # flash images to sd card
       "steam" # gaming
+      "todoist-app" # todo
 
       # coding
       "visual-studio-code" # code editor
@@ -77,6 +77,7 @@
       "balenaetcher" # usb flashing
       "loop" # window manager
       "homerow" # vimium for mac
+      "handbrake-app" # video transcoder
     ];
     taps = [
       # custom
@@ -85,7 +86,6 @@
       "nikitabobko/tap" # aerospace
       # "lindell/multi-gitter" # multi-gitter
       "charmbracelet/tap" # crush
-      "sst/tap" # opencode
     ];
   };
 }

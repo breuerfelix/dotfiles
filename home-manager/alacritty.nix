@@ -22,8 +22,6 @@
         multiplier = 3;
       };
 
-      mouse = { hide_when_typing = true; };
-
       font = let fontname = "JetBrainsMono Nerd Font";
       in {
         normal = {
