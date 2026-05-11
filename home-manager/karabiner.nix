@@ -31,6 +31,19 @@ let
     }];
   };
 
+  swapIfNotInternal = from: to: {
+    type = "basic";
+    from = {
+      key_code = from;
+      modifiers = { optional = [ "any" ]; };
+    };
+    to = [{ key_code = to; }];
+    conditions = [{
+      type = "device_unless";
+      identifiers = [{ is_built_in_keyboard = true; }];
+    }];
+  };
+
   swap = from: to: {
     type = "basic";
     from = {
@@ -38,7 +51,6 @@ let
       modifiers = { optional = [ "any" ]; };
     };
     to = [{ key_code = to; }];
-    conditions = [ ];
   };
 in {
   home.file.karabiner = {
@@ -51,6 +63,7 @@ in {
           # for "normal" keyboards
           (swapIfNotTerminal "caps_lock" "left_command")
           (swap "caps_lock" "left_control")
+          (swapIfNotInternal "caps_lock" "left_control")
 
           # ensure CMD is ALT for internal keyboard
           (swapIfInternal "left_command" "left_option")

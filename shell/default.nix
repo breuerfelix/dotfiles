@@ -178,6 +178,7 @@
       PULUMI_CONFIG_PASSPHRASE = "";
       COREPACK_ENABLE_AUTO_PIN = "0";
       HOMEBREW_NO_AUTO_UPDATE = "1";
+      K9S_FEATURE_GATE_NODE_SHELL = "true";
       SSH_AUTH_SOCK = "/Users/${user}/.bitwarden-ssh-agent.sock";
     };
   };
