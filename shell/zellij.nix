@@ -12,7 +12,7 @@
           bind "Ctrl o" { SwitchToMode "tmux"; }
         }
         tmux {
-          bind "Ctrl o" { SwitchToMode "Normal"; }
+          bind "Ctrl o" { Write 15; SwitchToMode "Normal"; }
           bind "Esc" { SwitchToMode "Normal"; }
 
           bind "Ctrl e" { WriteChars "vi ."; Write 13; SwitchToMode "Normal"; }

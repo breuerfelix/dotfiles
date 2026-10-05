@@ -84,9 +84,9 @@
         "git@ssh.dev.azure.com:v3" = {
           insteadOf = "https://dev.azure.com";
         };
-        "git@github.com:" = {
-          insteadOf = "https://github.com/";
-        };
+        # "git@github.com:" = {
+        #   insteadOf = "https://github.com/";
+        # };
       };
     };
   };

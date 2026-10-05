@@ -105,6 +105,10 @@
         popd
       }
 
+      function kshell() {
+        kubectl debug -it --profile=sysadmin --image registry.ske.stackit.cloud/library/busybox node/$*
+      }
+
       # ondemand
       function ondconnect() {
         export OND="$1"
@@ -133,7 +137,6 @@
 
       # programs
       oc = "opencode";
-      ocs = "OH_MY_OPENCODE_SLIM_PRESET=stackit opencode";
       cc = "claude --dangerously-skip-permissions";
 
       # gardenctl
