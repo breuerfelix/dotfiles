@@ -15,6 +15,7 @@ in {
       font-style-bold = font.bold.style;
       font-style-italic = font.italic.style;
       font-size = font.size;
+      keybind = [ "super+r=csi:114;9u" ];
     };
   };
 }
