@@ -1,6 +1,6 @@
-{ config, pkgs, lib, ... }: {
+{ lib, ... }: {
   programs.tmux = {
-    enable = true;
+    enable = false;
     shortcut = "o";
     baseIndex = 1;
     escapeTime = 0;

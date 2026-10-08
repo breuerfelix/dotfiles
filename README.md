@@ -7,7 +7,7 @@ i currently only use macos as my daily driver so this repository is really syste
 - distro: macOS
 - window manager: aerospace
 - bar: spacebar
-- terminal: alacritty + zellij
+- terminal: alacritty / ghostty + zellij
 - shell: zsh
 - editor: neovim ([configuration](https://github.com/breuerfelix/feovim))
 

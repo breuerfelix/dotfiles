@@ -18,6 +18,10 @@
   services = {
     # FIXME: driver issues
     karabiner-elements.enable = false;
+    openssh = {
+      enable = false;
+      hostKeys = [ ];
+    };
     sketchybar = {
       enable = false;
       extraPackages = with pkgs; [ jq gh ];

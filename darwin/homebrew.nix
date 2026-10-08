@@ -1,6 +1,7 @@
 { ... }: {
   homebrew = {
     enable = true;
+    enableZshIntegration = true;
     global = { autoUpdate = false; };
     onActivation = {
       # "zap" removes manually installed brews and casks
@@ -37,6 +38,7 @@
       "todoist-app" # todo
 
       # coding
+      "ghostty" # terminal emulator
       "visual-studio-code" # code editor
       "postman"
       "godot" # game engine

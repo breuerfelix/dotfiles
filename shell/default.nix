@@ -26,33 +26,24 @@
       ripgrep # fast search
 
       grc # colored log output
-      delta # pretty diff tool
       sshfs # mount folders via ssh
       gh # github cli tool
-      glab # gitlab cli tool
       graph-easy # draw graphs in the terminal
-      cht-sh # cheat sheet -> cht python read file
-      tealdeer # community driven man pages
       dive # analyse docker images
       hyperfine # benchmark tool
       sipcalc # ip subnet calculator
-      # yt-dlp # download youtube videos # TODO: requires deno
       ffmpeg # video editing and cutting
       rclone # sync files
       duf # disk usage
       httpie # awesome alternative to curl
-      mongodb-tools
       pulumi-bin # manage infrastructure as code
       viddy # terminal watch command
       unixtools.watch # watches commands
       yq-go # yaml, toml parser
-      termdown # terminal countdown
-      tmate # share terminal via web
       silicon # create code snippets as images
       crane # container registry tool
       ytt # yaml templating engine
       zk # zettelkasten
-      mask # taskrunner
       gnupg # gpg
       gping # ping with a graph
       ruby # scripting language
@@ -61,13 +52,9 @@
       slides # terminal presentation tool
       presenterm # presentation tool
       comma # run nix binaries on demand
-      sshuttle # vpn over ssh
       fblog # json log viewer
       procs # better ps
       mob # mob programming tool
-      # TODO: eval "$(tirith init --shell zsh)" to activate
-      tirith # intercepts weird URLs
-      bun
 
       # lsps
       jsonnet-language-server # grafana lsp, used for screeps
@@ -92,7 +79,6 @@
       velero # k8s backup tool
       fluxcd # automation
       kubent # check for deprecations
-      termshark # tui for wireshark
       prometheus # prometheus linter
       kubebuilder # generate controller
       kubernetes-helm # deploy applications
@@ -100,9 +86,6 @@
       # cloud
       openstackclient
       s3cmd
-
-      # ai
-      claude-code # ai cli tool
 
       # programming
 
@@ -113,7 +96,6 @@
 
       ## golang
       golangci-lint
-      cue
     ];
 
     # enable integrations
@@ -156,8 +138,6 @@
       nr = "npm run";
       py = "python";
       pu = "pulumi";
-      cht = "cht.sh"; # terminal cheat sheet
-      kapitan = "docker run -t --rm -v $(pwd):/src:delegated kapicorp/kapitan";
     };
 
     sessionPath = [
@@ -187,41 +167,6 @@
     # let home-manager manage itself
     home-manager.enable = true;
 
-    # vim alternative
-    helix = {
-      enable = true;
-      extraPackages = with pkgs; [ nil gopls ];
-      settings = {
-        theme = "tokyonight";
-
-        keys = {
-          insert = { j = { k = "normal_mode"; }; };
-          normal = {
-            C-m = ":write";
-            C-p = ":quit";
-          };
-        };
-
-        editor = {
-          line-number = "relative";
-          idle-timeout = 200;
-          bufferline = "multiple";
-          lsp.display-inlay-hints = true;
-          cursor-shape.insert = "bar";
-          file-picker.hidden = false;
-          whitespace.render = "all";
-          indent-guides.render = true;
-          statusline = {
-            mode = {
-              normal = "NORMAL";
-              insert = "INSERT";
-              select = "SELECT";
-            };
-          };
-        };
-      };
-    };
-
     # shell integrations are enabled by default
     nushell.enable = true; # zsh alternative
     zoxide.enable = true; # autojump
@@ -242,7 +187,7 @@
 
     # sqlite browser history
     atuin = {
-      enable = true;
+      enable = false;
       flags = [ "--disable-up-arrow" ];
       settings = {
         inline_height = 20;
@@ -275,6 +220,7 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
+      #historyWidget.command = "";
       defaultCommand =
         "fd --type f --hidden --follow --exclude .git --exclude .vim --exclude .cache --exclude vendor --exclude node_modules";
       defaultOptions = [

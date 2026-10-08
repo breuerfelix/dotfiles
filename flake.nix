@@ -143,7 +143,7 @@
                 ideavim.enable = true;
                 vscode.enable = true;
               };
-              
+
               fonts.fontconfig.enable = true;
               home = {
                 username = user;

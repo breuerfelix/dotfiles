@@ -87,17 +87,6 @@
 
       function dci() { docker inspect $(docker-compose ps -q $1) }
 
-      function psp() {
-        git checkout -b PSPDX-$1
-      }
-
-      function lmr() {
-        T=$(git branch --show-current | grep -E -i -o '^[A-Za-z]+-[0-9]+')
-        TICKET=$(echo "$T" | tr '[:lower:]' '[:upper:]')
-
-        glab mr create --yes --fill --remove-source-branch --title="$TICKET: $*"
-      }
-
       function nfh() {
         pushd ~/.nixpkgs
         nix --experimental-features 'nix-command flakes' build '.#homeConfigurations.SIT-SMBP-446M7F.activationPackage'
@@ -150,13 +139,10 @@
       ondr = "ond --seed r-eu01-0";
 
       # clean
-      dklocal =
-        "docker run --rm -it -v `PWD`:/usr/workdir --workdir=/usr/workdir";
       dkclean = "docker container rm $(docker container ls -aq)";
 
       gclean =
         "git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done";
-      weather = "curl -4 http://wttr.in/Bonn";
 
       # nix
       ne = "nvim -c ':cd ~/.nixpkgs' ~/.nixpkgs";

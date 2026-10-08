@@ -1,4 +1,5 @@
 { ... }: {
+  # pretty git diff output
   programs.delta = {
     enable = true;
     enableGitIntegration = true;
@@ -26,7 +27,6 @@
         };
       }
     ];
-    # hooks = { prepare-commit-msg = ./rtl-hook.sh; };
     ignores = [
       # ide
       ".idea"
@@ -84,9 +84,6 @@
         "git@ssh.dev.azure.com:v3" = {
           insteadOf = "https://dev.azure.com";
         };
-        # "git@github.com:" = {
-        #   insteadOf = "https://github.com/";
-        # };
       };
     };
   };
