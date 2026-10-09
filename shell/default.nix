@@ -96,6 +96,8 @@
 
       ## golang
       golangci-lint
+      gopls
+      delve
     ];
 
     # enable integrations
@@ -166,6 +168,10 @@
   programs = {
     # let home-manager manage itself
     home-manager.enable = true;
+
+    go = {
+      enable = true;
+    };
 
     # shell integrations are enabled by default
     nushell.enable = true; # zsh alternative

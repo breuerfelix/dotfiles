@@ -41,7 +41,6 @@
       bindkey '^p' history-search-backward
       bindkey '^n' history-search-forward
       bindkey '^f' fzf-file-widget
-      bindkey '\e[114;9u' fzf-history-widget
 
       function cd() {
         builtin cd $*

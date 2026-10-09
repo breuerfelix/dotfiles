@@ -119,7 +119,7 @@
       };
 
       # standalone home-manager installation
-      homeConfigurations."SIT-SMBP-446M7F" =
+      homeConfigurations.stapeln =
         let
           user = "breuer";
           # modifies pkgs to allow unfree packages
