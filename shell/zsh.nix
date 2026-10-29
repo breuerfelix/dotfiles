@@ -89,7 +89,7 @@
 
       function nfh() {
         pushd ~/.nixpkgs
-        nix --experimental-features 'nix-command flakes' build '.#homeConfigurations.SIT-SMBP-446M7F.activationPackage'
+        nix build '.#homeConfigurations.stapeln.activationPackage'
         ./result/activate
         popd
       }

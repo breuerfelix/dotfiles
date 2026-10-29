@@ -82,8 +82,10 @@
       prometheus # prometheus linter
       kubebuilder # generate controller
       kubernetes-helm # deploy applications
+      clusterctl # cluster-api
 
       # cloud
+      stackit-cli
       openstackclient
       s3cmd
 
@@ -148,6 +150,7 @@
       "$HOME/.cargo/bin"
       "$HOME/.krew/bin"
       "$HOME/.npm-global/bin"
+      "$HOME/.docker/bin"
       "/opt/homebrew/bin"
     ];
 
@@ -174,7 +177,11 @@
     };
 
     # shell integrations are enabled by default
-    nushell.enable = true; # zsh alternative
+    # zsh alternative
+    nushell = {
+      enable = true;
+      loadSessionVariables = true;
+    };
     zoxide.enable = true; # autojump
     jq.enable = true; # json parser
     bat.enable = true; # pretty cat

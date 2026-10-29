@@ -13,10 +13,9 @@
     };
     includes = [
       {
-        condition = "gitdir:~/code/stackit/azure/";
+        condition = "gitdir:~/code/azure/";
         contents = {
           user.email = "felix.breuer@digits.schwarz";
-          core.sshCommand = "ssh -i ~/.ssh/azure.pub -o IdentitiesOnly=yes";
         };
       }
       {
@@ -83,6 +82,9 @@
       url = {
         "git@ssh.dev.azure.com:v3" = {
           insteadOf = "https://dev.azure.com";
+        };
+        "git@github.com:stackitcloud/" = {
+          insteadOf = "https://github.com/stackitcloud/";
         };
       };
     };
