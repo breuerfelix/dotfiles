@@ -172,6 +172,17 @@
     # let home-manager manage itself
     home-manager.enable = true;
 
+    ssh = {
+      enable = true;
+      enableDefaultConfig = false;
+      settings = {
+        "github.com gitlab.com ssh.dev.azure.com dev.azure.com" = {
+          User = "git";
+          IdentityAgent = "~/.bitwarden-ssh-agent.sock";
+        };
+      };
+    };
+
     go = {
       enable = true;
     };
